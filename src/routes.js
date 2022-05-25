@@ -2,6 +2,7 @@ import { HomePage } from './pages/home-page'
 import { BoardPage } from './pages/board-page'
 import { UserProfile } from './pages/user-profile-page'
 import { LoginSignUpPage } from './pages/login-signup-page'
+import { ErorPage } from './pages/eror-page'
 
 const routes = [
   {
@@ -24,6 +25,10 @@ const routes = [
     component: <LoginSignUpPage />,
     label: 'Board',
   },
+  {
+    path: '/*',
+    component: <ErorPage />,
+  }
 ]
 
 export default routes
