@@ -28,7 +28,7 @@ export function SideBar() {
   }
 
   return (
-    <div className="sidebar">
+    <div className="side-bar">
       <div
         className="home-icon-wrapper"
         onClick={() => {
