@@ -1,5 +1,6 @@
-import { HomePage } from './pages/home-page.jsx'
-import { BoardPage } from './pages/board-page.jsx'
+import { HomePage } from './pages/home-page'
+import { BoardPage } from './pages/board-page'
+import { TaskDetails } from './cmps/task-details'
 
 const routes = [
   {
@@ -10,7 +11,12 @@ const routes = [
   {
     path: '/board',
     component: <BoardPage />,
-    label: 'Home',
+    label: 'Board',
+  },
+  {
+    path: '/task/:taskId',
+    component: <TaskDetails />,
+    label: 'Task',
   },
 ]
 
