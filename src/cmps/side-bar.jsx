@@ -6,7 +6,7 @@ import { Search } from './search'
 export function SideBar() {
   return (
     <div>
-      IM SideBar
+      <Routes></Routes>
       <UserNotflication />
       <UserWork />
       <Search />
