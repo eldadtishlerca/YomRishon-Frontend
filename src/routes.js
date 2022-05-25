@@ -2,7 +2,7 @@ import { HomePage } from './pages/home-page'
 import { BoardPage } from './pages/board-page'
 import { UserProfile } from './pages/user-profile-page'
 import { LoginSignUpPage } from './pages/login-signup-page'
-import { ErorPage } from './pages/eror-page'
+import { ErrorPage } from './pages/error-page'
 
 const routes = [
   {
@@ -27,7 +27,7 @@ const routes = [
   },
   {
     path: '/*',
-    component: <ErorPage />,
+    component: <ErrorPage />,
   },
 ]
 
