@@ -1,15 +1,17 @@
-import {gBoards} from '../data/data.js'
+import gBoards from '../data/data.js'
+
 export const boardService = {
-    query,
-    // getById,
-    // remove,
-    // save
+  query,
+  // getById,
+  // remove,
+  // save
 }
 
-
 function query(boardId) {
-    var board = gBoards.filter(board => board._id === boardId)
-    return Promise.resolve(board)
+  // When have more boards
+  // var board = gBoards.filter((board) => board._id === boardId)
+  var board = gBoards[0]
+  return Promise.resolve(board)
 }
 
 // function save(car, loggedinUser) {
@@ -27,7 +29,6 @@ function query(boardId) {
 //     return _saveCarsToFile().then(() => car)
 // }
 
-
 // function remove(carId, loggedinUser) {
 //     const idx = gCars.findIndex(car => car._id === carId)
 //     if (!loggedinUser.isAdmin &&  gCars[idx].owner._id !== loggedinUser._id) {
@@ -41,9 +42,6 @@ function query(boardId) {
 //     const car = gCars.find(car => car._id === carId)
 //     return Promise.resolve(car)
 // }
-
-
-
 
 // function _saveCarsToFile() {
 //     return new Promise((resolve, reject) => {
