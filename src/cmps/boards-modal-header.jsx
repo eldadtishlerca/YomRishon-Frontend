@@ -1,3 +1,3 @@
 export function BoardsModalHeader() {
-  return <div>IM BOARD MODAL HEADER</div>
+  return <div className="boardsModalHeader">IM BOARD MODAL HEADER</div>
 }

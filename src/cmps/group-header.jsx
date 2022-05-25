@@ -2,9 +2,9 @@ import { GroupModal } from './group-modal'
 
 export function GroupHeader() {
   return (
-    <div>
+    <div className="flex">
       <GroupModal />
-      <div>Im Group Title</div>
+      <div> Im Group Title</div>
     </div>
   )
 }

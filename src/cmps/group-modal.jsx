@@ -1,3 +1,3 @@
 export function GroupModal() {
-    return <div>IM GROUPMODAL</div>
-  }
+  return <div>Btn Group Modal</div>
+}

@@ -3,9 +3,11 @@ import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
 
 export function TaskPreview() {
-  return <div>
-    <TaskTitle />
-    <TaskActivites />
-    <TaskModal />
-  </div>
+  return (
+    <div className="flex">
+      <TaskModal />
+      <TaskTitle />
+      <TaskActivites />
+    </div>
+  )
 }

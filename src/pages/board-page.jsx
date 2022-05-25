@@ -5,10 +5,10 @@ import { SideBar } from '../cmps/side-bar'
 
 export function BoardPage() {
   return (
-    <div>
+    <div className="flex">
       <SideBar />
       <BoardsModal />
-      <div>
+      <div className="boardSection pl">
         <BoardHeader />
         <MainBoard />
       </div>

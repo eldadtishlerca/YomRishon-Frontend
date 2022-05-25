@@ -3,7 +3,7 @@ import { BoardsModalHeader } from './boards-modal-header'
 
 export function BoardsModal() {
   return (
-    <div>
+    <div className="boardsModal pl">
       <BoardsModalHeader />
       <BoardsList />
     </div>
