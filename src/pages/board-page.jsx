@@ -4,6 +4,7 @@ import { MainBoard } from '../cmps/main-board'
 import { SideBar } from '../cmps/side-bar'
 
 export function BoardPage() {
+
   return (
     <div className="board-page flex">
       <SideBar />

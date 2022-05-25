@@ -3,7 +3,7 @@ const initialState = {
 }
 export function boardReducer(state = initialState, action) {
     var newState = state
-    var board
+    // var board
     switch (action.type) {
         case 'SET_BOARD':
             newState = { ...state, board: action.board }

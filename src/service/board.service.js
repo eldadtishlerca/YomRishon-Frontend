@@ -9,7 +9,6 @@ export const boardService = {
 
 function query(boardId) {
     var board = gBoards.filter(board => board._id === boardId)
-    // car => filterBy.userId === car.owner._id
     return Promise.resolve(board)
 }
 
