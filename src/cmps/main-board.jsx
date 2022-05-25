@@ -1,3 +1,9 @@
+import { ToolBar } from "./toolbar"
+import { GroupList } from "./group-list"
+
 export function MainBoard() {
-    return <div>IM MAINBOARD</div>
+    return <div>
+      < ToolBar />
+      < GroupList />
+    </div>
   }
