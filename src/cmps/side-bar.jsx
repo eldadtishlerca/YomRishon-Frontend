@@ -19,7 +19,7 @@ export function SideBar() {
       <Search />
       <button
         onClick={() => {
-          nevigate('/user')
+          nevigate('/user/:userId')
         }}
       >
         user profile

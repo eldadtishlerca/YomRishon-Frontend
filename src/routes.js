@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/*',
     component: <ErorPage />,
-  }
+  },
 ]
 
 export default routes
