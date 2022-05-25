@@ -1,3 +1,11 @@
+import { BoardsList } from './boards-list'
+import { BoardsModalHeader } from './boards-modal-header'
+
 export function BoardsModal() {
-    return <div>IM BoardsModal</div>
+  return (
+    <div>
+      <BoardsModalHeader />
+      <BoardsList />
+    </div>
+  )
 }
