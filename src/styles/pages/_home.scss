@@ -1,0 +1,69 @@
+$white: #fff;
+$deepblue: #030437;
+$black: #333333;
+$red: #fb275d;
+$yellow: #ffcc00;
+$green: #00ca72;
+$btnblue: #6c6bff;
+
+.homepage {
+    background-color: $deepblue;
+    color: $white;
+    min-height: 100%;
+
+
+    .homepage-header{
+        background-color: $white;
+        color: $black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+        padding: 5px;
+
+        .logo{
+            &:hover{
+                text-shadow: 2px 5px rgba(0, 0, 0, 0.11);
+            }
+
+            .yom{
+                color: $red;
+            }
+            .ris{
+                color: $yellow;
+            }
+            .hon{
+                color: $green;
+            }
+        }
+
+        .login-btn{
+            background-color: $btnblue;
+            border-radius: 10px;
+            border: none;
+            height: min-content;
+            padding: 10px;
+            color: $white;
+            cursor: pointer;
+
+            &:hover{
+                color: $yellow;
+                transform: scale(1.05);
+            }
+
+            &:active{
+                color: $white;
+                transform: scale(0.95);
+            }
+        }
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        height: 100%;
+    }
+
+}
