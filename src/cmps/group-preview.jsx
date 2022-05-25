@@ -1,3 +1,9 @@
-export function GroupList() {
-    return <div>IM GROUPLIST</div>
+import { GroupHeader } from "./group-header"
+import { GroupModal } from "./group-modal"
+
+export function GroupPreview() {
+    return <div>
+      <GroupHeader />
+      <GroupModal />
+    </div>
   }

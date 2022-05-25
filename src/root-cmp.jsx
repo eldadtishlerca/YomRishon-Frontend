@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import { HomePage } from './pages/home-page'
+// import { BoardPage } from './pages/board-page'
+// import { LoginSignUpPage } from './pages/loginsignup-page'
 
 import routes from './routes'
 
@@ -16,7 +19,6 @@ export function RootCmp() {
                 path={route.path}
               />
             ))}
-            {/* <Route path="user/:id" element={<UserDetails />} /> */}
           </Routes>
         </main>
       </Router>

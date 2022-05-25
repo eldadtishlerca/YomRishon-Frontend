@@ -1,6 +1,7 @@
 import { HomePage } from './pages/home-page'
 import { BoardPage } from './pages/board-page'
-import { TaskDetails } from './cmps/task-details'
+import { UserProfile } from './pages/user-profile-page'
+import { LoginSignUpPage } from './pages/login-signup-page'
 
 const routes = [
   {
@@ -14,9 +15,14 @@ const routes = [
     label: 'Board',
   },
   {
-    path: '/task/:taskId',
-    component: <TaskDetails />,
-    label: 'Task',
+    path: '/user/:userId',
+    component: <UserProfile />,
+    label: 'Board',
+  },
+  {
+    path: '/loginsignup',
+    component: <LoginSignUpPage />,
+    label: 'Board',
   },
 ]
 
