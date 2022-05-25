@@ -1,3 +1,7 @@
+import { GroupPreview } from './group-preview'
+
 export function GroupList() {
-    return <div>IM GROUPLIST</div>
+    return <div>
+      <GroupPreview />
+    </div>
   }

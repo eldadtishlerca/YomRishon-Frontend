@@ -1,3 +1,7 @@
+import { TaskPreview } from './task-preview'
+
 export function TaskList() {
-    return <div>IM TASKLIST</div>
+    return <div>
+      <TaskPreview />
+    </div>
   }
