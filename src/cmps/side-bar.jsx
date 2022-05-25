@@ -6,10 +6,10 @@ import { Search } from './search'
 export function SideBar() {
   return (
     <div>
-      <Routes></Routes>
       <UserNotflication />
       <UserWork />
       <Search />
+      <UserProfile />
     </div>
   )
 }
