@@ -1,3 +1,3 @@
 export function BoardsList() {
-    return <div>IM BoardsList</div>
+  return <div className="boardList">IM BoardsList</div>
 }
