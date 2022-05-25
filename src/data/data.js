@@ -5,7 +5,7 @@ const board = {
   createdAt: 1589983468418,
   createdBy: {
     _id: 'u101',
-    fullname: 'Abi Abambi',
+    fullname: 'Eldad Tishler',
     imgUrl: 'http://some-img',
   },
   color: 'purple',
@@ -80,3 +80,5 @@ const board = {
   // for monday
   cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
 }
+
+export default board
