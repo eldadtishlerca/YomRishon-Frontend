@@ -3,13 +3,17 @@
     flex-direction:column;
     justify-content: space-between;
     color:$headerBlack;
+    min-height: 120px;
+    span{
+        font-size: 14px;
+    }
 }
 
 .board-header-top{
     justify-content: space-between;
     align-items: center; 
     .board-header-top-icon{
-        font-size: 30px;
+        font-size: 20px;
         padding-top: 5px;
         margin-left: 5px;
     }
@@ -43,22 +47,26 @@
     gap: 5px;
     cursor: pointer;
     border-radius: 4px;
+    .headerAddtAsk{
+        border: 0.4px solid $headerBlack;
+    }
 }
 
 .header-button-container{
-    // width: 89px;
     height: 32px;
     &:hover {
         background-color: #dcdfec;;
     }
-    margin-right: 6px;
     align-items: center;
     justify-content: center;
-    gap: 5px;
     cursor: pointer;
     border-radius: 4px;
-    padding-right: 12px;
+    padding: 2.5px 5px 2.5px 5px;
+}
 
+.add-to-board{
+    border: 1px solid $headerDarkGrey;
+    
 }
 
 

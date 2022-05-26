@@ -10,9 +10,12 @@ export const BoardHeader = ({ members, title, activities }) => {
       <div className="board-header-top flex">
         <div className="flex">
           <h1>{title}</h1>
+          
           <span className="board-header-top-icon"><AiOutlineStar /></span>
         </div>
+        
         <div className="board-header-top-main flex">
+        
           <div className="board-header-top-main-members flex">
           <span>Last seen</span>
           <div className="flex">
@@ -25,12 +28,13 @@ export const BoardHeader = ({ members, title, activities }) => {
             <AiOutlineStock />
             <span>Activity</span>
           </div>
-          <div className='header-button-container flex'>
+          <div className='header-button-container add-to-board flex'>
             <BsPlus />
-            Add to Board
+            <span>Add to Board</span>
             </div>
         </div>
       </div>
+      <span>Add board description</span>
       <div className="board-header-bottom flex">
         <div className="board-header-bottom-upper flex">
           <MdOutlineTableChart />
