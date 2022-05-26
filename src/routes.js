@@ -3,7 +3,7 @@ import { BoardPage } from './pages/board-page'
 import { UserProfile } from './pages/user-profile-page'
 import { LoginSignUpPage } from './pages/login-signup-page'
 import { ErrorPage } from './pages/error-page'
-import {TaskDetails} from './cmps/task-details.jsx'
+
 
 const routes = [
   {
@@ -25,11 +25,6 @@ const routes = [
     path: '/loginsignup',
     component: <LoginSignUpPage />,
     label: 'Board',
-  },
-  {
-    path: '/:groupId/:taskId',
-    component: <TaskDetails />,
-    label: 'TaskDetails'
   },
   {
     path: '/*',
