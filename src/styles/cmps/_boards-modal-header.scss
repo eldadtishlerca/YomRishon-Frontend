@@ -3,20 +3,40 @@
  border-bottom: 2px solid $greyboard;
  p {
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   cursor: default;
   color: #4D525A;
  }
  .workspace-btn {
-  padding: 6px;
+  padding: 8px 6px;
   border: 1px solid #676879;
   border-radius: 0.25rem;
   font-weight: bold;
   margin-bottom: 18px;
   cursor: default;
+  color: $lblack;
+  position: relative;
+  span {
+   background: rgb(242, 121, 242);
+   color: $white;
+   padding: 3px 5px;
+   margin-right: 6px;
+   border-radius: 0.5rem;
+  }
+  > *:last-child {
+   font-size: 12px;
+   background: #F6F7FB;
+   color: $black;
+   padding: 0;
+   margin-right: none;
+   border-radius: none;
+   position: absolute;
+   left: 23px;
+   top: 20px;
+  }
  }
  .boards-modal-btns {
-  color: $black;
+  color: $lblack;
   div {
    justify-content: start;
    align-items: center;

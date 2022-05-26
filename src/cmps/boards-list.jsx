@@ -1,14 +1,14 @@
-import { BiClipboard } from 'react-icons/bi'
+import { BiDockLeft } from 'react-icons/bi'
 
 export const BoardsList = () => {
   return (
     <div className="boards-list">
       <div className="flex board-active">
-        <BiClipboard />
+        <BiDockLeft />
         <span>YomRishon - Project</span>
       </div>
       <div className="flex">
-        <BiClipboard />
+        <BiDockLeft />
         <span>YomRishon Demo Data</span>
       </div>
     </div>

@@ -105,7 +105,7 @@
       border: none;
       height: min-content;
       padding: 10px;
-      color: $darkgrey;
+      color: $headerBlack;
       font-size: 16px;
       cursor: pointer;
 
@@ -279,7 +279,7 @@
         animation-fill-mode: both;
         animation-duration: 1s;
         animation-delay: 1.1s;
-        
+
         @include small {
           font-size: 16px;
         }

@@ -1,18 +1,19 @@
 .board-header-main-container{
-    padding: 30px 30px 0px 30px;
-    margin: 0;
-    // height: 178px;
-    width: 900px;
-    // background-color: rgba(127, 255, 212, 0.356);
+    margin: 30px 30px 0px 30px;
     flex-direction:column;
     justify-content: space-between;
+    color:$headerBlack;
+    min-height: 150px;
+    span{
+        font-size: 14px;
+    }
 }
 
 .board-header-top{
     justify-content: space-between;
     align-items: center; 
     .board-header-top-icon{
-        font-size: 30px;
+        font-size: 20px;
         padding-top: 5px;
         margin-left: 5px;
     }
@@ -46,22 +47,36 @@
     gap: 5px;
     cursor: pointer;
     border-radius: 4px;
+    .headerAddtAsk{
+        border: 0.4px solid $headerBlack;
+    }
 }
 
 .header-button-container{
-    // width: 89px;
     height: 32px;
     &:hover {
         background-color: #dcdfec;;
     }
-    margin-right: 6px;
     align-items: center;
     justify-content: center;
-    gap: 5px;
     cursor: pointer;
     border-radius: 4px;
-    padding-right: 12px;
+    padding: 2.5px 5px 2.5px 5px;
+}
 
+.add-to-board{
+    border: 1px solid $headerDarkGrey;
+}
+
+.members{
+    img{
+        margin-right: -8px;
+        border-radius: 50%;
+        border: 1px solid snow;
+    }
+    > *:last-child{
+        margin-right: 0;
+    }
 }
 
 
