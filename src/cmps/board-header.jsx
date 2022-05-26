@@ -4,7 +4,7 @@ import { MdOutlineTableChart } from 'react-icons/md'
 
 export const BoardHeader = ({ members, title, activities }) => {
   return (
-    <div>
+    <div className='board-header-main-container'>
       <div className="board-header-top flex">
         <h1>{title}</h1>
         <div className="flex">
