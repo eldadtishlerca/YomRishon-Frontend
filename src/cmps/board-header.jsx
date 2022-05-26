@@ -9,10 +9,10 @@ export const BoardHeader = ({ members, title, activities }) => {
       <div className="board-header-top flex">
         <div className="flex">
           <h1>{title}</h1>
-          <AiOutlineStar />
+          <span className="board-header-top-icon"><AiOutlineStar /></span>
         </div>
         <div className="board-header-top-main flex">
-          <div className="flex">
+          <div className="board-header-top-main-members flex">
           <span>Last seen</span>
           <div className="flex">
           {members.map((member) => (

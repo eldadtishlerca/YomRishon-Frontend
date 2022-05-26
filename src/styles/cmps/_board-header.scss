@@ -3,14 +3,29 @@
     margin: 0;
     // height: 178px;
     width: 900px;
-    background-color: aquamarine;
+    background-color: rgba(127, 255, 212, 0.356);
     flex-direction:column;
     justify-content: space-between;
-    
 }
 
 .board-header-top{
-    justify-content: space-between;
+    justify-content: space-between; 
+    .board-header-top-icon{
+        font-size: 30px;
+        padding-top: 5px;
+        margin-left: 5px;
+    }
+}
+
+.board-header-top-main{
+    .board-header-top-main-members{
+        gap: 5px;
+        align-items: center;
+    }
+    img{
+        height: 25px;
+        width: 25px;
+    }
 }
 
 .board-header-bottom{
