@@ -41,7 +41,7 @@
       cursor: pointer;
 
       &:hover {
-        color: $myellow;
+        background: rgb(99, 99, 253);
       }
 
       &:active {
@@ -62,74 +62,73 @@
     width: 95%;
     min-height: 100vh;
 
-    
     .star {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background-color: $white;
-        top: 50%;
-        left: 50%;
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
         0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1);
-        animation: shooting-star 2s linear infinite;
+      animation: shooting-star 2s linear infinite;
 
-        &:nth-child(1) {
-            top: 0;
-            right: 0;
-            animation-delay: 0;
-            animation-duration: 1s;
-          }
-        &:nth-child(2) {
-            top: 0;
-            right: 80px;
-            left: initial;
-            animation-delay: 0.2s;
-            animation-duration: 3s;
-          }
-        &:nth-child(3) {
-            top: 80px;
-            right: 0;
-            left: initial;
-            animation-delay: 0.4s;
-            animation-duration: 2s;
-          }
-        &:nth-child(4) {
-            top: 0;
-            right: 180px;
-            left: initial;
-            animation-delay: 0.6s;
-            animation-duration: 1.5s;
-          }
-        &:nth-child(5) {
-            top: 0;
-            right: 400px;
-            left: initial;
-            animation-delay: 0.8s;
-            animation-duration: 2.5s;
-          }
-        &:nth-child(6) {
-            top: 0;
-            right: 600px;
-            left: initial;
-            animation-delay: 1s;
-            animation-duration: 3s;
-          }
-        &:nth-child(7) {
-            top: 300px;
-            right: 0;
-            left: initial;
-            animation-delay: 1.2s;
-            animation-duration: 1.7s;
-          }
-        &:nth-child(7) {
-            top: 150px;
-            right: 0;
-            left: initial;
-            animation-delay: 1.8s;
-            animation-duration: 1.2s;
-          }
+      &:nth-child(1) {
+        top: 0;
+        right: 0;
+        animation-delay: 0;
+        animation-duration: 1s;
+      }
+      &:nth-child(2) {
+        top: 0;
+        right: 80px;
+        left: initial;
+        animation-delay: 0.2s;
+        animation-duration: 3s;
+      }
+      &:nth-child(3) {
+        top: 80px;
+        right: 0;
+        left: initial;
+        animation-delay: 0.4s;
+        animation-duration: 2s;
+      }
+      &:nth-child(4) {
+        top: 0;
+        right: 180px;
+        left: initial;
+        animation-delay: 0.6s;
+        animation-duration: 1.5s;
+      }
+      &:nth-child(5) {
+        top: 0;
+        right: 400px;
+        left: initial;
+        animation-delay: 0.8s;
+        animation-duration: 2.5s;
+      }
+      &:nth-child(6) {
+        top: 0;
+        right: 600px;
+        left: initial;
+        animation-delay: 1s;
+        animation-duration: 3s;
+      }
+      &:nth-child(7) {
+        top: 300px;
+        right: 0;
+        left: initial;
+        animation-delay: 1.2s;
+        animation-duration: 1.7s;
+      }
+      &:nth-child(7) {
+        top: 150px;
+        right: 0;
+        left: initial;
+        animation-delay: 1.8s;
+        animation-duration: 1.2s;
+      }
 
       &::before {
         content: '';
@@ -174,13 +173,13 @@
       }
 
       .hero-btn-wrapper {
-        height: 70px;
+        height: 30px;
         animation-name: fade-in;
         animation-fill-mode: both;
         animation-duration: 1s;
         animation-delay: 0.8s;
         .hero-btn {
-          margin: 16px;
+          margin: 18px;
           font-size: 26px;
           background: $lblue;
           border-radius: 10px;
@@ -191,9 +190,10 @@
           cursor: pointer;
 
           &:hover {
-            color: $myellow;
+            color: rgb(252, 238, 183);
             transform: scale(1.1);
-            border: solid $myellow 2px;
+            border: solid rgb(252, 238, 183) 2px;
+            background: rgb(99, 99, 253);
           }
 
           &:active {
@@ -225,4 +225,3 @@
     opacity: 0;
   }
 }
-
