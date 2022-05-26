@@ -31,9 +31,16 @@
   margin-top: 0;
   margin-bottom: 10px;
  }
+ .sidebar-search {
+  position: absolute;
+ }
  > *:last-child {
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   font-size: 30px;
+  &:hover {
+   background: none;
+  }
  }
 }

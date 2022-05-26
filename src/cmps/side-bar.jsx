@@ -3,7 +3,7 @@ import { boardsModal } from './boards-modal'
 import { UserNotflication } from './user-notflication'
 import { UserWork } from './user-work'
 import { Search } from './search'
-import { FaClipboardList } from 'react-icons/fa'
+import { FaClipboardList, FaRegStar } from 'react-icons/fa'
 import { IoMdNotificationsOutline } from 'react-icons/io'
 import { AiOutlineCheckSquare, AiOutlineSearch } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
@@ -61,6 +61,9 @@ export const SideBar = () => {
       >
         <AiOutlineCheckSquare />
       </div>
+      <div>
+        <FaRegStar />
+      </div>
       <div
         onClick={() => {
           onToggleSearch()
@@ -73,7 +76,7 @@ export const SideBar = () => {
           nevigate('/user/:userId')
         }}
       >
-        <CgProfile />
+        <img src="imgs/mini-user-imgs/u101.png" alt="" />
       </div>
     </div>
   )
