@@ -1,0 +1,22 @@
+.boards-list {
+ margin: 12px 16px;
+ div {
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 6px;
+  border-radius: 0.25rem;
+  &:hover {
+   background: #DCDFEC;
+  }
+  span {
+   margin-left: 8px;
+   font-size: 14px;
+  }
+ }
+ .board-active {
+  background: #CCE5FF;
+ }
+}

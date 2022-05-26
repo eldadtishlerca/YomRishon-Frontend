@@ -9,6 +9,11 @@
 @import "basics/base";
 
 // Pages
-@import "pages/_home.scss";
+@import "pages/home";
+@import "pages/board";
 
 // Components
+@import "cmps/sidebar";
+@import "cmps/boards-modal";
+@import "cmps/boards-modal-header";
+@import "cmps/boards-list";
