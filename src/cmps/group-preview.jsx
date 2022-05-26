@@ -3,11 +3,13 @@ import { TaskList } from './task-list'
 import { GroupFooter } from './group-footer'
 
 export const GroupPreview = ({ group }) => {
+  const { _id, color, title, tasks } = group
+
   return (
     <div>
-      <GroupHeader />
-      <TaskList />
-      <GroupFooter />
+      <GroupHeader _id={_id} color={color} title={title} />
+      <TaskList tasks={tasks} />
+      <GroupFooter tasks={tasks} />
     </div>
   )
 }
