@@ -1,3 +1,9 @@
+import { AiOutlineCaretDown } from 'react-icons/ai'
+
 export const TaskModal = () => {
-    return <div>IM TASKMODAL</div>
-  }
+  return (
+    <div>
+      <AiOutlineCaretDown />
+    </div>
+  )
+}

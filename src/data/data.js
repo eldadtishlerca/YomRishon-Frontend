@@ -183,7 +183,7 @@ const gBoards = [
             ],
           },
           {
-            id: 'c102',
+            id: 'c103',
             title: 'Sort section',
             membersIds: ['u101', 'u104'],
             status: 'Waiting for Dev',
@@ -217,7 +217,7 @@ const gBoards = [
             ],
           },
           {
-            id: 'c102',
+            id: 'c104',
             title: 'Sort section',
             membersIds: ['u101', 'u104'],
             status: 'Waiting for Dev',
@@ -251,7 +251,7 @@ const gBoards = [
             ],
           },
           {
-            id: 'c102',
+            id: 'c105',
             title: 'Sort section',
             membersIds: ['u101', 'u104'],
             status: 'Waiting for Dev',
