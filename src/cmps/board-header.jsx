@@ -1,21 +1,16 @@
-import { CgProfile } from 'react-icons/cg'
+import { ToolBar } from '../cmps/toolbar'
+
 import { MdOutlineTableChart } from 'react-icons/md'
 
-export const BoardHeader = ({ board }) => {
+export const BoardHeader = ({ members, title, activities }) => {
   return (
     <div>
       <div className="board-header-top flex">
-        <h1>{board.title}</h1>
-        {/* <div>
-          {board.members.map((member) => (
+        <h1>{title}</h1>
+        <div className="flex">
+          {members.map((member) => (
             <img key={member._id} src={member.imgUrl} alt={member.fullname} />
           ))}
-        </div> */}
-        <div className="flex">
-          <CgProfile />
-          <CgProfile />
-          <CgProfile />
-          <CgProfile />
         </div>
         <div>
           <button>Activity</button>
@@ -30,6 +25,7 @@ export const BoardHeader = ({ board }) => {
           <span>Main Table</span>
         </div>
       </div>
+      <ToolBar />
     </div>
   )
 }

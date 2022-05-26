@@ -17,7 +17,7 @@
       cursor: default;
 
       &:hover {
-        text-shadow: 2px 4px rgba(0, 0, 0, 0.11);
+        text-shadow: 4px 1px rgba(0, 0, 0, 0.11);
       }
 
       .yom {
@@ -42,12 +42,103 @@
 
       &:hover {
         color: $myellow;
-        transform: scale(1.05);
       }
 
       &:active {
         color: $white;
         transform: scale(0.95);
+      }
+    }
+  }
+
+  .shooting-stars {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 95%;
+    min-height: 100vh;
+
+    
+    .star {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background-color: $white;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1),
+        0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1);
+        animation: shooting-star 2s linear infinite;
+
+        &:nth-child(1) {
+            top: 0;
+            right: 0;
+            animation-delay: 0;
+            animation-duration: 1s;
+          }
+        &:nth-child(2) {
+            top: 0;
+            right: 80px;
+            left: initial;
+            animation-delay: 0.2s;
+            animation-duration: 3s;
+          }
+        &:nth-child(3) {
+            top: 80px;
+            right: 0;
+            left: initial;
+            animation-delay: 0.4s;
+            animation-duration: 2s;
+          }
+        &:nth-child(4) {
+            top: 0;
+            right: 180px;
+            left: initial;
+            animation-delay: 0.6s;
+            animation-duration: 1.5s;
+          }
+        &:nth-child(5) {
+            top: 0;
+            right: 400px;
+            left: initial;
+            animation-delay: 0.8s;
+            animation-duration: 2.5s;
+          }
+        &:nth-child(6) {
+            top: 0;
+            right: 600px;
+            left: initial;
+            animation-delay: 1s;
+            animation-duration: 3s;
+          }
+        &:nth-child(7) {
+            top: 300px;
+            right: 0;
+            left: initial;
+            animation-delay: 1.2s;
+            animation-duration: 1.7s;
+          }
+        &:nth-child(7) {
+            top: 150px;
+            right: 0;
+            left: initial;
+            animation-delay: 1.8s;
+            animation-duration: 1.2s;
+          }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 1px;
+        background: linear-gradient(90deg, #fff, transparent);
       }
     }
   }
@@ -62,21 +153,35 @@
     min-height: 60vh;
 
     .hero {
-    bottom: 200px;
-    text-align: center;
-
-
+      bottom: 220px;
+      text-align: center;
 
       h1 {
         font-size: 48px;
         padding: 12px;
+        animation-name: fade-in;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-delay: 0.2s;
       }
       h3 {
         font-size: 26px;
-        padding: 12px;
+        padding: 16px;
+        animation-name: fade-in;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-delay: 0.5s;
       }
-      .hero-btn {
-          margin: 14px;
+
+      .hero-btn-wrapper {
+        height: 70px;
+        animation-name: fade-in;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-delay: 0.8s;
+        .hero-btn {
+          margin: 16px;
+          font-size: 26px;
           background: $lblue;
           border-radius: 10px;
           border: none;
@@ -84,7 +189,40 @@
           padding: 10px;
           color: $white;
           cursor: pointer;
+
+          &:hover {
+            color: $myellow;
+            transform: scale(1.1);
+            border: solid $myellow 2px;
+          }
+
+          &:active {
+            color: $white;
+            transform: scale(0.95);
+          }
+        }
       }
     }
   }
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-700px);
+    opacity: 0;
+  }
+}
+
