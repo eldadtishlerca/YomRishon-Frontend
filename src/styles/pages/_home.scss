@@ -40,15 +40,11 @@
     justify-content: space-between;
     align-items: center;
     height: 72px;
-    padding: 16px;
     box-sizing: border-box;
+    padding: 0 260px;
 
     .logo {
       cursor: default;
-
-      &:hover {
-        text-shadow: 4px 1px rgba(0, 0, 0, 0.11);
-      }
 
       .yom {
         color: $mred;
@@ -64,7 +60,7 @@
     .get-started-btn {
       background: $lblue;
       font-size: 14px;
-      padding: 12px 24px;
+      padding: 12px 22px;
     }
 
     .login-btn {
@@ -78,7 +74,8 @@
       cursor: pointer;
 
       &:hover {
-        background: rgb(99, 99, 253);
+        background: #F0F3FF;
+        color: $lblue;
       }
 
       &:active {
