@@ -117,7 +117,18 @@ const gBoards = [
           {
             id: 'c101',
             title: 'Loader animation',
-            membersIds: ['u102', 'u103'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            }],
             status: 'working-on-it',
             priority: 'high',
             deadline: 1590999817436,
@@ -152,7 +163,18 @@ const gBoards = [
           {
             id: 'c102',
             title: 'Sort section',
-            membersIds: ['u101', 'u104'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u104',
+              username: 'Ori',
+              fullname: 'Ori Ben Amram',
+              imgUrl: 'imgs/mini-user-imgs/u104.png'
+            }],
             status: 'Waiting for Dev',
             priority: 'Medium',
             deadline: 1591099817436,
@@ -187,7 +209,18 @@ const gBoards = [
           {
             id: 'c103',
             title: 'Footer component',
-            membersIds: ['u101', 'u102'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            }],
             status: 'Working on it',
             priority: 'Medium',
             deadline: 1591099817436,
@@ -222,7 +255,18 @@ const gBoards = [
           {
             id: 'c105',
             title: 'Main section for users',
-            membersIds: ['u101', 'u102'],
+            membersIds: [{
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            },
+            {
+              _id: 'u103',
+              username: 'Elon',
+              fullname: 'Elon Barzani',
+              imgUrl: 'imgs/mini-user-imgs/u103.png'
+            }],
             status: 'Waiting for Dev',
             priority: 'Low',
             deadline: 1592099817436,
@@ -253,7 +297,24 @@ const gBoards = [
           {
             id: 'c106',
             title: 'Demo data',
-            membersIds: ['u101', 'u102', 'u103'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            },
+            {
+              _id: 'u103',
+              username: 'Elon',
+              fullname: 'Elon Barzani',
+              imgUrl: 'imgs/mini-user-imgs/u103.png'
+            }],
             status: 'working-on-it',
             priority: 'high',
             deadline: 1590999817436,
@@ -288,7 +349,13 @@ const gBoards = [
           {
             id: 'c107',
             title: 'Profile - User image',
-            membersIds: ['u102'],
+            membersIds: [
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png'
+              }],
             status: 'working-on-it',
             priority: 'Low',
             deadline: 1590999807436,
@@ -312,7 +379,18 @@ const gBoards = [
           {
             id: 'c108',
             title: 'Buttons for user section',
-            membersIds: ['u102', '103'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            }],
             status: 'Done',
             priority: 'Medium',
             deadline: 1590998807436,
@@ -347,7 +425,18 @@ const gBoards = [
           {
             id: 'c109',
             title: 'Filter users',
-            membersIds: ['u101', 'u103'],
+            membersIds: [{
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png'
+            },
+            {
+              _id: 'u103',
+              username: 'Elon',
+              fullname: 'Elon Barzani',
+              imgUrl: 'imgs/mini-user-imgs/u103.png'
+            }],
             status: 'Waiting for QA',
             priority: 'high',
             deadline: 1590989817436,
@@ -378,7 +467,13 @@ const gBoards = [
           {
             id: 'c110',
             title: 'Form - signup not working',
-            membersIds: ['u103'],
+            membersIds: [
+            {
+              _id: 'u103',
+              username: 'Elon',
+              fullname: 'Elon Barzani',
+              imgUrl: 'imgs/mini-user-imgs/u103.png'
+            }],
             status: 'working-on-it',
             priority: 'Medium',
             deadline: 1600999817436,
@@ -402,7 +497,13 @@ const gBoards = [
           {
             id: 'c111',
             title: 'Grid on mobile - sidebar out of screen',
-            membersIds: ['u102'],
+            membersIds: [
+            {
+              _id: 'u102',
+              username: 'Yarden',
+              fullname: 'Yarden Shaul',
+              imgUrl: 'imgs/mini-user-imgs/u102.png'
+            }],
             status: 'Waiting for QA',
             priority: 'High',
             deadline: 1591099717336,
