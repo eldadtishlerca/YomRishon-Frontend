@@ -2,12 +2,12 @@ import { GroupModal } from './group-modal'
 
 export const GroupHeader = ({ _id, color, title }) => {
   return (
-    <div className="flex">
+    <div className="group-header-warpper flex">
       <div>
         <GroupModal _id={_id} color={color} />
       </div>
       <div>
-        <div>{title}</div>
+        <div className='group-title'>{title}</div>
       </div>
       <div>
         <h5>Assignee</h5>
