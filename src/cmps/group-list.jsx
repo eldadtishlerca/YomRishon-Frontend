@@ -1,6 +1,6 @@
 import { GroupPreview } from './group-preview'
 
-export function GroupList() {
+export const GroupList = () => {
     return <div>
       <GroupPreview />
     </div>

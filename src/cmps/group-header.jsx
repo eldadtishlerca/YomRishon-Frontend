@@ -1,6 +1,6 @@
 import { GroupModal } from './group-modal'
 
-export function GroupHeader() {
+export const GroupHeader = () => {
   return (
     <div className="flex">
       <GroupModal />

@@ -8,7 +8,7 @@ import { IoMdNotificationsOutline } from 'react-icons/io'
 import { AiOutlineCheckSquare, AiOutlineSearch } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
 
-export function SideBar() {
+export const SideBar = () => {
   let nevigate = useNavigate()
 
   const onToggleBoardModal = () => {

@@ -8,13 +8,10 @@ import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
 
-export function TaskPreview() {
+export const TaskPreview = () => {
   let nevigate = useNavigate()
 
   const onOpenTask = () => {
-    ;<Routes>
-      <Route path="/:groupId/:taskId" />
-    </Routes>
     nevigate('/:groupId/:taskId')
   }
 

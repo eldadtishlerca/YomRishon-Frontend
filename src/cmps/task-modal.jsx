@@ -1,3 +1,3 @@
-export function TaskModal() {
+export const TaskModal = () => {
     return <div>IM TASKMODAL</div>
   }

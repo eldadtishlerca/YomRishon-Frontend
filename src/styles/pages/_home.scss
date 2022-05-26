@@ -1,69 +1,90 @@
-$white: #fff;
-$deepblue: #030437;
-$black: #333333;
-$red: #fb275d;
-$yellow: #ffcc00;
-$green: #00ca72;
-$btnblue: #6c6bff;
-
 .homepage {
-    background-color: $deepblue;
-    color: $white;
-    min-height: 100%;
+  background: $deepblue;
+  color: $white;
+  min-height: 100vh;
 
+  .homepage-header {
+    background: $white;
+    color: $lblack;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    padding: 16px;
+    box-sizing: border-box;
 
-    .homepage-header{
-        background-color: $white;
-        color: $black;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 72px;
-        padding: 5px;
+    .logo {
+      cursor: default;
 
-        .logo{
-            &:hover{
-                text-shadow: 2px 5px rgba(0, 0, 0, 0.11);
-            }
+      &:hover {
+        text-shadow: 2px 4px rgba(0, 0, 0, 0.11);
+      }
 
-            .yom{
-                color: $red;
-            }
-            .ris{
-                color: $yellow;
-            }
-            .hon{
-                color: $green;
-            }
-        }
-
-        .login-btn{
-            background-color: $btnblue;
-            border-radius: 10px;
-            border: none;
-            height: min-content;
-            padding: 10px;
-            color: $white;
-            cursor: pointer;
-
-            &:hover{
-                color: $yellow;
-                transform: scale(1.05);
-            }
-
-            &:active{
-                color: $white;
-                transform: scale(0.95);
-            }
-        }
+      .yom {
+        color: $mred;
+      }
+      .ris {
+        color: $myellow;
+      }
+      .hon {
+        color: $mgreen;
+      }
     }
 
-    main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 5px;
-        height: 100%;
-    }
+    .login-btn {
+      background: $lblue;
+      border-radius: 10px;
+      border: none;
+      height: min-content;
+      padding: 10px;
+      color: $white;
+      cursor: pointer;
 
+      &:hover {
+        color: $myellow;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        color: $white;
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 100%;
+    min-height: 60vh;
+
+    .hero {
+    bottom: 200px;
+    text-align: center;
+
+
+
+      h1 {
+        font-size: 48px;
+        padding: 12px;
+      }
+      h3 {
+        font-size: 26px;
+        padding: 12px;
+      }
+      .hero-btn {
+          margin: 14px;
+          background: $lblue;
+          border-radius: 10px;
+          border: none;
+          height: min-content;
+          padding: 10px;
+          color: $white;
+          cursor: pointer;
+      }
+    }
+  }
 }
