@@ -4,7 +4,9 @@ export const BoardsModalHeader = () => {
   return (
     <div className="boards-modal-header">
       <p>Workspace</p>
-      <div className="workspace-btn">Main workspace</div>
+      <div className="workspace-btn">
+        <span>M</span>Main workspace
+      </div>
       <div className="boards-modal-btns">
         <div className="flex">
           <AiOutlinePlus />
