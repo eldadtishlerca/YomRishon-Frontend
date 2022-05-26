@@ -18,7 +18,7 @@ export const BoardHeader = ({ members, title, activities }) => {
         
           <div className="board-header-top-main-members flex">
           <span>Last seen</span>
-          <div className="flex">
+          <div className="members flex">
           {members.map((member) => (
             <img key={member._id} src={member.imgUrl} alt={member.fullname} />
           ))}
