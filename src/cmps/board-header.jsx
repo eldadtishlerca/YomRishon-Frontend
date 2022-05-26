@@ -6,16 +6,10 @@ export const BoardHeader = ({ board }) => {
     <div>
       <div className="board-header-top flex">
         <h1>{board.title}</h1>
-        {/* <div>
+        <div className="flex">
           {board.members.map((member) => (
             <img key={member._id} src={member.imgUrl} alt={member.fullname} />
           ))}
-        </div> */}
-        <div className="flex">
-          <CgProfile />
-          <CgProfile />
-          <CgProfile />
-          <CgProfile />
         </div>
         <div>
           <button>Activity</button>
