@@ -3,6 +3,36 @@
   color: $white;
   min-height: 100vh;
 
+  .get-started-btn {
+    margin: 18px;
+    font-size: 16px;
+    background: $lblue;
+    border-radius: 34px;
+    border: none;
+    height: min-content;
+    padding: 12px 54px;
+    color: $white;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, #5034ff 25.69%, #b4b4ff 100%);
+
+    span {
+      font-size: 12px;
+      display: inline-block;
+      transform: translateX(7px);
+    }
+
+    &:hover {
+      background-image: linear-gradient(90deg, #432cd5 25.69%, #9797d5 100%);
+      span {
+        transform: translateX(11px);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
   .homepage-header {
     background: $white;
     color: $lblack;
@@ -31,13 +61,20 @@
       }
     }
 
-    .login-btn {
+    .get-started-btn {
       background: $lblue;
+      font-size: 14px;
+      padding: 12px 24px;
+    }
+
+    .login-btn {
+      background: transparent;
       border-radius: 10px;
       border: none;
       height: min-content;
       padding: 10px;
-      color: $white;
+      color: $darkgrey;
+      font-size: 16px;
       cursor: pointer;
 
       &:hover {
@@ -56,11 +93,11 @@
     padding: 0;
     box-sizing: border-box;
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     overflow: hidden;
-    width: 95%;
-    min-height: 100vh;
+    width: 100%;
+    min-height: 92vh;
 
     .star {
       position: absolute;

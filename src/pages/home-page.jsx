@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { FaArrowRight } from 'react-icons/fa'
 
 export const HomePage = () => {
   const navigate = useNavigate()
@@ -11,38 +12,49 @@ export const HomePage = () => {
           <span className="ris">Ris</span>
           <span className="hon">hon</span>
         </h1>
-        <button
-          className="login-btn"
-          onClick={() => {
-            navigate('/loginsignup')
-          }}
-        >
-          Login
-        </button>
+        <div className="header-btn-warpper">
+          <button
+            className="login-btn"
+            onClick={() => {
+              navigate('/loginsignup')
+            }}
+          >
+            Log in
+          </button>
+          <button
+            className="get-started-btn"
+            onClick={() => {
+              navigate('/loginsignup')
+            }}
+          >
+            Get Started <span><FaArrowRight /></span>
+          </button>
+        </div>
       </header>
       <main>
-        <section className='shooting-stars'>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
-          <span className='star'></span>
+        <section className="shooting-stars">
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
+          <span className="star"></span>
         </section>
         <div className="hero">
-          <h1>Feel the workflow</h1>
+          <h1>A platform built for a new way of working</h1>
           <h3>Manage your work with powerful tools</h3>
           <div className="hero-btn-wrapper">
             <button
-              className="hero-btn"
+              className="get-started-btn"
               onClick={() => {
                 navigate('/board')
               }}
             >
-              Get Started
+              Get Started <span><FaArrowRight /></span>
             </button>
+            <p>No credit card needed  ⌖   Unlimted time on Free plan</p>
           </div>
         </div>
       </main>
