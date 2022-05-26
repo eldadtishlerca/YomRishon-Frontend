@@ -1,3 +1,3 @@
-export function GroupFooter() {
+export const GroupFooter = () => {
   return <div>group-footer</div>
 }

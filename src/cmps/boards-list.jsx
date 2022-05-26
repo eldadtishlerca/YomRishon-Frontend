@@ -1,6 +1,6 @@
 import { BiClipboard } from 'react-icons/bi'
 
-export function BoardsList() {
+export const BoardsList = () => {
   return (
     <div className="boards-list">
       <div className="flex board-active">

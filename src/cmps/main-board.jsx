@@ -1,7 +1,7 @@
 import { ToolBar } from './toolbar'
 import { GroupList } from './group-list'
 
-export function MainBoard({ board }) {
+export const MainBoard = ({ board }) => {
   return (
     <div>
       <ToolBar />

@@ -1,3 +1,3 @@
-export function TaskDetails() {
-  return <div>task-details</div>
+export const TaskDetails = () => {
+  return <div>task-details!!!!!!!!!!!!!!!!!!!!!</div>
 }

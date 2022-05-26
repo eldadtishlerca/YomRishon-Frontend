@@ -1,6 +1,6 @@
 import { AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai'
 
-export function BoardsModalHeader() {
+export const BoardsModalHeader = () => {
   return (
     <div className="boards-modal-header">
       <p>Workspace</p>

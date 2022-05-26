@@ -1,3 +1,3 @@
-export function BoardHeader() {
+export const BoardHeader = () => {
     return <div>IM BOARDHEADER</div>
   }

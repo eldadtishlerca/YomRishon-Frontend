@@ -1,3 +1,3 @@
-export function ToolBar() {
+export const ToolBar = () => {
     return <div>IM TOOLBAR</div>
   }

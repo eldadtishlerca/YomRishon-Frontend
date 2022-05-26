@@ -1,6 +1,6 @@
 import { TaskPreview } from './task-preview'
 
-export function TaskList() {
+export const TaskList = () => {
     return <div>
       <TaskPreview />
     </div>
