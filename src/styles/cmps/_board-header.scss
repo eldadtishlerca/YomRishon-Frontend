@@ -1,9 +1,35 @@
 .board-header-main-container{
-    width: 100%;
     padding: 30px 30px 0px 30px;
     margin: 0;
-    height: 178px;
-    width: 895px;
-
+    // height: 178px;
+    width: 900px;
     background-color: aquamarine;
+    flex-direction:column;
+    justify-content: space-between;
+    
 }
+
+.board-header-top{
+    justify-content: space-between;
+}
+
+.board-header-bottom{
+    border-bottom: 0.5px solid darkgray;
+}
+
+.board-header-bottom-upper{
+    height: 32px;
+    &:hover {
+        background-color: #dcdfec;;
+    }
+    margin-right: 6px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding-right: 12px;
+
+}
+
+

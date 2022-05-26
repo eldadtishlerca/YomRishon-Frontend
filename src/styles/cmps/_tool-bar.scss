@@ -1,0 +1,23 @@
+.toolbar-main-contianer{
+    flex-direction: row;
+    // gap: 10px;
+}
+
+.toolbar-button-container{
+    // width: 89px;
+    height: 32px;
+    &:hover {
+        background-color: #dcdfec;;
+    }
+    margin-right: 6px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    padding-right: 12px;
+    .new-task-spn{
+        border-right: 0.5px solid darkgray;
+        padding-right: 5px;
+    }
+}
