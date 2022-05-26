@@ -14,7 +14,7 @@ export const BoardPage = () => {
     dispatch(loadBoard())
   }, [dispatch])
 
-  if (!board) return <div>Loading..</div>
+  if (board.length === 0) return <div>Loading..</div>
   return (
     <div className="board-page flex">
       <SideBar />
