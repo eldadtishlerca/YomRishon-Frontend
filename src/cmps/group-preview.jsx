@@ -6,7 +6,7 @@ export const GroupPreview = ({ group }) => {
   const { _id, color, title, tasks } = group
 
   return (
-    <div>
+    <div className='group-preview-wrapper'>
       <GroupHeader _id={_id} color={color} title={title} />
       <TaskList tasks={tasks} color={color} />
       <GroupFooter tasks={tasks} />
