@@ -288,7 +288,7 @@ const gBoards = [
       },
       {
         color: 'orange',
-        id: 'g101',
+        id: 'g102',
         title: 'Desgin',
         activities: [
           {
