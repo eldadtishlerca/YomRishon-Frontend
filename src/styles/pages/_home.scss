@@ -41,7 +41,20 @@
     align-items: center;
     height: 72px;
     box-sizing: border-box;
-    padding: 0 260px;
+    padding: 0 34px;
+
+    @include small {
+      padding: 0 40px;
+    }
+    @include medium {
+      padding: 0 140px;
+    }
+    @include large {
+      padding: 0 260px;
+    }
+    @include extralarge {
+      padding: 0 260px;
+    }
 
     .logo {
       cursor: default;
@@ -58,9 +71,32 @@
     }
 
     .get-started-btn {
-      background: $lblue;
-      font-size: 14px;
-      padding: 12px 22px;
+      display: none;
+
+      @include small {
+        display: inline-block;
+        background: $lblue;
+        font-size: 14px;
+        padding: 12px 22px;
+      }
+      @include medium {
+        display: inline-block;
+        background: $lblue;
+        font-size: 14px;
+        padding: 12px 22px;
+      }
+      @include large {
+        display: inline-block;
+        background: $lblue;
+        font-size: 14px;
+        padding: 12px 22px;
+      }
+      @include extralarge {
+        display: inline-block;
+        background: $lblue;
+        font-size: 14px;
+        padding: 12px 22px;
+      }
     }
 
     .login-btn {
@@ -74,7 +110,7 @@
       cursor: pointer;
 
       &:hover {
-        background: #F0F3FF;
+        background: #f0f3ff;
         color: $lblue;
       }
 
@@ -234,6 +270,27 @@
             color: $white;
             transform: scale(0.95);
           }
+        }
+      }
+      p{
+        font-size: 14px;
+        margin-top: 10px;
+        animation-name: fade-in;
+        animation-fill-mode: both;
+        animation-duration: 1s;
+        animation-delay: 1.1s;
+        
+        @include small {
+          font-size: 16px;
+        }
+        @include medium {
+          font-size: 18px;
+        }
+        @include large {
+          font-size: 20px;
+        }
+        @include extralarge {
+          font-size: 22px;
         }
       }
     }

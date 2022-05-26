@@ -19,7 +19,7 @@ export const HomePage = () => {
               navigate('/loginsignup')
             }}
           >
-            Log in
+            Login
           </button>
           <button
             className="get-started-btn"
