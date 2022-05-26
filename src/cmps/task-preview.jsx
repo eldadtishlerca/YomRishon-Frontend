@@ -31,8 +31,15 @@ export const TaskPreview = ({ task, color }) => {
   return (
     <div className="flex" onClick={() => onOpenTask()}>
       <TaskModal id={id} />
-      <TaskTitle color={color} title={title} />
-      <TaskActivites />
+      <TaskTitle color={color} title={title} counter={updates.length} />
+      <TaskActivites
+        membersIds={membersIds}
+        status={status}
+        priority={priority}
+        deadline={deadline}
+        workHours={workHours}
+        lastUpdated={lastUpdated}
+      />
       <Routes>
         <Route path="/:groupId/:taskId" component={<TaskDetails />} />
       </Routes>
