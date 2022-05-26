@@ -7,6 +7,7 @@ import {
 import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
+import {TaskDetails} from './task-details'
 
 export const TaskPreview = () => {
   let nevigate = useNavigate()
@@ -20,6 +21,10 @@ export const TaskPreview = () => {
       <TaskModal />
       <TaskTitle />
       <TaskActivites />
+      <Routes>
+        <Route path="/:groupId/:taskId" component={<TaskDetails />}/>
+      </Routes> 
     </div>
+
   )
 }
