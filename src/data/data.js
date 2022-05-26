@@ -13,7 +13,7 @@ const gBoards = [
       {
         _id: 'u101',
         fullname: 'Eldad Tishler',
-        imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
+        imgUrl: 'public/imgs/mini-user-imgs/u101.png',
       },
       {
         _id: 'u102',
@@ -45,7 +45,7 @@ const gBoards = [
           id: 'c105',
           title: 'Demo data',
         },
-        change: '3 Hours'
+        change: '3 Hours',
       },
       {
         id: 'a102',
@@ -60,7 +60,7 @@ const gBoards = [
           id: 'c102',
           title: 'Sort Section',
         },
-        change: 'Waiting for Dev'
+        change: 'Waiting for Dev',
       },
       {
         id: 'a103',
@@ -75,7 +75,7 @@ const gBoards = [
           id: 'c103',
           title: 'Footer Component',
         },
-        change: 1541515151515
+        change: 1541515151515,
       },
       {
         id: 'a103',
@@ -90,7 +90,7 @@ const gBoards = [
           id: 'c103',
           title: 'Footer Component',
         },
-        change: 1541515151515
+        change: 1541515151515,
       },
       {
         id: 'a104',
@@ -105,7 +105,7 @@ const gBoards = [
           id: 'c104',
           title: 'Profile - User image',
         },
-        change: 'Medium'
+        change: 'Medium',
       },
     ],
     groups: [
@@ -126,15 +126,14 @@ const gBoards = [
               _id: 'u103',
               fullname: 'Elon Barzani',
               imgUrl: '../../public/imgs/mini-user-imgs/u103.png',
-              updatedAt: '1590999806436'
+              updatedAt: '1590999806436',
             },
             createdAt: 1590998630348,
             byMember: {
               _id: 'u102',
               username: 'Yarden',
               fullname: 'Yarden Shaul',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u102.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u102.png',
             },
             updates: [
               {
@@ -144,8 +143,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u103',
                   fullname: 'Elon Barzani',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -162,15 +160,14 @@ const gBoards = [
               _id: 'u104',
               fullname: 'Ori Ben Amram',
               imgUrl: '../../public/imgs/mini-user-imgs/u104.png',
-              updatedAt: '1591099806436'
+              updatedAt: '1591099806436',
             },
             createdAt: 1590998530348,
             byMember: {
               _id: 'u104',
               username: 'Ori',
               fullname: 'Yarden Shaul',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u102.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u102.png',
             },
             updates: [
               {
@@ -180,8 +177,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u101',
                   fullname: 'Eldad Tishler',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -198,15 +194,14 @@ const gBoards = [
               _id: 'u104',
               fullname: 'Ori Ben Amram',
               imgUrl: '../../public/imgs/mini-user-imgs/u104.png',
-              updatedAt: '1591099806436'
+              updatedAt: '1591099806436',
             },
             createdAt: 1590998530348,
             byMember: {
               _id: 'u104',
               username: 'Ori',
               fullname: 'Yarden Shaul',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u102.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u102.png',
             },
             updates: [
               {
@@ -216,8 +211,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u101',
                   fullname: 'Eldad Tishler',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -234,15 +228,14 @@ const gBoards = [
               _id: 'u104',
               fullname: 'Ori Ben Amram',
               imgUrl: '../../public/imgs/mini-user-imgs/u104.png',
-              updatedAt: '1591099806436'
+              updatedAt: '1591099806436',
             },
             createdAt: 1590998530348,
             byMember: {
               _id: 'u104',
               username: 'Ori',
               fullname: 'Yarden Shaul',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u102.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u102.png',
             },
             updates: [
               {
@@ -252,8 +245,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u101',
                   fullname: 'Eldad Tishler',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -270,15 +262,14 @@ const gBoards = [
               _id: 'u104',
               fullname: 'Ori Ben Amram',
               imgUrl: '../../public/imgs/mini-user-imgs/u104.png',
-              updatedAt: '1591099806436'
+              updatedAt: '1591099806436',
             },
             createdAt: 1590998530348,
             byMember: {
               _id: 'u104',
               username: 'Ori',
               fullname: 'Yarden Shaul',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u102.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u102.png',
             },
             updates: [
               {
@@ -288,8 +279,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u101',
                   fullname: 'Eldad Tishler',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -314,7 +304,7 @@ const gBoards = [
               id: 'c101',
               title: 'Demo data',
             },
-            change: '3 Hours'
+            change: '3 Hours',
           },
         ],
         tasks: [
@@ -330,15 +320,14 @@ const gBoards = [
               _id: 'u101',
               fullname: 'Eldad Tishler',
               imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
-              updatedAt: '1590999707436'
+              updatedAt: '1590999707436',
             },
             createdAt: 1590999730348,
             byMember: {
               _id: 'u101',
               username: 'Eldad',
               fullname: 'Eldad Tishler',
-              imgUrl:
-                '../../public/imgs/mini-user-imgs/u101.png',
+              imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
             },
             updates: [
               {
@@ -348,8 +337,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u103',
                   fullname: 'Elon Barzani',
-                  imgUrl:
-                    '../../public/imgs/mini-user-imgs/u101.png',
+                  imgUrl: '../../public/imgs/mini-user-imgs/u101.png',
                 },
               },
             ],
@@ -357,7 +345,14 @@ const gBoards = [
         ],
       },
     ],
-    cmpsOrder: ['Assignee', 'Status', 'Priority', 'Deadline', 'Working Hours', 'Last Updated'],
+    cmpsOrder: [
+      'Assignee',
+      'Status',
+      'Priority',
+      'Deadline',
+      'Working Hours',
+      'Last Updated',
+    ],
   },
 ]
 
