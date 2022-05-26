@@ -1,11 +1,12 @@
 import { ToolBar } from '../cmps/toolbar'
 
 import { MdOutlineTableChart } from 'react-icons/md'
-import { AiOutlineStar } from 'react-icons/ai'
+import { AiOutlineStar, AiOutlineStock } from 'react-icons/ai'
+import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = ({ members, title, activities }) => {
   return (
-    <div className='board-header-main-container flex'>
+    <section className='board-header-main-container flex'>
       <div className="board-header-top flex">
         <div className="flex">
           <h1>{title}</h1>
@@ -20,12 +21,14 @@ export const BoardHeader = ({ members, title, activities }) => {
           ))}
         </div>
           </div>
-        <div>
-          <button>Activity</button>
-        </div>
-        <div>
-          <button>Add to Board</button>
-        </div>
+          <div className='header-button-container flex'>
+            <AiOutlineStock />
+            <span>Activity</span>
+          </div>
+          <div className='header-button-container flex'>
+            <BsPlus />
+            Add to Board
+            </div>
         </div>
       </div>
       <div className="board-header-bottom flex">
@@ -35,6 +38,6 @@ export const BoardHeader = ({ members, title, activities }) => {
         </div>
       </div>
       <ToolBar />
-    </div>
+    </section>
   )
 }

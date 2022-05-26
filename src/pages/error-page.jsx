@@ -8,7 +8,7 @@ export const ErrorPage = () => {
     <div>
       <h1> Page not found </h1>
       <button
-        onClick={() => {navigate('/')}}>
+        onClick={() => {navigate('/board')}}>
         Home
       </button>
     </div>

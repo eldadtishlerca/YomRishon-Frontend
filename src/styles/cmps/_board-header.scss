@@ -3,13 +3,14 @@
     margin: 0;
     // height: 178px;
     width: 900px;
-    background-color: rgba(127, 255, 212, 0.356);
+    // background-color: rgba(127, 255, 212, 0.356);
     flex-direction:column;
     justify-content: space-between;
 }
 
 .board-header-top{
-    justify-content: space-between; 
+    justify-content: space-between;
+    align-items: center; 
     .board-header-top-icon{
         font-size: 30px;
         padding-top: 5px;
@@ -18,9 +19,11 @@
 }
 
 .board-header-top-main{
+    gap: 5px;
     .board-header-top-main-members{
         gap: 5px;
         align-items: center;
+        padding-left: 12px;
     }
     img{
         height: 25px;
@@ -33,6 +36,20 @@
 }
 
 .board-header-bottom-upper{
+    height: 32px;
+    &:hover {
+        background-color: #dcdfec;;
+    }
+    margin-right: 6px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.header-button-container{
+    // width: 89px;
     height: 32px;
     &:hover {
         background-color: #dcdfec;;
