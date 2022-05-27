@@ -47,12 +47,9 @@
       padding: 0 40px;
     }
     @include medium {
-      padding: 0 140px;
+      padding: 0 100px;
     }
     @include large {
-      padding: 0 260px;
-    }
-    @include extralarge {
       padding: 0 260px;
     }
 
@@ -73,25 +70,7 @@
     .get-started-btn {
       display: none;
 
-      @include small {
-        display: inline-block;
-        background: $lblue;
-        font-size: 14px;
-        padding: 12px 22px;
-      }
       @include medium {
-        display: inline-block;
-        background: $lblue;
-        font-size: 14px;
-        padding: 12px 22px;
-      }
-      @include large {
-        display: inline-block;
-        background: $lblue;
-        font-size: 14px;
-        padding: 12px 22px;
-      }
-      @include extralarge {
         display: inline-block;
         background: $lblue;
         font-size: 14px;
@@ -248,31 +227,21 @@
         animation-fill-mode: both;
         animation-duration: 1s;
         animation-delay: 0.8s;
-        .hero-btn {
-          margin: 18px;
-          font-size: 26px;
-          background: $lblue;
-          border-radius: 10px;
-          border: none;
-          height: min-content;
-          padding: 10px;
-          color: $white;
-          cursor: pointer;
 
-          &:hover {
-            color: rgb(252, 238, 183);
-            transform: scale(1.1);
-            border: solid rgb(252, 238, 183) 2px;
-            background: rgb(99, 99, 253);
+        .get-started-btn {
+          span {
+            animation-name: move-right;
+            animation-duration: 1.6s;
+            animation-delay: 2s;
           }
-
-          &:active {
-            color: $white;
-            transform: scale(0.95);
+          &:hover {
+            span {
+              transform: translateX(18px);
+            }
           }
         }
       }
-      p{
+      p {
         font-size: 14px;
         margin-top: 10px;
         animation-name: fade-in;
@@ -314,5 +283,17 @@
   100% {
     transform: rotate(315deg) translateX(-700px);
     opacity: 0;
+  }
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(7px);
+  }
+  85% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(7px);
   }
 }
