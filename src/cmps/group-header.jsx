@@ -9,23 +9,23 @@ export const GroupHeader = ({ _id, color, title }) => {
       <div className="group-title">
         <span style={{ color: color }}>{title}</span>
       </div>
-      <div>
-        <h5>Assignee</h5>
+      <div className="group-header-assignee">
+        <span>Assignee</span>
       </div>
       <div>
-        <h5>Status</h5>
+        <span>Status</span>
       </div>
       <div>
-        <h5>Priority</h5>
+        <span>Priority</span>
       </div>
       <div>
-        <h5>Deadline</h5>
+        <span>Deadline</span>
       </div>
       <div>
-        <h5>Working Hours</h5>
+        <span>Working Hours</span>
       </div>
       <div>
-        <h5>Last Updated</h5>
+        <span>Last Updated</span>
       </div>
     </div>
   )

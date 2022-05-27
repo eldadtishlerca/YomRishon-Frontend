@@ -1,0 +1,37 @@
+.task-title {
+ background-color: #f5f6f8;
+ color: #323338;
+ display: flex;
+ align-items: center;
+ text-align: center;
+ width: 100%;
+ min-width: 235px;
+ margin-right: 1px;
+ position: relative;
+ .task-checkbox {
+  width: 8px;
+  height: 34px;
+ }
+ .task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+  padding-left: 12px;
+  span {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   font-size: 13px;
+  }
+ }
+ svg {
+  position: absolute;
+  right: 16px;
+  font-size: 22px;
+ }
+ > *:last-child {
+  font-size: 12px;
+  right: 21px;
+ }
+}
