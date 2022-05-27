@@ -1,0 +1,37 @@
+.task-activities {
+ > * {
+  display: flex;
+  align-items: center;
+  margin-right: 1px;
+  min-width: 145px;
+ }
+ .task-activities-assignee {
+  display: flex;
+  justify-content:center;
+  min-width: 100px;
+  img {
+   max-width: 26px;
+  }
+  > *:last-child {
+   margin-left: -5px;
+  }
+ }
+ .task-activities-status,
+ .task-activities-priority,
+ .task-activities-updated,
+ .task-activities-hours,
+ .task-activities-deadline {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 14px;
+ }
+ .task-activities-status {
+  background: #FDAB3D;
+  color: white;
+ }
+ .task-activities-priority {
+  background: #B93253;
+  color: white;
+ }
+}

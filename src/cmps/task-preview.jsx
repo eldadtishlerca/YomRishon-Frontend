@@ -29,7 +29,7 @@ export const TaskPreview = ({ task, color }) => {
   }
 
   return (
-    <div className="flex" onClick={() => onOpenTask()}>
+    <div className="task-preview flex" onClick={() => onOpenTask()}>
       <TaskModal id={id} />
       <TaskTitle color={color} title={title} counter={updates.length} />
       <TaskActivites

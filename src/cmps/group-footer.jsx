@@ -9,5 +9,5 @@ export const GroupFooter = ({ tasks }) => {
 
   const [total, setTotal] = useState(sumHours())
 
-  return <div>{total}</div>
+  return <div className="group-footer">{total}</div>
 }

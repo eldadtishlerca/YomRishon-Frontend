@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import { AiOutlineCaretDown } from 'react-icons/ai'
 
-export const TaskModal = () => {
+export const TaskModal = ({ _id }) => {
   return (
-    <div>
+    <div className="task-modal">
       <AiOutlineCaretDown />
     </div>
   )
