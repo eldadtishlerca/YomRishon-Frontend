@@ -6,7 +6,7 @@ import { IoIosArrowDropdown } from 'react-icons/io'
 export const ToolBar = () => {
   return (
     <div className="toolbar-main-contianer flex">
-      <div className="toolbar-button-container flex">
+      <div className="toolbar-button-container new-task flex">
         <span className='new-task-spn'>New Task</span>
         <IoIosArrowDropdown />
       </div>
