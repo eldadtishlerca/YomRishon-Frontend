@@ -1,7 +1,10 @@
 .board-page {
  height: 100vh;
  width: 100%;
+ overflow-x: hidden;
+ overflow-y: hidden;
  .boardSection {
   width: 100%;
+  overflow-y: scroll;
  }
 }
