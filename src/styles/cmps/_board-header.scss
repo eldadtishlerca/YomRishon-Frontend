@@ -19,13 +19,23 @@
         margin-left: 5px;
         cursor: pointer;
         border-radius: 4px;
+        color: $headerDarkGrey;
         &:hover {
             background-color: #dcdfec;;
         }
     }
-    h1{
+    .title{
         font-size: 35px;
+        border: 0;
+        font-weight: 600;
+        font-family: roboto;
+        width: 200px;
     }
+}
+.subtitle{
+    border: 0;
+    font-family: roboto;
+    width: 200px;
 }
 
 .board-header-top-main{

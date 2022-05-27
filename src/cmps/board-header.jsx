@@ -9,7 +9,7 @@ export const BoardHeader = ({ members, title, activities }) => {
     <section className='board-header-main-container flex'>
       <div className="board-header-top flex">
         <div className="center flex">
-          <h1>{title}</h1>
+          <input type="text" value={title} className="title"/>
           <span className="board-header-top-icon"><AiFillInfoCircle /></span>
           <span className="board-header-top-icon"><AiOutlineStar /></span>
         </div>
@@ -34,7 +34,7 @@ export const BoardHeader = ({ members, title, activities }) => {
             </div>
         </div>
       </div>
-      <span>Add board description</span>
+      <input type="text" placeholder='Add board description' className="subtitle"/>
       <div className="board-header-bottom flex">
         <div className="board-header-bottom-upper flex">
           <MdOutlineTableChart />
