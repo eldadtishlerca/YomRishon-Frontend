@@ -24,7 +24,7 @@
     &:hover {
       background-image: linear-gradient(90deg, #432cd5 25.69%, #9797d5 100%);
       span {
-        transform: translateX(11px);
+        transform: translateX(10px);
       }
     }
 
@@ -41,16 +41,16 @@
     align-items: center;
     height: 72px;
     box-sizing: border-box;
-    padding: 0 34px;
+    padding: 0 24px;
 
     @include small {
-      padding: 0 40px;
+      padding: 0 36px;
     }
     @include medium {
-      padding: 0 100px;
+      padding: 0 40px;
     }
     @include large {
-      padding: 0 260px;
+      padding: 0 120px;
     }
 
     .logo {
@@ -75,6 +75,9 @@
         background: $lblue;
         font-size: 14px;
         padding: 12px 22px;
+        &:hover{
+          background: #5a5ad5;
+        }
       }
     }
 
@@ -84,7 +87,7 @@
       border: none;
       height: min-content;
       padding: 10px;
-      color: $headerBlack;
+      color: $homePageHeaderText;
       font-size: 16px;
       cursor: pointer;
 
@@ -211,6 +214,10 @@
         animation-fill-mode: both;
         animation-duration: 1s;
         animation-delay: 0.2s;
+
+        @include large {
+          padding: 0 120px;
+        }
       }
       h3 {
         font-size: 26px;
@@ -257,9 +264,6 @@
         }
         @include large {
           font-size: 20px;
-        }
-        @include extralarge {
-          font-size: 22px;
         }
       }
     }
