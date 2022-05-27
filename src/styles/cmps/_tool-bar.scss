@@ -1,14 +1,13 @@
 .toolbar-main-contianer{
     flex-direction: row;
-    // gap: 10px;
 }
 
 .toolbar-button-container{
-    // width: 89px;
     height: 32px;
     &:hover {
         background-color: #dcdfec;;
     }
+    padding: 0 5px 0 5px;
     margin-right: 6px;
     align-items: center;
     justify-content: center;
@@ -18,6 +17,14 @@
     padding-right: 12px;
     .new-task-spn{
         border-right: 0.5px solid darkgray;
-        padding-right: 5px;
+        padding: 0 5px 0 5px;
+    }
+}
+
+.new-task{
+    background-color: $headerAddtAsk;
+    color: $white;
+    &:hover{
+        background-color: $headerAddtAskHover;
     }
 }

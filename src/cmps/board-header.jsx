@@ -1,16 +1,16 @@
 import { ToolBar } from '../cmps/toolbar'
 
 import { MdOutlineTableChart } from 'react-icons/md'
-import { AiOutlineStar, AiOutlineStock } from 'react-icons/ai'
+import { AiOutlineStar, AiOutlineStock,AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = ({ members, title, activities }) => {
   return (
     <section className='board-header-main-container flex'>
       <div className="board-header-top flex">
-        <div className="flex">
+        <div className="center flex">
           <h1>{title}</h1>
-          
+          <span className="board-header-top-icon"><AiFillInfoCircle /></span>
           <span className="board-header-top-icon"><AiOutlineStar /></span>
         </div>
         
