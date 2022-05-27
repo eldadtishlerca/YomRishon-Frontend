@@ -1,20 +1,34 @@
 .group-header {
   position: relative;
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: start;
   height: 40px;
+  > * {
+    margin-right: 1px;
+    min-width: 145px;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: #676879;
+  }
  .group-modal-wrapper {
+  display: inline-block;
   position: absolute;
   left: -26px;
  }
  .group-title {
+   display: inline-block;
    padding-left: 2px;
    font-size: 18px;
    text-overflow: ellipsis;
    white-space: nowrap;
    overflow-x: hidden;
    min-width: 235px;
-    margin-right: 1px;
+   width: 100%;
+ }
+ .group-header-assignee {
+  min-width: 100px;
  }
 }

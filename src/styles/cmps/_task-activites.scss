@@ -2,8 +2,10 @@
  > * {
   display: flex;
   align-items: center;
-  margin-right: 1px;
   min-width: 145px;
+  margin-right: 1px;
+  background-color: #f5f6f8;
+  color: #323338;
  }
  .task-activities-assignee {
   display: flex;
