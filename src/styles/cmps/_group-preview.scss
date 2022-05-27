@@ -1,35 +1,3 @@
-.group-preview-wrapper{
-    // background: $mgreen;
-    margin: 18px;
-
-    .group-header-warpper{
-        // background: $mred;
-        display: flex;
-        align-items: center;
-
-        .group-modal-icon{
-            transition: 0.1s;
-            background-color: rgb(255, 100, 46);
-            padding: 1px;
-            color: $white;
-            border-radius: 50%;
-            font-size: 14px;
-            border: solid 1px rgb(255, 100, 46);
-            display: flex;
-            justify-content: center;
-            align-content: center;
-            cursor: pointer;
-
-            &:hover{
-                color: rgb(255, 100, 46);
-                background: transparent;
-            }
-        }
-
-        .group-title{
-            // background: $myellow;
-            font-size: 18px;
-            color: rgb(255, 100, 46);
-        }
-    }
+.group-preview{
+    padding-left: 30px;
 }

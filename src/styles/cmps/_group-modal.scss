@@ -1,0 +1,19 @@
+.group-modal {
+ width: 16px;
+ height: 16px;
+ border-radius: 1rem;
+ color: $white;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid transparent;
+ cursor: pointer;
+ transition: none;
+ svg {
+  font-size: 12px;
+  transition: none;
+ }
+ &:hover {
+ border: 1px solid #ccc;
+ }
+}

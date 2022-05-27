@@ -1,0 +1,19 @@
+.group-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 40px;
+ .group-modal-wrapper {
+  position: absolute;
+  left: -26px;
+ }
+ .group-title {
+   padding-left: 2px;
+   font-size: 18px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow-x: hidden;
+   min-width: 234px;
+ }
+}

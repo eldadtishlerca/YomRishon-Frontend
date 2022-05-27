@@ -110,25 +110,27 @@ const gBoards = [
     ],
     groups: [
       {
-        color: 'orange',
+        color: 'rgb(255 100 46)',
         id: 'g101',
         title: 'Design',
         tasks: [
           {
             id: 'c101',
             title: 'Loader animation',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+            ],
             status: 'working-on-it',
             priority: 'high',
             deadline: 1590999817436,
@@ -163,18 +165,20 @@ const gBoards = [
           {
             id: 'c102',
             title: 'Sort section',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u104',
-              username: 'Ori',
-              fullname: 'Ori Ben Amram',
-              imgUrl: 'imgs/mini-user-imgs/u104.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u104',
+                username: 'Ori',
+                fullname: 'Ori Ben Amram',
+                imgUrl: 'imgs/mini-user-imgs/u104.png',
+              },
+            ],
             status: 'Waiting for Dev',
             priority: 'Medium',
             deadline: 1591099817436,
@@ -209,18 +213,20 @@ const gBoards = [
           {
             id: 'c103',
             title: 'Footer component',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+            ],
             status: 'Working on it',
             priority: 'Medium',
             deadline: 1591099817436,
@@ -255,18 +261,20 @@ const gBoards = [
           {
             id: 'c105',
             title: 'Main section for users',
-            membersIds: [{
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            },
-            {
-              _id: 'u103',
-              username: 'Elon',
-              fullname: 'Elon Barzani',
-              imgUrl: 'imgs/mini-user-imgs/u103.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+              {
+                _id: 'u103',
+                username: 'Elon',
+                fullname: 'Elon Barzani',
+                imgUrl: 'imgs/mini-user-imgs/u103.png',
+              },
+            ],
             status: 'Waiting for Dev',
             priority: 'Low',
             deadline: 1592099817436,
@@ -290,31 +298,33 @@ const gBoards = [
         ],
       },
       {
-        color: 'purple',
+        color: 'rgb(120 75 209)',
         id: 'g102',
         title: 'Development',
         tasks: [
           {
             id: 'c106',
             title: 'Demo data',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            },
-            {
-              _id: 'u103',
-              username: 'Elon',
-              fullname: 'Elon Barzani',
-              imgUrl: 'imgs/mini-user-imgs/u103.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+              {
+                _id: 'u103',
+                username: 'Elon',
+                fullname: 'Elon Barzani',
+                imgUrl: 'imgs/mini-user-imgs/u103.png',
+              },
+            ],
             status: 'working-on-it',
             priority: 'high',
             deadline: 1590999817436,
@@ -354,8 +364,9 @@ const gBoards = [
                 _id: 'u102',
                 username: 'Yarden',
                 fullname: 'Yarden Shaul',
-                imgUrl: 'imgs/mini-user-imgs/u102.png'
-              }],
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+            ],
             status: 'working-on-it',
             priority: 'Low',
             deadline: 1590999807436,
@@ -379,18 +390,20 @@ const gBoards = [
           {
             id: 'c108',
             title: 'Buttons for user section',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+            ],
             status: 'Done',
             priority: 'Medium',
             deadline: 1590998807436,
@@ -412,7 +425,7 @@ const gBoards = [
             updates: [
               {
                 id: 'Ney5s6',
-                txt: 'Finaly it\'s done :))',
+                txt: "Finaly it's done :))",
                 createdAt: 1600999818436,
                 byMember: {
                   _id: 'u103',
@@ -425,18 +438,20 @@ const gBoards = [
           {
             id: 'c109',
             title: 'Filter users',
-            membersIds: [{
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png'
-            },
-            {
-              _id: 'u103',
-              username: 'Elon',
-              fullname: 'Elon Barzani',
-              imgUrl: 'imgs/mini-user-imgs/u103.png'
-            }],
+            membersIds: [
+              {
+                _id: 'u101',
+                username: 'Eldad',
+                fullname: 'Eldad Tishler',
+                imgUrl: 'imgs/mini-user-imgs/u101.png',
+              },
+              {
+                _id: 'u103',
+                username: 'Elon',
+                fullname: 'Elon Barzani',
+                imgUrl: 'imgs/mini-user-imgs/u103.png',
+              },
+            ],
             status: 'Waiting for QA',
             priority: 'high',
             deadline: 1590989817436,
@@ -460,7 +475,7 @@ const gBoards = [
         ],
       },
       {
-        color: 'pink',
+        color: 'rgb(226 68 92)',
         id: 'g103',
         title: 'Bugs',
         tasks: [
@@ -468,12 +483,13 @@ const gBoards = [
             id: 'c110',
             title: 'Form - signup not working',
             membersIds: [
-            {
-              _id: 'u103',
-              username: 'Elon',
-              fullname: 'Elon Barzani',
-              imgUrl: 'imgs/mini-user-imgs/u103.png'
-            }],
+              {
+                _id: 'u103',
+                username: 'Elon',
+                fullname: 'Elon Barzani',
+                imgUrl: 'imgs/mini-user-imgs/u103.png',
+              },
+            ],
             status: 'working-on-it',
             priority: 'Medium',
             deadline: 1600999817436,
@@ -498,12 +514,13 @@ const gBoards = [
             id: 'c111',
             title: 'Grid on mobile - sidebar out of screen',
             membersIds: [
-            {
-              _id: 'u102',
-              username: 'Yarden',
-              fullname: 'Yarden Shaul',
-              imgUrl: 'imgs/mini-user-imgs/u102.png'
-            }],
+              {
+                _id: 'u102',
+                username: 'Yarden',
+                fullname: 'Yarden Shaul',
+                imgUrl: 'imgs/mini-user-imgs/u102.png',
+              },
+            ],
             status: 'Waiting for QA',
             priority: 'High',
             deadline: 1591099717336,
@@ -558,7 +575,7 @@ const gBoards = [
               imgUrl: 'imgs/mini-user-imgs/u104.png',
             },
             updates: [],
-          }
+          },
         ],
       },
     ],
