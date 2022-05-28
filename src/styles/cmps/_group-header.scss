@@ -7,7 +7,6 @@
   height: 40px;
   > * {
     margin-right: 1px;
-    min-width: 145px;
     display: flex;
     justify-content: center;
     font-size: 14px;
@@ -30,5 +29,16 @@
  }
  .group-header-assignee {
   min-width: 100px;
+ }
+ .group-header-status,
+ .group-header-priority {
+  min-width: 145px;
+ }
+ .group-header-deadline,
+ .group-header-hours {
+  min-width: 125px;
+ }
+ .group-header-updated {
+  min-width: 170px;
  }
 }

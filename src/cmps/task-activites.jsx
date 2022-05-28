@@ -11,9 +11,20 @@ export const TaskActivites = ({
   const membersImgs =
     membersIds.length <= 2 ? membersIds.map((member) => member.imgUrl) : null
 
-  const setTime = () => {
+  const setDeadlineTime = () => {
+    const deadlineTime = new Date(deadline)
+    const year = deadlineTime.getFullYear()
+    const month = utilService.monthIdxToName(deadlineTime.getMonth())
+    const day = deadlineTime.getDate()
+
     const currTime = new Date()
-    const updatedTime = currTime - deadline
+    if (currTime.getFullYear() === year) return `${month} ${day}`
+    return `${month} ${day}, ${year}`
+  }
+
+  const setLastUpdateTime = () => {
+    const currTime = new Date()
+    const updatedTime = currTime - lastUpdated.updatedAt
     const getTime = utilService.msToUpdate(updatedTime)
     return getTime
   }
@@ -36,13 +47,14 @@ export const TaskActivites = ({
         <span>{priority}</span>
       </div>
       <div className="task-activities-deadline">
-        <span>{deadline}</span>
+        <span>{setDeadlineTime()}</span>
       </div>
       <div className="task-activities-hours">
         <span>{workHours} Hours</span>
       </div>
       <div className="task-activities-updated">
-        <span>{setTime()}</span>
+        <img src={lastUpdated.imgUrl} alt="" />
+        <span>{setLastUpdateTime()}</span>
       </div>
     </div>
   )
