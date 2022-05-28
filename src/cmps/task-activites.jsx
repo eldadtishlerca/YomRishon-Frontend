@@ -50,11 +50,17 @@ export const TaskActivites = ({
           Check
         </div>
       )}
-      <div className="task-activities-status">
-        <span>{status}</span>
+      <div
+        className="task-activities-status"
+        style={{ background: status.color }}
+      >
+        <span>{status.name}</span>
       </div>
-      <div className="task-activities-priority">
-        <span>{priority}</span>
+      <div
+        className="task-activities-priority"
+        style={{ background: priority.color }}
+      >
+        <span>{priority.name}</span>
       </div>
       <div
         className="task-activities-deadline"
