@@ -1,15 +1,21 @@
 import { ToolBar } from '../cmps/toolbar'
-
+import { useEffect, useRef, useState } from "react"
 import { MdOutlineTableChart } from 'react-icons/md'
 import { AiOutlineStar, AiOutlineStock,AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = ({ members, title, activities }) => {
+  
+  const onHandleChange = ({ target }) => {
+    const {value} = target
+    console.log(value);
+  }
+
   return (
     <section className='board-header-main-container flex'>
       <div className="board-header-top flex">
         <div className="center flex">
-          <input type="text" value={title} className="title"/>
+          <input type="text" value={title} className="title" onChange={(ev) => {onHandleChange(ev)}}/>
           <span className="board-header-top-icon"><AiFillInfoCircle /></span>
           <span className="board-header-top-icon"><AiOutlineStar /></span>
         </div>

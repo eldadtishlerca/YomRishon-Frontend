@@ -2,7 +2,7 @@ import gBoards from '../data/data.js'
 
 export const boardService = {
   query,
-  // getById,
+  // save,
   // remove,
   // save
 }
@@ -14,38 +14,38 @@ function query(boardId) {
   return Promise.resolve(board)
 }
 
-// function save(car, loggedinUser) {
-//     if (car._id) {
-//         const idx = gCars.findIndex(currCar => currCar._id === car._id)
-//         if (gCars[idx].owner._id !== loggedinUser._id) {
-//             return Promise.reject('Not your Car')
-//         }
-//         gCars[idx].price = car.price
-//     } else {
-//         car._id = utilService.makeId()
-//         car.createdAt = Date.now()
-//         gCars.push(car)
+// async function save(board) {
+//   var savedBoard
+//   if (board._id) {
+//       savedBoard = await storageService.put(STORAGE_KEY, board)
+//       // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
+      
+//   } else {
+//       // Later, owner is set by the backend
+//       // board.owner = userService.getLoggedinUser()
+//       savedBoard = await storageService.post(STORAGE_KEY, board)
+//       // boardChannel.postMessage(getActionAddBoard(savedBoard))
+//   }
+//   return savedBoard
+// }
+
+// function remove(boardId, loggedinUser) {
+//     const idx = gBoards.findIndex(board => board._id === boardId)
+//     if (!loggedinUser.isAdmin &&  gBoards[idx].owner._id !== loggedinUser._id) {
+//         return Promise.reject('Not your Board')
 //     }
-//     return _saveCarsToFile().then(() => car)
+//     gBoards.splice(idx, 1)
+//     return _saveBoardsToFile()
 // }
 
-// function remove(carId, loggedinUser) {
-//     const idx = gCars.findIndex(car => car._id === carId)
-//     if (!loggedinUser.isAdmin &&  gCars[idx].owner._id !== loggedinUser._id) {
-//         return Promise.reject('Not your Car')
-//     }
-//     gCars.splice(idx, 1)
-//     return _saveCarsToFile()
+// function getById(boardId) {
+//     const board = gBoards.find(board => board._id === boardId)
+//     return Promise.resolve(board)
 // }
 
-// function getById(carId) {
-//     const car = gCars.find(car => car._id === carId)
-//     return Promise.resolve(car)
-// }
-
-// function _saveCarsToFile() {
+// function _saveBoardsToFile() {
 //     return new Promise((resolve, reject) => {
-//         fs.writeFile('data/car.json', JSON.stringify(gCars, null, 2), (err) => {
+//         fs.writeFile('data/board.json', JSON.stringify(gBoards, null, 2), (err) => {
 //             if (err) {
 //                 console.log(err);
 //                 reject('Cannot write to file')

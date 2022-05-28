@@ -10,11 +10,20 @@ export function loadBoard(boardId) {
     } catch (err) {
       console.log('Cannot load board', err)
     }
-    // if (subscriber) boardService.unsubscribe(subscriber)
-    // subscriber = (ev) => {
-    //     console.log('Got notified', ev.data)
-    //     dispatch(ev.data)
-    // }
-    // boardService.subscribe(subscriber)
+  }
+}
+
+export function updateBoard(board) {
+  return (dispatch) => {
+      boardService.save(board)
+          .then(savedBoard => {
+              console.log('Updated Board:', savedBoard);
+              // dispatch(getActionUpdateBoard(savedBoard))
+              // showSuccessMsg('Board updated')
+          })
+          .catch(err => {
+              // showErrorMsg('Cannot update board')
+              console.log('Cannot save board', err)
+          })
   }
 }

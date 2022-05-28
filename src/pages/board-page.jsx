@@ -1,14 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BoardHeader } from '../cmps/board-header'
 import { BoardsModal } from '../cmps/boards-modal'
 import { BoardContent } from '../cmps/board-content'
 import { SideBar } from '../cmps/side-bar'
 import { loadBoard } from '../store/actions/board.actions'
+import { BoardsModalClosed } from '../cmps/boards-modal-closed'
 
 export const BoardPage = () => {
   const { board } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
+
+  const [showModal, SetShowModal] = useState(false)
+
+  const onOpenModal = () => {
+    SetShowModal(!showModal)
+  }
 
   useEffect(() => {
     dispatch(loadBoard())
@@ -20,8 +27,12 @@ export const BoardPage = () => {
 
   return (
     <div className="board-page flex">
-      <SideBar />
-      <BoardsModal />
+      <SideBar onClick={onOpenModal} />
+      {showModal ? (
+        <BoardsModal onClick={onOpenModal} />
+      ) : (
+        <BoardsModalClosed onClick={onOpenModal} />
+      )}
       <div className="boardSection">
         <BoardHeader members={members} title={title} activities={activities} />
         <BoardContent groups={groups} />

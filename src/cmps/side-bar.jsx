@@ -1,17 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-import { boardsModal } from './boards-modal'
 import { UserNotflication } from './user-notflication'
 import { UserWork } from './user-work'
 import { Search } from './search'
-import { FaClipboardList, FaRegStar } from 'react-icons/fa'
+import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
 
-export const SideBar = () => {
+export const SideBar = ({ onClick }) => {
   let nevigate = useNavigate()
-
-  const onToggleBoardModal = () => {
-    console.log('open board modal')
-  }
 
   const onToggleNotifications = () => {
     console.log('open notification')
@@ -39,7 +34,7 @@ export const SideBar = () => {
       <div
         className="board-icon-wrapper"
         onClick={() => {
-          onToggleBoardModal()
+          onClick()
         }}
       >
         <svg

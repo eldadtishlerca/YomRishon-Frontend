@@ -12,19 +12,19 @@ export const GroupHeader = ({ _id, color, title }) => {
       <div className="group-header-assignee">
         <span>Assignee</span>
       </div>
-      <div>
+      <div className="group-header-status">
         <span>Status</span>
       </div>
-      <div>
+      <div className="group-header-priority">
         <span>Priority</span>
       </div>
-      <div>
+      <div className="group-header-deadline">
         <span>Deadline</span>
       </div>
-      <div>
+      <div className="group-header-hours">
         <span>Working Hours</span>
       </div>
-      <div>
+      <div className="group-header-updated">
         <span>Last Updated</span>
       </div>
     </div>

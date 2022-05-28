@@ -4,6 +4,7 @@ export const utilService = {
   getRandomIntInclusive,
   delay,
   msToUpdate,
+  monthIdxToName,
 }
 
 function makeId(length = 6) {
@@ -77,12 +78,10 @@ function msToUpdate(duration) {
   if (duration < 1000 * 60) return 'Just now'
   if (duration < 1000 * 60 * 60) {
     var minutes = Math.floor((duration / (1000 * 60)) % 60)
-    minutes = minutes < 10 ? '0' + minutes : minutes
     return `${minutes} minutes ago`
   }
   if (duration < 1000 * 60 * 60 * 24) {
     var hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
-    hours = hours < 10 ? '0' + hours : hours
     return `${hours} hours ago`
   }
   if (duration < 1000 * 60 * 60 * 24 * 365) {
@@ -91,4 +90,23 @@ function msToUpdate(duration) {
   }
   var years = Math.floor(duration / (1000 * 60 * 60 * 24 * 365))
   return `${years} years ago`
+}
+
+function monthIdxToName(idx) {
+  const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+
+  return monthNames[idx]
 }

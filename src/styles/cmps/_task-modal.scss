@@ -1,0 +1,16 @@
+.task-modal {
+ position: absolute;
+ background-color: #d0d4e4;
+ width: 16px;
+ height: 16px;
+ border-radius: 0.25rem;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ left: -25px;
+ top: 9px;
+ svg {
+  font-size: 12px;
+  transition: none;
+ }
+}
