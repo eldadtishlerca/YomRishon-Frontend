@@ -4,6 +4,7 @@
   min-height: 100vh;
 
   .get-started-btn {
+    transition: 1.5s;
     margin: 18px;
     font-size: 16px;
     background: $lblue;
@@ -24,7 +25,7 @@
     &:hover {
       background-image: linear-gradient(90deg, #432cd5 25.69%, #9797d5 100%);
       span {
-        transform: translateX(10px);
+        transform: translateX(8px);
       }
     }
 
@@ -215,12 +216,22 @@
         animation-duration: 1s;
         animation-delay: 0.2s;
 
+        @include small {
+          font-size: 52px;
+          padding: 0 100px;
+        }
+        @include medium {
+          font-size: 68px;
+          padding: 0 100px;
+        }
         @include large {
+          font-size: 72px;
           padding: 0 120px;
         }
       }
       h3 {
-        font-size: 26px;
+        font-weight: 200;
+        font-size: 24px;
         padding: 16px;
         animation-name: fade-in;
         animation-fill-mode: both;
@@ -236,6 +247,11 @@
         animation-delay: 0.8s;
 
         .get-started-btn {
+          padding: 15px 120px;
+
+          @include medium {
+            padding: 15px 40px;
+          }
           span {
             animation-name: move-right;
             animation-duration: 1.6s;
@@ -243,13 +259,14 @@
           }
           &:hover {
             span {
-              transform: translateX(18px);
+              transform: translateX(12px);
             }
           }
         }
       }
       p {
         font-size: 14px;
+        font-weight: normal;
         margin-top: 10px;
         animation-name: fade-in;
         animation-fill-mode: both;
