@@ -3,6 +3,7 @@ import { BoardPage } from './pages/board-page'
 import { UserProfile } from './pages/user-profile-page'
 import { LoginSignUpPage } from './pages/login-signup-page'
 import { ErrorPage } from './pages/error-page'
+import { TaskDetails } from './cmps/task-details'
 
 
 const routes = [
@@ -15,6 +16,10 @@ const routes = [
     path: '/board',
     component: <BoardPage />,
     label: 'Board',
+  },
+  {
+    path: '/board/g101/c101',
+    component: <TaskDetails />,
   },
   {
     path: '/user/:userId',

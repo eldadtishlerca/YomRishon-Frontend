@@ -24,7 +24,7 @@ export const HomePage = () => {
           <button
             className="get-started-btn"
             onClick={() => {
-              navigate('/loginsignup')
+              navigate('/board')
             }}
           >
             Get Started <span><FaArrowRight /></span>
@@ -44,7 +44,7 @@ export const HomePage = () => {
         </section>
         <div className="hero">
           <h1>A platform built for a new way of working</h1>
-          <h3>Manage your work with powerful tools</h3>
+          <h3>Manage your workflow with powerful tools</h3>
           <div className="hero-btn-wrapper">
             <button
               className="get-started-btn"

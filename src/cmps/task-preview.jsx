@@ -7,9 +7,8 @@ import {
 import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
-import { TaskDetails } from './task-details'
 
-export const TaskPreview = ({ task, color }) => {
+export const TaskPreview = ({ task, color, groupId }) => {
   const {
     id,
     title,
@@ -25,7 +24,7 @@ export const TaskPreview = ({ task, color }) => {
   let nevigate = useNavigate()
 
   const onOpenTask = () => {
-    nevigate('/:groupId/:taskId')
+    nevigate(`${groupId}/${id}`)
   }
 
   return (
@@ -40,9 +39,6 @@ export const TaskPreview = ({ task, color }) => {
         workHours={workHours}
         lastUpdated={lastUpdated}
       />
-      <Routes>
-        <Route path="/:groupId/:taskId" component={<TaskDetails />} />
-      </Routes>
     </div>
   )
 }

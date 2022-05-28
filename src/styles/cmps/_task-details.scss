@@ -1,0 +1,147 @@
+.task-details-warpper {
+  background: $modalBlue;
+  box-sizing: border-box;
+  min-height: 100vh;
+  overflow-y: hidden;
+  color: $taskModalText;
+  transition: 0.1s;
+
+  .task-details-header {
+    margin: 18px;
+
+    .close-modal-btn {
+      border: none;
+      background: transparent;
+      color: $modalTxtBlack;
+      font-size: 18px;
+      padding: 1px 4px;
+      border-radius: 5px;
+      font-weight: normal;
+
+      &:hover {
+        color: $greyboard;
+        background-color: #d5d8df56;
+      }
+    }
+
+    .upper-task-details-header {
+      display: flex;
+      margin-top: 4px;
+      margin-bottom: 12px;
+      padding: 2px 0px;
+      justify-content: space-between;
+
+      .task-name-input {
+        background: transparent;
+        border: none;
+        color: $taskModalText;
+        width: 65%;
+        margin-right: 4px;
+        box-sizing: border-box;
+        padding: 2px;
+
+        &::placeholder {
+          color: $taskModalText;
+          font-size: 18px;
+          padding: 2px;
+          font-weight: bolder;
+        }
+
+        &:hover {
+          transition: none;
+          border: 1px solid $headerDarkGrey;
+        }
+      }
+
+      .header-options-container {
+        display: flex;
+        flex-direction: row;
+        width: 100px;
+        right: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-content: center;
+
+        .invite-members {
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background-color: #d5d8df56;
+          }
+        }
+
+        .task-details-options {
+          background: transparent;
+          border: none;
+          color: $taskModalText;
+          font-size: 22px;
+          cursor: pointer;
+          box-sizing: border-box;
+          padding: 1px 4px;
+          border-radius: 5px;
+          &:hover {
+            background-color: #d5d8df56;
+          }
+        }
+      }
+    }
+
+    .task-detail-header-nav {
+      display: flex;
+      flex-direction: row;
+      padding: 0px 8px 6px;
+      height: 28px;
+      justify-items: center;
+      align-items: center;
+      border-bottom: solid 1px #d5d8df56;
+
+      button {
+        cursor: pointer;
+        background: transparent;
+        color: $taskModalText;
+        border: none;
+        font-size: 14px;
+        margin-right: 18px;
+        margin-bottom: 4px;
+        padding: 12px;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: #d5d8df56;
+        }
+      }
+    }
+  }
+  .task-details-main {
+    display: flex;
+    flex-direction: column;
+    margin: 18px;
+
+
+    .add-task-update-input{
+        background: transparent;
+        border: 1px solid #a25ddc ;
+        padding: 12px 18px;
+        border-radius: 7px;
+
+        &::placeholder{
+            font-size: 16px;
+            color: $taskModalText;
+        }
+    }
+
+    .write-email-link{
+        text-align: right;
+        padding-top: 8px;
+        right: 100%;
+        width: 100%;
+        font-size: 14px;
+        color: #b3b6c6;
+        cursor: pointer;
+
+        &:hover{
+            color: #0060b9;
+        }
+    }
+  }
+}
