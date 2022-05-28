@@ -2,6 +2,11 @@ const gBoards = [
   {
     _id: 'b101',
     title: 'Yom Rishon',
+    labels: [
+      { name: 'working on it', color: 'red' },
+      { name: 'done', color: 'green' },
+    ],
+    priority: [{ name: 'High', color: 'red' }],
     archivedAt: 1589983468418,
     createdAt: 1589983468418,
     createdBy: {
@@ -131,8 +136,8 @@ const gBoards = [
                 imgUrl: 'imgs/mini-user-imgs/u102.png',
               },
             ],
-            status: 'working-on-it',
-            priority: 'high',
+            label: { name: 'working on it', color: 'red' },
+            priority: { name: 'done', color: 'green' },
             deadline: 1653721491433,
             workHours: 5,
             isChecked: false,
