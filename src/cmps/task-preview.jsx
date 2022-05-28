@@ -1,9 +1,3 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from 'react-router-dom'
 import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
@@ -14,6 +8,7 @@ export const TaskPreview = ({ task, groupColor, groupId }) => {
   const [background, setBackground] = useState('#f5f6f8')
   const [innerColor, setInnerColor] = useState('#666666')
   const [hover, setHover] = useState(false)
+  const [showModal, SetShowModal] = useState(false)
 
   const {
     id,
@@ -27,27 +22,27 @@ export const TaskPreview = ({ task, groupColor, groupId }) => {
     updates,
   } = task
 
-  let nevigate = useNavigate()
 
-  const onOpenTask = () => {
-    nevigate(`${groupId}/${id}`)
+  const onOpenModal = () => {
+    SetShowModal(!showModal)
   }
 
   return (
     <div
-      className="task-preview flex"
-      onClick={() => onOpenTask()}
-      onMouseEnter={() => {
-        setBackground('#E6E9EF')
-        setInnerColor('#1f76c2')
-        setHover(true)
-      }}
-      onMouseLeave={() => {
-        setBackground('#f5f6f8')
-        setInnerColor('#666666')
-        setHover(false)
-      }}
+    className="task-preview flex"
+    onClick={() => onOpenModal()}
+    onMouseEnter={() => {
+      setBackground('#E6E9EF')
+      setInnerColor('#1f76c2')
+      setHover(true)
+    }}
+    onMouseLeave={() => {
+      setBackground('#f5f6f8')
+      setInnerColor('#666666')
+      setHover(false)
+    }}
     >
+      {showModal && <TaskDetails task={task} SetShowModal={SetShowModal} />}
       {hover && <TaskModal id={id} />}
       <TaskTitle
         groupColor={groupColor}
