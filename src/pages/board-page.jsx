@@ -6,15 +6,20 @@ import { BoardContent } from '../cmps/board-content'
 import { SideBar } from '../cmps/side-bar'
 import { loadBoard } from '../store/actions/board.actions'
 import { BoardsModalClosed } from '../cmps/boards-modal-closed'
+import { BoardNotifications } from '../cmps/board-nortifications'
 
 export const BoardPage = () => {
   const { board } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
 
   const [showModal, SetShowModal] = useState(false)
+  const [showNotifications, SetShowNotifications] = useState(false)
 
   const onOpenModal = () => {
     SetShowModal(!showModal)
+  }
+  const onOpenNortification = () => {
+    SetShowNotifications(!showNotifications)
   }
 
   useEffect(() => {
@@ -27,7 +32,10 @@ export const BoardPage = () => {
 
   return (
     <div className="board-page flex">
-      <SideBar onClick={onOpenModal} />
+      <SideBar onClick={onOpenModal} onOpenNortification={onOpenNortification} />
+      {/* <BoardNotifications /> */}
+      {showNotifications && <BoardNotifications />}
+      
       {showModal ? (
         <BoardsModal onClick={onOpenModal} />
       ) : (
