@@ -7,6 +7,8 @@ export const TaskActivites = ({
   deadline,
   workHours,
   lastUpdated,
+  background,
+  innerColor,
 }) => {
   const membersImgs =
     membersIds.length <= 2 ? membersIds.map((member) => member.imgUrl) : null
@@ -32,13 +34,21 @@ export const TaskActivites = ({
   return (
     <div className="task-activities flex">
       {membersImgs ? (
-        <div className="task-activities-assignee">
+        <div
+          className="task-activities-assignee"
+          style={{ background: background }}
+        >
           {membersImgs.map((url) => (
             <img key={url} src={url} alt="" />
           ))}
         </div>
       ) : (
-        <div className="task-activities-assignee">Check</div>
+        <div
+          className="task-activities-assignee"
+          style={{ background: background }}
+        >
+          Check
+        </div>
       )}
       <div className="task-activities-status">
         <span>{status}</span>
@@ -46,13 +56,22 @@ export const TaskActivites = ({
       <div className="task-activities-priority">
         <span>{priority}</span>
       </div>
-      <div className="task-activities-deadline">
+      <div
+        className="task-activities-deadline"
+        style={{ background: background, color: innerColor }}
+      >
         <span>{setDeadlineTime()}</span>
       </div>
-      <div className="task-activities-hours">
+      <div
+        className="task-activities-hours"
+        style={{ background: background, color: innerColor }}
+      >
         <span>{workHours} Hours</span>
       </div>
-      <div className="task-activities-updated">
+      <div
+        className="task-activities-updated"
+        style={{ background: background, color: innerColor }}
+      >
         <img src={lastUpdated.imgUrl} alt="" />
         <span>{setLastUpdateTime()}</span>
       </div>

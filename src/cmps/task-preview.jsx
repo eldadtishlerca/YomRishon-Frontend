@@ -8,8 +8,14 @@ import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
 import { TaskDetails } from './task-details'
+import { useState } from 'react'
 
-export const TaskPreview = ({ task, color }) => {
+export const TaskPreview = ({ task, groupColor }) => {
+  const [background, setBackground] = useState('#f5f6f8')
+  const [innerColor, setInnerColor] = useState('#666666')
+
+  console.log(background, innerColor)
+
   const {
     id,
     title,
@@ -29,9 +35,26 @@ export const TaskPreview = ({ task, color }) => {
   }
 
   return (
-    <div className="task-preview flex" onClick={() => onOpenTask()}>
+    <div
+      className="task-preview flex"
+      onClick={() => onOpenTask()}
+      onMouseEnter={() => {
+        setBackground('#E6E9EF')
+        setInnerColor('#1f76c2')
+      }}
+      onMouseLeave={() => {
+        setBackground('#f5f6f8')
+        setInnerColor('#666666')
+      }}
+    >
       <TaskModal id={id} />
-      <TaskTitle color={color} title={title} counter={updates.length} />
+      <TaskTitle
+        groupColor={groupColor}
+        title={title}
+        counter={updates.length}
+        background={background}
+        innerColor={innerColor}
+      />
       <TaskActivites
         membersIds={membersIds}
         status={status}
@@ -39,6 +62,8 @@ export const TaskPreview = ({ task, color }) => {
         deadline={deadline}
         workHours={workHours}
         lastUpdated={lastUpdated}
+        background={background}
+        innerColor={innerColor}
       />
       <Routes>
         <Route path="/:groupId/:taskId" component={<TaskDetails />} />
