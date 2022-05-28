@@ -1,0 +1,21 @@
+.boards-modal-closed {
+ min-width: 29px;
+ height: 100%;
+ background: #F6F7FB;
+ border-right: 2px solid $greyboard;
+ position: relative;
+ div {
+  position: absolute;
+  right: -14px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  color: #323338;
+  border: 1px solid #d0d4e4;
+  border-radius: 1.25rem;
+ }
+}

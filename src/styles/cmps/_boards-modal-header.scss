@@ -1,6 +1,21 @@
 .boards-modal-header {
  margin: 12px 16px;
  border-bottom: 2px solid $greyboard;
+ position: relative;
+ .boards-modal-closed-btn {
+  position: absolute;
+  right: -32px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  color: #323338;
+  border: 1px solid #d0d4e4;
+  border-radius: 1.25rem;
+ }
  p {
   font-size: 14px;
   margin-bottom: 10px;

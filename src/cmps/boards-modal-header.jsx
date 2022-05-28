@@ -1,8 +1,16 @@
-import { AiFillHome, AiOutlinePlus, AiOutlineSearch } from 'react-icons/ai'
+import {
+  AiFillHome,
+  AiOutlinePlus,
+  AiOutlineRight,
+  AiOutlineSearch,
+} from 'react-icons/ai'
 
-export const BoardsModalHeader = () => {
+export const BoardsModalHeader = ({ onClick }) => {
   return (
     <div className="boards-modal-header">
+      <div className="boards-modal-closed-btn" onClick={() => onClick()}>
+        <AiOutlineRight />
+      </div>
       <p>Workspace</p>
       <div className="workspace-btn">
         <span>M</span>

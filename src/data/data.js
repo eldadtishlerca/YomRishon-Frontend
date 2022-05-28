@@ -205,7 +205,7 @@ const gBoards = [
               _id: 'u104',
               fullname: 'Ori Ben Amram',
               imgUrl: 'imgs/mini-user-imgs/u104.png',
-              updatedAt: '1591099806436',
+              updatedAt: '1653742683908',
             },
             createdAt: 1590998530348,
             byMember: {
@@ -253,7 +253,7 @@ const gBoards = [
               _id: 'u101',
               fullname: 'Eldad Tishler',
               imgUrl: 'imgs/mini-user-imgs/u101.png',
-              updatedAt: '1591099807536',
+              updatedAt: '1653342383908',
             },
             createdAt: 1590998530448,
             byMember: {
