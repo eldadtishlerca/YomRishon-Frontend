@@ -13,6 +13,7 @@ import { useState } from 'react'
 export const TaskPreview = ({ task, groupColor }) => {
   const [background, setBackground] = useState('#f5f6f8')
   const [innerColor, setInnerColor] = useState('#666666')
+  const [hover, setHover] = useState(false)
 
   console.log(background, innerColor)
 
@@ -41,13 +42,15 @@ export const TaskPreview = ({ task, groupColor }) => {
       onMouseEnter={() => {
         setBackground('#E6E9EF')
         setInnerColor('#1f76c2')
+        setHover(true)
       }}
       onMouseLeave={() => {
         setBackground('#f5f6f8')
         setInnerColor('#666666')
+        setHover(false)
       }}
     >
-      <TaskModal id={id} />
+      {hover && <TaskModal id={id} />}
       <TaskTitle
         groupColor={groupColor}
         title={title}
