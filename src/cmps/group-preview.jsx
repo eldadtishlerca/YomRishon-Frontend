@@ -4,7 +4,7 @@ import { GroupFooter } from './group-footer'
 import { NewTask } from './new-task'
 
 export const GroupPreview = ({ group }) => {
-  const { id, color, title, tasks } = group
+  const { _id, color, title, tasks } = group
 
   return (
     <div className="group-preview">

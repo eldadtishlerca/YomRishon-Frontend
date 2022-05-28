@@ -10,7 +10,7 @@ import { TaskActivites } from './task-activites'
 import { TaskDetails } from './task-details'
 import { useState } from 'react'
 
-export const TaskPreview = ({ task, groupColor }) => {
+export const TaskPreview = ({ task, groupColor, groupId }) => {
   const [background, setBackground] = useState('#f5f6f8')
   const [innerColor, setInnerColor] = useState('#666666')
   const [hover, setHover] = useState(false)
