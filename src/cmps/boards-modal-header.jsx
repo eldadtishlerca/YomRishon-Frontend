@@ -1,7 +1,7 @@
 import {
   AiFillHome,
+  AiOutlineLeft,
   AiOutlinePlus,
-  AiOutlineRight,
   AiOutlineSearch,
 } from 'react-icons/ai'
 
@@ -9,7 +9,7 @@ export const BoardsModalHeader = ({ onClick }) => {
   return (
     <div className="boards-modal-header">
       <div className="boards-modal-closed-btn" onClick={() => onClick()}>
-        <AiOutlineRight />
+        <AiOutlineLeft />
       </div>
       <p>Workspace</p>
       <div className="workspace-btn">

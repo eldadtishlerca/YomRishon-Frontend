@@ -128,6 +128,7 @@ const gBoards = [
     groups: [
       {
         color: 'rgb(255 100 46)',
+        hoverColor: '#FFB297',
         id: 'g101',
         title: 'Design',
         tasks: [
