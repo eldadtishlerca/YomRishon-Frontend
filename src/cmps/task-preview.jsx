@@ -15,8 +15,6 @@ export const TaskPreview = ({ task, groupColor }) => {
   const [innerColor, setInnerColor] = useState('#666666')
   const [hover, setHover] = useState(false)
 
-  console.log(background, innerColor)
-
   const {
     id,
     title,
