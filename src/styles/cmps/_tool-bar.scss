@@ -10,21 +10,30 @@
     padding: 0 5px 0 5px;
     margin-right: 6px;
     align-items: center;
-    justify-content: center;
     gap: 5px;
     cursor: pointer;
     border-radius: 4px;
-    padding-right: 12px;
+    
     .new-task-spn{
-        border-right: 0.5px solid darkgray;
-        padding: 0 5px 0 5px;
+        padding:0 5px 0 5px; 
+        text-align: center;
+        padding-top: 0; 
     }
+
 }
 
 .new-task{
     background-color: $headerAddtAsk;
     color: $white;
+    justify-content: space-between;
     &:hover{
         background-color: $headerAddtAskHover;
+    }
+    .new-task-spn-icon{
+        border-left: 0.5px solid $headerDarkGrey;
+        padding-left: 5px;
+        padding-top: 5px;
+        align-items: center;
+        font-size: 21px;
     }
 }

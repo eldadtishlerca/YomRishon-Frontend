@@ -11,17 +11,26 @@
 
 .board-header-top{
     justify-content: space-between;
-    align-items: center; 
-    .board-header-top-icon{
+    align-items: center;
+    .title{
+        color: $headerBlack;
+    }
+    .board-header-top-icon-container{
         align-items: center; 
+        vertical-align: middle;
         font-size: 20px;
         padding: 5px;
-        margin-left: 5px;
+        // margin-left: 5px;
         cursor: pointer;
         border-radius: 4px;
         color: $headerDarkGrey;
         &:hover {
             background-color: #dcdfec;;
+        }
+        .board-header-top-icon{
+            display: inline-block;
+            vertical-align: middle;
+            padding-bottom: 2px;
         }
     }
     .title{
@@ -58,7 +67,7 @@
 }
 
 .board-header-bottom{
-    border-bottom: 0.5px solid darkgray;
+    border-bottom: 1.5px solid $headerBorder;
 }
 
 .board-header-bottom-upper{
@@ -91,7 +100,8 @@
 }
 
 .add-to-board{
-    border: 1px solid $headerDarkGrey;
+    border: 1px solid #c3c6d4;
+    width: 114px;
 }
 
 .members{

@@ -14,10 +14,10 @@ export const BoardHeader = ({ members, title, activities }) => {
   return (
     <section className='board-header-main-container flex'>
       <div className="board-header-top flex">
-        <div className="center flex">
+        <div className="board-header-top-main flex center flex">
           <input type="text" value={title} className="title" onChange={(ev) => {onHandleChange(ev)}}/>
-          <span className="board-header-top-icon"><AiFillInfoCircle /></span>
-          <span className="board-header-top-icon"><AiOutlineStar /></span>
+          <span className="board-header-top-icon-container"><AiFillInfoCircle className="board-header-top-icon"/></span>
+          <span className="board-header-top-icon-container"><AiOutlineStar className="board-header-top-icon"/></span>
         </div>
         
         <div className="board-header-top-main flex">
