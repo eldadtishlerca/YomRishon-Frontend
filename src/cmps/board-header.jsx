@@ -9,7 +9,6 @@ export const BoardHeader = ({ members, title, activities }) => {
   const onHandleChange = ({ target }) => {
     const {value} = target
     console.log(value);
-
   }
 
   return (
