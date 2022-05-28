@@ -54,7 +54,7 @@ export const HomePage = () => {
             >
               Get Started <span><FaArrowRight /></span>
             </button>
-            <p>No credit card needed  ⌖   Unlimted time on Free plan</p>
+            <p>No credit card needed &nbsp; ⌖ &nbsp; Unlimted time on Free plan</p>
           </div>
         </div>
       </main>
