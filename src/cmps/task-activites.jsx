@@ -9,6 +9,7 @@ export const TaskActivites = ({
   lastUpdated,
   background,
   innerColor,
+  isHover,
 }) => {
   const membersImgs =
     membersIds.length <= 2 ? membersIds.map((member) => member.imgUrl) : null
@@ -29,6 +30,15 @@ export const TaskActivites = ({
     const updatedTime = currTime - lastUpdated.updatedAt
     const getTime = utilService.msToUpdate(updatedTime)
     return getTime
+  }
+
+  const bgHoverStatus = () => {
+    const setStatusColor = isHover ? status.hover : status.color
+    return setStatusColor
+  }
+  const bgHoverPriority = () => {
+    const setPriorityColor = isHover ? priority.hover : priority.color
+    return setPriorityColor
   }
 
   return (
@@ -52,13 +62,13 @@ export const TaskActivites = ({
       )}
       <div
         className="task-activities-status"
-        style={{ background: status.color }}
+        style={{ background: bgHoverStatus() }}
       >
         <span>{status.name}</span>
       </div>
       <div
         className="task-activities-priority"
-        style={{ background: priority.color }}
+        style={{ background: bgHoverPriority() }}
       >
         <span>{priority.name}</span>
       </div>

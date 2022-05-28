@@ -17,8 +17,6 @@ export const GroupFooter = ({ tasks }) => {
       return 0
     })
 
-    console.log(Date.now())
-
     return sortStatus
   }
 
@@ -33,7 +31,6 @@ export const GroupFooter = ({ tasks }) => {
       }
       return 0
     })
-    console.log(priorityArr)
     return priorityArr
   }
 
