@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-export const NewTask = ({ color }) => {
+export const NewTask = ({ color, hoverColor }) => {
   const [borderColor, setBorderColor] = useState('transparent')
   const [borderStyle, setBorderStyle] = useState('solid')
   const [borderWidth, setBorderWidth] = useState('1px')
-  const [leftColor, setLeftColor] = useState('#ccc')
+  const [leftColor, setLeftColor] = useState(hoverColor)
 
   return (
     <div className="add-task flex">
@@ -20,7 +20,7 @@ export const NewTask = ({ color }) => {
           setBorderColor('transparent')
           setBorderStyle('solid')
           setBorderWidth('1px')
-          setLeftColor('#ccc')
+          setLeftColor(hoverColor)
         }}
         className="add-task-wrapper"
         style={{

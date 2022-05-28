@@ -65,6 +65,7 @@ export const TaskPreview = ({ task, groupColor, groupId }) => {
         lastUpdated={lastUpdated}
         background={background}
         innerColor={innerColor}
+        isHover={hover}
       />
     </div>
   )
