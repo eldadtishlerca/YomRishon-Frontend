@@ -5,7 +5,6 @@ import { LoginSignUpPage } from './pages/login-signup-page'
 import { ErrorPage } from './pages/error-page'
 import { TaskDetails } from './cmps/task-details'
 
-
 const routes = [
   {
     path: '/',
@@ -13,12 +12,12 @@ const routes = [
     label: 'Home',
   },
   {
-    path: '/board',
+    path: '/:boardId',
     component: <BoardPage />,
     label: 'Board',
   },
   {
-    path: '/board/g101/c101',
+    path: '/:boardId/g101/c101',
     component: <TaskDetails />,
   },
   {

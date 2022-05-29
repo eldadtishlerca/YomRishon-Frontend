@@ -28,7 +28,7 @@ export const BoardPage = () => {
 
   if (board.length === 0) return <div>Loading..</div>
 
-  const { title, members, activities, groups, cmpsOrder } = board
+  const { title, members, activities, groups, cmpsOrder } = board[0]
 
   return (
     <div className="board-page flex">

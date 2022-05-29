@@ -27,7 +27,7 @@ export const HomePage = () => {
           <button
             className="get-started-btn"
             onClick={() => {
-              navigate('/board')
+              navigate('/vmPrT')
             }}
           >
             Get Started{' '}
@@ -55,7 +55,7 @@ export const HomePage = () => {
             <button
               className="get-started-btn"
               onClick={() => {
-                navigate('/board')
+                navigate('/vmPrT')
               }}
             >
               Get Started{' '}

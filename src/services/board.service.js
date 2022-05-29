@@ -1,4 +1,7 @@
-import gBoards from '../data/data.js'
+import { storageService } from './async-storage.service'
+// import gBoards from '../data/data'
+
+const STORAGE_KEY = 'board'
 
 export const boardService = {
   query,
@@ -8,10 +11,7 @@ export const boardService = {
 }
 
 function query(boardId) {
-  // When have more boards
-  // var board = gBoards.filter((board) => board._id === boardId)
-  var board = gBoards[0]
-  return Promise.resolve(board)
+  return storageService.query(STORAGE_KEY, boardId)
 }
 
 // async function save(board) {
@@ -19,7 +19,7 @@ function query(boardId) {
 //   if (board._id) {
 //       savedBoard = await storageService.put(STORAGE_KEY, board)
 //       // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
-      
+
 //   } else {
 //       // Later, owner is set by the backend
 //       // board.owner = userService.getLoggedinUser()
@@ -56,3 +56,5 @@ function query(boardId) {
 //         })
 //     })
 // }
+
+// storageService.post(STORAGE_KEY, gBoards[0])
