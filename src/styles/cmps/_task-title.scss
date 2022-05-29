@@ -23,13 +23,18 @@
    font-size: 13px;
   }
  }
- svg {
-  position: absolute;
-  right: 16px;
-  font-size: 22px;
- }
- > *:last-child {
-  font-size: 12px;
-  right: 21px;
+ .task-title-btns {
+  svg {
+   position: absolute;
+   right: 16px;
+   font-size: 22px;
+   top: 6px;
+   transition: none;
+  }
+  > *:last-child {
+   font-size: 12px;
+   right: 21px;
+   top: 11px;
+  }
  }
 }
