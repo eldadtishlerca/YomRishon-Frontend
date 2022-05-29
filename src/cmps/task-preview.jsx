@@ -4,7 +4,13 @@ import { TaskActivites } from './task-activites'
 import { TaskDetails } from './task-details'
 import { useState } from 'react'
 
-export const TaskPreview = ({ task, groupColor, groupId }) => {
+export const TaskPreview = ({
+  task,
+  groupColor,
+  groupId,
+  provided,
+  snapchat,
+}) => {
   const [background, setBackground] = useState('#f5f6f8')
   const [innerColor, setInnerColor] = useState('#666666')
   const [hover, setHover] = useState(false)
@@ -28,6 +34,9 @@ export const TaskPreview = ({ task, groupColor, groupId }) => {
 
   return (
     <div
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
       className="task-preview flex"
       onClick={() => onOpenModal()}
       onMouseEnter={() => {
