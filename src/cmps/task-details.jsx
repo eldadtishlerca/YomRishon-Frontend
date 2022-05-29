@@ -58,7 +58,8 @@ export const TaskDetails = ({ SetShowModal, task }) => {
                 return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
-                      <h3>By: {update.byMember.fullname}</h3>
+                      <img src={update.byMember.imgUrl}/> &nbsp; &nbsp;
+                      <h2 className='user-name'>{update.byMember.fullname}</h2>
                     </div>
                     <div className="update-txt">
                       <p>{update.txt}</p>
