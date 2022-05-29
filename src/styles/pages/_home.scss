@@ -2,7 +2,9 @@
   background: $deepblue;
   color: $white;
   min-height: 100vh;
-
+  .homepage-logo-wrapper {
+    margin-top: 6px;
+  }
   .get-started-btn {
     transition: 1.5s;
     margin: 18px;
@@ -70,6 +72,7 @@
 
     .get-started-btn {
       display: none;
+      margin: 18px 0 18px 18px;
 
       @include medium {
         display: inline-block;
@@ -247,7 +250,7 @@
         animation-delay: 0.8s;
 
         .get-started-btn {
-          padding: 15px 120px;
+          padding: 15px 114px;
 
           @include medium {
             padding: 15px 40px;
