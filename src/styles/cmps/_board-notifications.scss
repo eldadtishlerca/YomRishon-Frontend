@@ -77,12 +77,29 @@
 }
 .nortification-container{
     padding: 8px 16px;
-    // width: 100%;
+    font-size: 14px;
+    min-height: 112px;
+    color:$headerBlack;
+    font-family: roboto;
+    width: 575px;
     flex-direction: column;
+    .unread{background-color: #CCE5FF;}
+    .read{background-color: white;}
     .nortification-item{
-        background-color: #CCE5FF;
         padding: 16px 8px;
         border-radius: 8px;
         margin: 2px ;
+        flex-direction: column;
+        gap: 10px;
+        &:hover{
+            background-color: #CCE5FF;
+            cursor: pointer;
+        }
+        .nortification-title-container{
+            gap: 10px;
+        }
     }
+}
+.nortification-title-action{
+    color:$NotificationsnavItem
 }
