@@ -18,7 +18,7 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
   }
 
     return (
-      <section className="board-notifications-main">
+      <section className="board-notifications-main slideInLeft">
         <div className="board-notifications-header flex">
           <div className="board-notifications-header-buttons flex">
             <span className="menu-button flex"><BsThreeDots /></span>
