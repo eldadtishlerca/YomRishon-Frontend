@@ -1,0 +1,113 @@
+.login-page {
+  background: $white;
+  min-height: 100vh;
+
+  .login-header {
+    background: $headerBackgroundColor;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+    box-sizing: border-box;
+    padding: 0 24px;
+
+    .login-logo-wrapper {
+      margin-top: 6px;
+
+      .logo {
+        cursor: default;
+      }
+    }
+
+    .home-btn-warpper {
+      position: relative;
+      width: 46px;
+      height: 46px;
+
+      &:hover {
+        background: #f0f3ff;
+        color: $lblue;
+      }
+
+      .home-btn {
+        cursor: pointer;
+        color: $homePageHeaderText;
+        font-size: 24px;
+        background: transparent;
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: 6px;
+      }
+    }
+
+    @include small {
+      padding: 0 36px;
+    }
+    @include medium {
+      padding: 0 40px;
+    }
+    @include large {
+      padding: 0 120px;
+    }
+  }
+
+  .login-main {
+    color: $homePageHeaderText;
+    margin-top: 80px;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 42px;
+      font-weight: 100;
+      text-align: center;
+    }
+    h3 {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    form {
+      width: 70%;
+
+      .form-warpper {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          margin-bottom: 20px;
+          height: 24px;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #aaaab2;
+
+          &::placeholder {
+            color: #aaaab2;
+            font-size: 16px;
+          }
+        }
+
+        .submit-btn-warpper {
+            width: 100%;
+
+          .submit-btn {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background: $headerAddtAsk;
+            border: none;
+            font-size: 20px;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,10 +2,10 @@
   background: rgba(0, 0, 0, 0.103);
   min-width: 100vw;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   right: 0;
-  top: -50px;
+  top: 0px;
 
   hr {
     color: #d5d8df56;
@@ -87,6 +87,8 @@
             align-content: center;
             padding: 6px;
             position: relative;
+            height: 20px;
+            width: 42px;
 
             .header-btn {
               background: transparent;
@@ -103,7 +105,8 @@
               box-sizing: border-box;
               svg {
                 position: absolute;
-                top: 0;
+                top: 26%;
+                left: 30%;
               }
             }
           }
@@ -240,7 +243,7 @@
               align-items: center;
               position: absolute;
               bottom: 28px;
-              left: 550px;
+              left: 560px;
 
               .time-stamp {
                 font-size: 14px;

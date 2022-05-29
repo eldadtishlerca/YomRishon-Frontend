@@ -7,7 +7,6 @@ import { SideBar } from '../cmps/side-bar'
 import { loadBoard } from '../store/actions/board.actions'
 import { BoardsModalClosed } from '../cmps/boards-modal-closed'
 import { BoardNotifications } from '../cmps/board-nortifications'
-import { TaskDetails } from '../cmps/task-details'
 
 export const BoardPage = () => {
   const { board } = useSelector((storeState) => storeState.boardModule)
