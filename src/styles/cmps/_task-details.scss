@@ -20,6 +20,8 @@
     transition: 0.1s;
     width: 691px;
     background: $white;
+    display: flex;
+    flex-direction: column;
 
     .task-details-header {
       margin: 18px 18px 0px 18px;
@@ -107,15 +109,11 @@
         height: 28px;
         justify-items: center;
         align-items: center;
-        // border-bottom: solid 1px #d5d8df56;
 
         .active-border {
-          margin-right: 1px;
           display: flex;
-          align-content: center;
-          justify-content: center;
           &:hover {
-            border-bottom: 2px solid #0060b9;
+            border-bottom: 4px solid #0060b9;
           }
 
           button {
@@ -128,6 +126,7 @@
             margin-bottom: 4px;
             padding: 12px;
             border-radius: 5px;
+
 
             &:hover {
               background-color: #d5d8df56;
@@ -177,8 +176,7 @@
 
         .updates-container-warpper {
           border-top: #a25ddc solid 2px;
-        border-radius: 10px;
-
+          border-radius: 10px;
 
           display: flex;
           flex-direction: column;
