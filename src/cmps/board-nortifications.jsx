@@ -10,10 +10,11 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
     const year = time.getFullYear()
     const month = utilService.monthIdxToName(time.getMonth())
     const day = time.getDate()
-
     const currTime = new Date()
-    if (currTime.getFullYear() === year) return `${month} ${day}`
-    if (currTime.getDate() === day) return `${currTime.getHours()-time.getHours()}h`
+    if (currTime.getFullYear() === year) {
+      if (currTime.getDate() === day) return `${currTime.getHours()-time.getHours()}h ago`
+      else return `${month} ${day}`
+    }
     return `${month} ${day}, ${year}`
   }
 
