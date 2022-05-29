@@ -7,11 +7,14 @@ export const HomePage = () => {
   return (
     <div className="homepage">
       <header className="homepage-header">
-        <h1 className="logo">
+        <div className="homepage-logo-wrapper">
+          <img src="imgs/yomlogo.png" alt="" />
+        </div>
+        {/* <h1 className="logo">
           <span className="yom">Yom</span>
           <span className="ris">Ris</span>
           <span className="hon">hon</span>
-        </h1>
+        </h1> */}
         <div className="header-btn-warpper">
           <button
             className="login-btn"
@@ -27,7 +30,10 @@ export const HomePage = () => {
               navigate('/board')
             }}
           >
-            Get Started <span><FaArrowRight /></span>
+            Get Started{' '}
+            <span>
+              <FaArrowRight />
+            </span>
           </button>
         </div>
       </header>
@@ -52,9 +58,14 @@ export const HomePage = () => {
                 navigate('/board')
               }}
             >
-              Get Started <span><FaArrowRight /></span>
+              Get Started{' '}
+              <span>
+                <FaArrowRight />
+              </span>
             </button>
-            <p>No credit card needed &nbsp; ⌖ &nbsp; Unlimted time on Free plan</p>
+            <p>
+              No credit card needed &nbsp; ⌖ &nbsp; Unlimted time on Free plan
+            </p>
           </div>
         </div>
       </main>

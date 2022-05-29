@@ -179,7 +179,7 @@ const gBoards = [
                 byMember: {
                   _id: 'u103',
                   fullname: 'Elon Barzani',
-                  imgUrl: 'imgs/mini-user-imgs/u101.png',
+                  imgUrl: 'imgs/mini-user-imgs/u103.png',
                 },
               },
             ],

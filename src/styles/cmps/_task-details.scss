@@ -173,8 +173,13 @@
         height: 200px;
         width: 655px;
         border-radius: 10px;
+        box-sizing: border-box;
 
         .updates-container-warpper {
+          border-top: #a25ddc solid 2px;
+        border-radius: 10px;
+
+
           display: flex;
           flex-direction: column;
           height: 100%;
@@ -182,11 +187,24 @@
 
           .task-update-header {
             padding: 12px;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            box-sizing: border-box;
+
+            .user-name {
+              padding-top: 8px;
+              font-size: 18px;
+            }
+
+            img {
+              width: 36px;
+            }
           }
 
           .update-txt {
+            cursor: default;
             padding: 12px;
-            cursor: text;
           }
 
           .button-container {

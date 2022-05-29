@@ -5,7 +5,7 @@ export const BoardsList = () => {
     <div className="boards-list">
       <div className="flex board-active">
         <BiDockLeft />
-        <span>YomRishon - Project</span>
+        <span>YomRishon</span>
       </div>
       <div className="flex">
         <BiDockLeft />
