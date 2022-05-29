@@ -5,11 +5,7 @@ import { Search } from './search'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
 
-<<<<<<< HEAD
-export const SideBar = ({ onClick,onOpenNortification }) => {
-=======
-export const SideBar = ({ onClick, showModal }) => {
->>>>>>> 7c40bf3c449274abef687566109ede4bcd83d330
+export const SideBar = ({ onClick,showModal, onOpenNortification }) => {
   let nevigate = useNavigate()
 
   const setActiveModal = () => {
