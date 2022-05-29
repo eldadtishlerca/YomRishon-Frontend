@@ -1,7 +1,10 @@
 import { GrClose } from 'react-icons/gr'
 import { BsThreeDots } from 'react-icons/bs'
+import { defaultNotifications } from '../data/notifications.js'
 
-export const BoardNotifications = () => {
+export const BoardNotifications = ({board}) => {
+    
+
     return (
       <div className="board-notifications-main">
         <div className="board-notifications-header flex">
@@ -21,7 +24,13 @@ export const BoardNotifications = () => {
         </div>
         {/* <BoardNortificationBar /> */}
         <div className="nortification-container">
-             
+          {defaultNotifications.map(item => <div className="nortification-item" key={item._id}>
+            <div><h3>{item.user}</h3><span>{item.createdAt}</span></div>      
+            <span>@{item.action}</span><span>{item.txt}</span>
+            <h4>{board.title}</h4>
+          </div>
+
+          )}
         </div>
       </div>
     )
