@@ -25,7 +25,7 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
             <span className="x-button flex" onClick={() => {onOpenNortification()}}><GrClose /></span>
           </div>
             <div className="board-notifications-title-container">
-                <h2>Notifications</h2>  
+                <h3>Notifications</h3>  
             </div>
             <nav className="board-notifications-header-navbar flex">
                 <div className="board-notifications-header-navbar-item flex"><span>All</span></div>

@@ -92,14 +92,6 @@ function msToUpdate(duration) {
   return `${years} years ago`
 }
 
-// const timePast = (timeStamps) => {
-//   const time = new Date(+timeStamps)
-//   const currTime = new Date()
-//   if (currTime - time < 86,400,000) return 'Today'
-//   else if (currTime - time >= 86,400,000 && currTime - time <= 172,800,000) return 'Yesterday'
-  
-// }
-
 function monthIdxToName(idx) {
   const monthNames = [
     'Jan',

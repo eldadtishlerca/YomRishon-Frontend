@@ -12,7 +12,7 @@ export const defaultNotifications = [
         _id:'n102',
         user : 'Yarden Shaul',
         imgUrl: 'imgs/mini-user-imgs/u102.png',
-        action : 'Assigned',
+        action : 'Un-Assigned',
         txt : 'Errors on value - board header',
         createdAt: '1653733608000',
         isRead: false
