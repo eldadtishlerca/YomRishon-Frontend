@@ -1,11 +1,20 @@
+import { utilService } from '../services/util.service'
 import { BsThreeDots } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
 import { BiLike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 
 export const TaskDetails = ({ SetShowModal, task }) => {
+
   const updates = task.updates
-  console.log(updates)
+
+  const setLastUpdateTime = (createdTime) => {
+    const currTime = new Date()
+    const updatedTime = currTime - createdTime
+    const getTime = utilService.msToUpdate(updatedTime)
+    return getTime
+  }
+
   return (
     <div className="task-details">
       <div className="task-details-warpper">
@@ -23,11 +32,15 @@ export const TaskDetails = ({ SetShowModal, task }) => {
               placeholder={task.title}
             ></input>
             <div className="header-options-container">
-              <div className="invite-members">Invite</div>
+              <div className="header-btn-wrapper">
+                <button className="header-btn"> Invite </button>
+              </div>
               <p>|</p>
-              <button className="task-details-options">
-                <BsThreeDots />
-              </button>
+              <div className="header-btn-wrapper">
+                <button className="header-btn-options">
+                  <BsThreeDots />
+                </button>
+              </div>
             </div>
           </div>
           <nav className="task-detail-header-nav">
@@ -50,7 +63,9 @@ export const TaskDetails = ({ SetShowModal, task }) => {
             placeholder="Write an update..."
           ></input>
           <a className="write-email-link">
-            <HiOutlineMail /> Write updates via email:
+            <div className="email-icon-warpper">
+              <HiOutlineMail /> Write updates via email:
+            </div>
           </a>
           <div className="updates-container">
             <div className="updates-container-warpper">
@@ -58,8 +73,11 @@ export const TaskDetails = ({ SetShowModal, task }) => {
                 return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
-                      <img src={update.byMember.imgUrl}/> &nbsp; &nbsp;
-                      <h2 className='user-name'>{update.byMember.fullname}</h2>
+                      <img src={update.byMember.imgUrl} /> &nbsp; &nbsp;
+                      <h2 className="user-name">{update.byMember.fullname}</h2>
+                      <div className='time-stamp-warpper'>
+                       <div className='time-stamp'> {setLastUpdateTime(update.createdAt)} </div>
+                        </div>
                     </div>
                     <div className="update-txt">
                       <p>{update.txt}</p>
@@ -67,7 +85,7 @@ export const TaskDetails = ({ SetShowModal, task }) => {
                     <div className="button-container">
                       <button>
                         <div className="inside-button-container">
-                          <BiLike /> {' '} Like
+                          <BiLike /> Like
                         </div>
                       </button>
                       <button>

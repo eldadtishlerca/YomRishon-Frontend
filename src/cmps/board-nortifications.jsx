@@ -1,9 +1,21 @@
 import { GrClose } from 'react-icons/gr'
 import { BsThreeDots } from 'react-icons/bs'
 import { defaultNotifications } from '../data/notifications.js'
+import { utilService } from '../services/util.service'
 
 export const BoardNotifications = ({board, onOpenNortification}) => {
-    
+  
+  const timestampToTime = (timeStamps) => {
+    const time = new Date(+timeStamps)
+    const year = time.getFullYear()
+    const month = utilService.monthIdxToName(time.getMonth())
+    const day = time.getDate()
+
+    const currTime = new Date()
+    if (currTime.getFullYear() === year) return `${month} ${day}`
+    if (currTime.getDate() === day) return `${currTime.getHours()-time.getHours()}h`
+    return `${month} ${day}, ${year}`
+  }
 
     return (
       <section className="board-notifications-main">
@@ -23,9 +35,9 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
             </nav>
         </div>
         <div className="nortification-container flex">
-          {defaultNotifications.map(item => <div className="nortification-item" key={item._id}>
-            <div><h3>{item.user} </h3><span>{item.createdAt}</span></div>      
-            <span>@{item.action} </span><span>you {item.txt}</span>
+          {defaultNotifications.map(item => <div className={item.isRead ? "nortification-item read flex" : "nortification-item unread flex"} key={item._id}>
+            <div className="nortification-title-container flex"><h3>{item.user} </h3><span>{timestampToTime(item.createdAt)}</span></div>      
+            <div><span className="nortification-title-action">@{item.action} </span><span>you {item.txt}</span></div>
             <h4>{board.title}</h4>
           </div>
           )}

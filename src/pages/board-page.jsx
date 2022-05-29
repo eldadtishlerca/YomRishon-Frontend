@@ -38,7 +38,6 @@ export const BoardPage = () => {
         showModal={showModal}
         onOpenNortification={onOpenNortification}
       />
-      {/* <BoardNotifications board={board}/> */}
       {showNotifications && (
         <BoardNotifications
           board={board}
