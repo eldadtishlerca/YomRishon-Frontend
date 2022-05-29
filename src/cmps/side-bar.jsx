@@ -5,8 +5,13 @@ import { Search } from './search'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
 
-export const SideBar = ({ onClick }) => {
+export const SideBar = ({ onClick, showModal }) => {
   let nevigate = useNavigate()
+
+  const setActiveModal = () => {
+    const setColorBoard = showModal ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
+    return setColorBoard
+  }
 
   const onToggleNotifications = () => {
     console.log('open notification')
@@ -36,6 +41,7 @@ export const SideBar = ({ onClick }) => {
         onClick={() => {
           onClick()
         }}
+        style={{ backgroundColor: setActiveModal() }}
       >
         <svg
           width="29"
