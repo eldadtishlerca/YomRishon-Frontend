@@ -73,16 +73,16 @@ export const TaskActivites = ({
         <span>{priority.name}</span>
       </div>
       <div
-        className="task-activities-deadline"
-        style={{ background: background, color: innerColor }}
-      >
-        <span>{setDeadlineTime()}</span>
-      </div>
-      <div
         className="task-activities-hours"
         style={{ background: background, color: innerColor }}
       >
         <span>{workHours} Hours</span>
+      </div>
+      <div
+        className="task-activities-deadline"
+        style={{ background: background, color: innerColor }}
+      >
+        <span>{setDeadlineTime()}</span>
       </div>
       <div
         className="task-activities-updated"
