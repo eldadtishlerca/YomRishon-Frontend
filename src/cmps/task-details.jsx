@@ -1,5 +1,7 @@
 import { BsThreeDots } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
+import { BiLike } from 'react-icons/bi'
+import { RiShareForwardLine } from 'react-icons/ri'
 
 export const TaskDetails = ({ SetShowModal, task }) => {
   const updates = task.updates
@@ -51,20 +53,35 @@ export const TaskDetails = ({ SetShowModal, task }) => {
             <HiOutlineMail /> Write updates via email:
           </a>
           <div className="updates-container">
-            {updates.map((update) => {
-              return (
-                <div className="task-update" key={update.id}>
-                  <div className="task-update-header">
-                    <h3>By: {update.byMember.fullname}</h3>
+            <div className="updates-container-warpper">
+              {updates.map((update) => {
+                return (
+                  <div className="task-update" key={update.id}>
+                    <div className="task-update-header">
+                      <h3>By: {update.byMember.fullname}</h3>
+                    </div>
+                    <div className="update-txt">
+                      <p>{update.txt}</p>
+                    </div>
+                    <div className="button-container">
+                      <button>
+                        <div className="inside-button-container">
+                          <BiLike /> {' '} Like
+                        </div>
+                      </button>
+                      <button>
+                        <div className="inside-button-container">
+                          <span className="icon-container">
+                            <RiShareForwardLine />
+                          </span>{' '}
+                          Replay
+                        </div>
+                      </button>
+                    </div>
                   </div>
-                  <div className="update-txt">
-                    <p>{update.txt}</p>
-                  </div>
-                  <button>Like</button>
-                  <button>Replay</button>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
