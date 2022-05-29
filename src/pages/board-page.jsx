@@ -33,8 +33,7 @@ export const BoardPage = () => {
   return (
     <div className="board-page flex">
       <SideBar onClick={onOpenModal} onOpenNortification={onOpenNortification} />
-      <BoardNotifications board={board}/>
-      {showNotifications && <BoardNotifications />}
+      {showNotifications && <BoardNotifications board={board} onOpenNortification={onOpenNortification}/>}
       
       {showModal ? (
         <BoardsModal onClick={onOpenModal} />

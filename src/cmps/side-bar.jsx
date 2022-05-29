@@ -5,7 +5,7 @@ import { Search } from './search'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
 
-export const SideBar = ({ onClick }) => {
+export const SideBar = ({ onClick,onOpenNortification }) => {
   let nevigate = useNavigate()
 
   const onToggleNotifications = () => {
@@ -74,7 +74,7 @@ export const SideBar = ({ onClick }) => {
       <div
         className="notification-icon-wrapper"
         onClick={() => {
-          onToggleNotifications()
+          onOpenNortification()
         }}
       >
         <CgBell />
