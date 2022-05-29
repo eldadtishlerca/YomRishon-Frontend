@@ -1,9 +1,13 @@
 .board-notifications-main{
     background-color: white;
-    position: fixed;
+    position: absolute;
+    left: 66px;
+    overflow: hidden;
     z-index: 10;
     width: 631px;
     height: 100vh;
+    -webkit-box-shadow: 5px 5px 13px 3px rgba(197,197,197,0.5); 
+    box-shadow: 5px 5px 13px 3px rgba(197,197,197,0.5);
 }
 .board-notifications-header {
     width: 605px;
@@ -50,7 +54,6 @@
         flex-direction: row;
         justify-content: space-between;
         gap: 10px;
-        font-size: 20px;
         & > *:hover{
             border-radius: 4px;
             background-color: #dcdfec;
@@ -71,4 +74,15 @@
         }
     }
     
+}
+.nortification-container{
+    padding: 8px 16px;
+    // width: 100%;
+    flex-direction: column;
+    .nortification-item{
+        background-color: #CCE5FF;
+        padding: 16px 8px;
+        border-radius: 8px;
+        margin: 2px ;
+    }
 }

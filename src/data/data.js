@@ -1,7 +1,7 @@
 const gBoards = [
   {
     _id: 'b101',
-    title: 'Yom Rishon',
+    title: 'Yom Rishon - Project',
     statuses: [
       { name: '', color: '#0C4C4C4' },
       { name: 'Not Assignee', color: '#7F5347', hover: '#9E807A' },

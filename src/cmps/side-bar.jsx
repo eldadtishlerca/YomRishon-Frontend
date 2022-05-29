@@ -4,27 +4,21 @@ import { UserWork } from './user-work'
 import { Search } from './search'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
-import { useState } from 'react'
-
-export const SideBar = ({ onClick, showModal }) => {
-  const [colorBoardModal, setColorBoardModal] = useState(
-    showModal ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
-  )
-
+export const SideBar = ({ onClick, showModal, onOpenNortification }) => {
   let nevigate = useNavigate()
-
+  const setActiveModal = () => {
+    const setColorBoard = showModal ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
+    return setColorBoard
+  }
   const onToggleNotifications = () => {
     console.log('open notification')
   }
-
   const onToggleMyWork = () => {
     console.log('open my work')
   }
-
   const onToggleSearch = () => {
     console.log('open search')
   }
-
   return (
     <div className="side-bar">
       <div
@@ -41,7 +35,7 @@ export const SideBar = ({ onClick, showModal }) => {
         onClick={() => {
           onClick()
         }}
-        style={{ backgroundColor: colorBoardModal }}
+        style={{ backgroundColor: setActiveModal() }}
       >
         <svg
           width="29"
@@ -80,7 +74,7 @@ export const SideBar = ({ onClick, showModal }) => {
       <div
         className="notification-icon-wrapper"
         onClick={() => {
-          onToggleNotifications()
+          onOpenNortification()
         }}
       >
         <CgBell />
