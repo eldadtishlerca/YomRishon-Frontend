@@ -6,8 +6,8 @@ export const BoardNotifications = () => {
       <div className="board-notifications-main">
         <div className="board-notifications-header flex">
           <div className="board-notifications-header-buttons flex">
-            <span className="menu-button"><BsThreeDots /></span>
-            <span className="x-button"><GrClose /></span>
+            <span className="menu-button flex"><BsThreeDots /></span>
+            <span className="x-button flex"><GrClose /></span>
           </div>
             <div className="board-notifications-title-container">
                 <h2>Notifications</h2>  
