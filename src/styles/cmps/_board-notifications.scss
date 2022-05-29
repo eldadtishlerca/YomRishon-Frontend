@@ -24,6 +24,7 @@
         
         border-bottom: 2px solid $NotificationsnavBar;
         justify-content: initial;
+        position: relative;
         .board-notifications-header-navbar-item{
             height: calc(100% - 1px);
             align-items: center;
@@ -34,6 +35,13 @@
             border-radius: 4px;
             cursor: pointer;
             &:hover{background-color: $NotificationsnavBar;}
+            &::before{
+                content: "" ;
+                height: 1px;
+                background-color: rgb(213, 81, 10);
+                position: absolute;
+                bottom: -2px;
+            }
         }
     }
     .board-notifications-header-buttons{
@@ -43,9 +51,21 @@
         justify-content: space-between;
         gap: 10px;
         font-size: 20px;
+        & > *:hover{
+            border-radius: 4px;
+            background-color: #dcdfec;
+            cursor: pointer;
+        }
+        & > *{
+            border-radius: 4px;
+            padding: 4px;
+            justify-content: center;
+            align-items: center;
+        }
         .menu-button{
             border-right: #e6e9ef solid 1px;
             padding-right: 12px;
+            padding-left: 12px;
             margin-right: 6px;
             right: 38px;
         }
