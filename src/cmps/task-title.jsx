@@ -12,7 +12,6 @@ export const TaskTitle = ({
   innerColor,
 }) => {
   const [iconColor, setIconColor] = useState('#C6C8D1')
-  console.log(iconColor)
 
   return (
     <div className="task-title flex" style={{ background: background }}>
