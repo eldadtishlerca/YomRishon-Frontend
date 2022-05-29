@@ -33,10 +33,14 @@ export const LoginSignUpPage = () => {
             </div>
           </div>
         </form>
-        <h4>Or sign in with</h4>
-        <div className="google-signin-btn-warpper">
-          <button className="google-signin-btn">Google</button>
+        <div className="line-modal-wrapper">
+          <div className="straight-line"></div>
+          <p>
+            Or sign in <br /> with
+          </p>
         </div>
+          <div className="google-signin-btn-warpper"></div>
+          <button className="google-signin-btn">Google</button>
         <div className="register-link-container">
           Don't have an account yet?{' '}
           <a className="register-link" href="/">
