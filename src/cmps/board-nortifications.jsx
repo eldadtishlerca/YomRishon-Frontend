@@ -36,9 +36,12 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
         </div>
         <div className="nortification-container flex">
           {defaultNotifications.map(item => <div className={item.isRead ? "nortification-item read flex" : "nortification-item unread flex"} key={item._id}>
-            <div className="nortification-title-container flex"><h3>{item.user} </h3><span>{timestampToTime(item.createdAt)}</span></div>      
-            <div><span className="nortification-title-action">@{item.action} </span><span>you {item.txt}</span></div>
-            <h4>{board.title}</h4>
+            <img src={item.imgUrl} alt="" />
+            <div className="nortification-item-main flex">
+              <div className="nortification-title-container flex"><h3>{item.user} </h3><span>{timestampToTime(item.createdAt)}</span></div>      
+              <div><span className="nortification-title-action">@{item.action} </span><span>you {item.txt}</span></div>
+              <span>{board.title}</span>
+            </div>
           </div>
           )}
         </div>

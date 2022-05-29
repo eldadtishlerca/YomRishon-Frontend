@@ -12,9 +12,10 @@
 .board-notifications-header {
     width: 605px;
     height: 117px;
-    padding: 16px;
+    padding: 16px 16px 0 16px;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+    gap: 20px;
     .board-notifications-title-container{
         font-size: 24px;
         font-weight: bold;
@@ -89,8 +90,19 @@
         padding: 16px 8px;
         border-radius: 8px;
         margin: 2px ;
-        flex-direction: column;
+        flex-direction: row;
         gap: 10px;
+        .nortification-item-main{
+            flex-direction: column;
+            gap: 12px;
+            font-weight: 200;
+        }
+        & img{
+                height: 60px;
+                width: 60px;
+                border: 1px solid #fff;
+                border-radius: 50%;
+            }
         &:hover{
             background-color: #CCE5FF;
             cursor: pointer;
