@@ -9,6 +9,15 @@
     -webkit-box-shadow: 5px 5px 13px 3px rgba(197,197,197,0.5); 
     box-shadow: 5px 5px 13px 3px rgba(197,197,197,0.5);
 }
+.a{
+    border-radius: 4px 4px 0px 0px / 4px 4px 0px 0px;
+    border-bottom:3px solid $NotificationsnavBar;
+    &:hover{border-bottom:3px solid blue;}
+}
+// .board-notifications-header-navbar-container{
+//     width: 573px;
+//     border-bottom:3px solid $NotificationsnavBar;
+// }
 .board-notifications-header {
     width: 605px;
     height: 117px;
@@ -26,8 +35,7 @@
     .board-notifications-header-navbar{
         width:573px;
         height: 32px;
-        
-        border-bottom: 2px solid $NotificationsnavBar;
+        // border-bottom: 2px solid $NotificationsnavBar;
         justify-content: initial;
         position: relative;
         .board-notifications-header-navbar-item{
@@ -40,13 +48,6 @@
             border-radius: 4px;
             cursor: pointer;
             &:hover{background-color: $NotificationsnavBar;}
-            &::before{
-                content: "" ;
-                height: 1px;
-                background-color: rgb(213, 81, 10);
-                position: absolute;
-                bottom: -2px;
-            }
         }
     }
     .board-notifications-header-buttons{

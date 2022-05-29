@@ -27,12 +27,14 @@ export const BoardNotifications = ({board, onOpenNortification}) => {
             <div className="board-notifications-title-container">
                 <h3>Notifications</h3>  
             </div>
-            <nav className="board-notifications-header-navbar flex">
-                <div className="board-notifications-header-navbar-item flex"><span>All</span></div>
-                <div className="board-notifications-header-navbar-item flex"><span>Unread</span></div>
-                <div className="board-notifications-header-navbar-item flex"><span>I was mentioned</span></div>
-                <div className="board-notifications-header-navbar-item flex"><span>Assigned to me</span></div>
-            </nav>
+            <div className='board-notifications-header-navbar-container'>
+              <nav className="board-notifications-header-navbar flex">
+                  <div className='a'><div className="board-notifications-header-navbar-item flex"><span>All</span></div></div>
+                  <div className='a'><div className="board-notifications-header-navbar-item flex"><span>Unread</span></div></div>
+                  <div className='a'><div className="board-notifications-header-navbar-item flex"><span>I was mentioned</span></div></div>
+                  <div className='a'><div className="board-notifications-header-navbar-item flex"><span>Assigned to me</span></div></div>
+              </nav>
+            </div>
         </div>
         <div className="nortification-container flex">
           {defaultNotifications.map(item => <div className={item.isRead ? "nortification-item read flex" : "nortification-item unread flex"} key={item._id}>
