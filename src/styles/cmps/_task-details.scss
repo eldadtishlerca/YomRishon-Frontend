@@ -55,6 +55,7 @@
           margin-right: 4px;
           box-sizing: border-box;
           padding: 2px;
+          border: 1px solid transparent;
 
           &::placeholder {
             color: $headerBlack;
@@ -76,13 +77,34 @@
           right: 100%;
           justify-content: space-between;
           justify-items: center;
-          align-content: center;
+          align-items: center;
 
-          .invite-members {
+          .header-btn-wrapper {
             border-radius: 5px;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 6px;
+            position: relative;
+
+            .header-btn {
+              background: transparent;
+              border: none;
+              font-size: 16px;
+            }
             &:hover {
               background-color: #d5d8df56;
+            }
+            .header-btn-options {
+              background: transparent;
+              border: none;
+              font-size: 16px;
+              box-sizing: border-box;
+              svg {
+                position: absolute;
+                top: 0;
+              }
             }
           }
 
@@ -93,7 +115,7 @@
             font-size: 22px;
             cursor: pointer;
             box-sizing: border-box;
-            padding: 1px 4px;
+            padding: 2px 4px;
             border-radius: 5px;
             &:hover {
               background-color: #d5d8df56;
@@ -112,6 +134,9 @@
 
         .active-border {
           display: flex;
+          z-index: 3;
+          margin-right: 18px;
+          border-bottom: 4px solid transparent;
           &:hover {
             border-bottom: 4px solid #0060b9;
           }
@@ -122,11 +147,9 @@
             color: $mainGreyFontColor;
             border: none;
             font-size: 14px;
-            margin-right: 18px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             padding: 12px;
             border-radius: 5px;
-
 
             &:hover {
               background-color: #d5d8df56;
@@ -160,6 +183,16 @@
         font-size: 14px;
         color: $headerDarkGrey;
         cursor: pointer;
+        .email-icon-warpper {
+          position: relative;
+          svg {
+            position: absolute;
+            right: 152px;
+            bottom: 0px;
+            width: 20px;
+            height: 18px;
+          }
+        }
 
         &:hover {
           color: #0060b9;
@@ -173,6 +206,7 @@
         width: 655px;
         border-radius: 10px;
         box-sizing: border-box;
+        cursor: default;
 
         .updates-container-warpper {
           border-top: #a25ddc solid 2px;
@@ -189,6 +223,7 @@
             flex-direction: row;
             align-content: center;
             box-sizing: border-box;
+            position: relative;
 
             .user-name {
               padding-top: 8px;
@@ -197,6 +232,19 @@
 
             img {
               width: 36px;
+            }
+
+            .time-stamp-warpper {
+              display: flex;
+              justify-items: center;
+              align-items: center;
+              position: absolute;
+              bottom: 28px;
+              left: 550px;
+
+              .time-stamp {
+                font-size: 14px;
+              }
             }
           }
 
