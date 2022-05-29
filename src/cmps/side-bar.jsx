@@ -28,7 +28,7 @@ export const SideBar = ({ onClick }) => {
           nevigate('/')
         }}
       >
-        Home
+        <img src="imgs/yomlogo.png" alt="" />
       </div>
       <div className="sidebar-line" />
       <div
