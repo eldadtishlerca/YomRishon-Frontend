@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { BoardHeader } from '../cmps/board/board-header'
 import { BoardContent } from '../cmps/board/board-content'
 import { MainSidebar } from '../cmps/sidebars/main-sidebar'
@@ -10,13 +11,14 @@ import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  const params = useParams()
   const dispatch = useDispatch()
 
   const [showModal, SetShowModal] = useState(false)
   const [showNotifications, SetShowNotifications] = useState(false)
 
   useEffect(() => {
-    dispatch(loadBoard(currBoard._id))
+    dispatch(loadBoard(params.id))
   }, [])
   console.log('Curr board from board page', currBoard)
 
