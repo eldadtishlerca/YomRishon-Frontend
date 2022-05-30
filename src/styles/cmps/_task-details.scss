@@ -1,11 +1,15 @@
 .task-details {
-  background: rgba(0, 0, 0, 0.103);
+  background: transparent;
   min-width: 100vw;
   min-height: 100vh;
   position: fixed;
   z-index: 999;
   right: 0;
   top: 0px;
+
+  &:hover{
+    background: rgba(0, 0, 0, 0.096);
+  }
 
   hr {
     color: #d5d8df56;

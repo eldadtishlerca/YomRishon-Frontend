@@ -18,6 +18,7 @@ export const BoardNotifications = ({ board, onOpenNortification }) => {
     return `${month} ${day}, ${year}`
   }
 
+  if (!board) return
   return (
     <section className="board-notifications-main slideInLeft">
       <div className="board-notifications-header flex">

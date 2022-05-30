@@ -15,7 +15,7 @@ export const TaskDetails = ({ SetShowModal, task }) => {
   }
 
   return (
-    <div className="task-details slideInLeft">
+    <div className="task-details slideInRight">
       <div className="task-details-warpper">
         <div className="task-details-header">
           <button
