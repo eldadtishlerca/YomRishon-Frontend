@@ -38,7 +38,6 @@ export const TaskPreview = ({
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       className="task-preview flex"
-      onClick={() => onOpenModal()}
       onMouseEnter={() => {
         setBackground('#E6E9EF')
         setInnerColor('#1f76c2')
@@ -51,8 +50,9 @@ export const TaskPreview = ({
       }}
     >
       {showModal && <TaskDetails task={task} SetShowModal={SetShowModal} />}
-      {hover && <TaskModal id={id} />}
+      <TaskModal id={id} isHover={hover} />
       <TaskTitle
+        onClick={onOpenModal}
         groupColor={groupColor}
         title={title}
         counter={updates.length}

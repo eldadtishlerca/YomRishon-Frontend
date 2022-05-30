@@ -60,7 +60,6 @@ function _save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities))
 }
 
-
 // function postMany(entityType, newEntities) {
 //   return query(entityType).then((entities) => {
 //     newEntities = newEntities.map((entity) => ({ ...entity, _id: _makeId() }))
