@@ -9,7 +9,7 @@ export const HomePage = () => {
 
   // const dispatch = useDispatch()
   // useEffect(() => {
-  //   dispatch(loadBoards())    
+  //   dispatch(loadBoards())
   // }, [])
   // useEffect(() => {
   //   dispatch(loadBoard(boards[0]._id))
@@ -43,7 +43,7 @@ export const HomePage = () => {
           <button
             className="get-started-btn"
             onClick={() => {
-              navigate('/vmPrT')
+              navigate('/board')
             }}
           >
             Get Started{' '}
@@ -71,7 +71,7 @@ export const HomePage = () => {
             <button
               className="get-started-btn"
               onClick={() => {
-                navigate('/vmPrT')
+                navigate('/board')
               }}
             >
               Get Started{' '}
