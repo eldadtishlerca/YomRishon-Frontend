@@ -5,6 +5,8 @@ import { GroupPreview } from '../group/group-preview'
 export const BoardContent = ({ groups }) => {
   const [columns, setColumns] = useState(groups)
 
+  console.log(groups)
+
   const onDragEnd = (result, columns) => {
     if (!result.destination) return
     const { source, destination } = result

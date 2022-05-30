@@ -3,12 +3,11 @@ import { MdOutlineTableChart } from 'react-icons/md'
 import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
-export const BoardHeader = ({ members, title, activities }) => {
+export const BoardHeader = ({ members, title, activities, groups }) => {
   const onHandleChange = ({ target }) => {
     const { value } = target
   }
 
-  console.log('members from header', members)
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">

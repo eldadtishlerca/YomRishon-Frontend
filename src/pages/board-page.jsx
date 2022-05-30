@@ -18,14 +18,9 @@ export const BoardPage = () => {
   useEffect(() => {
     dispatch(loadBoard(currBoard._id))
   }, [])
-  console.log('Curr board from board page', currBoard)
 
-<<<<<<< HEAD
   if (Object.keys(currBoard).length === 0 || !currBoard)
     return <div>Loading...</div>
-=======
-  if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
->>>>>>> eb047a1cdc7096ae7fff12c995f6fa9f13fc784f
 
   const onOpenModal = () => {
     SetShowModal(!showModal)
@@ -33,7 +28,7 @@ export const BoardPage = () => {
   const onOpenNortification = () => {
     SetShowNotifications(!showNotifications)
   }
-  
+
   const { title, members, activities, groups, cmpsOrder } = currBoard
 
   return (
