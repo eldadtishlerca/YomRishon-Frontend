@@ -1,6 +1,8 @@
 .login-page {
   background: $white;
   min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
 
   .login-header {
     background: $headerBackgroundColor;
@@ -10,6 +12,7 @@
     height: 66px;
     box-sizing: border-box;
     padding: 0 24px;
+    width: 100%;
 
     .login-logo-wrapper {
       margin-top: 6px;
@@ -54,13 +57,18 @@
 
   .login-main {
     color: $homePageHeaderText;
-    margin-top: 80px;
-    height: 390px;
+    margin-top: 50px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
+
+    @include small {
+      margin-top: 80px;
+      height: 390px;
+    }
 
     h1 {
       font-size: 42px;
@@ -76,8 +84,12 @@
     }
 
     form {
-      width: 70%;
+      width: 340px;
       margin-bottom: 40px;
+
+      @include small {
+        width: 360px;
+      }
 
       .form-warpper {
         display: flex;
@@ -122,7 +134,7 @@
       }
     }
     .line-modal-wrapper {
-      width: 100%;
+      width: 490px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -133,8 +145,13 @@
       .straight-line {
         background: #aaaab2;
         height: 2px;
-        width: 90%;
+        width: 70%;
         align-self: center;
+        margin-bottom: 40px;
+
+        @include small {
+            width: 90%;
+          }
       }
 
       p {
@@ -143,25 +160,42 @@
         z-index: 3;
         width: fit-content;
         position: absolute;
-        left: 210px;
+        left: 200px;
         bottom: 18px;
         padding: 0px 10px 0px 10px;
       }
     }
     .google-signin-btn-warpper {
-      background: red;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+      border: #aaaab2 solid 1px;
+      width: 100px;
+      border-radius: 5px;
+      margin-bottom: 24px;
+
       .google-signin-btn {
-        cursor: pointer;
         background: transparent;
-        border: 1px $homePageHeaderText solid;
-        margin-bottom: 24px;
+        border: none;
+        padding: 8px;
+
+        .google-svg-container {
+          width: min-content;
+          vertical-align: middle;
+          svg {
+            font-size: 18px;
+            right: 4px;
+          }
+        }
       }
     }
 
-    .register-link-container{
-        a{
-            color: #0fa2e2;;
-        }
+    .register-link-container {
+      a {
+        color: #0fa2e2;
+      }
     }
   }
 }

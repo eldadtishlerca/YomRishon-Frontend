@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHome } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 
 export const LoginSignUpPage = () => {
   const navigate = useNavigate()
@@ -39,8 +40,14 @@ export const LoginSignUpPage = () => {
             Or sign in <br /> with
           </p>
         </div>
-          <div className="google-signin-btn-warpper"></div>
-          <div className="google-signin-btn">Google</div>
+        <div className="google-signin-btn-warpper">
+          <div className="google-signin-btn">
+            <span className="google-svg-container">
+              <FcGoogle /> 
+            </span>
+            &nbsp; Google
+          </div>
+        </div>
         <div className="register-link-container">
           Don't have an account yet?{' '}
           <a className="register-link" href="/">
