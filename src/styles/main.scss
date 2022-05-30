@@ -17,10 +17,10 @@
 @import "pages/login";
 
 // Components
-@import "cmps/sidebar";
-@import "cmps/boards-modal";
+@import "cmps/main-sidebar";
+@import "cmps/workspace-sidebar";
 @import "cmps/boards-modal-closed";
-@import "cmps/boards-modal-header";
+@import "cmps/workspace-sidebar-header";
 @import "cmps/boards-list";
 @import "cmps/board-header";
 @import "cmps/tool-bar";

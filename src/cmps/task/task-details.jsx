@@ -1,11 +1,10 @@
-import { utilService } from '../services/util.service'
+import { utilService } from '../../services/util.service'
 import { BsThreeDots } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
 import { BiLike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 
 export const TaskDetails = ({ SetShowModal, task }) => {
-
   const updates = task.updates
 
   const setLastUpdateTime = (createdTime) => {
@@ -75,9 +74,12 @@ export const TaskDetails = ({ SetShowModal, task }) => {
                     <div className="task-update-header">
                       <img src={update.byMember.imgUrl} /> &nbsp; &nbsp;
                       <h2 className="user-name">{update.byMember.fullname}</h2>
-                      <div className='time-stamp-warpper'>
-                       <div className='time-stamp'> {setLastUpdateTime(update.createdAt)} </div>
+                      <div className="time-stamp-warpper">
+                        <div className="time-stamp">
+                          {' '}
+                          {setLastUpdateTime(update.createdAt)}{' '}
                         </div>
+                      </div>
                     </div>
                     <div className="update-txt">
                       <p>{update.txt}</p>

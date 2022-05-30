@@ -1,17 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-// import { UserNotflication } from './user-notflication'
-import { UserWork } from './user-work'
-import { Search } from './search'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
-export const SideBar = ({ onClick, showModal, onOpenNortification }) => {
+
+export const MainSidebar = ({ onClick, showModal, onOpenNortification }) => {
   let nevigate = useNavigate()
   const setActiveModal = () => {
     const setColorBoard = showModal ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
     return setColorBoard
-  }
-  const onToggleNotifications = () => {
-    console.log('open notification')
   }
   const onToggleMyWork = () => {
     console.log('open my work')
@@ -20,7 +15,7 @@ export const SideBar = ({ onClick, showModal, onOpenNortification }) => {
     console.log('open search')
   }
   return (
-    <div className="side-bar">
+    <div className="main-sidebar">
       <div
         className="home-icon-wrapper"
         onClick={() => {
@@ -29,7 +24,7 @@ export const SideBar = ({ onClick, showModal, onOpenNortification }) => {
       >
         <img src="imgs/yomlogo.png" alt="" />
       </div>
-      <div className="sidebar-line" />
+      <div className="main-sidebar-line" />
       <div
         className="board-icon-wrapper"
         onClick={() => {
@@ -90,7 +85,7 @@ export const SideBar = ({ onClick, showModal, onOpenNortification }) => {
         <FaRegStar />
       </div>
       <div
-        className="sidebar-search"
+        className="main-sidebar-search"
         onClick={() => {
           onToggleSearch()
         }}

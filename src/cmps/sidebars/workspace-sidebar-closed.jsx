@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AiOutlineRight } from 'react-icons/ai'
 
-export const BoardsModalClosed = ({ onClick }) => {
+export const WorkspaceSidebarClosed = ({ onClick }) => {
   const [width, setWidth] = useState('26px')
   const [posRight, setPosRight] = useState('-14px')
   const [background, setBackground] = useState('#fff')

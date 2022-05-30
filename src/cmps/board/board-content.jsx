@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { GroupPreview } from './group-preview'
+import { GroupPreview } from '../group/group-preview'
 
 export const BoardContent = ({ groups }) => {
   const [columns, setColumns] = useState(groups)

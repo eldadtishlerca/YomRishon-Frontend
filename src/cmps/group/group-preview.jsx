@@ -1,8 +1,8 @@
 import { GroupHeader } from './group-header'
 import { GroupFooter } from './group-footer'
-import { NewTask } from './new-task'
+import { NewTask } from '../task/new-task'
 import { Draggable } from 'react-beautiful-dnd'
-import { TaskPreview } from './task-preview'
+import { TaskPreview } from '../task/task-preview'
 
 export const GroupPreview = ({ group, provided, snapchat }) => {
   const { _id, color, title, tasks, hoverColor } = group

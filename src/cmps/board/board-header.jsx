@@ -1,4 +1,4 @@
-import { ToolBar } from '../cmps/toolbar'
+import { ToolBar } from './toolbar'
 import { MdOutlineTableChart } from 'react-icons/md'
 import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'

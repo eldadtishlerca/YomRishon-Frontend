@@ -5,10 +5,10 @@ import {
   AiOutlineSearch,
 } from 'react-icons/ai'
 
-export const BoardsModalHeader = ({ onClick }) => {
+export const WorkspaceSidebarHeader = ({ onClick }) => {
   return (
-    <div className="boards-modal-header">
-      <div className="boards-modal-closed-btn" onClick={() => onClick()}>
+    <div className="workspace-sidebar-header">
+      <div className="workspace-sidebar-closed-btn" onClick={() => onClick()}>
         <AiOutlineLeft />
       </div>
       <p>Workspace</p>
@@ -19,7 +19,7 @@ export const BoardsModalHeader = ({ onClick }) => {
           <AiFillHome />
         </span>
       </div>
-      <div className="boards-modal-btns">
+      <div className="workspace-sidebar-btns">
         <div className="flex">
           <AiOutlinePlus />
           <span>Add</span>

@@ -1,4 +1,4 @@
-.side-bar {
+.main-sidebar {
  height: 100%;
  min-width: 66px;
  background-color: #292F4C;
@@ -26,7 +26,7 @@
    width: 38px;
   }
  }
- .sidebar-line {
+ .main-sidebar-line {
   padding: 0;
   width: 80%;
   height: 0.08px;
@@ -35,7 +35,7 @@
   margin-top: 0;
   margin-bottom: 10px;
  }
- .sidebar-search {
+ .main-sidebar-search {
   position: absolute;
   bottom: 70px;
  }
