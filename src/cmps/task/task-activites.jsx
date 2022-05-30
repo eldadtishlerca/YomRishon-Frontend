@@ -97,6 +97,7 @@ export const TaskActivites = ({
         style={{ background: bgHoverPriority() }}
       >
         <span>{priority.name}</span>
+        <div className="task-activities-priority-before"></div>
       </div>
       <div
         className="task-activities-hours"

@@ -27,8 +27,8 @@ export const BoardPage = () => {
   }, [])
   console.log('Curr board from board page', currBoard)
 
-  if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
-  
+  if (Object.keys(currBoard).length === 0 || !currBoard)
+    return <div>Loading...</div>
 
   const { title, members, activities, groups, cmpsOrder } = currBoard
 
