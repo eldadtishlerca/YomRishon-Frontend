@@ -1,23 +1,32 @@
 .boards-list {
- margin: 12px 16px;
- color: $lblack;
- div {
-  justify-content: start;
-  align-items: center;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px 6px;
-  border-radius: 0.25rem;
-  &:hover {
-   background: #DCDFEC;
+  margin: 12px 16px;
+  color: $lblack;
+  div {
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 6px 6px;
+    border-radius: 0.25rem;
+    .delete-btn {
+      display: none;
+      svg{
+      }
+    }
+    &:hover {
+      background: #dcdfec;
+      .delete-btn {
+        display: block;
+        background-color: rgba(0, 0, 0, 0.048);
+      }
+    }
+    span {
+      margin-left: 8px;
+      font-size: 14px;
+    }
   }
-  span {
-   margin-left: 8px;
-   font-size: 14px;
+  .board-active {
+    background: #cce5ff;
   }
- }
- .board-active {
-  background: #CCE5FF;
- }
 }
