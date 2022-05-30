@@ -12,9 +12,7 @@
 .board-header-top{
     justify-content: space-between;
     align-items: center;
-    .title{
-        color: $headerBlack;
-    }
+
     .board-header-top-icon-container{
         align-items: center; 
         vertical-align: middle;
@@ -49,6 +47,10 @@
 
 .board-header-top-main{
     gap: 5px;
+    .title{
+        color: $headerBlack;
+        width: min-content;
+    }
     .board-header-top-main-members{
         gap: 5px;
         align-items: center;
