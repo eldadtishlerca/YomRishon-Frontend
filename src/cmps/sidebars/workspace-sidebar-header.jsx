@@ -1,3 +1,7 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadBoards } from '../../store/actions/board.actions'
+
 import {
   AiFillHome,
   AiOutlineLeft,
@@ -6,6 +10,17 @@ import {
 } from 'react-icons/ai'
 
 export const WorkspaceSidebarHeader = ({ onClick }) => {
+  const { boards } = useSelector((storeState) => storeState.boardModule)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(loadBoards(boards))
+  }, [])
+  console.log('boards from workspace-sidebar', boards)
+
+  if (boards.length === 0 || !boards)
+    return <div>Loading...</div>
+
   return (
     <div className="workspace-sidebar-header">
       <div className="workspace-sidebar-closed-btn" onClick={() => onClick()}>

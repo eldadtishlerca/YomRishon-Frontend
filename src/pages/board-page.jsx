@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { BoardHeader } from '../cmps/board/board-header'
 import { BoardContent } from '../cmps/board/board-content'
 import { MainSidebar } from '../cmps/sidebars/main-sidebar'
@@ -10,17 +11,22 @@ import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  const params = useParams()
   const dispatch = useDispatch()
 
   const [showModal, SetShowModal] = useState(false)
   const [showNotifications, SetShowNotifications] = useState(false)
 
   useEffect(() => {
-    dispatch(loadBoard(currBoard._id))
+    dispatch(loadBoard(params.id))
   }, [])
 
+<<<<<<< HEAD
   if (Object.keys(currBoard).length === 0 || !currBoard)
     return <div>Loading...</div>
+=======
+  if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
+>>>>>>> 3127cae433afe21369d5d6714b7ad9181aa43661
 
   const onOpenModal = () => {
     SetShowModal(!showModal)
@@ -51,7 +57,7 @@ export const BoardPage = () => {
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="boardSection">
-        <BoardHeader members={members} title={title} activities={activities} />
+        <BoardHeader members={members} title={title} activities={activities} groups={groups} />
         <BoardContent groups={groups} />
       </div>
     </div>
