@@ -24,9 +24,11 @@ export const BoardPage = () => {
 
   useEffect(() => {
     dispatch(loadBoard(currBoard._id))
-  }, [dispatch])
+  }, [])
+  console.log('Curr board from board page', currBoard)
 
   if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
+  
 
   const { title, members, activities, groups, cmpsOrder } = currBoard
 
