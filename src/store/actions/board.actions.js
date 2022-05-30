@@ -27,17 +27,14 @@ export function loadBoard(boardId) {
 
 export function loadBoards() {
   return async (dispatch) => {
-      try {
-          const boards = await boardService.query()
-          dispatch({ type: 'SET_BOARDS', boards: boards })
-          console.log('boards from board action', boards)
-      } catch (err) {
-          console.log('BoardActions: err in loadBoards', err)
-      }
-  };
+    try {
+      const boards = await boardService.query()
+      dispatch({ type: 'SET_BOARDS', boards })
+    } catch (err) {
+      console.log('BoardActions: err in loadBoards', err)
+    }
+  }
 }
-
-
 
 // export function updateBoard(board) {
 //   return (dispatch) => {

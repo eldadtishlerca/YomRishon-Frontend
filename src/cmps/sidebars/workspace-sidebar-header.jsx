@@ -16,10 +16,8 @@ export const WorkspaceSidebarHeader = ({ onClick }) => {
   useEffect(() => {
     dispatch(loadBoards(boards))
   }, [])
-  console.log('boards from workspace-sidebar', boards)
 
-  if (boards.length === 0 || !boards)
-    return <div>Loading...</div>
+  if (boards.length === 0 || !boards) return <div>Loading...</div>
 
   return (
     <div className="workspace-sidebar-header">

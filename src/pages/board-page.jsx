@@ -21,12 +21,8 @@ export const BoardPage = () => {
     dispatch(loadBoard(params.id))
   }, [])
 
-<<<<<<< HEAD
   if (Object.keys(currBoard).length === 0 || !currBoard)
     return <div>Loading...</div>
-=======
-  if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
->>>>>>> 3127cae433afe21369d5d6714b7ad9181aa43661
 
   const onOpenModal = () => {
     SetShowModal(!showModal)
@@ -36,6 +32,8 @@ export const BoardPage = () => {
   }
 
   const { title, members, activities, groups, cmpsOrder } = currBoard
+
+  console.log(currBoard.groups)
 
   return (
     <div className="board-page flex">
@@ -57,7 +55,12 @@ export const BoardPage = () => {
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="boardSection">
-        <BoardHeader members={members} title={title} activities={activities} groups={groups} />
+        <BoardHeader
+          members={members}
+          title={title}
+          activities={activities}
+          groups={groups}
+        />
         <BoardContent groups={groups} />
       </div>
     </div>

@@ -6,18 +6,20 @@ const initialState = {
     membersId: [],
     priority: [],
     status: [],
-    tag: []
+    tag: [],
   },
-};
+}
 export function boardReducer(state = initialState, action) {
   switch (action.type) {
     case 'SET_BOARDS':
       return {
-        ...state, boards: { ...action.boards }
+        ...state,
+        boards: [...action.boards],
       }
     case 'SET_BOARD':
       return {
-        ...state, currBoard: { ...action.board }
+        ...state,
+        currBoard: { ...action.board },
       }
 
     case 'UPDATE_BOARD':
@@ -25,17 +27,15 @@ export function boardReducer(state = initialState, action) {
         ...state,
         currBoard: action.board,
         boards: state.boards.map((board) =>
-            board._id === action.board._id ? action.board : board
+          board._id === action.board._id ? action.board : board
         ),
-    }
+      }
 
     case 'REMOVE_BOARD':
       return {
         ...state,
-        boards: state.boards.filter(
-            (board) => board._id !== action.boardId
-        ),
-    }
+        boards: state.boards.filter((board) => board._id !== action.boardId),
+      }
     // case 'UPDATE_BOARD':
     //     boards = state.boards.map(board => (board._id === action.board._id)? action.board : board)
     //     newState = { ...state, boards}

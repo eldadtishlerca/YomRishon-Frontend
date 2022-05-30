@@ -3,9 +3,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { GroupPreview } from '../group/group-preview'
 
 export const BoardContent = ({ groups }) => {
-  const [columns, setColumns] = useState(groups)
-
-  console.log(groups)
+  const [columns, setColumns] = useState('')
 
   const onDragEnd = (result, columns) => {
     if (!result.destination) return
@@ -42,7 +40,7 @@ export const BoardContent = ({ groups }) => {
   return (
     <div className="board-content">
       <DragDropContext onDragEnd={(result) => onDragEnd(result, columns)}>
-        {Object.entries(columns).map(([id, column]) => {
+        {Object.entries(groups).map(([id, column]) => {
           return (
             <Droppable droppableId={id} key={id}>
               {(provided, snapchat) => {
