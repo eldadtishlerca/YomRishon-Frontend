@@ -1,4 +1,4 @@
-import { utilService } from "./util.service"
+import { utilService } from './util.service'
 
 export const storageService = {
   query,
@@ -53,7 +53,6 @@ function remove(entityType, entityId) {
 function _save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities))
 }
-
 
 // function postMany(entityType, newEntities) {
 //   return query(entityType).then((entities) => {

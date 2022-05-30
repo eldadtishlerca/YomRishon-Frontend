@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { utilService } from '../../services/util.service'
+import { BsPlusCircleFill } from 'react-icons/bs'
 
 export const TaskActivites = ({
   membersIds,
@@ -11,8 +13,7 @@ export const TaskActivites = ({
   innerColor,
   isHover,
 }) => {
-  const membersImgs =
-    membersIds.length <= 2 ? membersIds.map((member) => member.imgUrl) : null
+  const [assigneeHover, setAssigneeHover] = useState(false)
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -43,21 +44,46 @@ export const TaskActivites = ({
 
   return (
     <div className="task-activities flex">
-      {membersImgs ? (
+      {membersIds.length <= 2 ? (
         <div
           className="task-activities-assignee"
           style={{ background: background }}
+          onMouseEnter={() => {
+            setAssigneeHover(true)
+          }}
+          onMouseLeave={() => {
+            setAssigneeHover(false)
+          }}
         >
-          {membersImgs.map((url) => (
-            <img key={url} src={url} alt="" />
+          {assigneeHover && (
+            <div>
+              <BsPlusCircleFill />
+            </div>
+          )}
+          {membersIds.map((member) => (
+            <img key={member._id} src={member.imgUrl} alt="" />
           ))}
         </div>
       ) : (
         <div
           className="task-activities-assignee"
           style={{ background: background }}
+          onMouseEnter={() => {
+            setAssigneeHover(true)
+          }}
+          onMouseLeave={() => {
+            setAssigneeHover(false)
+          }}
         >
-          Check
+          {assigneeHover && (
+            <div>
+              <BsPlusCircleFill />
+            </div>
+          )}
+          <img key={membersIds[0]._id} src={membersIds[0].imgUrl} alt="" />
+          <div className="task-activities-assignee-counter">
+            <span>+{membersIds.length - 1}</span>
+          </div>
         </div>
       )}
       <div

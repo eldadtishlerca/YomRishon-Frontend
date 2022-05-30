@@ -9,11 +9,42 @@
   display: flex;
   justify-content:center;
   min-width: 100px;
+  position: relative;
+  div {
+   position: absolute;
+   color: white;
+   left: 8px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 16px;
+   svg {
+    color: #0073EA;
+    font-size: 16px;
+   }
+  }
   img {
+   margin-left: 5px;
    max-width: 26px;
   }
   > *:last-child {
    margin-left: -5px;
+  }
+  .task-activities-assignee-counter {
+   position: relative;
+   width: 25px;
+   height: 25px;
+   color: white;
+   background: #333333;
+   margin-left: -15px;
+   margin-right: 10px;
+   border: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   span {
+    margin-bottom: 1px;
+   }
   }
  }
  .task-activities-status,

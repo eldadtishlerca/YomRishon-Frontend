@@ -10,34 +10,56 @@ export const TaskTitle = ({
   counter,
   background,
   innerColor,
+  onClick,
 }) => {
   const [iconColor, setIconColor] = useState('#C6C8D1')
+  const [editHover, setEditHover] = useState(false)
 
   return (
-    <div className="task-title flex" style={{ background: background }}>
+    <div
+      className="task-title flex"
+      style={{ background: background }}
+      onClick={onClick}
+      onMouseEnter={() => {
+        setEditHover(true)
+      }}
+      onMouseLeave={() => {
+        setEditHover(false)
+      }}
+    >
       <div className="task-checkbox" style={{ background: groupColor }}>
         {/* <BiCheckboxChecked /> */}
         {/* <BiCheckbox /> */}
       </div>
       <div className="task-header">
-        <span style={{ color: innerColor }}>{title}</span>
+        <div className="task-header-title">
+          <span style={{ color: innerColor }}>{title}</span>
+        </div>
+        {editHover && <div className="title-header-edit">Edit</div>}
       </div>
-      <div
-        className="task-title-btns"
-        onMouseEnter={() => {
-          setIconColor('#0073EA')
-        }}
-        onMouseLeave={() => {
-          setIconColor('#C6C8D1')
-        }}
-      >
-        <IconContext.Provider value={{ color: iconColor }}>
+      {counter === 0 ? (
+        <div
+          className="task-title-btns"
+          onMouseEnter={() => {
+            setIconColor('#0073EA')
+          }}
+          onMouseLeave={() => {
+            setIconColor('#C6C8D1')
+          }}
+        >
+          <IconContext.Provider value={{ color: iconColor }}>
+            <RiChat3Line />
+          </IconContext.Provider>
+          <IconContext.Provider value={{ color: iconColor }}>
+            <AiOutlinePlus />
+          </IconContext.Provider>
+        </div>
+      ) : (
+        <div className="task-title-btn">
           <RiChat3Line />
-        </IconContext.Provider>
-        <IconContext.Provider value={{ color: iconColor }}>
-          <AiOutlinePlus />
-        </IconContext.Provider>
-      </div>
+          <span>{counter}</span>
+        </div>
+      )}
     </div>
   )
 }
