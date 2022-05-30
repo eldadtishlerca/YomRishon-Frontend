@@ -37,8 +37,4 @@ async function save(board) {
   return savedBoard
 }
 
-<<<<<<< HEAD
 // storageService.post(STORAGE_KEY, gBoards)
-=======
-// storageService.post(STORAGE_KEY, gBoards)
->>>>>>> b63773857cd5e4bb6af1da1a071f2f2b74f4c4a0
