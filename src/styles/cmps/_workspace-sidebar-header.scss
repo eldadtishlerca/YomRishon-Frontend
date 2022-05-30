@@ -1,8 +1,8 @@
-.boards-modal-header {
+.workspace-sidebar-header {
  margin: 12px 16px;
  border-bottom: 2px solid $greyboard;
  position: relative;
- .boards-modal-closed-btn {
+ .workspace-sidebar-closed-btn {
   position: absolute;
   right: -32px;
   top: 10px;
@@ -50,7 +50,7 @@
    top: 20px;
   }
  }
- .boards-modal-btns {
+ .workspace-sidebar-btns {
   color: $lblack;
   div {
    justify-content: start;

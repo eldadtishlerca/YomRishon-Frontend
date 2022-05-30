@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BoardHeader } from '../cmps/board-header'
-import { BoardsModal } from '../cmps/boards-modal'
 import { BoardContent } from '../cmps/board-content'
-import { SideBar } from '../cmps/side-bar'
+import { MainSidebar } from '../cmps/main-sidebar'
 import { loadBoard } from '../store/actions/board.actions'
-import { BoardsModalClosed } from '../cmps/boards-modal-closed'
+import { WorkspaceSidebarClosed } from '../cmps/workspace-sidebar-closed'
 import { BoardNotifications } from '../cmps/board-nortifications'
+import { WorkspaceSidebar } from '../cmps/workspace-sidebar'
 
 export const BoardPage = () => {
   const { board } = useSelector((storeState) => storeState.boardModule)
@@ -32,7 +32,7 @@ export const BoardPage = () => {
 
   return (
     <div className="board-page flex">
-      <SideBar
+      <MainSidebar
         onClick={onOpenModal}
         showModal={showModal}
         onOpenNortification={onOpenNortification}
@@ -45,9 +45,9 @@ export const BoardPage = () => {
       )}
 
       {showModal ? (
-        <BoardsModal onClick={onOpenModal} />
+        <WorkspaceSidebar onClick={onOpenModal} />
       ) : (
-        <BoardsModalClosed onClick={onOpenModal} />
+        <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="boardSection">
         <BoardHeader members={members} title={title} activities={activities} />
