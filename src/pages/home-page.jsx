@@ -43,7 +43,7 @@ export const HomePage = () => {
           <button
             className="get-started-btn"
             onClick={() => {
-              navigate('/board')
+              navigate('/board/b101')
             }}
           >
             Get Started{' '}
@@ -71,7 +71,7 @@ export const HomePage = () => {
             <button
               className="get-started-btn"
               onClick={() => {
-                navigate('/board')
+                navigate('/board/b101')
               }}
             >
               Get Started{' '}

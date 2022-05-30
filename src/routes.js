@@ -12,12 +12,12 @@ const routes = [
     label: 'Home',
   },
   {
-    path: '/:boardId',
+    path: '/b101',
     component: <BoardPage />,
     label: 'Board',
   },
   {
-    path: '/:boardId/g101/c101',
+    path: '/b101/:groupId/:taskId',
     component: <TaskDetails />,
   },
   {
