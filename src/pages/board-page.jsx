@@ -21,12 +21,7 @@ export const BoardPage = () => {
     dispatch(loadBoard(params.id))
   }, [])
 
-<<<<<<< HEAD
-  if (Object.keys(currBoard).length === 0 || !currBoard)
-    return <div>Loading...</div>
-=======
   if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
->>>>>>> 3127cae433afe21369d5d6714b7ad9181aa43661
 
   const onOpenModal = () => {
     SetShowModal(!showModal)
