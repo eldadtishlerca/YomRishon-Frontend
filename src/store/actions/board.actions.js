@@ -9,7 +9,7 @@ export function getActionBoard(board) {
 
 export function getActionUpdateBoard(savedBoard) {
   return {
-    type: 'UPDATE_BOARD',
+    type: 'SET_BOARD',
     board: savedBoard,
   }
 }
