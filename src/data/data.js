@@ -649,4 +649,5 @@ const gBoards = [
     ],
   },
 ]
+
 export default gBoards
