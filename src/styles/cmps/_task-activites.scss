@@ -57,10 +57,19 @@
   justify-content:center;
  }
  .task-activities-status {
-  background: #FDAB3D;
   color: white;
   font-size: 14px;
   min-width: 145px;
+  position: relative;
+  // .task-activities-priority-before {
+  //  width: 10px;
+  //  height: 10px;
+  //  transition: all 0.5s ease;
+  //  position: absolute;
+  //  top: 0;
+  //  right: 0;
+  //  background: red;
+  // }
  }
  .task-activities-priority {
   background: #B93253;
