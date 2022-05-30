@@ -1,8 +1,24 @@
+// import { useEffect, useState } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { loadBoards, loadBoard } from '../store/actions/board.actions'
 import { useNavigate } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 
 export const HomePage = () => {
   const navigate = useNavigate()
+
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(loadBoards())    
+  // }, [])
+  // useEffect(() => {
+  //   dispatch(loadBoard(boards[0]._id))
+  // }, [])
+
+  // const { boards } = useSelector((storeState) => storeState.boardModule)
+  // const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  // console.log('Boards from homepage', boards)
+  // console.log('Curr Board from homepage', currBoard)
 
   return (
     <div className="homepage">

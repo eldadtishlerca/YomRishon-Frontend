@@ -9,7 +9,7 @@ import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
-  const { board } = useSelector((storeState) => storeState.boardModule)
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
 
   const [showModal, SetShowModal] = useState(false)
@@ -23,12 +23,12 @@ export const BoardPage = () => {
   }
 
   useEffect(() => {
-    dispatch(loadBoard())
+    dispatch(loadBoard(currBoard._id))
   }, [dispatch])
 
-  if (board.length === 0) return <div>Loading..</div>
+  if (Object.keys(currBoard).length === 0 || !currBoard) return <div>Loading...</div>
 
-  const { title, members, activities, groups, cmpsOrder } = board[0]
+  const { title, members, activities, groups, cmpsOrder } = currBoard
 
   return (
     <div className="board-page flex">
@@ -39,7 +39,7 @@ export const BoardPage = () => {
       />
       {showNotifications && (
         <BoardNotifications
-          board={board}
+          board={currBoard}
           onOpenNortification={onOpenNortification}
         />
       )}

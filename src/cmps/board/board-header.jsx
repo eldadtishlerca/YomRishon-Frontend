@@ -6,9 +6,9 @@ import { BsPlus } from 'react-icons/bs'
 export const BoardHeader = ({ members, title, activities }) => {
   const onHandleChange = ({ target }) => {
     const { value } = target
-    console.log(value)
   }
 
+  console.log('members from header', members)
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">

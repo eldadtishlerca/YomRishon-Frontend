@@ -1,4 +1,6 @@
 import { utilService } from "./util.service"
+import gBoards from '../data/data'
+const STORAGE_KEY = 'boards'
 
 export const storageService = {
   query,
@@ -10,7 +12,8 @@ export const storageService = {
 }
 
 function query(entityType, delay = 600) {
-  var entities = JSON.parse(localStorage.getItem(entityType)) || []
+  let entities = JSON.parse(localStorage.getItem(entityType)) || _save(STORAGE_KEY, gBoards)
+
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -20,10 +23,13 @@ function query(entityType, delay = 600) {
 }
 
 function get(entityType, entityId) {
-  return query(entityType).then((entities) =>
+  return query(entityType).then((entities) => {
+    if (!entityId) return entities[0]
     entities.find((entity) => entity._id === entityId)
+  }
   )
 }
+
 function post(entityType, newEntity) {
   newEntity._id = utilService.makeId()
   return query(entityType).then((entities) => {

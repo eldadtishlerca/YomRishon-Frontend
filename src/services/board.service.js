@@ -1,7 +1,6 @@
 import { storageService } from './async-storage.service'
-// import gBoards from '../data/data'
 
-const STORAGE_KEY = 'board'
+const STORAGE_KEY = 'boards'
 
 export const boardService = {
   query,
@@ -11,8 +10,8 @@ export const boardService = {
   // save
 }
 
- function query(boardId) {
-  return storageService.query(STORAGE_KEY, boardId)
+ function query() {
+  return storageService.query(STORAGE_KEY)
 }
 
 function getById(boardId) {
@@ -38,3 +37,5 @@ async function save(board) {
   }
   return savedBoard
 }
+
+// storageService.post(STORAGE_KEY, gBoards)

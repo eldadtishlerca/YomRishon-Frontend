@@ -14,10 +14,22 @@ export function getActionUpdateBoard(savedBoard) {
   }
 }
 
+// export function loadBoards() {
+//   return async (dispatch) => {
+//       try {
+//           const boards = await boardService.query()
+//           dispatch({ type: 'SET_BOARD', boards: boards[0] })
+//           console.log('Board from board.action', boards[0])
+//       } catch (err) {
+//           console.log('BoardActions: err in loadBoards', err)
+//       }
+//   };
+// }
+
 export function loadBoard(boardId) {
   return async (dispatch) => {
     try {
-      const board = await boardService.query(boardId)
+      const board = await boardService.getById(boardId)
       dispatch(getActionBoard(board))
     } catch (err) {
       console.log('Cannot load board', err)

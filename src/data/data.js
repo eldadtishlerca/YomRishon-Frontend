@@ -1,4 +1,5 @@
-const gBoards = [
+const gBoards = 
+[
   {
     _id: 'b101',
     title: 'Yom Rishon - Project',
@@ -647,7 +648,7 @@ const gBoards = [
       'Working Hours',
       'Last Updated',
     ],
-  },
+  }
 ]
 
 export default gBoards
