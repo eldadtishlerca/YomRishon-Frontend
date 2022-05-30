@@ -51,7 +51,7 @@ export const BoardPage = () => {
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="boardSection">
-        <BoardHeader members={members} title={title} activities={activities} />
+        <BoardHeader members={members} title={title} activities={activities} groups={groups} />
         <BoardContent groups={groups} />
       </div>
     </div>
