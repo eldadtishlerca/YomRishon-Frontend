@@ -1,19 +1,68 @@
 .group-modal {
- width: 16px;
- height: 16px;
- border-radius: 1rem;
- color: $white;
- display: flex;
- align-items: center;
- justify-content: center;
- border: 1px solid transparent;
- cursor: pointer;
- transition: none;
- svg {
-  font-size: 12px;
+ .group-modal-btn {
+  width: 16px;
+  height: 16px;
+  border-radius: 1rem;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  cursor: pointer;
   transition: none;
+  svg {
+   font-size: 12px;
+   transition: none;
+  }
+  &:hover {
+  border: 1px solid #ccc;
+  }
  }
- &:hover {
- border: 1px solid #ccc;
+ .group-modal-toggle {
+  position: absolute;
+  flex-direction: column;
+  left: 0;
+  top: 22px;
+  width: 248px;
+  padding: 8px;
+  z-index: 999;
+  background: #fff;
+  border: 1px solid #e6e9ef;
+  border-radius: 10px;
+  > * {
+   display: flex;
+   width: 232px;
+   padding: 4px 8px;
+   display: flex;
+   align-items: center;
+   border-radius: 4px;
+   height:24px;
+   color: #323338;
+   cursor: pointer;
+   &:hover {
+    background: #DCDFEC;
+   }
+   div {
+    width: 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    svg {
+     color: #676879;
+     border: 1px solid #676879;
+     border-radius: 1rem;
+     font-size: 13px;
+    }
+    .group-modal-border-no {
+     font-size: 15px;
+     border: none;
+    }
+    .group-modal-svg-no {
+     height: 16px;
+     border-radius: 1rem;
+    }
+   }
+  }
  }
 }
