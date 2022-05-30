@@ -71,7 +71,7 @@ export const HomePage = () => {
             <button
               className="get-started-btn"
               onClick={() => {
-                navigate('/board/b101')
+                navigate('/b101')
               }}
             >
               Get Started{' '}
