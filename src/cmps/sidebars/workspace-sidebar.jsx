@@ -7,6 +7,7 @@ import { WorkspaceSidebarHeader } from './workspace-sidebar-header'
 
 export const WorkspaceSidebar = ({ onClick }) => {
   const { boards } = useSelector((storeState) => storeState.boardModule)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
