@@ -7,6 +7,13 @@ export function getActionBoard(board) {
   }
 }
 
+export function getActionUpdateBoard(savedBoard) {
+  return {
+    type: 'UPDATE_BOARD',
+    board: savedBoard,
+  }
+}
+
 export function loadBoard(boardId) {
   return async (dispatch) => {
     try {
@@ -24,7 +31,7 @@ export function updateBoard(board) {
       .save(board)
       .then((savedBoard) => {
         console.log('Updated Board:', savedBoard)
-        // dispatch(getActionUpdateBoard(savedBoard))
+        dispatch(getActionUpdateBoard(savedBoard))
         // showSuccessMsg('Board updated')
       })
       .catch((err) => {
