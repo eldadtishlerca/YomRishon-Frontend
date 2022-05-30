@@ -40,7 +40,7 @@ export const LoginSignUpPage = () => {
           </p>
         </div>
           <div className="google-signin-btn-warpper"></div>
-          <button className="google-signin-btn">Google</button>
+          <div className="google-signin-btn">Google</div>
         <div className="register-link-container">
           Don't have an account yet?{' '}
           <a className="register-link" href="/">

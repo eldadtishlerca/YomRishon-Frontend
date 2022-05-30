@@ -149,10 +149,19 @@
       }
     }
     .google-signin-btn-warpper {
-        background-color: red;
+      background: red;
       .google-signin-btn {
+        cursor: pointer;
         background: transparent;
+        border: 1px $homePageHeaderText solid;
+        margin-bottom: 24px;
       }
+    }
+
+    .register-link-container{
+        a{
+            color: #0fa2e2;;
+        }
     }
   }
 }
