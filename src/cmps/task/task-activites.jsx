@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { utilService } from '../../services/util.service'
 import { BsPlusCircleFill } from 'react-icons/bs'
+import { AiFillCaretUp } from 'react-icons/ai'
 
 export const TaskActivites = ({
   membersIds,
@@ -89,14 +90,11 @@ export const TaskActivites = ({
         </div>
       )}
       <div
-        onClick={() => setIsStatusModal(true)}
+        onClick={() => setIsStatusModal(!isStatusModal)}
         className="task-activities-status"
         style={{ background: bgHoverStatus() }}
       >
         <span>{status.name}</span>
-        {isStatusModal && (
-          <div className="task-activities-status-modal">Im Modal</div>
-        )}
       </div>
       <div
         className="task-activities-priority"
