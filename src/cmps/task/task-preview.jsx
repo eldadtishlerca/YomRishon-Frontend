@@ -50,7 +50,7 @@ export const TaskPreview = ({
       }}
     >
       {showModal && <TaskDetails task={task} SetShowModal={SetShowModal} />}
-      <TaskModal id={id} isHover={hover} />
+      <TaskModal id={id} groupId={groupId} isHover={hover} />
       <TaskTitle
         onClick={onOpenModal}
         groupColor={groupColor}
@@ -60,6 +60,7 @@ export const TaskPreview = ({
         innerColor={innerColor}
         taskId={id}
         groupId={groupId}
+        task={task}
       />
       <TaskActivites
         membersIds={membersIds}
@@ -73,6 +74,9 @@ export const TaskPreview = ({
         isHover={hover}
         taskId={id}
         groupId={groupId}
+        setHover={setHover}
+        setBackground={setBackground}
+        setInnerColor={setInnerColor}
       />
     </div>
   )
