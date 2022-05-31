@@ -26,7 +26,7 @@ export const TaskTitle = ({
   const [titleValue, setTitleValue] = useState(title || '')
   const dispatch = useDispatch()
   if (!currBoard) return
-  
+
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*');
@@ -35,11 +35,10 @@ export const TaskTitle = ({
     }
   }
   const onHandleChangeTitle = (ev) => {
-    const { value } =  ev.target
-    console.log(value);
+    const { value } = ev.target
+    console.log(value)
     setTitleValue(value)
   }
-
 
   return (
     <div
@@ -60,19 +59,21 @@ export const TaskTitle = ({
       <div className="task-header">
         <div className="task-header-title">
           <span style={{ color: innerColor }}>
-            <input value={titleValue} type="text" 
-            className='task-title-input'
-        
-            onBlur={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onKeyUp={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onChange={(ev) => {
-              onHandleChangeTitle(ev)
-            }}
-            name="titleValue"></input>
+            <input
+              value={titleValue}
+              type="text"
+              className="task-title-input"
+              onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onChange={(ev) => {
+                onHandleChangeTitle(ev)
+              }}
+              name="titleValue"
+            ></input>
           </span>
         </div>
         {editHover && <div className="title-header-edit">Edit</div>}

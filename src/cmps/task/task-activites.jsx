@@ -17,7 +17,7 @@ export const TaskActivites = ({
   innerColor,
   isHover,
   taskId,
-  groupId
+  groupId,
 }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [assigneeHover, setAssigneeHover] = useState(false)
@@ -52,30 +52,43 @@ export const TaskActivites = ({
     return setPriorityColor
   }
 
+  const setStatus = (ev, status) => {
+    const { groups } = currBoard
+    console.log(groupId, taskId, status)
+    const currGroup = groups.find((group) => group.id === groupId)
+    const currTask = currGroup.tasks.find((task) => task.id === taskId)
+    currTask.status = status
+    dispatch(updateBoard(currBoard))
+  }
+
   const onSubmitWorkHours = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('WorkHoursValue updated to: *' + workHoursValue + '*');
+      console.log('WorkHoursValue updated to: *' + workHoursValue + '*')
       const { groups } = currBoard
-      let currGroup = groups.find(group => {return group.id === groupId})
-      let currTask = currGroup.tasks.find(task => {return task.id === taskId})
-      currTask = {...currTask, workHours: workHoursValue}
-      let currTasks = currGroup.tasks.map(task => {
+      let currGroup = groups.find((group) => {
+        return group.id === groupId
+      })
+      let currTask = currGroup.tasks.find((task) => {
+        return task.id === taskId
+      })
+      currTask = { ...currTask, workHours: workHoursValue }
+      let currTasks = currGroup.tasks.map((task) => {
         if (task.id === currTask.id) task = currTask
         return task
       })
-      currGroup = {...currGroup, tasks:currTasks }
-      let newGroups = currBoard.groups.map(group => {
-          if (group.id === currGroup.id) group = currGroup
-          return group
+      currGroup = { ...currGroup, tasks: currTasks }
+      let newGroups = currBoard.groups.map((group) => {
+        if (group.id === currGroup.id) group = currGroup
+        return group
       })
-      let newBoard = {...currBoard, groups:newGroups}
-      console.log(newBoard);
+      let newBoard = { ...currBoard, groups: newGroups }
+      console.log(newBoard)
       dispatch(updateBoard(newBoard))
     }
   }
   const onHandleChange = (ev) => {
-    const { value } =  ev.target
-    console.log(value);
+    const { value } = ev.target
+    console.log(value)
     setWorkHours(value)
   }
 
@@ -129,6 +142,24 @@ export const TaskActivites = ({
         style={{ background: bgHoverStatus() }}
       >
         <span>{status.name}</span>
+        {isStatusModal && (
+          <div className="task-activities-status-modal">
+            <div>
+              <AiFillCaretUp />
+            </div>
+            <div>
+              {currBoard.statuses.map((status) => (
+                <div
+                  key={status.color}
+                  onClick={(ev) => setStatus(ev, status)}
+                  style={{ background: status.color }}
+                >
+                  {status.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       <div
         className="task-activities-priority"
@@ -142,16 +173,23 @@ export const TaskActivites = ({
         style={{ background: background, color: innerColor }}
       >
         {/* <span>{workHours} Hours</span> */}
-        <span><input type="text" value={workHoursValue} className="work-hours-input"
-          onBlur={(ev) => {
+        <span>
+          <input
+            type="text"
+            value={workHoursValue}
+            className="work-hours-input"
+            onBlur={(ev) => {
               onSubmitWorkHours(ev)
             }}
-          onKeyUp={(ev) => {
-            onSubmitWorkHours(ev)
+            onKeyUp={(ev) => {
+              onSubmitWorkHours(ev)
             }}
-          onChange={(ev) => {
+            onChange={(ev) => {
               onHandleChange(ev)
-            }} /> Hours</span>
+            }}
+          />{' '}
+          Hours
+        </span>
       </div>
       <div
         className="task-activities-deadline"
