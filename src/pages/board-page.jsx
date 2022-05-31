@@ -77,8 +77,8 @@ export const BoardPage = () => {
         <BoardHeader currBoard={currBoard} />
         <BoardContent
           groups={groups}
-          _id={_id}
           saveBoardToStore={saveBoardToStore}
+          _id={_id}
         />
       </div>
     </div>

@@ -2,7 +2,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { useDispatch } from 'react-redux'
 import { GroupPreview } from '../group/group-preview'
 
-export const BoardContent = ({ groups, saveBoardToStore }) => {
+export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
   const onDragEnd = (result, groups) => {
     if (!result.destination) return
     const { source, destination } = result
@@ -48,6 +48,7 @@ export const BoardContent = ({ groups, saveBoardToStore }) => {
                     snapchat={snapchat}
                     group={group}
                     key={id}
+                    boardId={_id}
                   />
                 )
               }}
