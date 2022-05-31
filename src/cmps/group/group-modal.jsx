@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
   AiOutlineCaretDown,
   AiOutlineCopy,
   AiOutlinePlus,
 } from 'react-icons/ai'
 import { BiPencil, BiTrash } from 'react-icons/bi'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadBoard, updateBoard } from '../../store/actions/board.actions'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { updateBoard } from '../../store/actions/board.actions'
 
-export const GroupModal = ({ id, color }) => {
+export const GroupModal = ({ id, color, boardId }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
-  const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(loadBoard())
-  }, [])
+  const dispatch = useDispatch()
 
   const [background, setBackground] = useState(color)
   const [innerColor, setInnerColor] = useState('#fff')
@@ -25,8 +23,9 @@ export const GroupModal = ({ id, color }) => {
   }
 
   const onDeleteGroup = () => {
-    currBoard.groups = currBoard.groups.filter((group) => group.id !== id)
-    updateBoard(currBoard)
+    const deletedGroup = currBoard.groups.findIdx((group) => group.id === id)
+    currBoard.groups.splice(deletedGroup, 1)
+    dispatch(updateBoard(currBoard))
   }
 
   return (

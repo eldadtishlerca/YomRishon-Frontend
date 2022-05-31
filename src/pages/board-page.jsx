@@ -82,8 +82,8 @@ export const BoardPage = () => {
         />
         <BoardContent
           groups={groups}
-          _id={_id}
           saveBoardToStore={saveBoardToStore}
+          _id={_id}
         />
       </div>
     </div>
