@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import { TaskPreview } from '../task/task-preview'
 
 export const GroupPreview = ({ group, provided, snapchat }) => {
-  const { _id, color, title, tasks, hoverColor } = group
+  const { id, color, title, tasks, hoverColor } = group
 
   return (
     <div
@@ -13,7 +13,7 @@ export const GroupPreview = ({ group, provided, snapchat }) => {
       {...provided.droppableProps}
       ref={provided.innerRef}
     >
-      <GroupHeader _id={_id} color={color} title={title} />
+      <GroupHeader id={id} color={color} title={title} />
       {group.tasks.map((task, idx) => {
         return (
           <Draggable key={task.id} draggableId={task.id} index={idx}>

@@ -4,24 +4,32 @@ import { useParams } from 'react-router-dom'
 import { BoardHeader } from '../cmps/board/board-header'
 import { BoardContent } from '../cmps/board/board-content'
 import { MainSidebar } from '../cmps/sidebars/main-sidebar'
-import { loadBoard } from '../store/actions/board.actions'
+import {
+  loadBoard,
+  removeBoard,
+  updateBoard,
+} from '../store/actions/board.actions'
 import { WorkspaceSidebarClosed } from '../cmps/sidebars/workspace-sidebar-closed'
 import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  const { boards } = useSelector((storeState) => storeState.boardModule)
   const params = useParams()
   const dispatch = useDispatch()
-
-  const [showModal, SetShowModal] = useState(false)
-  const [showNotifications, SetShowNotifications] = useState(false)
 
   useEffect(() => {
     dispatch(loadBoard(params.id))
   }, [])
 
-  if (Object.keys(currBoard).length === 0 || !currBoard)
+  const [showModal, SetShowModal] = useState(false)
+  const [showNotifications, SetShowNotifications] = useState(false)
+
+  if (
+    (Object.keys(currBoard).length === 0 || !currBoard) &&
+    boards.length === 0
+  )
     return <div>Loading...</div>
 
   const onOpenModal = () => {
@@ -31,9 +39,16 @@ export const BoardPage = () => {
     SetShowNotifications(!showNotifications)
   }
 
-  const { title, members, activities, groups, cmpsOrder } = currBoard
+  const onRemoveBoard = (boardId) => {
+    dispatch(removeBoard(boardId))
+  }
 
-  console.log(currBoard.groups)
+  const saveBoardToStore = (groups) => {
+    currBoard.groups = groups
+    dispatch(updateBoard(currBoard))
+  }
+
+  const { title, members, activities, groups, cmpsOrder, _id } = currBoard
 
   return (
     <div className="board-page flex">
@@ -50,7 +65,11 @@ export const BoardPage = () => {
       )}
 
       {showModal ? (
-        <WorkspaceSidebar onClick={onOpenModal} />
+        <WorkspaceSidebar
+          onClick={onOpenModal}
+          boards={boards}
+          onRemoveBoard={onRemoveBoard}
+        />
       ) : (
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
@@ -61,7 +80,11 @@ export const BoardPage = () => {
           activities={activities}
           groups={groups}
         />
-        <BoardContent groups={groups} />
+        <BoardContent
+          groups={groups}
+          _id={_id}
+          saveBoardToStore={saveBoardToStore}
+        />
       </div>
     </div>
   )

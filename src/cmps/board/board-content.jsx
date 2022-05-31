@@ -1,27 +1,8 @@
-import { useEffect, useState } from 'react'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  getActionUpdateBoard,
-  loadBoard,
-} from '../../store/actions/board.actions'
+import { useDispatch } from 'react-redux'
 import { GroupPreview } from '../group/group-preview'
 
-export const BoardContent = () => {
-  const { currBoard } = useSelector((storeState) => storeState.boardModule)
-
-  const [groups, setGroups] = useState(currBoard.groups)
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(loadBoard())
-  }, [])
-
-  // useEffect(() => {
-  //   console.log(groups)
-  // }, [groups])
-
+export const BoardContent = ({ groups, saveBoardToStore }) => {
   const onDragEnd = (result, groups) => {
     if (!result.destination) return
     const { source, destination } = result
@@ -37,9 +18,7 @@ export const BoardContent = () => {
         [source.droppableId]: { ...sourceColumn, tasks: sourceItems },
         [destination.droppableId]: { ...destColumn, tasks: destTasks },
       }
-      setGroups(newGroups)
-      currBoard.groups = newGroups
-      getActionUpdateBoard(currBoard)
+      saveBoardToStore(newGroups)
     } else {
       const column = groups[source.droppableId]
       const copiedItems = [...column.tasks]
@@ -52,13 +31,9 @@ export const BoardContent = () => {
           tasks: copiedItems,
         },
       }
-      setGroups(newGroups)
-      currBoard.groups = newGroups
-      getActionUpdateBoard(currBoard)
+      saveBoardToStore(newGroups)
     }
   }
-
-  if (!currBoard.groups) return <div>Loading..</div>
 
   return (
     <div className="board-content">

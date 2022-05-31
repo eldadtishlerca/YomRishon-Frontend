@@ -36,13 +36,53 @@ export function loadBoards() {
   }
 }
 
+export function updateBoard(board) {
+  return (dispatch) => {
+    console.log(board)
+    boardService
+      .save(board)
+      .then((savedBoard) => {
+        console.log('savedBoard', savedBoard)
+        dispatch(getActionUpdateBoard(savedBoard))
+      })
+      .catch((err) => {
+        console.log('Cannot savedBoard', err)
+      })
+  }
+}
+
+export function removeBoard(boardId) {
+  return async (dispatch) => {
+    try {
+      const boards = await boardService.remove(boardId)
+      dispatch({ type: 'SET_BOARDS', boards })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
+export function updateGroups(groups, _id) {
+  console.log(groups)
+  return async (dispatch) => {
+    try {
+      const currBoard = await boardService.getById(_id)
+      console.log(currBoard)
+      // currBoard.groups = groups
+      dispatch({ type: 'SET_BOARD', currBoard })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
 // export function updateBoard(board) {
 //   return (dispatch) => {
 //     boardService
 //       .save(board)
 //       .then((savedBoard) => {
 //         console.log('Updated Board:', savedBoard)
-//         dispatch(getActionUpdateBoard(savedBoard))
+//         // dispatch(getActionUpdateBoard(savedBoard))
 //         // showSuccessMsg('Board updated')
 //       })
 //       .catch((err) => {

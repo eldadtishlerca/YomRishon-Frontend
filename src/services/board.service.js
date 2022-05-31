@@ -9,19 +9,19 @@ export const boardService = {
   getById,
   save,
   remove,
-  // save
 }
 
 function query() {
   return storageService.query(STORAGE_KEY)
 }
 
-function getById(boardId) {
+async function getById(boardId) {
   return storageService.get(STORAGE_KEY, boardId)
 }
 
 async function remove(boardId) {
   await storageService.remove(STORAGE_KEY, boardId)
+  return storageService.query(STORAGE_KEY)
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 

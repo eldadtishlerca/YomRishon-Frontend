@@ -1,10 +1,10 @@
 import { GroupModal } from './group-modal'
 
-export const GroupHeader = ({ _id, color, title }) => {
+export const GroupHeader = ({ id, color, title }) => {
   return (
     <div className="group-header flex">
       <div className="group-modal-wrapper">
-        <GroupModal _id={_id} color={color} />
+        <GroupModal id={id} color={color} />
       </div>
       <div className="group-title">
         <span style={{ color: color }}>{title}</span>

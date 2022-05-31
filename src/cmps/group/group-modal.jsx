@@ -1,18 +1,32 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AiOutlineCaretDown,
   AiOutlineCopy,
   AiOutlinePlus,
 } from 'react-icons/ai'
 import { BiPencil, BiTrash } from 'react-icons/bi'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadBoard, updateBoard } from '../../store/actions/board.actions'
 
-export const GroupModal = ({ _id, color }) => {
+export const GroupModal = ({ id, color }) => {
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(loadBoard())
+  }, [])
+
   const [background, setBackground] = useState(color)
   const [innerColor, setInnerColor] = useState('#fff')
   const [toggleModal, setToggleModal] = useState(false)
 
   const onGroupModalToggle = () => {
     setToggleModal(!toggleModal)
+  }
+
+  const onDeleteGroup = () => {
+    currBoard.groups = currBoard.groups.filter((group) => group.id !== id)
+    updateBoard(currBoard)
   }
 
   return (
@@ -64,7 +78,7 @@ export const GroupModal = ({ _id, color }) => {
             </div>
             <span>Change group color</span>
           </div>
-          <div>
+          <div onClick={() => onDeleteGroup()}>
             <div>
               <BiTrash
                 className="group-modal-border-no"
