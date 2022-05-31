@@ -15,7 +15,7 @@ export const GroupModal = ({ id, color }) => {
 
   useEffect(() => {
     setBackground(color)
-  }, [])
+  }, [color])
 
   const dispatch = useDispatch()
 
@@ -33,56 +33,47 @@ export const GroupModal = ({ id, color }) => {
       color: utilService.getRandomColor(),
       hoverColor: utilService.getRandomColor(),
       id: utilService.makeId(),
-      tasks: {
-        id: 'c101',
-        title: 'New Task',
-        membersIds: [
-          {
-            _id: 'u101',
-            username: 'Eldad',
-            fullname: 'Eldad Tishler',
-            imgUrl: 'imgs/mini-user-imgs/u101.png',
-          },
-        ],
-        status: {
-          color: '#7F5347',
-          hover: '#9E807A',
-          name: 'Not Assignee',
-        },
-        priority: {
-          name: 'Done',
-          color: '#00C875',
-          hover: '#45D29A',
-        },
-        deadline: 1653721491433,
-        workHours: 5,
-        isChecked: false,
-        lastUpdated: {
-          _id: 'u103',
-          fullname: 'Elon Barzani',
-          imgUrl: 'imgs/mini-user-imgs/u103.png',
-          updatedAt: '1653721491433',
-        },
-        createdAt: 1590998630348,
-        byMember: {
-          _id: 'u102',
-          username: 'Yarden',
-          fullname: 'Yarden Shaul',
-          imgUrl: 'imgs/mini-user-imgs/u102.png',
-        },
-        updates: [
-          {
-            id: '54HYs',
-            txt: 'Finaly found a nice animation loader :)',
-            createdAt: 1590999807436,
-            byMember: {
-              _id: 'u103',
-              fullname: 'Elon Barzani',
-              imgUrl: 'imgs/mini-user-imgs/u103.png',
+      tasks: [
+        {
+          id: utilService.makeId(),
+          title: 'New Task',
+          membersIds: [
+            {
+              _id: 'u101',
+              username: 'Eldad',
+              fullname: 'Eldad Tishler',
+              imgUrl: 'imgs/mini-user-imgs/u101.png',
             },
+          ],
+          status: {
+            color: '#7F5347',
+            hover: '#9E807A',
+            name: 'Not Assignee',
           },
-        ],
-      },
+          priority: {
+            color: '#2B76E5',
+            hover: '#6399E8',
+            name: 'Low',
+          },
+          deadline: new Date(),
+          workHours: 0,
+          isChecked: false,
+          lastUpdated: {
+            _id: 'u103',
+            fullname: 'Elon Barzani',
+            imgUrl: 'imgs/mini-user-imgs/u103.png',
+            updatedAt: new Date(),
+          },
+          createdAt: new Date(),
+          byMember: {
+            _id: 'u102',
+            username: 'Yarden',
+            fullname: 'Yarden Shaul',
+            imgUrl: 'imgs/mini-user-imgs/u102.png',
+          },
+          updates: [],
+        },
+      ],
       title: 'New Group',
     }
     currBoard.groups.unshift(newGroup)
