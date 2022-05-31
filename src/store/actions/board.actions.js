@@ -4,7 +4,8 @@ export function updateTask(board, groupId, taskId, taskToUpdate ) {
   return async (dispatch) => {
     try {
       const updatedBoard = await boardService.updateTask(board, groupId, taskId, taskToUpdate)
-      dispatch({ type: 'SET_BOARD', currBoard: updatedBoard })
+      // dispatch({ type: 'SET_BOARD', currBoard: updatedBoard })
+      dispatch(getActionUpdateBoard(updatedBoard))
     } catch (err) {
       console.log('BoardActions: err in loadBoards', err)
     }
