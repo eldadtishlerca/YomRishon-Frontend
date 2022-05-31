@@ -77,6 +77,7 @@ export const TaskPreview = ({
         setHover={setHover}
         setBackground={setBackground}
         setInnerColor={setInnerColor}
+        task={task}
       />
     </div>
   )

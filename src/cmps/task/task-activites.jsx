@@ -5,6 +5,7 @@ import { updateBoard } from '../../store/actions/board.actions'
 import { utilService } from '../../services/util.service'
 import { BsPlusCircleFill } from 'react-icons/bs'
 import { AiFillCaretUp } from 'react-icons/ai'
+import {updateTask} from '../../store/actions/board.actions'
 
 export const TaskActivites = ({
   membersIds,
@@ -21,6 +22,7 @@ export const TaskActivites = ({
   setHover,
   setBackground,
   setInnerColor,
+  task
 }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [assigneeHover, setAssigneeHover] = useState(false)
@@ -66,26 +68,9 @@ export const TaskActivites = ({
   const onSubmitWorkHours = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
       console.log('WorkHoursValue updated to: *' + workHoursValue + '*')
-      const { groups } = currBoard
-      let currGroup = groups.find((group) => {
-        return group.id === groupId
-      })
-      let currTask = currGroup.tasks.find((task) => {
-        return task.id === taskId
-      })
-      currTask = { ...currTask, workHours: workHoursValue }
-      let currTasks = currGroup.tasks.map((task) => {
-        if (task.id === currTask.id) task = currTask
-        return task
-      })
-      currGroup = { ...currGroup, tasks: currTasks }
-      let newGroups = currBoard.groups.map((group) => {
-        if (group.id === currGroup.id) group = currGroup
-        return group
-      })
-      let newBoard = { ...currBoard, groups: newGroups }
-      console.log(newBoard)
-      dispatch(updateBoard(newBoard))
+      const taskToUpdate = {...task, workHours: +workHoursValue}
+      dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate ))
+
     }
   }
   const onHandleChange = (ev) => {
