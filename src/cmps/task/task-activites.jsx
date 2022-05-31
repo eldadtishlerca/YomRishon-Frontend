@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { updateBoard } from '../../store/actions/board.actions'
 import { utilService } from '../../services/util.service'
 import { BsPlusCircleFill } from 'react-icons/bs'
 
@@ -12,10 +15,14 @@ export const TaskActivites = ({
   background,
   innerColor,
   isHover,
+  taskId,
+  groupId
 }) => {
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [assigneeHover, setAssigneeHover] = useState(false)
-
+  const [workHoursValue, setWorkHours] = useState(workHours || '')
   const [isStatusModal, setIsStatusModal] = useState(false)
+  const dispatch = useDispatch()
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -42,6 +49,33 @@ export const TaskActivites = ({
   const bgHoverPriority = () => {
     const setPriorityColor = isHover ? priority.hover : priority.color
     return setPriorityColor
+  }
+
+  const onSubmitWorkHours = (ev) => {
+    if (ev.key === 'Enter' || ev.type === 'blur') {
+      console.log('WorkHoursValue updated to: *' + workHoursValue + '*');
+      const { groups } = currBoard
+      let currGroup = groups.find(group => {return group.id === groupId})
+      let currTask = currGroup.tasks.find(task => {return task.id === taskId})
+      currTask = {...currTask, workHours: workHoursValue}
+      let currTasks = currGroup.tasks.map(task => {
+        if (task.id === currTask.id) task = currTask
+        return task
+      })
+      currGroup = {...currGroup, tasks:currTasks }
+      let newGroups = currBoard.groups.map(group => {
+          if (group.id === currGroup.id) group = currGroup
+          return group
+      })
+      let newBoard = {...currBoard, groups:newGroups}
+      console.log(newBoard);
+      dispatch(updateBoard(newBoard))
+    }
+  }
+  const onHandleChange = (ev) => {
+    const { value } =  ev.target
+    console.log(value);
+    setWorkHours(value)
   }
 
   return (
@@ -109,7 +143,17 @@ export const TaskActivites = ({
         className="task-activities-hours"
         style={{ background: background, color: innerColor }}
       >
-        <span>{workHours} Hours</span>
+        {/* <span>{workHours} Hours</span> */}
+        <span><input type="text" value={workHoursValue} className="work-hours-input"
+          onBlur={(ev) => {
+              onSubmitWorkHours(ev)
+            }}
+          onKeyUp={(ev) => {
+            onSubmitWorkHours(ev)
+            }}
+          onChange={(ev) => {
+              onHandleChange(ev)
+            }} /> Hours</span>
       </div>
       <div
         className="task-activities-deadline"
