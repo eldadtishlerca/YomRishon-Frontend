@@ -54,7 +54,7 @@ export const BoardPage = () => {
   }
 
   const { title, members, activities, groups, cmpsOrder, _id } = currBoard
-
+  if (!currBoard) return
   return (
     <div className="board-page flex">
       <MainSidebar
@@ -80,16 +80,11 @@ export const BoardPage = () => {
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="boardSection">
-        <BoardHeader
-          members={members}
-          title={title}
-          activities={activities}
-          groups={groups}
-        />
+        <BoardHeader currBoard={currBoard} />
         <BoardContent
           groups={groups}
-          _id={_id}
           saveBoardToStore={saveBoardToStore}
+          _id={_id}
         />
       </div>
     </div>

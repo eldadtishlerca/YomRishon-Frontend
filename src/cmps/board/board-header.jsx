@@ -1,11 +1,32 @@
+import { useState } from 'react'
 import { ToolBar } from './toolbar'
 import { MdOutlineTableChart } from 'react-icons/md'
 import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
+import { updateBoard } from '../../store/actions/board.actions'
+import { useDispatch } from 'react-redux'
 
-export const BoardHeader = ({ members, title, activities, groups }) => {
-  const onHandleChange = ({ target }) => {
-    const { value } = target
+export const BoardHeader = ({ currBoard }) => {
+  const { members, title, activities, groups } = currBoard
+  const [isEditing, setIsEditing] = useState(true)
+  const [titleValue, setTitleValue] = useState(title)
+  const dispatch = useDispatch()
+  
+  const onSubmitChanges = (ev) => {
+    if (ev.key === 'Enter' || ev.type === 'blur') {
+      setIsEditing(false)
+      console.log('SUBMIT!');
+      dispatch(updateBoard( {...currBoard, title: titleValue}))
+    }
+    setTimeout(() => {
+        setIsEditing(true)
+    }, 500)
+  }
+
+  const onHandleChange = (ev) => {
+    const { value } =  ev.target
+    console.log(value);
+    setTitleValue(value)
   }
 
   return (
@@ -14,11 +35,18 @@ export const BoardHeader = ({ members, title, activities, groups }) => {
         <div className="board-header-top-main flex center flex">
           <input
             type="text"
-            value={title}
+            value={titleValue}
             className="title"
+            onBlur={(ev) => {
+              onSubmitChanges(ev)
+            }}
+            onKeyUp={(ev) => {
+              onSubmitChanges(ev)
+            }}
             onChange={(ev) => {
               onHandleChange(ev)
             }}
+            contentEditable={isEditing}
           />
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
