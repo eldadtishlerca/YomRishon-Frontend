@@ -33,7 +33,7 @@ export const WorkspaceSidebarHeader = ({ onClick, onAddBoard }) => {
         </span>
       </div>
       <div className="workspace-sidebar-btns">
-        <div className="flex" onClick={() => onAddBoard()}>
+        <div className="flex" onClick={(ev) => onAddBoard(ev)}>
           <AiOutlinePlus />
           <span>Add</span>
         </div>

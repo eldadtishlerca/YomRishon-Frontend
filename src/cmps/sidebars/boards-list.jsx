@@ -1,10 +1,12 @@
 import { BiDockLeft } from 'react-icons/bi'
 import { BiTrash } from 'react-icons/bi'
+import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { updateBoard } from '../../store/actions/board.actions'
 
-export const BoardsList = ({ boards, onRemoveBoard }) => {
+export const BoardsList = ({ onRemoveBoard, onAddBoard }) => {
+  const { boards } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -26,9 +28,17 @@ export const BoardsList = ({ boards, onRemoveBoard }) => {
           <span className="delete-btn">
             <div
               className="icon-container"
-              onClick={() => onRemoveBoard(board._id)}
+              onClick={(ev) => onRemoveBoard(ev,board._id)}
             >
               <BiTrash />
+            </div>
+          </span>
+          <span className="delete-btn">
+            <div
+              className="icon-container"
+              onClick={(ev) => onAddBoard(ev,board)}
+            >
+              <div>Duplicate</div>
             </div>
           </span>
         </div>

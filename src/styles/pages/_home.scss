@@ -79,7 +79,7 @@
         background: $lblue;
         font-size: 14px;
         padding: 12px 22px;
-        &:hover{
+        &:hover {
           background: #5a5ad5;
         }
       }
@@ -119,6 +119,7 @@
     min-height: 92vh;
 
     .star {
+      opacity: 0;
       position: absolute;
       width: 4px;
       height: 4px;
@@ -270,7 +271,7 @@
         }
       }
       p {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: normal;
         margin-top: 10px;
         animation-name: fade-in;
@@ -280,13 +281,10 @@
         cursor: default;
 
         @include small {
-          font-size: 16px;
+          font-size: 12px;
         }
         @include medium {
-          font-size: 18px;
-        }
-        @include large {
-          font-size: 20px;
+          font-size: 14px;
         }
       }
     }

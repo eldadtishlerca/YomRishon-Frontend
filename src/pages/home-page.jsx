@@ -65,7 +65,8 @@ export const HomePage = () => {
           <span className="star"></span>
         </section>
         <div className="hero">
-          <h1>A platform built for a new way of working</h1>
+          <h1>A platform built for a <br />
+           new way of working</h1>
           <h3>Manage your workflow with powerful tools</h3>
           <div className="hero-btn-wrapper">
             <button

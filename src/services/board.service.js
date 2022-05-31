@@ -27,8 +27,8 @@ async function remove(boardId) {
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
-async function add() {
-  const board = _getNewBoard()
+async function add(board) {
+  if (!board) board = _getNewBoard()
   await storageService.post(STORAGE_KEY, board)
   return storageService.query(STORAGE_KEY)
   // boardChannel.postMessage(getActionAddBoard(board))

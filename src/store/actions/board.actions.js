@@ -61,10 +61,10 @@ export function removeBoard(boardId) {
   }
 }
 
-export function addBoard() {
+export function addBoard(board) {
   return async (dispatch) => {
     try {
-      const boards = await boardService.add()
+      const boards = await boardService.add(board)
       dispatch({ type: 'SET_BOARDS', boards })
     } catch (err) {
       console.log('err:', err)

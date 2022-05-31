@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { BoardHeader } from '../cmps/board/board-header'
 import { BoardContent } from '../cmps/board/board-content'
 import { MainSidebar } from '../cmps/sidebars/main-sidebar'
@@ -19,10 +19,12 @@ export const BoardPage = () => {
   const { boards } = useSelector((storeState) => storeState.boardModule)
   const params = useParams()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(loadBoard(params.id))
-  }, [])
+    console.log('State Changed')
+  }, [boards,params._id])
 
   const [showModal, SetShowModal] = useState(false)
   const [showNotifications, SetShowNotifications] = useState(false)
@@ -40,12 +42,28 @@ export const BoardPage = () => {
     SetShowNotifications(!showNotifications)
   }
 
-  const onRemoveBoard = (boardId) => {
+  const onRemoveBoard = (event, boardId) => {
+    event.preventDefault()
+    event.stopPropagation()
+    if (currBoard._id === boardId) {
+      if (currBoard._id !== boards[0]._id) {
+        navigate(`/${boards[0]._id}`)
+      } else {
+        navigate(`/${boards[1]._id}`)
+      }
+    }
     dispatch(removeBoard(boardId))
+    // setTimeout(()=> {
+    //   console.log('Boards after 2s', boards)
+    // }, 2000)
   }
 
-  const onAddBoard = () => {
-    dispatch(addBoard())
+  const onAddBoard = (event, board) => {
+    event.preventDefault()
+    event.stopPropagation()
+    if (board) delete board._id
+    dispatch(addBoard(board))
+    navigate(`/${currBoard._id}`)
   }
 
   const saveBoardToStore = (groups) => {

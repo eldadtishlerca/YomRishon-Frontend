@@ -9,7 +9,7 @@ export const WorkspaceSidebar = ({ onClick, boards, onRemoveBoard, onAddBoard })
         <AiFillCaretLeft />
       </div>
       <WorkspaceSidebarHeader onClick={onClick} boards={boards} onAddBoard={onAddBoard} />
-      <BoardsList boards={boards} onRemoveBoard={onRemoveBoard} />
+      <BoardsList boards={boards} onRemoveBoard={onRemoveBoard} onAddBoard={onAddBoard} />
     </div>
   )
 }
