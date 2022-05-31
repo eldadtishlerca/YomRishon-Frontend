@@ -15,6 +15,8 @@ export const TaskActivites = ({
 }) => {
   const [assigneeHover, setAssigneeHover] = useState(false)
 
+  const [isStatusModal, setIsStatusModal] = useState(false)
+
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
     const year = deadlineTime.getFullYear()
@@ -87,10 +89,14 @@ export const TaskActivites = ({
         </div>
       )}
       <div
+        onClick={() => setIsStatusModal(true)}
         className="task-activities-status"
         style={{ background: bgHoverStatus() }}
       >
         <span>{status.name}</span>
+        {isStatusModal && (
+          <div className="task-activities-status-modal">Im Modal</div>
+        )}
       </div>
       <div
         className="task-activities-priority"
