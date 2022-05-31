@@ -60,6 +60,7 @@ export const TaskPreview = ({
         innerColor={innerColor}
         taskId={id}
         groupId={groupId}
+        task={task}
       />
       <TaskActivites
         membersIds={membersIds}
