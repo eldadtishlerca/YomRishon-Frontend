@@ -18,12 +18,17 @@ export const TaskActivites = ({
   isHover,
   taskId,
   groupId,
+  setHover,
+  setBackground,
+  setInnerColor,
 }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [assigneeHover, setAssigneeHover] = useState(false)
   const [workHoursValue, setWorkHours] = useState(workHours || '')
   const [isStatusModal, setIsStatusModal] = useState(false)
   const dispatch = useDispatch()
+
+  console.log(isHover)
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -137,13 +142,22 @@ export const TaskActivites = ({
         </div>
       )}
       <div
-        onClick={() => setIsStatusModal(!isStatusModal)}
+        onClick={() => {
+          setIsStatusModal(!isStatusModal)
+        }}
         className="task-activities-status"
         style={{ background: bgHoverStatus() }}
       >
         <span>{status.name}</span>
         {isStatusModal && (
-          <div className="task-activities-status-modal">
+          <div
+            className="task-activities-status-modal"
+            onMouseEnter={() => {
+              setHover(false)
+              setBackground('#f5f6f8')
+              setInnerColor('#666666')
+            }}
+          >
             <div>
               <AiFillCaretUp />
             </div>
