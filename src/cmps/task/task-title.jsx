@@ -27,29 +27,28 @@ export const TaskTitle = ({
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*');
-      // dispatch(updateBoard( {...currBoard, title: titleValue}))
+      const {groups} = currBoard
+      let currGroup = groups.find(group => {return group.id === groupId})
+      let currTask = currGroup.tasks.find(task => {return task.id === taskId})
+      currTask = {...currTask, title: titleValue}
+      let currTasks = currGroup.tasks.map(task => {
+        if (task.id === currTask.id) task = currTask
+        return task
+      })
+      currGroup = {...currGroup, tasks:currTasks }
+      let newGroups = currBoard.groups.map(group => {
+          if (group.id === currGroup.id) group = currGroup
+          return group
+      })
+      let newBoard = {...currBoard, groups:newGroups}
+      console.log(newBoard);
+      dispatch(updateBoard(newBoard))
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } =  ev.target
     console.log(value);
     setTitleValue(value)
-    const {groups} = currBoard
-    let currGroup = groups.find(group => {return group.id === groupId})
-    let currTask = currGroup.tasks.find(task => {return task.id === taskId})
-    currTask = {...currTask, title: titleValue}
-    let currTasks = currGroup.tasks.map(task => {
-      if (task.id === currTask.id) task = currTask
-      return task
-    })
-    currGroup = {...currGroup, tasks:currTasks }
-    let newGroups = currBoard.groups.map(group => {
-        if (group.id === currGroup.id) group = currGroup
-        return group
-    })
-    let newBoard = {...currBoard, groups:newGroups}
-    console.log(newBoard);
-    dispatch(updateBoard(newBoard))
   }
 
 
