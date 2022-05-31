@@ -74,6 +74,9 @@ export const TaskPreview = ({
         isHover={hover}
         taskId={id}
         groupId={groupId}
+        setHover={setHover}
+        setBackground={setBackground}
+        setInnerColor={setInnerColor}
       />
     </div>
   )
