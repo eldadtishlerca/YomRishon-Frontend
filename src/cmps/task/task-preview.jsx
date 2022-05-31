@@ -50,7 +50,7 @@ export const TaskPreview = ({
       }}
     >
       {showModal && <TaskDetails task={task} SetShowModal={SetShowModal} />}
-      <TaskModal id={id} isHover={hover} />
+      <TaskModal id={id} groupId={groupId} isHover={hover} />
       <TaskTitle
         onClick={onOpenModal}
         groupColor={groupColor}
