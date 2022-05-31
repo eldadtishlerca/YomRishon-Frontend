@@ -23,34 +23,40 @@ export const TaskTitle = ({
   const [titleValue, setTitleValue] = useState(title || '')
   const dispatch = useDispatch()
   if (!currBoard) return
-  
+
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*');
-      const {groups} = currBoard
-      let currGroup = groups.find(group => {return group.id === groupId})
-      let currTask = currGroup.tasks.find(task => {return task.id === taskId})
-      currTask = {...currTask, title: titleValue}
-      let currTasks = currGroup.tasks.map(task => {
+      console.log('Title updated to: *' + titleValue + '*')
+      const { groups } = currBoard
+      let currGroup = groups.find((group) => {
+        return group.id === groupId
+      })
+      let currTask = currGroup.tasks.find((task) => {
+        return task.id === taskId
+      })
+      currTask = { ...currTask, title: titleValue }
+      let currTasks = currGroup.tasks.map((task) => {
         if (task.id === currTask.id) task = currTask
         return task
       })
-      currGroup = {...currGroup, tasks:currTasks }
-      let newGroups = currBoard.groups.map(group => {
-          if (group.id === currGroup.id) group = currGroup
-          return group
+      currGroup = { ...currGroup, tasks: currTasks }
+      let newGroups = currBoard.groups.map((group) => {
+        if (group.id === currGroup.id) group = currGroup
+        return group
       })
-      let newBoard = {...currBoard, groups:newGroups}
-      console.log(newBoard);
+      let newBoard = { ...currBoard, groups: newGroups }
+      console.log(newBoard)
+      // dispatch(updateTask(boardId, groupId, taskId, taskToUpdate))
+
+      // board.groups[groupIdx].tasks.splice(1, taskIdx, taskToUpdate)
       dispatch(updateBoard(newBoard))
     }
   }
   const onHandleChangeTitle = (ev) => {
-    const { value } =  ev.target
-    console.log(value);
+    const { value } = ev.target
+    console.log(value)
     setTitleValue(value)
   }
-
 
   return (
     <div
@@ -71,19 +77,21 @@ export const TaskTitle = ({
       <div className="task-header">
         <div className="task-header-title">
           <span style={{ color: innerColor }}>
-            <input value={titleValue} type="text" 
-            className='task-title-input'
-        
-            onBlur={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onKeyUp={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onChange={(ev) => {
-              onHandleChangeTitle(ev)
-            }}
-            name="titleValue"></input>
+            <input
+              value={titleValue}
+              type="text"
+              className="task-title-input"
+              onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onChange={(ev) => {
+                onHandleChangeTitle(ev)
+              }}
+              name="titleValue"
+            ></input>
           </span>
         </div>
         {editHover && <div className="title-header-edit">Edit</div>}
