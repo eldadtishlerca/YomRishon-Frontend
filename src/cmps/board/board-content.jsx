@@ -1,9 +1,9 @@
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { useDispatch } from 'react-redux'
 import { GroupPreview } from '../group/group-preview'
 
 export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
   const onDragEnd = (result, groups) => {
+    console.log(groups)
     if (!result.destination) return
     const { source, destination } = result
     if (source.droppableId !== destination.droppableId) {
@@ -13,12 +13,15 @@ export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
       const destTasks = [...destColumn.tasks]
       const [removed] = sourceItems.splice(source.index, 1)
       destTasks.splice(destination.index, 0, removed)
-      const newGroups = {
-        ...groups,
-        [source.droppableId]: { ...sourceColumn, tasks: sourceItems },
-        [destination.droppableId]: { ...destColumn, tasks: destTasks },
+      groups[source.droppableId] = {
+        ...groups[source.droppableId],
+        tasks: sourceItems,
       }
-      saveBoardToStore(newGroups)
+      groups[destination.droppableId] = {
+        ...groups[destination.droppableId],
+        tasks: destTasks,
+      }
+      saveBoardToStore(groups)
     } else {
       const column = groups[source.droppableId]
       const copiedItems = [...column.tasks]
@@ -31,7 +34,8 @@ export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
           tasks: copiedItems,
         },
       }
-      saveBoardToStore(newGroups)
+      const groupsToArr = Object.keys(newGroups).map((key) => [newGroups[key]])
+      saveBoardToStore(groupsToArr)
     }
   }
 

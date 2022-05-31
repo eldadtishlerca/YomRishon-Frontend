@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { updateBoard } from '../../store/actions/board.actions'
 
-export const GroupModal = ({ id, color, boardId }) => {
+export const GroupModal = ({ id, color }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
 
   const dispatch = useDispatch()
@@ -23,8 +23,8 @@ export const GroupModal = ({ id, color, boardId }) => {
   }
 
   const onDeleteGroup = () => {
-    const deletedGroup = currBoard.groups.findIdx((group) => group.id === id)
-    currBoard.groups.splice(deletedGroup, 1)
+    setToggleModal(false)
+    currBoard.groups = currBoard.groups.filter((group) => group.id !== id)
     dispatch(updateBoard(currBoard))
   }
 

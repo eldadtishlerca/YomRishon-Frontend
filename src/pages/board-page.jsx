@@ -7,6 +7,7 @@ import { MainSidebar } from '../cmps/sidebars/main-sidebar'
 import {
   loadBoard,
   removeBoard,
+  addBoard,
   updateBoard,
 } from '../store/actions/board.actions'
 import { WorkspaceSidebarClosed } from '../cmps/sidebars/workspace-sidebar-closed'
@@ -43,6 +44,10 @@ export const BoardPage = () => {
     dispatch(removeBoard(boardId))
   }
 
+  const onAddBoard = () => {
+    dispatch(addBoard())
+  }
+
   const saveBoardToStore = (groups) => {
     currBoard.groups = groups
     dispatch(updateBoard(currBoard))
@@ -69,6 +74,7 @@ export const BoardPage = () => {
           onClick={onOpenModal}
           boards={boards}
           onRemoveBoard={onRemoveBoard}
+          onAddBoard={onAddBoard}
         />
       ) : (
         <WorkspaceSidebarClosed onClick={onOpenModal} />

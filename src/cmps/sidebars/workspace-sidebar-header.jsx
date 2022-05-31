@@ -9,7 +9,7 @@ import {
   AiOutlineSearch,
 } from 'react-icons/ai'
 
-export const WorkspaceSidebarHeader = ({ onClick }) => {
+export const WorkspaceSidebarHeader = ({ onClick, onAddBoard }) => {
   const { boards } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
 
@@ -33,7 +33,7 @@ export const WorkspaceSidebarHeader = ({ onClick }) => {
         </span>
       </div>
       <div className="workspace-sidebar-btns">
-        <div className="flex">
+        <div className="flex" onClick={() => onAddBoard()}>
           <AiOutlinePlus />
           <span>Add</span>
         </div>

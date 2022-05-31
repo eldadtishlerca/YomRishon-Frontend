@@ -17,7 +17,7 @@ export const BoardsList = ({ boards, onRemoveBoard }) => {
     <div className="boards-list">
       {boards.map((board) => (
         <div
-          className="flex board-active"
+          className="flex"
           key={board._id}
           onClick={() => onSetBoard(board)}
         >

@@ -61,3 +61,44 @@ export function removeBoard(boardId) {
     }
   }
 }
+
+export function addBoard() {
+  return async (dispatch) => {
+    try {
+      const boards = await boardService.add()
+      dispatch({ type: 'SET_BOARDS', boards })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
+export function updateGroups(groups, _id) {
+  console.log(groups)
+  return async (dispatch) => {
+    try {
+      const currBoard = await boardService.getById(_id)
+      console.log(currBoard)
+      // currBoard.groups = groups
+      dispatch({ type: 'SET_BOARD', currBoard })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
+// export function updateBoard(board) {
+//   return (dispatch) => {
+//     boardService
+//       .save(board)
+//       .then((savedBoard) => {
+//         console.log('Updated Board:', savedBoard)
+//         // dispatch(getActionUpdateBoard(savedBoard))
+//         // showSuccessMsg('Board updated')
+//       })
+//       .catch((err) => {
+//         // showErrorMsg('Cannot update board')
+//         console.log('Cannot save board', err)
+//       })
+//   }
+// }
