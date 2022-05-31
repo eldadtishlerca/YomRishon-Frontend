@@ -28,8 +28,6 @@ export const TaskActivites = ({
   const [isStatusModal, setIsStatusModal] = useState(false)
   const dispatch = useDispatch()
 
-  console.log(isHover)
-
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
     const year = deadlineTime.getFullYear()
@@ -59,7 +57,6 @@ export const TaskActivites = ({
 
   const setStatus = (ev, status) => {
     const { groups } = currBoard
-    console.log(groupId, taskId, status)
     const currGroup = groups.find((group) => group.id === groupId)
     const currTask = currGroup.tasks.find((task) => task.id === taskId)
     currTask.status = status
