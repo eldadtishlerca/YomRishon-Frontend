@@ -22,6 +22,11 @@
     text-overflow: ellipsis;
     span {
     font-size: 13px;
+    .task-title-input{
+      border: 0;
+      background-color: transparent;
+      width: min-content;
+    }
     }
   }
   .title-header-edit {

@@ -25,6 +25,7 @@ export const GroupPreview = ({ group, provided, snapchat, boardId }) => {
                   key={task.id}
                   task={task}
                   groupColor={color}
+                  groupId={id}
                 />
               )
             }}

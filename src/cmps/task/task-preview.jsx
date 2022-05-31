@@ -58,6 +58,8 @@ export const TaskPreview = ({
         counter={updates.length}
         background={background}
         innerColor={innerColor}
+        taskId={id}
+        groupId={groupId}
       />
       <TaskActivites
         membersIds={membersIds}
@@ -69,6 +71,8 @@ export const TaskPreview = ({
         background={background}
         innerColor={innerColor}
         isHover={hover}
+        taskId={id}
+        groupId={groupId}
       />
     </div>
   )
