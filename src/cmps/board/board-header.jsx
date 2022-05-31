@@ -8,7 +8,7 @@ import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
-  const { members, title } = currBoard
+  const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
   const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
   const dispatch = useDispatch()
