@@ -15,16 +15,20 @@ import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
-  const { currBoard } = useSelector((storeState) => storeState.boardModule)
-  const { boards } = useSelector((storeState) => storeState.boardModule)
+  const { currBoard, boards } = useSelector((storeState) => storeState.boardModule)
   const params = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   useEffect(() => {
-    dispatch(loadBoard(params.id))
-    console.log('State Changed')
-  }, [boards,params._id])
+    dispatch(loadBoard(params.boardId))
+    console.log('did mount')
+  }, [])
+  
+  useEffect(() => {
+    dispatch(loadBoard(params.boardId))
+  }, [params.boardId])
+
 
   const [showModal, SetShowModal] = useState(false)
   const [showNotifications, SetShowNotifications] = useState(false)
@@ -43,24 +47,20 @@ export const BoardPage = () => {
   }
 
   const onRemoveBoard = (event, boardId) => {
-    event.preventDefault()
     event.stopPropagation()
+    navigate(`/${boards[0]._id}`)
     if (currBoard._id === boardId) {
       if (currBoard._id !== boards[0]._id) {
-        navigate(`/${boards[0]._id}`)
       } else {
         navigate(`/${boards[1]._id}`)
       }
     }
     dispatch(removeBoard(boardId))
-    // setTimeout(()=> {
-    //   console.log('Boards after 2s', boards)
-    // }, 2000)
+    console.log('Board', boardId, 'deleted')
   }
 
   const onAddBoard = (event, board) => {
     event.preventDefault()
-    event.stopPropagation()
     if (board) delete board._id
     dispatch(addBoard(board))
     navigate(`/${currBoard._id}`)

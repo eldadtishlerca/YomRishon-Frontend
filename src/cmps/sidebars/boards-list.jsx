@@ -25,11 +25,14 @@ export const BoardsList = ({ onRemoveBoard, onAddBoard }) => {
         >
           <BiDockLeft />
           <span>{board.title}</span>
-          <span className="delete-btn">
+          <span className="delete-btn"  onClick={(ev) =>{
+                ev.preventDefault()
+                onRemoveBoard(ev,board._id)}
+              } >
             <div
               className="icon-container"
-              onClick={(ev) => onRemoveBoard(ev,board._id)}
-            >
+             
+                >
               <BiTrash />
             </div>
           </span>

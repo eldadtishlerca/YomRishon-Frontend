@@ -23,7 +23,7 @@ async function getById(boardId) {
 
 async function remove(boardId) {
   await storageService.remove(STORAGE_KEY, boardId)
-  return storageService.query(STORAGE_KEY)
+  return storageService.query(STORAGE_KEY) //change to useeffect + filter
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 

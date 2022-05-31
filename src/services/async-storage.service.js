@@ -23,10 +23,11 @@ function query(entityType, delay = 600) {
 }
 
 function get(entityType, entityId) {
-  return query(entityType).then((entities) => {
-    if (!entityId) return entities[0]
-    entities.find((entity) => entity._id === entityId)
-  })
+  return query(entityType)
+    .then((entities) => {
+      if (!entityId) return entities[0] 
+      return entities.find((entity) => entity._id === entityId)
+    })
 }
 
 function post(entityType, newEntity) {
@@ -56,6 +57,7 @@ function remove(entityType, entityId) {
 }
 
 function _save(entityType, entities) {
+  console.log('boards from _save', entities)
   localStorage.setItem(entityType, JSON.stringify(entities))
 }
 

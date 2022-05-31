@@ -41,7 +41,6 @@ export function updateBoard(board) {
     boardService
       .save(board)
       .then((savedBoard) => {
-        console.log('savedBoard', savedBoard)
         dispatch(getActionUpdateBoard(savedBoard))
       })
       .catch((err) => {
@@ -73,7 +72,6 @@ export function addBoard(board) {
 }
 
 export function updateGroups(groups, _id) {
-  console.log(groups)
   return async (dispatch) => {
     try {
       const currBoard = await boardService.getById(_id)
