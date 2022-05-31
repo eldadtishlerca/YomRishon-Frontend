@@ -90,10 +90,10 @@ export const GroupModal = ({ id, color }) => {
     setToggleModal(false)
     const currIdx = currBoard.groups.findIndex((group) => group.id === id)
     const newGroup = currBoard.groups.filter((group) => group.id === id)
-    const group = Object.assign({}, newGroup[0])
-    currBoard.groups.splice(currIdx, 0, group)
-    group.id = utilService.makeId()
-    group.color = utilService.getRandomColor()
+    const dupliGroup = Object.assign({}, newGroup[0])
+    dupliGroup.id = utilService.makeId()
+    dupliGroup.color = utilService.getRandomColor()
+    currBoard.groups.splice(currIdx, 0, dupliGroup)
     dispatch(updateBoard(currBoard))
   }
 
