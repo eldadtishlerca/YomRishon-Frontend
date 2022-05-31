@@ -23,7 +23,7 @@ export const BoardHeader = ({ currBoard }) => {
         setIsEditing(true)
     }, 500)
   }
-  const onHandleChange = (ev) => {
+  const onHandleChangeTitle = (ev) => {
     const { value } =  ev.target
     console.log(value);
     setTitleValue(value)
@@ -60,7 +60,7 @@ export const BoardHeader = ({ currBoard }) => {
               onSubmitTitle(ev)
             }}
             onChange={(ev) => {
-              onHandleChange(ev)
+              onHandleChangeTitle(ev)
             }}
             contentEditable={isEditing}
             name="titleValue"
