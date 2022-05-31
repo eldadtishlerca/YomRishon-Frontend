@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AiOutlineCaretDown,
   AiOutlineCopy,
@@ -7,10 +7,15 @@ import {
 import { BiPencil, BiTrash } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import { utilService } from '../../services/util.service'
 import { updateBoard } from '../../store/actions/board.actions'
 
 export const GroupModal = ({ id, color }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
+
+  useEffect(() => {
+    setBackground(color)
+  }, [])
 
   const dispatch = useDispatch()
 
@@ -22,9 +27,82 @@ export const GroupModal = ({ id, color }) => {
     setToggleModal(!toggleModal)
   }
 
+  const onAddGroup = () => {
+    setToggleModal(false)
+    const newGroup = {
+      color: utilService.getRandomColor(),
+      hoverColor: utilService.getRandomColor(),
+      id: utilService.makeId(),
+      tasks: {
+        id: 'c101',
+        title: 'New Task',
+        membersIds: [
+          {
+            _id: 'u101',
+            username: 'Eldad',
+            fullname: 'Eldad Tishler',
+            imgUrl: 'imgs/mini-user-imgs/u101.png',
+          },
+        ],
+        status: {
+          color: '#7F5347',
+          hover: '#9E807A',
+          name: 'Not Assignee',
+        },
+        priority: {
+          name: 'Done',
+          color: '#00C875',
+          hover: '#45D29A',
+        },
+        deadline: 1653721491433,
+        workHours: 5,
+        isChecked: false,
+        lastUpdated: {
+          _id: 'u103',
+          fullname: 'Elon Barzani',
+          imgUrl: 'imgs/mini-user-imgs/u103.png',
+          updatedAt: '1653721491433',
+        },
+        createdAt: 1590998630348,
+        byMember: {
+          _id: 'u102',
+          username: 'Yarden',
+          fullname: 'Yarden Shaul',
+          imgUrl: 'imgs/mini-user-imgs/u102.png',
+        },
+        updates: [
+          {
+            id: '54HYs',
+            txt: 'Finaly found a nice animation loader :)',
+            createdAt: 1590999807436,
+            byMember: {
+              _id: 'u103',
+              fullname: 'Elon Barzani',
+              imgUrl: 'imgs/mini-user-imgs/u103.png',
+            },
+          },
+        ],
+      },
+      title: 'New Group',
+    }
+    currBoard.groups.unshift(newGroup)
+    dispatch(updateBoard(currBoard))
+  }
+
   const onDeleteGroup = () => {
     setToggleModal(false)
     currBoard.groups = currBoard.groups.filter((group) => group.id !== id)
+    dispatch(updateBoard(currBoard))
+  }
+
+  const onDuplicateGroup = () => {
+    setToggleModal(false)
+    const currIdx = currBoard.groups.findIndex((group) => group.id === id)
+    const newGroup = currBoard.groups.filter((group) => group.id === id)
+    const group = Object.assign({}, newGroup[0])
+    currBoard.groups.splice(currIdx, 0, group)
+    group.id = utilService.makeId()
+    group.color = utilService.getRandomColor()
     dispatch(updateBoard(currBoard))
   }
 
@@ -50,13 +128,13 @@ export const GroupModal = ({ id, color }) => {
       </div>
       {toggleModal && (
         <div className="group-modal-toggle flex">
-          <div>
+          <div onClick={() => onAddGroup()}>
             <div>
               <AiOutlinePlus />
             </div>
             <span>Add group</span>
           </div>
-          <div>
+          <div onClick={() => onDuplicateGroup()}>
             <div>
               <AiOutlineCopy className="group-modal-border-no" />
             </div>

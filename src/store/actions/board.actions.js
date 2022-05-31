@@ -38,7 +38,6 @@ export function loadBoards() {
 
 export function updateBoard(board) {
   return (dispatch) => {
-    console.log(board)
     boardService
       .save(board)
       .then((savedBoard) => {
