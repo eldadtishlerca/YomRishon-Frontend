@@ -120,3 +120,20 @@ function getRandomColor() {
   }
   return color
 }
+
+// function updateTask(currBoard, newValue, groupId, taskId ) {
+//     const {groups} = currBoard
+//     let currGroup = groups.find(group => {return group.id === groupId})
+//     let currTask = currGroup.tasks.find(task => {return task.id === taskId})
+//     currTask = {...currTask, title: newValue}
+//     let currTasks = currGroup.tasks.map(task => {
+//       if (task.id === currTask.id) task = currTask
+//       return task
+//     })
+//     currGroup = {...currGroup, tasks:currTasks }
+//     let newGroups = currBoard.groups.map(group => {
+//         if (group.id === currGroup.id) group = currGroup
+//         return group
+//     })
+//     return {...currBoard, groups:newGroups}
+// }

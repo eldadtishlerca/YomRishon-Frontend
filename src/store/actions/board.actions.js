@@ -1,5 +1,16 @@
 import { boardService } from '../../services/board.service'
 
+export function updateTask(board, groupId, taskId, taskToUpdate ) { 
+  return async (dispatch) => {
+    try {
+      const updatedBoard = await boardService.updateTask(board, groupId, taskId, taskToUpdate)
+      dispatch({ type: 'SET_BOARD', currBoard: updatedBoard })
+    } catch (err) {
+      console.log('BoardActions: err in loadBoards', err)
+    }
+  }
+}
+
 export function getActionBoard(board) {
   return {
     type: 'SET_BOARD',

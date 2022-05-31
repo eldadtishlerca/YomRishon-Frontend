@@ -11,6 +11,7 @@ export const boardService = {
   save,
   remove,
   add,
+  updateTask
 }
 
 function query() {
@@ -21,6 +22,14 @@ async function getById(boardId) {
   return storageService.get(STORAGE_KEY, boardId)
 }
 
+async function updateTask(board, groupId, taskId, taskToUpdate ) {
+  const groupIdx = board.groups.findIndex(group => group.id ===groupId)
+  const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === taskId)
+  board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
+  // http - updateBoard / Storage
+  await storageService.put(STORAGE_KEY, board)
+  return board
+}
 async function remove(boardId) {
   await storageService.remove(STORAGE_KEY, boardId)
   return storageService.query(STORAGE_KEY)
