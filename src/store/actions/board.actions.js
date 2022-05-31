@@ -62,6 +62,17 @@ export function removeBoard(boardId) {
   }
 }
 
+export function addBoard() {
+  return async (dispatch) => {
+    try {
+      const boards = await boardService.add()
+      dispatch({ type: 'SET_BOARDS', boards })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
 export function updateGroups(groups, _id) {
   console.log(groups)
   return async (dispatch) => {
