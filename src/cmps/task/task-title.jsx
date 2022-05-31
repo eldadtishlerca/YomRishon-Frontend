@@ -1,8 +1,11 @@
 import { BiCheckboxChecked, BiCheckbox } from 'react-icons/bi'
+import { useDispatch } from 'react-redux'
 import { RiChat3Line } from 'react-icons/ri'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { IconContext } from 'react-icons/lib'
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { updateBoard } from '../../store/actions/board.actions'
 
 export const TaskTitle = ({
   groupColor,
@@ -11,9 +14,44 @@ export const TaskTitle = ({
   background,
   innerColor,
   onClick,
+  taskId,
+  groupId,
 }) => {
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [iconColor, setIconColor] = useState('#C6C8D1')
   const [editHover, setEditHover] = useState(false)
+  const [titleValue, setTitleValue] = useState(title || '')
+  const dispatch = useDispatch()
+  if (!currBoard) return
+  
+  const onSubmitTitle = (ev) => {
+    if (ev.key === 'Enter' || ev.type === 'blur') {
+      console.log('Title updated to: *' + titleValue + '*');
+      // dispatch(updateBoard( {...currBoard, title: titleValue}))
+    }
+  }
+  const onHandleChangeTitle = (ev) => {
+    const { value } =  ev.target
+    console.log(value);
+    setTitleValue(value)
+    const {groups} = currBoard
+    let currGroup = groups.find(group => {return group.id === groupId})
+    let currTask = currGroup.tasks.find(task => {return task.id === taskId})
+    currTask = {...currTask, title: titleValue}
+    let currTasks = currGroup.tasks.map(task => {
+      if (task.id === currTask.id) task = currTask
+      return task
+    })
+    currGroup = {...currGroup, tasks:currTasks }
+    let newGroups = currBoard.groups.map(group => {
+        if (group.id === currGroup.id) group = currGroup
+        return group
+    })
+    let newBoard = {...currBoard, groups:newGroups}
+    console.log(newBoard);
+    dispatch(updateBoard(newBoard))
+  }
+
 
   return (
     <div
@@ -33,7 +71,21 @@ export const TaskTitle = ({
       </div>
       <div className="task-header">
         <div className="task-header-title">
-          <span style={{ color: innerColor }}>{title}</span>
+          <span style={{ color: innerColor }}>
+            <input value={titleValue} type="text" 
+            className='task-title-input'
+        
+            onBlur={(ev) => {
+              onSubmitTitle(ev)
+            }}
+            onKeyUp={(ev) => {
+              onSubmitTitle(ev)
+            }}
+            onChange={(ev) => {
+              onHandleChangeTitle(ev)
+            }}
+            name="titleValue"></input>
+          </span>
         </div>
         {editHover && <div className="title-header-edit">Edit</div>}
       </div>

@@ -8,20 +8,15 @@ import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = ({ currBoard }) => {
   const { members, title } = currBoard
-  const [isEditing, setIsEditing] = useState(true)
   const [titleValue, setTitleValue] = useState(title)
   const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
   const dispatch = useDispatch()
   
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      setIsEditing(false)
       console.log('Title updated to: *' + titleValue + '*');
       dispatch(updateBoard( {...currBoard, title: titleValue}))
     }
-    setTimeout(() => {
-        setIsEditing(true)
-    }, 500)
   }
   const onHandleChangeTitle = (ev) => {
     const { value } =  ev.target
@@ -31,13 +26,9 @@ export const BoardHeader = ({ currBoard }) => {
 
   const onSubmitDescripsion = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      setIsEditing(false)
       console.log('Descripsion updated to: *' + descriptionValue + '*');
       dispatch(updateBoard( {...currBoard, description: descriptionValue}))
     }
-    setTimeout(() => {
-        setIsEditing(true)
-    }, 500)
   }
   const onHandleChangeDescripsion = (ev) => {
     const { value } =  ev.target
@@ -62,7 +53,6 @@ export const BoardHeader = ({ currBoard }) => {
             onChange={(ev) => {
               onHandleChangeTitle(ev)
             }}
-            contentEditable={isEditing}
             name="titleValue"
           />
           <span className="board-header-top-icon-container">
