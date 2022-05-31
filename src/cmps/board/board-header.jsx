@@ -1,16 +1,22 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { updateBoard } from '../../store/actions/board.actions'
 import { ToolBar } from './toolbar'
 import { MdOutlineTableChart } from 'react-icons/md'
 import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
-export const BoardHeader = ({ currBoard }) => {
+export const BoardHeader = () => {
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members, title } = currBoard
-  const [titleValue, setTitleValue] = useState(title)
+  const [titleValue, setTitleValue] = useState(currBoard.title)
   const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    console.log('From Board header')
+    setTitleValue(currBoard.title)
+  }, [currBoard])
   
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
