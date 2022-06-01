@@ -12,6 +12,18 @@ export function updateTask(board, groupId, taskId, taskToUpdate ) {
     }
   }
 }
+export function updateGroup(board, groupId, groupToUpdate) { 
+  return async (dispatch) => {
+    try {
+      const updatedBoard = await boardService.updateGroup(board, groupId, groupToUpdate)
+      // dispatch({ type: 'SET_BOARD', currBoard: updatedBoard })
+      await dispatch(getActionUpdateBoard(updatedBoard))
+      // await dispatch(loadBoards())
+    } catch (err) {
+      console.log('BoardActions: err in loadBoards', err)
+    }
+  }
+}
 
 export function getActionBoard(board) {
   return {

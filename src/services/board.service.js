@@ -11,7 +11,8 @@ export const boardService = {
   save,
   remove,
   add,
-  updateTask
+  updateTask,
+  updateGroup
 }
 
 function query() {
@@ -30,6 +31,15 @@ async function updateTask(board, groupId, taskId, taskToUpdate ) {
   await storageService.put(STORAGE_KEY, board)
   return board
 }
+
+async function updateGroup( board, groupId, groupToUpdate ) {
+  const groupIdx = board.groups.findIndex(group => group.id ===groupId)
+  board.groups.splice(groupIdx, 1, groupToUpdate)
+  // http - updateBoard / Storage
+  await storageService.put(STORAGE_KEY, board)
+  return board
+}
+
 async function remove(boardId) {
   await storageService.remove(STORAGE_KEY, boardId)
   return storageService.query(STORAGE_KEY) //change to useeffect + filter
