@@ -63,7 +63,7 @@ export const BoardHeader = () => {
               onHandleChangeTitle(ev)
             }}
             name="titleValue"
-          /> : <h1 onClick={() => setIsEditing(!isEditing)}>{titleValue}</h1>}
+          /> : <h1 onClick={() => setIsEditing(!isEditing)} >{titleValue}</h1>}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
