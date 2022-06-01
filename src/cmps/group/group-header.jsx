@@ -14,9 +14,9 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*');
-      const groupToUpdate = {...group, title: titleValue}
-      dispatch(updateGroup(currBoard, group.id, groupToUpdate ))
+      console.log('Title updated to: *' + titleValue + '*')
+      const groupToUpdate = { ...group, title: titleValue }
+      dispatch(updateGroup(currBoard, group.id, groupToUpdate))
     }
   }
   const onHandleChangeTitle = (ev) => {

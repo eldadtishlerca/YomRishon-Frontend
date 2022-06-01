@@ -36,5 +36,41 @@
         padding-top: 5px;
         align-items: center;
         font-size: 21px;
+        position: relative;
+        .toolbar-task-modal {
+            position: absolute;
+            flex-direction: column;
+            left: 0;
+            top: 22px;
+            height: 64px;
+            padding: 8px;
+            z-index: 999;
+            background: #fff;
+            border: 1px solid #e6e9ef;
+            border-radius: 10px;
+            font-size: 14px;
+            div {
+            width: 186px;
+             display: flex;
+             padding: 4px 8px;
+             display: flex;
+             align-items: center;
+             border-radius: 4px;
+             height:24px;
+             color: #323338;
+             cursor: pointer;
+             &:hover {
+              background: #DCDFEC;
+             }
+             div {
+              width: 16px;
+              height: 100%;
+              padding-right: 8px;
+             }
+             span {
+                 padding-top: 1px;
+             }
+            }
+           }
     }
 }
