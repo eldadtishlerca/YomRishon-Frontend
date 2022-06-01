@@ -19,6 +19,7 @@ export const BoardHeader = () => {
   }, [currBoard])
   
   const onSubmitTitle = (ev) => {
+    setIsEditing(false)
     if (ev.key === 'Enter' || ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*');
       dispatch(updateBoard( {...currBoard, title: titleValue}))
@@ -32,7 +33,6 @@ export const BoardHeader = () => {
 
   const onSubmitDescripsion = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      setIsEditing(false)
       console.log('Descripsion updated to: *' + descriptionValue + '*');
       dispatch(updateBoard( {...currBoard, description: descriptionValue}))
     }
@@ -42,7 +42,7 @@ export const BoardHeader = () => {
     console.log(value);
     setDescriptionValue(value)
   }
-
+  console.log(isEditing);
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
@@ -51,13 +51,8 @@ export const BoardHeader = () => {
           <input
             type="text"
             value={titleValue}
-            tabindex="0"
             className="title"
-            maxlength="10"
             onBlur={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onKeyUp={(ev) => {
               onSubmitTitle(ev)
             }}
             onChange={(ev) => {
