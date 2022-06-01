@@ -60,7 +60,7 @@ export const BoardPage = () => {
   }
 
   const onAddBoard = (event, board) => {
-    event.preventDefault()
+    event.stopPropagation()
     if (board) delete board._id
     dispatch(addBoard(board))
     navigate(`/${currBoard._id}`)
