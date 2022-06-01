@@ -22,6 +22,8 @@ export const GroupModal = ({ id, color }) => {
   const [background, setBackground] = useState(color)
   const [innerColor, setInnerColor] = useState('#fff')
   const [toggleModal, setToggleModal] = useState(false)
+  const [toggleColorModal, setToggleColorModal] = useState(false)
+  const [allColors, setAllColors] = useState(null)
 
   const onGroupModalToggle = () => {
     setToggleModal(!toggleModal)
@@ -87,6 +89,13 @@ export const GroupModal = ({ id, color }) => {
     dispatch(updateBoard(currBoard))
   }
 
+  const onChangeGroupColor = (insideColor) => {
+    const idx = currBoard.groups.findIndex((group) => group.id === id)
+    currBoard.groups[idx].color = insideColor.color
+    currBoard.groups[idx].hoverColor = insideColor.hover
+    dispatch(updateBoard(currBoard))
+  }
+
   const onDuplicateGroup = () => {
     setToggleModal(false)
     const currIdx = currBoard.groups.findIndex((group) => group.id === id)
@@ -96,6 +105,10 @@ export const GroupModal = ({ id, color }) => {
     dupliGroup.color = utilService.getRandomColor()
     currBoard.groups.splice(currIdx, 0, dupliGroup)
     dispatch(updateBoard(currBoard))
+  }
+
+  const getColors = () => {
+    setAllColors(utilService.getAllColors())
   }
 
   return (
@@ -138,7 +151,13 @@ export const GroupModal = ({ id, color }) => {
             </div>
             <span>Rename group</span>
           </div>
-          <div>
+          <div
+            onClick={() => {
+              setToggleColorModal(true)
+              setToggleModal(false)
+              getColors()
+            }}
+          >
             <div>
               <div
                 className="group-modal-svg-no"
@@ -155,6 +174,26 @@ export const GroupModal = ({ id, color }) => {
               />
             </div>
             <span>Delete</span>
+          </div>
+        </div>
+      )}
+      {toggleColorModal && (
+        <div className="group-modal-color">
+          <div className="picked-color">
+            <div style={{ background: color }}></div>
+          </div>
+          <div className="colors-table">
+            {allColors.map((insideColor) => (
+              <div
+                className="colors-col"
+                key={insideColor.name}
+                style={{ background: insideColor.color }}
+                onClick={() => {
+                  setToggleColorModal(false)
+                  onChangeGroupColor(insideColor)
+                }}
+              ></div>
+            ))}
           </div>
         </div>
       )}

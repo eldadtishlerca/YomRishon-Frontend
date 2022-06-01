@@ -6,6 +6,7 @@ export const utilService = {
   msToUpdate,
   monthIdxToName,
   getRandomColor,
+  getAllColors,
 }
 
 function makeId(length = 6) {

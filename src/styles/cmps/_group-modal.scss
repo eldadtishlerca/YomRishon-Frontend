@@ -65,4 +65,43 @@
    }
   }
  }
+ .group-modal-color {
+  position: absolute;
+  top: -6px;
+  left: 22px;
+  height: 140px;
+  width: 172px;
+  z-index: 999;
+  .picked-color {
+   max-width: 33px;
+   height: 33px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #fff;
+   border: 1px solid #e6e9ef;
+   div {
+    border-radius: 4px;
+    width: 21px;
+    height: 21px;
+   }
+  }
+  .colors-table {
+   height: 130px;
+   max-width: 162px;
+   padding: 5px;
+   display: flex;
+   flex-wrap: wrap;
+   background: #fff;
+   border: 1px solid #e6e9ef;
+   .colors-col {
+    width: 22px;
+    height: 22px;
+    margin: 4px;
+    padding: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+   }
+  }
+ }
 }
