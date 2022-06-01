@@ -113,27 +113,32 @@ function monthIdxToName(idx) {
 }
 
 function getRandomColor() {
-  const letters = '0123456789ABCDEF'
-  var color = '#'
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)]
-  }
-  return color
+  const colors = getAllColors()
+  const idx = getRandomIntInclusive(0, 18)
+  return colors[idx]
 }
 
-// function updateTask(currBoard, newValue, groupId, taskId ) {
-//     const {groups} = currBoard
-//     let currGroup = groups.find(group => {return group.id === groupId})
-//     let currTask = currGroup.tasks.find(task => {return task.id === taskId})
-//     currTask = {...currTask, title: newValue}
-//     let currTasks = currGroup.tasks.map(task => {
-//       if (task.id === currTask.id) task = currTask
-//       return task
-//     })
-//     currGroup = {...currGroup, tasks:currTasks }
-//     let newGroups = currBoard.groups.map(group => {
-//         if (group.id === currGroup.id) group = currGroup
-//         return group
-//     })
-//     return {...currBoard, groups:newGroups}
-// }
+function getAllColors() {
+  const colors = [
+    { name: 'darkgreen', color: '#037F4C', hover: '#359970' },
+    { name: 'green', color: '#00C875', hover: '#33D391' },
+    { name: 'lightgreen', color: '#9CD326', hover: '#B0DC51' },
+    { name: 'brownyellow', color: '#CAB641', hover: '#D5C567' },
+    { name: 'yellow', color: '#FFCB00', hover: '#FFD533' },
+    { name: 'darkpurple', color: '#784BD1', hover: '#936FDA' },
+    { name: 'purple', color: '#A25DDC', hover: '#B57DE3' },
+    { name: 'lightblue', color: '#0086C0', hover: '#339ECD' },
+    { name: 'lightpurple', color: '#579BFC', hover: '#B57DE3' },
+    { name: 'whiteblue', color: '#66CCFF', hover: '#85D6FF' },
+    { name: 'darkpink', color: '#BB3354', hover: '#C95C76' },
+    { name: 'lightred', color: '#E2445C', hover: '#E8697D' },
+    { name: 'pink', color: '#FF158A', hover: '#FF44A1' },
+    { name: 'lightpink', color: '#FF5AC4', hover: '#FF7BD0' },
+    { name: 'lightyellow', color: '#FDAB3D', hover: '#FDBC64' },
+    { name: 'orange', color: '#FF642E', hover: '#FF8358' },
+    { name: 'brown', color: '#7F5347', hover: '#99756C' },
+    { name: 'lightgrey', color: '#C4C4C4', hover: '#D0D0D0' },
+    { name: 'grey', color: '#808080', hover: '#999999' },
+  ]
+  return colors
+}

@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export const NewTask = ({ color, hoverColor }) => {
+  useEffect(() => {
+    setLeftColor(hoverColor)
+  }, [hoverColor])
+
   const [borderColor, setBorderColor] = useState('transparent')
   const [borderStyle, setBorderStyle] = useState('solid')
   const [borderWidth, setBorderWidth] = useState('1px')

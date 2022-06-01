@@ -29,9 +29,10 @@ export const GroupModal = ({ id, color }) => {
 
   const onAddGroup = () => {
     setToggleModal(false)
+    const randomColor = utilService.getRandomColor()
     const newGroup = {
-      color: utilService.getRandomColor(),
-      hoverColor: utilService.getRandomColor(),
+      color: randomColor.color,
+      hoverColor: randomColor.hover,
       id: utilService.makeId(),
       tasks: [
         {
