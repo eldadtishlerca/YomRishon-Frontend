@@ -5,7 +5,8 @@ export function updateTask(board, groupId, taskId, taskToUpdate ) {
     try {
       const updatedBoard = await boardService.updateTask(board, groupId, taskId, taskToUpdate)
       // dispatch({ type: 'SET_BOARD', currBoard: updatedBoard })
-      dispatch(getActionUpdateBoard(updatedBoard))
+      await dispatch(getActionUpdateBoard(updatedBoard))
+      await dispatch(loadBoards())
     } catch (err) {
       console.log('BoardActions: err in loadBoards', err)
     }
@@ -54,6 +55,7 @@ export function updateBoard(board) {
       .save(board)
       .then((savedBoard) => {
         dispatch(getActionUpdateBoard(savedBoard))
+        dispatch(loadBoards())
       })
       .catch((err) => {
         console.log('Cannot savedBoard', err)
