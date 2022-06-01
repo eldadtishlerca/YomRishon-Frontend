@@ -3,9 +3,13 @@ import { GroupPreview } from '../group/group-preview'
 
 export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
   const onDragEnd = (result, groups) => {
-    console.log(groups)
     if (!result.destination) return
     const { source, destination } = result
+    if (
+      source.index === destination.index &&
+      source.droppableId === destination.droppableId
+    )
+      return
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = groups[source.droppableId]
       const destColumn = groups[destination.droppableId]
@@ -27,15 +31,11 @@ export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
       const copiedItems = [...column.tasks]
       const [removed] = copiedItems.splice(source.index, 1)
       copiedItems.splice(destination.index, 0, removed)
-      const newGroups = {
-        ...groups,
-        [source.droppableId]: {
-          ...column,
-          tasks: copiedItems,
-        },
+      groups[source.droppableId] = {
+        ...groups[source.droppableId],
+        tasks: copiedItems,
       }
-      const groupsToArr = Object.keys(newGroups).map((key) => [newGroups[key]])
-      saveBoardToStore(groupsToArr)
+      saveBoardToStore(groups)
     }
   }
 

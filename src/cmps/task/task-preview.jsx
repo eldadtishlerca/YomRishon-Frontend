@@ -63,6 +63,7 @@ export const TaskPreview = ({
         task={task}
       />
       <TaskActivites
+        onOpenModal={onOpenModal}
         membersIds={membersIds}
         status={status}
         priority={priority}
