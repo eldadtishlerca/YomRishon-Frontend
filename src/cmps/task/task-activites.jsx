@@ -30,6 +30,7 @@ export const TaskActivites = ({
   const [workHoursValue, setWorkHours] = useState(workHours || '')
   const [isStatusModal, setIsStatusModal] = useState(false)
   const [isPrioritysModal, setIsPrioritysModal] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
   const setDeadlineTime = () => {
@@ -77,6 +78,7 @@ export const TaskActivites = ({
 
   const onSubmitWorkHours = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
+      setIsEditing(false)
       console.log('WorkHoursValue updated to: *' + workHoursValue + '*')
       const taskToUpdate = { ...task, workHours: +workHoursValue }
       dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
@@ -201,14 +203,10 @@ export const TaskActivites = ({
       </div>
       <div
         className="task-activities-hours"
-        style={{ background: background, color: innerColor }}
-      >
-        <span>{workHours} Hours</span>
-        {/* <input
+        style={{ background: background, color: innerColor }}>
+          {isEditing ?         <input
           style={{ background: background, color: innerColor }}
-          type="text"
           value={workHoursValue}
-          className="work-hours-input"
           onBlur={(ev) => {
             onSubmitWorkHours(ev)
           }}
@@ -218,7 +216,7 @@ export const TaskActivites = ({
           onChange={(ev) => {
             onHandleChange(ev)
           }}
-        />{' '} */}
+        /> : <span onClick={() => setIsEditing(!isEditing)}>{workHours} Hours</span>}
       </div>
       <div
         className="task-activities-deadline"

@@ -48,15 +48,16 @@
         border: 0;
         font-weight: 600;
         font-family: roboto;
-        width: fit-content;
+        width: 100%;
     }
     .title-fixed-h1{
         font-size: 35px;
-        width: fit-content;
+        box-sizing: border-box;
         font-size: 35px;
         border: 0;
         font-weight: 600;
         font-family: roboto;
+        width: unset;
     }
     .board-header-top-main-members{
         gap: 5px;
