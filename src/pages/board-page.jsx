@@ -22,7 +22,6 @@ export const BoardPage = () => {
 
   useEffect(() => {
     dispatch(loadBoard(params.boardId))
-    console.log('did mount')
   }, [])
   
   useEffect(() => {
@@ -56,7 +55,6 @@ export const BoardPage = () => {
       }
     }
     dispatch(removeBoard(boardId))
-    console.log('Board', boardId, 'deleted')
   }
 
   const onAddBoard = (event, board) => {
