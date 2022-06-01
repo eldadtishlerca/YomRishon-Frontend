@@ -7,6 +7,7 @@ import { GroupModal } from './group-modal'
 export const GroupHeader = ({ id, color, title, boardId, group }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [titleValue, setTitleValue] = useState(title)
+  const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
   useEffect(() => {
     setTitleValue(title)
@@ -14,6 +15,7 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
+      setIsEditing(false)
       console.log('Title updated to: *' + titleValue + '*');
       const groupToUpdate = {...group, title: titleValue}
       dispatch(updateGroup(currBoard, group.id, groupToUpdate ))
@@ -31,18 +33,17 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
         <GroupModal id={id} color={color} boardId={boardId} />
       </div>
       <div className="group-title">
-        <span style={{ color: color }}>{title}</span>
-        {/* <input type="text" value={titleValue}
-          onBlur={(ev) => {
-            onSubmitTitle(ev)
-          }}
-          onKeyUp={(ev) => {
-            onSubmitTitle(ev)
-          }}
-          onChange={(ev) => {
-            onHandleChangeTitle(ev)
-          }}
-        /> */}
+        {isEditing ? <input type="text" value={titleValue}
+        onBlur={(ev) => {
+          onSubmitTitle(ev)
+        }}
+        onKeyUp={(ev) => {
+          onSubmitTitle(ev)
+        }}
+        onChange={(ev) => {
+          onHandleChangeTitle(ev)
+        }}
+      /> : <span style={{ color: color }} onClick={() => setIsEditing(!isEditing)}>{title}</span>}
       </div>
       <div className="group-header-assignee">
         <span>Assignee</span>
