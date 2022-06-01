@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 // Actions
-import {updateTask} from '../../store/actions/board.actions'
+import { updateTask } from '../../store/actions/board.actions'
 
 export const TaskTitle = ({
   groupColor,
@@ -29,9 +29,9 @@ export const TaskTitle = ({
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*');
-      const taskToUpdate = {...task, title: titleValue}
-      dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate ))
+      console.log('Title updated to: *' + titleValue + '*')
+      const taskToUpdate = { ...task, title: titleValue }
+      dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -58,11 +58,12 @@ export const TaskTitle = ({
       </div>
       <div className="task-header">
         <div className="task-header-title">
-          <span style={{ color: innerColor }}>
+          <span>
             <input
               value={titleValue}
               type="text"
               className="task-title-input"
+              style={{ color: innerColor }}
               onBlur={(ev) => {
                 onSubmitTitle(ev)
               }}

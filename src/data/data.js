@@ -12,12 +12,11 @@ const gBoards = [
       { name: 'Wating For QA', color: '#FF158A', hover: '#F755A9' },
       { name: 'Done', color: '#00C875', hover: '#45D29A' },
     ],
-    priority: [
-      { name: 'High', color: '#BB3354' },
-      { name: 'Medium', color: '#D974B0' },
-      { name: 'Low', color: '#2B76E5' },
+    priorities: [
+      { name: 'High', color: '#BB3354', hover: '#C86A83' },
+      { name: 'Medium', color: '#D974B0', hover: '#DD97C3' },
+      { name: 'Low', color: '#2B76E5', hover: '#6399E8' },
       { name: 'Done', color: '#00C875', hover: '#45D29A' },
-      { name: '', color: '#0C4C4C4' },
     ],
     archivedAt: 1589983468418,
     createdAt: 1589983468418,
@@ -661,12 +660,11 @@ const gBoards = [
       { name: 'Wating For QA', color: '#FF158A', hover: '#F755A9' },
       { name: 'Done', color: '#00C875', hover: '#45D29A' },
     ],
-    priority: [
-      { name: 'High', color: '#BB3354' },
-      { name: 'Medium', color: '#D974B0' },
-      { name: 'Low', color: '#2B76E5' },
+    priorities: [
+      { name: 'High', color: '#BB3354', hover: '#C86A83' },
+      { name: 'Medium', color: '#D974B0', hover: '#DD97C3' },
+      { name: 'Low', color: '#2B76E5', hover: '#6399E8' },
       { name: 'Done', color: '#00C875', hover: '#45D29A' },
-      { name: '', color: '#0C4C4C4' },
     ],
     archivedAt: 1589983468418,
     createdAt: 1589983468418,
