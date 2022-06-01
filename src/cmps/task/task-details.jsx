@@ -49,7 +49,6 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
               value={titleValue}
               type="text"
               className="work-hours-input"
-              // style={{ all: unset }}
               onBlur={(ev) => {
                 onSubmitTitle(ev)
               }}
@@ -92,19 +91,21 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
             typeof="string"
             placeholder="Write an update..."
           ></input>
-          <a className="write-email-link">
+          <div className="write-email-link">
             <div className="email-icon-warpper">
               <HiOutlineMail /> Write updates via email:
             </div>
-          </a>
+          </div>
           <div className="updates-container">
             <div className="updates-container-warpper">
               {updates.map((update) => {
                 return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
-                      <img src={update.byMember.imgUrl} /> &nbsp; &nbsp;
-                      <h2 className="user-name">{update.byMember.fullname}</h2>
+                      <img src={update.byMember.imgUrl} alt="" />
+                      <h2 className="user-name">
+                        &nbsp; &nbsp;{update.byMember.fullname}
+                      </h2>
                       <div className="time-stamp-warpper">
                         <div className="time-stamp">
                           {' '}

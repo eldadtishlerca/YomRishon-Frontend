@@ -1,4 +1,3 @@
-import { BiCheckboxChecked, BiCheckbox } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { RiChat3Line } from 'react-icons/ri'
 import { AiOutlinePlus } from 'react-icons/ai'
@@ -27,7 +26,7 @@ export const TaskTitle = ({
   const dispatch = useDispatch()
   useEffect(() => {
     setTitleValue(title)
-  }, [currBoard,title])
+  }, [currBoard, title])
   if (!currBoard) return
 
   const onSubmitTitle = (ev) => {
@@ -55,10 +54,7 @@ export const TaskTitle = ({
         setEditHover(false)
       }}
     >
-      <div className="task-checkbox" style={{ background: groupColor }}>
-        {/* <BiCheckboxChecked /> */}
-        {/* <BiCheckbox /> */}
-      </div>
+      <div className="task-checkbox" style={{ background: groupColor }}></div>
       <div className="task-header">
         <div className="task-header-title">
           <span>

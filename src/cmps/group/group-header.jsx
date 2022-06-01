@@ -9,16 +9,14 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
   const [titleValue, setTitleValue] = useState(title)
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
-  useEffect(() => {
-    setTitleValue(title)
-  }, [currBoard])
+  useEffect(() => {}, [currBoard])
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
       setIsEditing(false)
-      console.log('Title updated to: *' + titleValue + '*');
-      const groupToUpdate = {...group, title: titleValue}
-      dispatch(updateGroup(currBoard, group.id, groupToUpdate ))
+      console.log('Title updated to: *' + titleValue + '*')
+      const groupToUpdate = { ...group, title: titleValue }
+      dispatch(updateGroup(currBoard, group.id, groupToUpdate))
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -33,17 +31,28 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
         <GroupModal id={id} color={color} boardId={boardId} />
       </div>
       <div className="group-title">
-        {isEditing ? <input type="text" value={titleValue}
-        onBlur={(ev) => {
-          onSubmitTitle(ev)
-        }}
-        onKeyUp={(ev) => {
-          onSubmitTitle(ev)
-        }}
-        onChange={(ev) => {
-          onHandleChangeTitle(ev)
-        }}
-      /> : <span style={{ color: color }} onClick={() => setIsEditing(!isEditing)}>{title}</span>}
+        {isEditing ? (
+          <input
+            type="text"
+            value={titleValue}
+            onBlur={(ev) => {
+              onSubmitTitle(ev)
+            }}
+            onKeyUp={(ev) => {
+              onSubmitTitle(ev)
+            }}
+            onChange={(ev) => {
+              onHandleChangeTitle(ev)
+            }}
+          />
+        ) : (
+          <span
+            style={{ color: color }}
+            onClick={() => setIsEditing(!isEditing)}
+          >
+            {title}
+          </span>
+        )}
       </div>
       <div className="group-header-assignee">
         <span>Assignee</span>
