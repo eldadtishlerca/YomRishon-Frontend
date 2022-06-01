@@ -1,11 +1,31 @@
 import { utilService } from '../../services/util.service'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { updateTask } from '../../store/actions/board.actions'
 import { BsThreeDots } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
 import { BiLike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 
-export const TaskDetails = ({ SetShowModal, task }) => {
+export const TaskDetails = ({ SetShowModal, task, groupId }) => {
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
+  const dispatch = useDispatch()
+  const [titleValue, setTitleValue] = useState(task.title || '')
   const updates = task.updates
+
+  const onSubmitTitle = (ev) => {
+    if (ev.key === 'Enter' || ev.type === 'blur') {
+      console.log('Title updated to: *' + titleValue + '*')
+      const taskToUpdate = { ...task, title: titleValue }
+      dispatch(updateTask(currBoard, groupId, task.id, taskToUpdate))
+    }
+  }
+  const onHandleChangeTitle = (ev) => {
+    const { value } = ev.target
+    console.log(value)
+    setTitleValue(value)
+  }
 
   const setLastUpdateTime = (createdTime) => {
     const currTime = new Date()
@@ -25,10 +45,21 @@ export const TaskDetails = ({ SetShowModal, task }) => {
             ✖
           </button>
           <div className="upper-task-details-header">
-            <input
-              className="task-name-input"
-              typeof="string"
-              placeholder={task.title}
+          <input
+              value={titleValue}
+              type="text"
+              className="work-hours-input"
+              // style={{ all: unset }}
+              onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onChange={(ev) => {
+                onHandleChangeTitle(ev)
+              }}
+              name="titleValue"
             ></input>
             <div className="header-options-container">
               <div className="header-btn-wrapper">

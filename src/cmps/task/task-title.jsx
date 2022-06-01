@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { RiChat3Line } from 'react-icons/ri'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { IconContext } from 'react-icons/lib'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
 // Actions
@@ -25,6 +25,9 @@ export const TaskTitle = ({
   const [editHover, setEditHover] = useState(false)
   const [titleValue, setTitleValue] = useState(title || '')
   const dispatch = useDispatch()
+  useEffect(() => {
+    setTitleValue(title)
+  }, [currBoard,title])
   if (!currBoard) return
 
   const onSubmitTitle = (ev) => {
