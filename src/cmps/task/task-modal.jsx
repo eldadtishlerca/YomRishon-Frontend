@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   AiOutlineCaretDown,
   AiOutlineCopy,
@@ -12,7 +12,6 @@ import { updateBoard } from '../../store/actions/board.actions'
 export const TaskModal = ({ id, groupId, isHover }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
-
   const [toggleModal, setToggleModal] = useState(false)
 
   const onTaskModalToggle = () => {
