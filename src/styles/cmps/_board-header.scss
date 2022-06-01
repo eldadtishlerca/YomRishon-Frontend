@@ -32,15 +32,7 @@
             padding-bottom: 2px;
         }
     }
-    h1{
-        font-size: 35px;
-    }
-    .title{
-        font-size: 35px;
-        border: 0;
-        font-weight: 600;
-        font-family: roboto;
-    }
+
 }
 .subtitle{
     border: 0;
@@ -52,8 +44,19 @@
     gap: 5px;
     .title{
         color: $headerBlack;
-        width: min-content;
-        flex-wrap: wrap;
+        font-size: 35px;
+        border: 0;
+        font-weight: 600;
+        font-family: roboto;
+        width: fit-content;
+    }
+    .title-fixed-h1{
+        font-size: 35px;
+        width: fit-content;
+        font-size: 35px;
+        border: 0;
+        font-weight: 600;
+        font-family: roboto;
     }
     .board-header-top-main-members{
         gap: 5px;

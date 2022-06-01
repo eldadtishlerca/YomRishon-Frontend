@@ -53,6 +53,7 @@ export const BoardHeader = () => {
             value={titleValue}
             tabindex="0"
             className="title"
+            maxlength="10"
             onBlur={(ev) => {
               onSubmitTitle(ev)
             }}
@@ -63,7 +64,7 @@ export const BoardHeader = () => {
               onHandleChangeTitle(ev)
             }}
             name="titleValue"
-          /> : <h1 onClick={() => setIsEditing(!isEditing)} >{titleValue}</h1>}
+          /> : <h1 className='title-fixed-h1' onClick={() => setIsEditing(!isEditing)} >{titleValue}</h1>}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
