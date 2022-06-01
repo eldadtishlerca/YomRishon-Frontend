@@ -11,6 +11,7 @@ export const BoardHeader = () => {
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
   const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
+  const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export const BoardHeader = () => {
 
   const onSubmitDescripsion = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
+      setIsEditing(false)
       console.log('Descripsion updated to: *' + descriptionValue + '*');
       dispatch(updateBoard( {...currBoard, description: descriptionValue}))
     }
@@ -45,9 +47,11 @@ export const BoardHeader = () => {
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
         <div className="board-header-top-main flex center flex">
+          {isEditing ? 
           <input
             type="text"
             value={titleValue}
+            tabindex="0"
             className="title"
             onBlur={(ev) => {
               onSubmitTitle(ev)
@@ -59,7 +63,7 @@ export const BoardHeader = () => {
               onHandleChangeTitle(ev)
             }}
             name="titleValue"
-          />
+          /> : <h1 onClick={() => setIsEditing(!isEditing)}>{titleValue}</h1>}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
