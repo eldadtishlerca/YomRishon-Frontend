@@ -28,9 +28,11 @@ export const TaskActivites = ({
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [assigneeHover, setAssigneeHover] = useState(false)
   const [workHoursValue, setWorkHours] = useState(workHours || '')
+  const [isAssigneeModal, setIsAssigneeModal] = useState(false)
   const [isStatusModal, setIsStatusModal] = useState(false)
   const [isPrioritysModal, setIsPrioritysModal] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
+  const [assingeeIds, setAssingeeIds] = useState(null)
   const dispatch = useDispatch()
 
   const setDeadlineTime = () => {
@@ -90,10 +92,19 @@ export const TaskActivites = ({
     setWorkHours(value)
   }
 
+  const getMembersIds = () => {
+    const ids = membersIds.map((member) => member._id)
+    setAssingeeIds(ids)
+  }
+
   return (
     <div className="task-activities flex">
       {membersIds.length <= 2 ? (
         <div
+          onClick={() => {
+            setIsAssigneeModal(!isAssigneeModal)
+            getMembersIds()
+          }}
           className="task-activities-assignee"
           style={{ background: background }}
           onMouseEnter={() => {
@@ -114,6 +125,7 @@ export const TaskActivites = ({
         </div>
       ) : (
         <div
+          onClick={() => setIsAssigneeModal(!isAssigneeModal)}
           className="task-activities-assignee"
           style={{ background: background }}
           onMouseEnter={() => {
@@ -131,6 +143,38 @@ export const TaskActivites = ({
           <img key={membersIds[0]._id} src={membersIds[0].imgUrl} alt="" />
           <div className="task-activities-assignee-counter">
             <span>+{membersIds.length - 1}</span>
+          </div>
+        </div>
+      )}
+      {isAssigneeModal && (
+        <div className="assignee-modal">
+          <div className="are-assignee">
+            {membersIds !== 0 &&
+              membersIds.map((member) => (
+                <div>
+                  <img key={member._id} src={member.imgUrl} alt="" />
+                  <span>{member.fullname}</span>
+                  <span>X</span>
+                </div>
+              ))}
+          </div>
+          <div className="not-assignee">
+            <div>Enter another name</div>
+            <div>People</div>
+            <div className="not-assignee-members">
+              {currBoard.members.map((member) => {
+                if (assingeeIds.includes(member._id)) {
+                  return null
+                } else {
+                  return (
+                    <div className="not-assignee-member">
+                      <img src={member.imgUrl} alt="" />
+                      <span>{member.fullname}</span>
+                    </div>
+                  )
+                }
+              })}
+            </div>
           </div>
         </div>
       )}
@@ -203,20 +247,27 @@ export const TaskActivites = ({
       </div>
       <div
         className="task-activities-hours"
-        style={{ background: background, color: innerColor }}>
-          {isEditing ?         <input
-          style={{ background: background, color: innerColor }}
-          value={workHoursValue}
-          onBlur={(ev) => {
-            onSubmitWorkHours(ev)
-          }}
-          onKeyUp={(ev) => {
-            onSubmitWorkHours(ev)
-          }}
-          onChange={(ev) => {
-            onHandleChange(ev)
-          }}
-        /> : <span onClick={() => setIsEditing(!isEditing)}>{workHours} Hours</span>}
+        style={{ background: background, color: innerColor }}
+      >
+        {isEditing ? (
+          <input
+            style={{ background: background, color: innerColor }}
+            value={workHoursValue}
+            onBlur={(ev) => {
+              onSubmitWorkHours(ev)
+            }}
+            onKeyUp={(ev) => {
+              onSubmitWorkHours(ev)
+            }}
+            onChange={(ev) => {
+              onHandleChange(ev)
+            }}
+          />
+        ) : (
+          <span onClick={() => setIsEditing(!isEditing)}>
+            {workHours} Hours
+          </span>
+        )}
       </div>
       <div
         className="task-activities-deadline"

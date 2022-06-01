@@ -8,7 +8,7 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { BiLike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 
-export const TaskDetails = ({ SetShowModal, task, groupId }) => {
+export const TaskDetails = ({ setShowModal, task, groupId }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
   const [titleValue, setTitleValue] = useState(task.title || '')
@@ -40,16 +40,15 @@ export const TaskDetails = ({ SetShowModal, task, groupId }) => {
         <div className="task-details-header">
           <button
             className="close-modal-btn"
-            onClick={() => SetShowModal(false)}
+            onClick={() => setShowModal(false)}
           >
             ✖
           </button>
           <div className="upper-task-details-header">
-          <input
+            <input
               value={titleValue}
               type="text"
               className="work-hours-input"
-              // style={{ all: unset }}
               onBlur={(ev) => {
                 onSubmitTitle(ev)
               }}
@@ -92,19 +91,21 @@ export const TaskDetails = ({ SetShowModal, task, groupId }) => {
             typeof="string"
             placeholder="Write an update..."
           ></input>
-          <a className="write-email-link">
+          <div className="write-email-link">
             <div className="email-icon-warpper">
               <HiOutlineMail /> Write updates via email:
             </div>
-          </a>
+          </div>
           <div className="updates-container">
             <div className="updates-container-warpper">
               {updates.map((update) => {
                 return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
-                      <img src={update.byMember.imgUrl} /> &nbsp; &nbsp;
-                      <h2 className="user-name">{update.byMember.fullname}</h2>
+                      <img src={update.byMember.imgUrl} alt="" />
+                      <h2 className="user-name">
+                        &nbsp; &nbsp;{update.byMember.fullname}
+                      </h2>
                       <div className="time-stamp-warpper">
                         <div className="time-stamp">
                           {' '}

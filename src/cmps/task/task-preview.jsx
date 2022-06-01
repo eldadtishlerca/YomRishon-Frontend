@@ -2,8 +2,7 @@ import { TaskModal } from './task-modal'
 import { TaskTitle } from './task-title'
 import { TaskActivites } from './task-activites'
 import { TaskDetails } from './task-details'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
 
 export const TaskPreview = ({
   task,
@@ -12,12 +11,10 @@ export const TaskPreview = ({
   provided,
   snapchat,
 }) => {
-  const { currBoard } = useSelector((storeState) => storeState.boardModule)
-  const [titleValue, setTitleValue] = useState(task)
   const [background, setBackground] = useState('#f5f6f8')
   const [innerColor, setInnerColor] = useState('#666666')
   const [hover, setHover] = useState(false)
-  const [showModal, SetShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const {
     id,
@@ -32,7 +29,7 @@ export const TaskPreview = ({
   } = task
 
   const onOpenModal = () => {
-    SetShowModal(!showModal)
+    setShowModal(!showModal)
   }
 
   return (
@@ -52,7 +49,13 @@ export const TaskPreview = ({
         setHover(false)
       }}
     >
-      {showModal && <TaskDetails task={task} groupId={groupId} SetShowModal={SetShowModal} />}
+      {showModal && (
+        <TaskDetails
+          task={task}
+          groupId={groupId}
+          setShowModal={setShowModal}
+        />
+      )}
       <TaskModal id={id} groupId={groupId} isHover={hover} />
       <TaskTitle
         onClick={onOpenModal}

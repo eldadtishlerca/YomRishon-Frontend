@@ -178,7 +178,10 @@ export const GroupModal = ({ id, color }) => {
         </div>
       )}
       {toggleColorModal && (
-        <div className="group-modal-color">
+        <div
+          className="group-modal-color"
+          onClick={() => setToggleColorModal(false)}
+        >
           <div className="picked-color">
             <div style={{ background: color }}></div>
           </div>
@@ -189,7 +192,6 @@ export const GroupModal = ({ id, color }) => {
                 key={insideColor.name}
                 style={{ background: insideColor.color }}
                 onClick={() => {
-                  setToggleColorModal(false)
                   onChangeGroupColor(insideColor)
                 }}
               ></div>
