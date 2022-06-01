@@ -42,7 +42,7 @@ export const BoardHeader = () => {
     console.log(value);
     setDescriptionValue(value)
   }
-  console.log(isEditing);
+  
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
