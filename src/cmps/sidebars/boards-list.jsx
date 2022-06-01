@@ -20,34 +20,29 @@ export const BoardsList = ({ onRemoveBoard, onAddBoard }) => {
 
   useEffect(() => {
     setBoardsList(boards)
-  }, [boards,currBoard])
-
+  }, [boards, currBoard])
 
   return (
     <div className="boards-list">
       {boards.map((board) => (
-        <div
-          className="flex"
-          key={board._id}
-          onClick={() => onSetBoard(board)}
-        >
+        <div className="flex" key={board._id} onClick={() => onSetBoard(board)}>
           <BiDockLeft />
           <span>{board.title}</span>
-          <span className="delete-btn"  onClick={(ev) =>{
-                ev.preventDefault()
-                onRemoveBoard(ev,board._id)}
-              } >
-            <div
-              className="icon-container"
-             
-                >
+          <span
+            className="delete-btn"
+            onClick={(ev) => {
+              ev.preventDefault()
+              onRemoveBoard(ev, board._id)
+            }}
+          >
+            <div className="icon-container">
               <BiTrash />
             </div>
           </span>
           <span className="delete-btn">
             <div
               className="icon-container"
-              onClick={(ev) => onAddBoard(ev,board)}
+              onClick={(ev) => onAddBoard(ev, board)}
             >
               <div>Duplicate</div>
             </div>

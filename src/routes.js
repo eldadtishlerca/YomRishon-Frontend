@@ -9,12 +9,10 @@ const routes = [
   {
     path: '/',
     component: <HomePage />,
-    label: 'Home',
   },
   {
     path: '/:boardId',
     component: <BoardPage />,
-    label: 'Board',
   },
   {
     path: '/:boardId/:groupId/:taskId',
@@ -23,12 +21,10 @@ const routes = [
   {
     path: '/user/:userId',
     component: <UserProfile />,
-    label: 'Board',
   },
   {
     path: '/loginsignup',
     component: <LoginSignUpPage />,
-    label: 'Board',
   },
   {
     path: '/*',

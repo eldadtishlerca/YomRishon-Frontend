@@ -8,7 +8,7 @@ import { HiOutlineMail } from 'react-icons/hi'
 import { BiLike } from 'react-icons/bi'
 import { RiShareForwardLine } from 'react-icons/ri'
 
-export const TaskDetails = ({ SetShowModal, task, groupId }) => {
+export const TaskDetails = ({ setShowModal, task, groupId }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
   const [titleValue, setTitleValue] = useState(task.title || '')
@@ -40,12 +40,12 @@ export const TaskDetails = ({ SetShowModal, task, groupId }) => {
         <div className="task-details-header">
           <button
             className="close-modal-btn"
-            onClick={() => SetShowModal(false)}
+            onClick={() => setShowModal(false)}
           >
             ✖
           </button>
           <div className="upper-task-details-header">
-          <input
+            <input
               value={titleValue}
               type="text"
               className="work-hours-input"
