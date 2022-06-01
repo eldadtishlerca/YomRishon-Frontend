@@ -4,6 +4,7 @@
     justify-content: space-between;
     color:$headerBlack;
     min-height: 150px;
+    gap: 4px;
     span{
         font-size: 14px;
     }
@@ -70,6 +71,7 @@
 
 .board-header-bottom{
     border-bottom: 1.5px solid $headerBorder;
+    padding: 5px;
 }
 
 .board-header-bottom-upper{
