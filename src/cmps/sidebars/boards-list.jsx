@@ -19,7 +19,7 @@ export const BoardsList = ({ onRemoveBoard, onAddBoard }) => {
   }
 
   useEffect(() => {
-
+    setBoardsList(boards)
   }, [boards,currBoard])
 
 

@@ -7,7 +7,7 @@ export const ToolBar = () => {
   return (
     <div className="toolbar-main-contianer flex">
       <div className="toolbar-button-container new-task flex">
-        <span className="new-task-spn">New Project</span>
+        <span className="new-task-spn">New Task</span>
         <div className="new-task-spn-icon">
           <RiArrowDownSLine />
         </div>
