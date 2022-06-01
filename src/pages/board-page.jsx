@@ -15,7 +15,9 @@ import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 
 export const BoardPage = () => {
-  const { currBoard, boards } = useSelector((storeState) => storeState.boardModule)
+  const { currBoard, boards } = useSelector(
+    (storeState) => storeState.boardModule
+  )
   const params = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -23,14 +25,13 @@ export const BoardPage = () => {
   useEffect(() => {
     dispatch(loadBoard(params.boardId))
   }, [])
-  
+
   useEffect(() => {
     dispatch(loadBoard(params.boardId))
   }, [params.boardId])
 
-
-  const [showModal, SetShowModal] = useState(false)
-  const [showNotifications, SetShowNotifications] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [showNotifications, setShowNotifications] = useState(false)
 
   if (
     (Object.keys(currBoard).length === 0 || !currBoard) &&
@@ -39,10 +40,10 @@ export const BoardPage = () => {
     return <div>Loading...</div>
 
   const onOpenModal = () => {
-    SetShowModal(!showModal)
+    setShowModal(!showModal)
   }
   const onOpenNortification = () => {
-    SetShowNotifications(!showNotifications)
+    setShowNotifications(!showNotifications)
   }
 
   const onRemoveBoard = (event, boardId) => {
@@ -69,7 +70,7 @@ export const BoardPage = () => {
     dispatch(updateBoard(currBoard))
   }
 
-  const { title, members, activities, groups, cmpsOrder, _id } = currBoard
+  const { groups, _id } = currBoard
   if (!currBoard) return
   return (
     <div className="board-page flex">

@@ -10,61 +10,66 @@ export const BoardHeader = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
-  const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
+  const [descriptionValue, setDescriptionValue] = useState(
+    currBoard.description || ''
+  )
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
     setTitleValue(currBoard.title)
   }, [currBoard])
-  
+
   const onSubmitTitle = (ev) => {
+    setIsEditing(false)
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*');
-      dispatch(updateBoard( {...currBoard, title: titleValue}))
+      console.log('Title updated to: *' + titleValue + '*')
+      dispatch(updateBoard({ ...currBoard, title: titleValue }))
     }
   }
   const onHandleChangeTitle = (ev) => {
-    const { value } =  ev.target
-    console.log(value);
+    const { value } = ev.target
+    console.log(value)
     setTitleValue(value)
   }
 
   const onSubmitDescripsion = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      setIsEditing(false)
-      console.log('Descripsion updated to: *' + descriptionValue + '*');
-      dispatch(updateBoard( {...currBoard, description: descriptionValue}))
+      console.log('Descripsion updated to: *' + descriptionValue + '*')
+      dispatch(updateBoard({ ...currBoard, description: descriptionValue }))
     }
   }
   const onHandleChangeDescripsion = (ev) => {
-    const { value } =  ev.target
-    console.log(value);
+    const { value } = ev.target
+    console.log(value)
     setDescriptionValue(value)
   }
-
+  
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
         <div className="board-header-top-main flex center flex">
-          {isEditing ? 
-          <input
-            type="text"
-            value={titleValue}
-            tabindex="0"
-            className="title"
-            maxlength="10"
-            onBlur={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onKeyUp={(ev) => {
-              onSubmitTitle(ev)
-            }}
-            onChange={(ev) => {
-              onHandleChangeTitle(ev)
-            }}
-            name="titleValue"
-          /> : <h1 className='title-fixed-h1' onClick={() => setIsEditing(!isEditing)} >{titleValue}</h1>}
+          {isEditing ? (
+            <input
+              type="text"
+              value={titleValue}
+              className="title"
+              onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onChange={(ev) => {
+                onHandleChangeTitle(ev)
+              }}
+              name="titleValue"
+            />
+          ) : (
+            <h1
+              className="title-fixed-h1"
+              onClick={() => setIsEditing(!isEditing)}
+            >
+              {titleValue}
+            </h1>
+          )}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
