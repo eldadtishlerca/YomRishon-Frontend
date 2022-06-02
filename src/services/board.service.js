@@ -15,22 +15,16 @@ export const boardService = {
 
 async function query() {
   try {
-    const boards = await httpService.get('')
-    return boards
-  }
-  catch (err) {
+    return await httpService.get('')
+  } catch (err) {
     console.log(err)
   }
 }
 
 async function getById(boardId) {
   try {
-    const board = await httpService.get(`${boardId}`)
-    console.log(board);
-    console.log('data from server :)', board)
-    return board
-  }
-  catch (err) {
+    return await httpService.get(`${boardId}`)
+  } catch (err) {
     console.log(err)
   }
 }
@@ -39,36 +33,54 @@ async function getById(boardId) {
 
 async function updateTask(board, groupId, taskId, taskToUpdate ) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
-  const taskIdx = board.groups[groupIdx].tasks.findIndex(
-    (task) => task.id === taskId
-  )
+  const taskIdx = board.groups[groupIdx].tasks.findIndex((task) => task.id === taskId)
   board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
-  return await httpService.put('',board)
+  try {
+    return await httpService.put('',board)
+  } catch (err) {
+      console.log(err);
+  }
 }
 
 async function updateGroup( board, groupId, groupToUpdate ) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1, groupToUpdate)
   // http - updateBoard / Storage
-  return await httpService.put('',board)
+  try {
+    return await httpService.put('',board)
+  } catch (err) {
+      console.log(err);
+  }
 }
 
 async function dupliGroup(board, groupId, groupToCopy) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, groupToCopy)
-  return await httpService.put('',board)
+  try {
+    return await httpService.put('',board)
+  } catch (err) {
+      console.log(err);
+  }
 }
 
 async function addGroup(board, groupId, addGroup) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, addGroup)
-  return await httpService.put('',board)
+  try {
+    return await httpService.put('',board)
+  } catch (err) {
+      console.log(err);
+  }
 }
 
 async function deleteGroup(board, groupId) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1)
-  return await httpService.put('',board)
+  try {
+    return await httpService.put('',board)
+  } catch (err) {
+      console.log(err);
+  }
 }
 
 async function remove(boardId) {

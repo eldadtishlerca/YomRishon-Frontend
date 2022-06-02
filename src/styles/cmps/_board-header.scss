@@ -13,13 +13,11 @@
 .board-header-top{
     justify-content: space-between;
     align-items: center;
-
     .board-header-top-icon-container{
         align-items: center; 
         vertical-align: middle;
         font-size: 20px;
         padding: 5px;
-        // margin-left: 5px;
         cursor: pointer;
         border-radius: 4px;
         color: $headerDarkGrey;
@@ -34,6 +32,7 @@
     }
 
 }
+
 .subtitle{
     border: 0;
     font-family: roboto;
@@ -42,7 +41,7 @@
 
 .board-header-top-main{
     gap: 5px;
-    .title{
+    .title-input{
         color: $headerBlack;
         font-size: 35px;
         border: 0;
@@ -50,7 +49,7 @@
         font-family: roboto;
         width: 100%;
     }
-    .title-fixed-h1{
+    .title-fixed{
         border: transparent;
         font-size: 35px;
         box-sizing: border-box;

@@ -97,7 +97,7 @@ export const BoardPage = () => {
       ) : (
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
-      <div className="boardSection">
+      <div className="board-section">
         <BoardHeader currBoard={currBoard} />
         <BoardContent
           groups={groups}

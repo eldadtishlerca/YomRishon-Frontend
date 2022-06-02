@@ -24,29 +24,26 @@ export const BoardHeader = () => {
     if (ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*')
       dispatch(updateBoard({ ...currBoard, title: titleValue }))
-      setIsEditing(false)
-    }
-    if (ev.key === 'Enter') {
-      console.log('enterrrrr');
+    } else if (ev.key === 'Enter') {
       ev.target.blur()
-      setIsEditing(false)
     }
+    setIsEditing(false)
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
   const onSubmitDescripsion = (ev) => {
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur') {
       console.log('Descripsion updated to: *' + descriptionValue + '*')
       dispatch(updateBoard({ ...currBoard, description: descriptionValue }))
+    } else if (ev.key === 'Enter') {
+      ev.target.blur()
     }
   }
   const onHandleChangeDescripsion = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setDescriptionValue(value)
   }
   
@@ -58,7 +55,7 @@ export const BoardHeader = () => {
             <input
               type="text"
               value={titleValue}
-              className="title"
+              className="title-input"
               onBlur={(ev) => {
                 onSubmitTitle(ev)
               }}
@@ -68,11 +65,10 @@ export const BoardHeader = () => {
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
               }}
-              name="titleValue"
             />
           ) : (
             <h1
-              className="title-fixed-h1"
+              className="title-fixed"
               onClick={() => setIsEditing(!isEditing)}
             >
               {titleValue}
