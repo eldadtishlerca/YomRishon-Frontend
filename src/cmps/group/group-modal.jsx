@@ -15,7 +15,7 @@ import {
   deleteGroup,
 } from '../../store/actions/board.actions'
 
-export const GroupModal = ({ id, color }) => {
+export const GroupModal = ({ id, color, setIsEditing }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
 
   useEffect(() => {
@@ -157,7 +157,9 @@ export const GroupModal = ({ id, color }) => {
             <div>
               <BiPencil className="group-modal-border-no" />
             </div>
-            <span>Rename group</span>
+            <span onClick={() => 
+            {setIsEditing(true) 
+              setToggleModal(false)}}>Rename group</span>
           </div>
           <div
             onClick={() => {
