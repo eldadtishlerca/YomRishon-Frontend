@@ -23,7 +23,9 @@ export const TaskTitle = ({
   const [iconColor, setIconColor] = useState('#C6C8D1')
   const [editHover, setEditHover] = useState(false)
   const [titleValue, setTitleValue] = useState(title || '')
+  const [isEditTitle, setIsEditTitle] = useState(false)
   const dispatch = useDispatch()
+
   useEffect(() => {
     setTitleValue(title)
   }, [currBoard, title])
@@ -33,15 +35,12 @@ export const TaskTitle = ({
     ev.stopPropagation()
   }
 
-  const onTypeEnter = (ev) => {
-
-  }
-
   const onSubmitTitle = (ev) => {
     if (ev.type === 'blur' || ev.key === 'Enter') {
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
       ev.target.blur()
+      setIsEditTitle(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -65,9 +64,7 @@ export const TaskTitle = ({
       <div className="task-header">
         <div className="task-header-title">
           <span>
-            <input
-              value={titleValue}
-              type="text"
+            {isEditTitle ? <input value={titleValue} type="text"
               className="task-title-input"
               style={{ color: innerColor }}
               onClick={(ev) => {onClickTitle(ev)}}
@@ -80,11 +77,10 @@ export const TaskTitle = ({
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
               }}
-              name="titleValue"
-            ></input>
+            ></input> : <span style={{ color: innerColor }}>{titleValue}</span>}
           </span>
         </div>
-        {editHover && <div className="title-header-edit">Edit</div>}
+        {editHover && <div className="title-header-edit" onClick={() => {setIsEditTitle(true)}}>Edit</div>}
       </div>
       {counter === 0 ? (
         <div
