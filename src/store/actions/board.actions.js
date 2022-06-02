@@ -34,10 +34,10 @@ export function updateGroup(board, groupId, groupToUpdate) {
   }
 }
 
-export function dupliGroup(board, groupId, groupToCopy) {
+export function duplicateGroup(board, groupId, groupToCopy) {
   return async (dispatch) => {
     try {
-      const updatedBoard = await boardService.dupliGroup(
+      const updatedBoard = await boardService.duplicateGroup(
         board,
         groupId,
         groupToCopy

@@ -8,7 +8,7 @@ export const boardService = {
   add,
   updateTask,
   updateGroup,
-  dupliGroup,
+  duplicateGroup,
   addGroup,
   deleteGroup,
 }
@@ -53,7 +53,7 @@ async function updateGroup( board, groupId, groupToUpdate ) {
   }
 }
 
-async function dupliGroup(board, groupId, groupToCopy) {
+async function duplicateGroup(board, groupId, groupToCopy) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, groupToCopy)
   try {

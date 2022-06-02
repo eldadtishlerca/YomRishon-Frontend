@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux'
 import { utilService } from '../../services/util.service'
 import {
   updateBoard,
-  dupliGroup,
+  duplicateGroup,
   addGroup,
   deleteGroup,
 } from '../../store/actions/board.actions'
@@ -112,7 +112,7 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
     copyGroup.tasks = copyGroup.tasks.map((task) => {
       return { ...task, id: utilService.makeId() }
     })
-    dispatch(dupliGroup(currBoard, id, copyGroup))
+    dispatch(duplicateGroup(currBoard, id, copyGroup))
   }
 
   const getColors = () => {
