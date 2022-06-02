@@ -3,14 +3,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateBoard } from '../../store/actions/board.actions'
 import { ToolBar } from './toolbar'
 import { MdOutlineTableChart } from 'react-icons/md'
-import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
+import {
+  AiOutlineStar,
+  AiOutlineStock,
+  AiFillInfoCircle,
+  AiFillStar,
+} from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
-  const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
+  const [descriptionValue, setDescriptionValue] = useState(
+    currBoard.description || ''
+  )
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
@@ -42,7 +49,12 @@ export const BoardHeader = () => {
     const { value } = ev.target
     setDescriptionValue(value)
   }
-  
+
+  const onFavorite = () => {
+    const favorite = currBoard.isFavorite
+    dispatch(updateBoard({ ...currBoard, isFavorite: !favorite }))
+  }
+
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
@@ -60,13 +72,31 @@ export const BoardHeader = () => {
               }}
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
-              }}/>) : (<h1 className="title-fixed" onClick={() => setIsEditing(!isEditing)}>{titleValue}</h1>
+              }}
+            />
+          ) : (
+            <h1
+              className="title-fixed"
+              onClick={() => setIsEditing(!isEditing)}
+            >
+              {titleValue}
+            </h1>
           )}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
-          <span className="board-header-top-icon-container">
-            <AiOutlineStar className="board-header-top-icon" />
+          <span
+            onClick={() => onFavorite()}
+            className="board-header-top-icon-container"
+          >
+            {currBoard.isFavorite ? (
+              <AiOutlineStar className="board-header-top-icon" />
+            ) : (
+              <AiFillStar
+                className="board-header-top-icon"
+                style={{ color: 'rgb(255, 203, 0)' }}
+              />
+            )}
           </span>
         </div>
 

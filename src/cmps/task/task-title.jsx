@@ -64,23 +64,41 @@ export const TaskTitle = ({
       <div className="task-header">
         <div className="task-header-title">
           <span>
-            {isEditTitle ? <input value={titleValue} type="text"
-              className="task-title-input"
-              style={{ color: innerColor }}
-              onClick={(ev) => {onClickTitle(ev)}}
-              onBlur={(ev) => {
-                onSubmitTitle(ev)
-              }}
-              onKeyUp={(ev) => {
-                onSubmitTitle(ev)
-              }}
-              onChange={(ev) => {
-                onHandleChangeTitle(ev)
-              }}
-            ></input> : <span style={{ color: innerColor }}>{titleValue}</span>}
+            {isEditTitle ? (
+              <input
+                value={titleValue}
+                type="text"
+                className="task-title-input"
+                style={{ color: innerColor }}
+                onClick={(ev) => {
+                  onClickTitle(ev)
+                }}
+                onBlur={(ev) => {
+                  onSubmitTitle(ev)
+                }}
+                onKeyUp={(ev) => {
+                  onSubmitTitle(ev)
+                }}
+                onChange={(ev) => {
+                  onHandleChangeTitle(ev)
+                }}
+              ></input>
+            ) : (
+              <span style={{ color: innerColor }}>{titleValue}</span>
+            )}
           </span>
         </div>
-        {editHover && <div className="title-header-edit" onClick={() => {setIsEditTitle(true)}}>Edit</div>}
+        {editHover && (
+          <div
+            className="title-header-edit"
+            onClick={(ev) => {
+              ev.stopPropagation()
+              setIsEditTitle(true)
+            }}
+          >
+            Edit
+          </div>
+        )}
       </div>
       {counter === 0 ? (
         <div
