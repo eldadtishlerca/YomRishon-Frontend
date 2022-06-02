@@ -6,11 +6,11 @@ import { FcGoogle } from 'react-icons/fc'
 
 export const LoginSignUpPage = () => {
   const navigate = useNavigate()
-  const [userName, setUserName] = useState(null)
+  const [userame, setUserame] = useState(null)
   const [password, setPassword] = useState(null)
 
-  const onHandleChangeUserName = ({target}) => {
-    setUserName(target.value)
+  const onHandleChangeUsername = ({target}) => {
+    setUserame(target.value)
   }
   const onHandleChangePassword = ({target}) => {
     setPassword(target.value)
@@ -18,7 +18,7 @@ export const LoginSignUpPage = () => {
 
   const onSubmitCredentials = (ev) => {
     ev.preventDefault(ev)
-    userService.login({userName, password})
+    userService.login({userame, password})
   }
 
   return (
@@ -43,8 +43,8 @@ export const LoginSignUpPage = () => {
         <form onSubmit={(ev) => {onSubmitCredentials(ev)}}>
           <h3>Enter your work email address</h3>
           <div className="form-warpper">
-            <input type="email" placeholder="example@company.com" onChange={(ev) => {onHandleChangeUserName(ev)}}/>
-            <input type="password" placeholder="password" onChange={(ev) => {onHandleChangePassword(ev)}}/>
+            <input autoComplete="off"  type="username" placeholder="User name" name="username" onChange={(ev) => {onHandleChangeUsername(ev)}}/>
+            <input autoComplete="off" type="password" placeholder="Password" onChange={(ev) => {onHandleChangePassword(ev)}}/>
             <div className="submit-btn-warpper">
               <button className="submit-btn">login</button>
             </div>
@@ -65,10 +65,8 @@ export const LoginSignUpPage = () => {
           </div>
         </div>
         <div className="register-link-container">
-          <span>Don't have an account yet?</span>
-          <a className="register-link" href="/">
-            Sign up
-          </a>
+          <span>Don't have an account yet? </span>
+          <a className="register-link" href="/">Sign up</a>
         </div>
       </main>
     </div>
