@@ -10,9 +10,7 @@ export const BoardHeader = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
-  const [descriptionValue, setDescriptionValue] = useState(
-    currBoard.description || ''
-  )
+  const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
@@ -21,27 +19,27 @@ export const BoardHeader = () => {
   }, [currBoard])
 
   const onSubmitTitle = (ev) => {
-    setIsEditing(false)
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       console.log('Title updated to: *' + titleValue + '*')
       dispatch(updateBoard({ ...currBoard, title: titleValue }))
+      ev.target.blur()
+      setIsEditing(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
   const onSubmitDescripsion = (ev) => {
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       console.log('Descripsion updated to: *' + descriptionValue + '*')
       dispatch(updateBoard({ ...currBoard, description: descriptionValue }))
+      ev.target.blur()
     }
   }
   const onHandleChangeDescripsion = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setDescriptionValue(value)
   }
   
@@ -53,22 +51,16 @@ export const BoardHeader = () => {
             <input
               type="text"
               value={titleValue}
-              className="title"
+              className="title-input"
               onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
                 onSubmitTitle(ev)
               }}
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
-              }}
-              name="titleValue"
-            />
-          ) : (
-            <h1
-              className="title-fixed-h1"
-              onClick={() => setIsEditing(!isEditing)}
-            >
-              {titleValue}
-            </h1>
+              }}/>) : (<h1 className="title-fixed" onClick={() => setIsEditing(!isEditing)}>{titleValue}</h1>
           )}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
