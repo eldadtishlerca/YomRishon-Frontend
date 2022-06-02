@@ -21,10 +21,15 @@ export const BoardHeader = () => {
   }, [currBoard])
 
   const onSubmitTitle = (ev) => {
-    setIsEditing(false)
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*')
       dispatch(updateBoard({ ...currBoard, title: titleValue }))
+      setIsEditing(false)
+    }
+    if (ev.key === 'Enter') {
+      console.log('enterrrrr');
+      ev.target.blur()
+      setIsEditing(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -55,6 +60,9 @@ export const BoardHeader = () => {
               value={titleValue}
               className="title"
               onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
                 onSubmitTitle(ev)
               }}
               onChange={(ev) => {

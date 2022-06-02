@@ -29,11 +29,23 @@ export const TaskTitle = ({
   }, [currBoard, title])
   if (!currBoard) return
 
+  const onClickTitle = (ev) => {
+    ev.stopPropagation()
+  }
+
+  const onTypeEnter = (ev) => {
+
+  }
+
   const onSubmitTitle = (ev) => {
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur') {
       console.log('Title updated to: *' + titleValue + '*')
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
+    }
+    if (ev.key === 'Enter') {
+      console.log('enterrrrr');
+      ev.target.blur()
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -63,6 +75,7 @@ export const TaskTitle = ({
               type="text"
               className="task-title-input"
               style={{ color: innerColor }}
+              onClick={(ev) => {onClickTitle(ev)}}
               onBlur={(ev) => {
                 onSubmitTitle(ev)
               }}
