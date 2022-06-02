@@ -38,19 +38,14 @@ export const TaskTitle = ({
   }
 
   const onSubmitTitle = (ev) => {
-    if (ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*')
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
-    }
-    if (ev.key === 'Enter') {
-      console.log('enterrrrr');
       ev.target.blur()
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
