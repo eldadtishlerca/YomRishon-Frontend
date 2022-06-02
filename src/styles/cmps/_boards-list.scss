@@ -9,21 +9,54 @@
     cursor: pointer;
     padding: 6px 6px;
     border-radius: 0.25rem;
-    .delete-btn {
-      display: none;
-      svg{
-      }
-    }
-    &:hover {
-      background: #dcdfec;
-      .delete-btn {
-        display: block;
-        background-color: rgba(0, 0, 0, 0.048);
-      }
-    }
+    position: relative;
     span {
       margin-left: 8px;
       font-size: 14px;
+    }
+    &:hover {
+      background: #dcdfec;
+    }
+    div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    }
+    .boards-list-modal-btn {
+      position: absolute;
+      right: 10px;
+      padding: 1px;
+    }
+    .boards-list-modal {
+      position: absolute;
+      top: 26px;
+      min-width: 264px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: #fff;
+      z-index: 999;
+      > *:first-child {
+        margin-top: 8px;
+      }
+      > *:last-child {
+        margin-bottom: 8px;
+      }
+      div {
+        width: 232px;
+        height: 26px;
+        padding: 4px 8px;
+        margin: 4px 0;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-bottom: 1px;
+        }
+      }
     }
   }
   .board-active {

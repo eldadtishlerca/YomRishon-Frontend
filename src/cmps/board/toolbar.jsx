@@ -58,9 +58,10 @@ export const ToolBar = () => {
   }
 
   const onAddGroup = () => {
+    const newColor = utilService.getRandomColor()
     const newGroup = {
-      color: utilService.getRandomColor(),
-      hoverColor: utilService.getRandomColor(),
+      color: newColor.color,
+      hoverColor: newColor.hover,
       id: utilService.makeId(),
       tasks: [
         {

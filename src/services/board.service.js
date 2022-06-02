@@ -1,8 +1,4 @@
-import { storageService } from './async-storage.service'
-
-// import gBoards from '../data/data'
-
-const STORAGE_KEY = 'boards'
+import { httpService } from './http.service';
 
 export const boardService = {
   query,
@@ -11,59 +7,93 @@ export const boardService = {
   remove,
   add,
   updateTask,
-  updateGroup
+  updateGroup,
+  dupliGroup,
+  addGroup,
+  deleteGroup,
 }
 
-function query() {
-  return storageService.query(STORAGE_KEY)
+async function query() {
+  try {
+    const boards = await httpService.get('')
+    return boards
+  }
+  catch (err) {
+    console.log(err)
+  }
 }
 
 async function getById(boardId) {
-  return storageService.get(STORAGE_KEY, boardId)
+  try {
+    const board = await httpService.get(`${boardId}`)
+    console.log(board);
+    console.log('data from server :)', board)
+    return board
+  }
+  catch (err) {
+    console.log(err)
+  }
 }
 
+
+
 async function updateTask(board, groupId, taskId, taskToUpdate ) {
-  const groupIdx = board.groups.findIndex(group => group.id ===groupId)
-  const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === taskId)
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
+  const taskIdx = board.groups[groupIdx].tasks.findIndex(
+    (task) => task.id === taskId
+  )
   board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
-  // http - updateBoard / Storage
-  await storageService.put(STORAGE_KEY, board)
-  return board
+  return await httpService.put('',board)
 }
 
 async function updateGroup( board, groupId, groupToUpdate ) {
-  const groupIdx = board.groups.findIndex(group => group.id ===groupId)
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1, groupToUpdate)
   // http - updateBoard / Storage
-  await storageService.put(STORAGE_KEY, board)
-  return board
+  return await httpService.put('',board)
+}
+
+async function dupliGroup(board, groupId, groupToCopy) {
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
+  board.groups.splice(groupIdx, 0, groupToCopy)
+  return await httpService.put('',board)
+}
+
+async function addGroup(board, groupId, addGroup) {
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
+  board.groups.splice(groupIdx, 0, addGroup)
+  return await httpService.put('',board)
+}
+
+async function deleteGroup(board, groupId) {
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
+  board.groups.splice(groupIdx, 1)
+  return await httpService.put('',board)
 }
 
 async function remove(boardId) {
-  await storageService.remove(STORAGE_KEY, boardId)
-  return storageService.query(STORAGE_KEY) //change to useeffect + filter
+  await httpService.delete(`${boardId}`)
+  return query()
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
 async function add(board) {
   if (!board) board = _getNewBoard()
-  await storageService.post(STORAGE_KEY, board)
-  return storageService.query(STORAGE_KEY)
+  await httpService.post('',board)
+  return query()
   // boardChannel.postMessage(getActionAddBoard(board))
 }
 
 async function save(board) {
-  let savedBoard
   if (board._id) {
-    savedBoard = await storageService.put(STORAGE_KEY, board)
+    return await httpService.put('',board)
     // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
   } else {
     // Later, owner is set by the backend
     // board.owner = userService.getLoggedinUser()
-    savedBoard = await storageService.post(STORAGE_KEY, board)
+    return await httpService.post('',board)
     // boardChannel.postMessage(getActionAddBoard(savedBoard))
   }
-  return savedBoard
 }
 
 function _getNewBoard() {
