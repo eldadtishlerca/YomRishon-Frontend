@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadBoards } from '../../store/actions/board.actions'
+import { Loader } from '../board/loader'
 
 import {
   AiFillHome,
@@ -17,7 +18,7 @@ export const WorkspaceSidebarHeader = ({ onClick, onAddBoard }) => {
     dispatch(loadBoards(boards))
   }, [])
 
-  if (boards.length === 0 || !boards) return <div>Loading...</div>
+  if (boards.length === 0 || !boards) return <Loader />
 
   return (
     <div className="workspace-sidebar-header">
