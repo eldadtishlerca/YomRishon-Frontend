@@ -10,9 +10,7 @@ export const BoardHeader = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
-  const [descriptionValue, setDescriptionValue] = useState(
-    currBoard.description || ''
-  )
+  const [descriptionValue, setDescriptionValue] = useState(currBoard.description || '')
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
 
@@ -64,15 +62,7 @@ export const BoardHeader = () => {
               }}
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
-              }}
-            />
-          ) : (
-            <h1
-              className="title-fixed"
-              onClick={() => setIsEditing(!isEditing)}
-            >
-              {titleValue}
-            </h1>
+              }}/>) : (<h1 className="title-fixed" onClick={() => setIsEditing(!isEditing)}>{titleValue}</h1>
           )}
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
