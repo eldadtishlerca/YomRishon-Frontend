@@ -32,7 +32,7 @@ export const BoardPreview = ({ board, onRemoveBoard, onAddBoard }) => {
         <BiDockLeft />
       </div>
       <span>{title}</span>
-      {isHover && (
+      {(isHover || isToggleModal) && (
         <div
           className="boards-list-modal-btn"
           onClick={(ev) => {
@@ -45,6 +45,10 @@ export const BoardPreview = ({ board, onRemoveBoard, onAddBoard }) => {
             <div
               className="boards-list-modal"
               onClick={(ev) => ev.stopPropagation()}
+              onMouseLeave={() => {
+                setIsHover(false)
+                setIsToggleModal(false)
+              }}
             >
               <div
                 onClick={(ev) => {
