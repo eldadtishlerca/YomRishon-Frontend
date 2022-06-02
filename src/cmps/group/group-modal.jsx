@@ -8,7 +8,12 @@ import { BiPencil, BiTrash } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { utilService } from '../../services/util.service'
-import { updateBoard } from '../../store/actions/board.actions'
+import {
+  updateBoard,
+  dupliGroup,
+  addGroup,
+  deleteGroup,
+} from '../../store/actions/board.actions'
 
 export const GroupModal = ({ id, color }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
@@ -79,14 +84,12 @@ export const GroupModal = ({ id, color }) => {
       ],
       title: 'New Group',
     }
-    currBoard.groups.unshift(newGroup)
-    dispatch(updateBoard(currBoard))
+    dispatch(addGroup(currBoard, id, newGroup))
   }
 
   const onDeleteGroup = () => {
     setToggleModal(false)
-    currBoard.groups = currBoard.groups.filter((group) => group.id !== id)
-    dispatch(updateBoard(currBoard))
+    dispatch(deleteGroup(currBoard, id))
   }
 
   const onChangeGroupColor = (insideColor) => {
@@ -98,13 +101,18 @@ export const GroupModal = ({ id, color }) => {
 
   const onDuplicateGroup = () => {
     setToggleModal(false)
-    const currIdx = currBoard.groups.findIndex((group) => group.id === id)
+    const newColor = utilService.getRandomColor()
     const newGroup = currBoard.groups.filter((group) => group.id === id)
-    const dupliGroup = Object.assign({}, newGroup[0])
-    dupliGroup.id = utilService.makeId()
-    dupliGroup.color = utilService.getRandomColor()
-    currBoard.groups.splice(currIdx, 0, dupliGroup)
-    dispatch(updateBoard(currBoard))
+    const copyGroup = {
+      ...newGroup[0],
+      id: utilService.makeId(),
+      color: newColor.color,
+      hoverColor: newColor.hover,
+    }
+    copyGroup.tasks = copyGroup.tasks.map((task) => {
+      return { ...task, id: utilService.makeId() }
+    })
+    dispatch(dupliGroup(currBoard, id, copyGroup))
   }
 
   const getColors = () => {

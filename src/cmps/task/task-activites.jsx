@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { updateBoard } from '../../store/actions/board.actions'
 import { utilService } from '../../services/util.service'
+import { updateBoard } from '../../store/actions/board.actions'
+import { updateTask } from '../../store/actions/board.actions'
 import { BsPlusCircleFill } from 'react-icons/bs'
 import { AiFillCaretUp } from 'react-icons/ai'
-import { updateTask } from '../../store/actions/board.actions'
+import { CgProfile } from 'react-icons/cg'
 
 export const TaskActivites = ({
   onOpenModal,
@@ -33,7 +34,10 @@ export const TaskActivites = ({
   const [isPrioritysModal, setIsPrioritysModal] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [assingeeIds, setAssingeeIds] = useState(null)
+  const [onSetDeadline, setOnSetDeadline] = useState(false)
   const dispatch = useDispatch()
+
+  useEffect(() => {}, [assingeeIds])
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -97,9 +101,53 @@ export const TaskActivites = ({
     setAssingeeIds(ids)
   }
 
+  const onRemoveMember = (id) => {
+    const { groups } = currBoard
+    const currGroup = groups.find((group) => group.id === groupId)
+    const currTask = currGroup.tasks.find((task) => task.id === taskId)
+    const members = currTask.membersIds.filter((member) => member._id !== id)
+    currTask.membersIds = members
+    getMembersIds()
+    dispatch(updateBoard(currBoard))
+  }
+
+  const onAddMember = (member) => {
+    const { groups } = currBoard
+    const currGroup = groups.find((group) => group.id === groupId)
+    const currTask = currGroup.tasks.find((task) => task.id === taskId)
+    currTask.membersIds.push(member)
+    getMembersIds()
+    dispatch(updateBoard(currBoard))
+  }
+
   return (
     <div className="task-activities flex">
-      {membersIds.length <= 2 ? (
+      {membersIds.length === 0 && (
+        <div
+          onClick={() => {
+            setIsAssigneeModal(!isAssigneeModal)
+            getMembersIds()
+          }}
+          className="task-activities-assignee"
+          style={{ background: background }}
+          onMouseEnter={() => {
+            setAssigneeHover(true)
+          }}
+          onMouseLeave={() => {
+            setAssigneeHover(false)
+          }}
+        >
+          {assigneeHover && (
+            <div>
+              <BsPlusCircleFill />
+            </div>
+          )}
+          <div className="fake-img-assignee">
+            <CgProfile />
+          </div>
+        </div>
+      )}
+      {membersIds.length > 0 && membersIds.length <= 2 && (
         <div
           onClick={() => {
             setIsAssigneeModal(!isAssigneeModal)
@@ -123,7 +171,8 @@ export const TaskActivites = ({
             <img key={member._id} src={member.imgUrl} alt="" />
           ))}
         </div>
-      ) : (
+      )}
+      {membersIds.length > 2 && (
         <div
           onClick={() => setIsAssigneeModal(!isAssigneeModal)}
           className="task-activities-assignee"
@@ -147,28 +196,53 @@ export const TaskActivites = ({
         </div>
       )}
       {isAssigneeModal && (
-        <div className="assignee-modal">
+        <div
+          className="assignee-modal"
+          onMouseEnter={() => {
+            setHover(false)
+            setBackground('#f5f6f8')
+            setInnerColor('#666666')
+          }}
+        >
           <div className="are-assignee">
             {membersIds !== 0 &&
               membersIds.map((member) => (
-                <div>
+                <div key={member._id}>
                   <img key={member._id} src={member.imgUrl} alt="" />
                   <span>{member.fullname}</span>
-                  <span>X</span>
+                  <span
+                    onClick={() => {
+                      onRemoveMember(member._id)
+                      setIsAssigneeModal(false)
+                    }}
+                  >
+                    X
+                  </span>
                 </div>
               ))}
           </div>
           <div className="not-assignee">
             <div>Enter another name</div>
-            <div>People</div>
+            <div className="people-line">
+              <div className="people-overline">
+                <span>People</span>
+              </div>
+            </div>
             <div className="not-assignee-members">
               {currBoard.members.map((member) => {
                 if (assingeeIds.includes(member._id)) {
                   return null
                 } else {
                   return (
-                    <div className="not-assignee-member">
-                      <img src={member.imgUrl} alt="" />
+                    <div
+                      className="not-assignee-member"
+                      key={member._id}
+                      onClick={() => {
+                        onAddMember(member)
+                        setIsAssigneeModal(false)
+                      }}
+                    >
+                      <img key={member._id} src={member.imgUrl} alt="" />
                       <span>{member.fullname}</span>
                     </div>
                   )
@@ -272,8 +346,10 @@ export const TaskActivites = ({
       <div
         className="task-activities-deadline"
         style={{ background: background, color: innerColor }}
+        onClick={() => setOnSetDeadline(!onSetDeadline)}
       >
         <span>{setDeadlineTime()}</span>
+        {onSetDeadline && <input type="date" />}
       </div>
       <div
         className="task-activities-updated"

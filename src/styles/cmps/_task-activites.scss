@@ -27,6 +27,14 @@
    margin-left: 5px;
    max-width: 26px;
   }
+  .fake-img-assignee {
+   margin-left: 5px;
+   left: 39px;
+   svg {
+     font-size: 26px;
+     color: #C5C7D0;
+   }
+  }
   > *:last-child {
    margin-left: -5px;
   }
@@ -186,6 +194,7 @@
   all: unset
 }
 .assignee-modal {
+  cursor: auto;
   position: absolute;
   width: 264px;
   background-color: #fff;
@@ -199,6 +208,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 2px;
     div {
     display: flex;
@@ -207,23 +217,69 @@
     margin: 4px;
     background: #e5f4ff;
     color: #333;
+    border-radius: 8px;
+    > *:last-child {
+      cursor: pointer;
+    }
     }
     img {
       width: 22px;
+      padding-right: 4px;
     }
     span {
       margin-top: 3px;
       margin-left: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   .not-assignee {
     display: flex;
     flex-direction: column;
     align-items: center;
+    .people-line {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 178px;
+      height: 1px;
+      background: #c3c6d4;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .people-overline {
+      color: #323338;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      background: #fff;
+      padding: 0 10px;
+    }
     .not-assignee-member {
-      width: 248px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      width: 238px;
+      height: 16px;
+      padding: 8px 4px;
+      border-radius: 3px;
+      color: #323338;
+      margin-bottom: 4px;
+      &:hover {
+        background: #0073ea;
+        color: white;
+      }
       img {
         width: 22px;
+        margin-bottom: 1px;
+      }
+      span {
+        font-size: 13px;
+        padding-left: 12px;
       }
     }
   }
