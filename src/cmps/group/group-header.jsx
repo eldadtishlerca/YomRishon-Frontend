@@ -13,24 +13,22 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      setIsEditing(false)
-      console.log('Title updated to: *' + titleValue + '*')
       const groupToUpdate = { ...group, title: titleValue }
       dispatch(updateGroup(currBoard, group.id, groupToUpdate))
+      setIsEditing(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
   return (
     <div className="group-header flex">
       <div className="group-modal-wrapper">
-        <GroupModal id={id} color={color} boardId={boardId} />
+        <GroupModal id={id} color={color} boardId={boardId} setIsEditing={setIsEditing}/>
       </div>
-      <div className="group-title">
+      <div className="group-title" onClick={() => setIsEditing(true)}>
         {isEditing ? (
           <input
             type="text"
@@ -44,14 +42,7 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
             onChange={(ev) => {
               onHandleChangeTitle(ev)
             }}
-          />
-        ) : (
-          <span
-            style={{ color: color }}
-            onClick={() => setIsEditing(!isEditing)}
-          >
-            {title}
-          </span>
+          />) : (<span style={{ color: color }}>{title}</span>
         )}
       </div>
       <div className="group-header-assignee">

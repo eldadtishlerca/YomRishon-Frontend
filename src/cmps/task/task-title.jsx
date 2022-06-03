@@ -23,22 +23,28 @@ export const TaskTitle = ({
   const [iconColor, setIconColor] = useState('#C6C8D1')
   const [editHover, setEditHover] = useState(false)
   const [titleValue, setTitleValue] = useState(title || '')
+  const [isEditTitle, setIsEditTitle] = useState(false)
   const dispatch = useDispatch()
+
   useEffect(() => {
     setTitleValue(title)
   }, [currBoard, title])
   if (!currBoard) return
 
+  const onClickTitle = (ev) => {
+    ev.stopPropagation()
+  }
+
   const onSubmitTitle = (ev) => {
-    if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*')
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
+      ev.target.blur()
+      setIsEditTitle(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
@@ -58,25 +64,41 @@ export const TaskTitle = ({
       <div className="task-header">
         <div className="task-header-title">
           <span>
-            <input
-              value={titleValue}
-              type="text"
-              className="task-title-input"
-              style={{ color: innerColor }}
-              onBlur={(ev) => {
-                onSubmitTitle(ev)
-              }}
-              onKeyUp={(ev) => {
-                onSubmitTitle(ev)
-              }}
-              onChange={(ev) => {
-                onHandleChangeTitle(ev)
-              }}
-              name="titleValue"
-            ></input>
+            {isEditTitle ? (
+              <input
+                value={titleValue}
+                type="text"
+                className="task-title-input"
+                style={{ color: innerColor }}
+                onClick={(ev) => {
+                  onClickTitle(ev)
+                }}
+                onBlur={(ev) => {
+                  onSubmitTitle(ev)
+                }}
+                onKeyUp={(ev) => {
+                  onSubmitTitle(ev)
+                }}
+                onChange={(ev) => {
+                  onHandleChangeTitle(ev)
+                }}
+              ></input>
+            ) : (
+              <span style={{ color: innerColor }}>{titleValue}</span>
+            )}
           </span>
         </div>
-        {editHover && <div className="title-header-edit">Edit</div>}
+        {editHover && (
+          <div
+            className="title-header-edit"
+            onClick={(ev) => {
+              ev.stopPropagation()
+              setIsEditTitle(true)
+            }}
+          >
+            Edit
+          </div>
+        )}
       </div>
       {counter === 0 ? (
         <div

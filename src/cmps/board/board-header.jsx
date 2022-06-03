@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateBoard } from '../../store/actions/board.actions'
 import { ToolBar } from './toolbar'
 import { MdOutlineTableChart } from 'react-icons/md'
-import { AiOutlineStar, AiOutlineStock, AiFillInfoCircle } from 'react-icons/ai'
+import {
+  AiOutlineStar,
+  AiOutlineStock,
+  AiFillInfoCircle,
+  AiFillStar,
+} from 'react-icons/ai'
 import { BsPlus } from 'react-icons/bs'
 
 export const BoardHeader = () => {
@@ -21,30 +26,35 @@ export const BoardHeader = () => {
   }, [currBoard])
 
   const onSubmitTitle = (ev) => {
-    setIsEditing(false)
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       console.log('Title updated to: *' + titleValue + '*')
       dispatch(updateBoard({ ...currBoard, title: titleValue }))
+      ev.target.blur()
+      setIsEditing(false)
     }
   }
   const onHandleChangeTitle = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setTitleValue(value)
   }
 
   const onSubmitDescripsion = (ev) => {
-    if (ev.key === 'Enter' || ev.type === 'blur') {
+    if (ev.type === 'blur' || ev.key === 'Enter') {
       console.log('Descripsion updated to: *' + descriptionValue + '*')
       dispatch(updateBoard({ ...currBoard, description: descriptionValue }))
+      ev.target.blur()
     }
   }
   const onHandleChangeDescripsion = (ev) => {
     const { value } = ev.target
-    console.log(value)
     setDescriptionValue(value)
   }
-  
+
+  const onFavorite = () => {
+    const favorite = currBoard.isFavorite
+    dispatch(updateBoard({ ...currBoard, isFavorite: !favorite }))
+  }
+
   return (
     <section className="board-header-main-container flex">
       <div className="board-header-top flex">
@@ -53,18 +63,20 @@ export const BoardHeader = () => {
             <input
               type="text"
               value={titleValue}
-              className="title"
+              className="title-input"
               onBlur={(ev) => {
+                onSubmitTitle(ev)
+              }}
+              onKeyUp={(ev) => {
                 onSubmitTitle(ev)
               }}
               onChange={(ev) => {
                 onHandleChangeTitle(ev)
               }}
-              name="titleValue"
             />
           ) : (
             <h1
-              className="title-fixed-h1"
+              className="title-fixed"
               onClick={() => setIsEditing(!isEditing)}
             >
               {titleValue}
@@ -73,8 +85,18 @@ export const BoardHeader = () => {
           <span className="board-header-top-icon-container">
             <AiFillInfoCircle className="board-header-top-icon" />
           </span>
-          <span className="board-header-top-icon-container">
-            <AiOutlineStar className="board-header-top-icon" />
+          <span
+            onClick={() => onFavorite()}
+            className="board-header-top-icon-container"
+          >
+            {currBoard.isFavorite ? (
+              <AiOutlineStar className="board-header-top-icon" />
+            ) : (
+              <AiFillStar
+                className="board-header-top-icon"
+                style={{ color: 'rgb(255, 203, 0)' }}
+              />
+            )}
           </span>
         </div>
 

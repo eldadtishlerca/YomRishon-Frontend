@@ -58,9 +58,10 @@ export const ToolBar = () => {
   }
 
   const onAddGroup = () => {
+    const newColor = utilService.getRandomColor()
     const newGroup = {
-      color: utilService.getRandomColor(),
-      hoverColor: utilService.getRandomColor(),
+      color: newColor.color,
+      hoverColor: newColor.hover,
       id: utilService.makeId(),
       tasks: [
         {
@@ -84,16 +85,16 @@ export const ToolBar = () => {
             hover: '#6399E8',
             name: 'Low',
           },
-          deadline: new Date(),
+          deadline: Date.now(),
           workHours: 0,
           isChecked: false,
           lastUpdated: {
             _id: 'u103',
             fullname: 'Elon Barzani',
             imgUrl: 'imgs/mini-user-imgs/u103.png',
-            updatedAt: new Date(),
+            updatedAt: Date.now(),
           },
-          createdAt: new Date(),
+          createdAt: Date.now(),
           byMember: {
             _id: 'u102',
             username: 'Yarden',

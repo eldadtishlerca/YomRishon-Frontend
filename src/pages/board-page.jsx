@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { BoardHeader } from '../cmps/board/board-header'
 import { BoardContent } from '../cmps/board/board-content'
 import { MainSidebar } from '../cmps/sidebars/main-sidebar'
+import { Loader } from '../cmps/board/loader'
 import {
   loadBoard,
   removeBoard,
@@ -37,7 +38,7 @@ export const BoardPage = () => {
     (Object.keys(currBoard).length === 0 || !currBoard) &&
     boards.length === 0
   )
-    return <div>Loading...</div>
+    return <Loader />
 
   const onOpenModal = () => {
     setShowModal(!showModal)
@@ -96,7 +97,7 @@ export const BoardPage = () => {
       ) : (
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
-      <div className="boardSection">
+      <div className="board-section">
         <BoardHeader currBoard={currBoard} />
         <BoardContent
           groups={groups}
