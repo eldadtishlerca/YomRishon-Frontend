@@ -1,8 +1,14 @@
 import { storageService } from './async-storage.service'
-
-// import gBoards from '../data/data'
+import axios from 'axios'
 
 const STORAGE_KEY = 'boards'
+const BASE_URL = 'http://localhost:3030/api/board/'
+// const BASE_URL = (process.env.NODE_ENV === 'production')
+// ? '/api/toy'
+// : '//localhost:3030/api/board';
+
+
+
 
 export const boardService = {
   query,
@@ -14,20 +20,42 @@ export const boardService = {
   updateGroup
 }
 
-function query() {
-  return storageService.query(STORAGE_KEY)
+// function query() {
+//   return storageService.query(STORAGE_KEY)
+// }
+
+async function query() {
+  try {
+    const { data } = await axios.get(BASE_URL)
+    console.log('data from server :)', data)
+    return data
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+async function getById(boardId) {
+  try {
+    const { data } = await axios.get(BASE_URL+boardId)
+    console.log('data from server :)', data)
+    return data
+  }
+  catch (err) {
+    console.log(err)
+  }
 }
 
-async function getById(boardId) {
-  return storageService.get(STORAGE_KEY, boardId)
-}
+// async function getById(boardId) {
+//   return storageService.get(STORAGE_KEY, boardId)
+// }
 
 async function updateTask(board, groupId, taskId, taskToUpdate ) {
   const groupIdx = board.groups.findIndex(group => group.id ===groupId)
   const taskIdx = board.groups[groupIdx].tasks.findIndex(task => task.id === taskId)
   board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
   // http - updateBoard / Storage
-  await storageService.put(STORAGE_KEY, board)
+  // await storageService.put(STORAGE_KEY, board)
+  await axios.put(BASE_URL + board)
   return board
 }
 
@@ -35,32 +63,41 @@ async function updateGroup( board, groupId, groupToUpdate ) {
   const groupIdx = board.groups.findIndex(group => group.id ===groupId)
   board.groups.splice(groupIdx, 1, groupToUpdate)
   // http - updateBoard / Storage
-  await storageService.put(STORAGE_KEY, board)
+  // await storageService.put(STORAGE_KEY, board)
+  await axios.put(BASE_URL , board)
   return board
 }
 
 async function remove(boardId) {
-  await storageService.remove(STORAGE_KEY, boardId)
-  return storageService.query(STORAGE_KEY) //change to useeffect + filter
+  // await storageService.remove(STORAGE_KEY, boardId)
+  // return storageService.query(STORAGE_KEY) //change to useeffect + filter
+  await axios.delete(BASE_URL+ boardId)
+  return query()
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
 async function add(board) {
   if (!board) board = _getNewBoard()
-  await storageService.post(STORAGE_KEY, board)
-  return storageService.query(STORAGE_KEY)
+  // await storageService.post(STORAGE_KEY, board)
+  // return storageService.query(STORAGE_KEY)
+  await axios.post(BASE_URL , board)
+  return query()
   // boardChannel.postMessage(getActionAddBoard(board))
 }
 
 async function save(board) {
   let savedBoard
   if (board._id) {
-    savedBoard = await storageService.put(STORAGE_KEY, board)
+    // savedBoard = await storageService.put(STORAGE_KEY, board)
+    const {data} = await axios.put(BASE_URL , board)
+    savedBoard = data
     // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
   } else {
     // Later, owner is set by the backend
     // board.owner = userService.getLoggedinUser()
-    savedBoard = await storageService.post(STORAGE_KEY, board)
+    // savedBoard = await storageService.post(STORAGE_KEY, board)
+    const {data} = await axios.put(BASE_URL , board)
+    savedBoard = data
     // boardChannel.postMessage(getActionAddBoard(savedBoard))
   }
   return savedBoard
