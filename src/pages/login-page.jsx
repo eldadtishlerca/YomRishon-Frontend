@@ -17,9 +17,9 @@ export const LoginPage = () => {
         setPassword(target.value)
       }
     
-      async function onSubmitCredentials (ev) {
+      const onSubmitCredentials = (ev) => {
         ev.preventDefault(ev)
-        await userService.login({username, password})
+        userService.login({username, password})
         navigate('/')
       }
 
