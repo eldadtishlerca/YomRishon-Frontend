@@ -24,7 +24,7 @@ async function logout() {
 
 async function signup(credentails) {
     try {
-        const user =  await httpService.post('signup', credentails)
+        return await httpService.post('signup', credentails)
       } catch (err) {
         console.log('Invalid Credentials')
       }

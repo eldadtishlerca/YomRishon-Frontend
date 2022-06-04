@@ -8,8 +8,6 @@ import { TaskDetails } from './cmps/task/task-details'
 import { LoginPage } from './pages/login-page'
 import { SignUpPage } from './pages/singup-page'
 
-import routes from './routes'
-
 export function RootCmp() {
   return (
     <div>

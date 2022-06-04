@@ -4,24 +4,29 @@ import { userService } from '../services/user.service'
 
 export const SignUpPage = () => {
     const navigate = useNavigate()
-    const [email, setEmail] = useState(null)
-    const [userame, setUserame] = useState(null)
+    const [fullname, setFullname] = useState(null)
+    const [username, setUsername] = useState(null)
     const [password, setPassword] = useState(null)
+    const [imgUrl, setimgUrl] = useState(null)
 
-    const onHandleEmail = ({target}) => {
-        setEmail(target.value)
+    const onHandleFullname = ({target}) => {
+        setFullname(target.value)
     }
     const onHandleUsername = ({target}) => {
-        setUserame(target.value)
+        setUsername(target.value)
     }
     const onHandlePassword = ({target}) => {
         setPassword(target.value)
     }
+    const onHandleimgUrl = ({target}) => {
+        setimgUrl(target.value)
+    }
 
     const onSubmitCredentials = (ev) => {
         ev.preventDefault()
-        userService.signup({email, userame, password})
-        navigate('/')
+        console.log({fullname, username, password});
+        userService.signup({fullname, username, password, imgUrl})
+        // navigate('/')
     }   
 
     return <div className="signup-main-container">
@@ -31,12 +36,14 @@ export const SignUpPage = () => {
                 <h4>Get started</h4>
             </header>
                 <form className="flex" onSubmit={(ev) => {onSubmitCredentials(ev)}}>
-                    <label htmlFor="email">Enter Email</label>
-                    <input type="email" autoComplete="off" name="email" onChange={(ev) => {onHandleEmail(ev)}}/>
-                    <label htmlFor="username">Enter Username</label>
+                    <label htmlFor="fullname">Enter your full name</label>
+                    <input type="fullname" autoComplete="off" name="fullname" onChange={(ev) => {onHandleFullname(ev)}}/>
+                    <label htmlFor="username">Enter username</label>
                     <input type="username" autoComplete="off" name="username" onChange={(ev) => {onHandleUsername(ev)}}/>
-                    <label htmlFor="password">Enter Password</label>
+                    <label htmlFor="password">Enter password</label>
                     <input type="password" autoComplete="off" name="password" onChange={(ev) => {onHandlePassword(ev)}}/>
+                    <label htmlFor="imgUrl">Enter your image url</label>
+                    <input type="url" autoComplete="off" name="imgUrl" onChange={(ev) => {onHandleimgUrl(ev)}}/>
                     <button>Continue</button>
                 </form>
         </main>
