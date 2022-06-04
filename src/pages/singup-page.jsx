@@ -24,22 +24,23 @@ export const SignUpPage = () => {
         navigate('/')
     }   
 
-    return <div className="flex signup-main-container">
-        <header className="flex">
-            <h1>Welcome to YomRishon.com</h1>
-            <h4>Get started</h4>
-        </header>
-        <main className="flex">
-            <form className="flex" onSubmit={(ev) => {onSubmitCredentials(ev)}}>
-                <label htmlFor="email">Enter Email</label>
-                <input type="email" autoComplete="off" name="email" onChange={(ev) => {onHandleEmail(ev)}}/>
-                <label htmlFor="username">Enter Username</label>
-                <input type="username" autoComplete="off" name="username" onChange={(ev) => {onHandleUsername(ev)}}/>
-                <label htmlFor="password">Enter Password</label>
-                <input type="password" autoComplete="off" name="password" onChange={(ev) => {onHandlePassword(ev)}}/>
-                <button>Continue</button>
-            </form>
+    return <div className="signup-main-container">
+        <main className="flex signup-main">
+            <header className="flex">
+                <h1>Welcome to YomRishon.com</h1>
+                <h4>Get started</h4>
+            </header>
+                <form className="flex" onSubmit={(ev) => {onSubmitCredentials(ev)}}>
+                    <label htmlFor="email">Enter Email</label>
+                    <input type="email" autoComplete="off" name="email" onChange={(ev) => {onHandleEmail(ev)}}/>
+                    <label htmlFor="username">Enter Username</label>
+                    <input type="username" autoComplete="off" name="username" onChange={(ev) => {onHandleUsername(ev)}}/>
+                    <label htmlFor="password">Enter Password</label>
+                    <input type="password" autoComplete="off" name="password" onChange={(ev) => {onHandlePassword(ev)}}/>
+                    <button>Continue</button>
+                </form>
         </main>
+        <div className="singup-side-container"></div>
     </div>
 
 }

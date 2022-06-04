@@ -1,26 +1,23 @@
 .signup-main-container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+    margin: auto;
+    width: 784px;
+    height: 535px;
+}
+
+.signup-main{
+    height: 100%;
+    // padding: 48px 56px;
+    background-color: yellow;
     flex-direction: column;
-    justify-content: center;
-    gap: 50px;
-    width: 600px;
-    min-height:243px ;
-    header{flex-direction: column;}
-    main{flex-direction: column;}
-    form{
+    form {
         flex-direction: column;
-        button{
-            cursor: pointer;
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            background: $headerAddtAsk;
-            border: none;
-            font-size: 20px;
-            color: $white;
-            &:hover {
-              background: #0061b9;
-            }
-        }
     }
+}
+
+.singup-side-container{
+    height: 100%;
+    background-color: aqua;
 }

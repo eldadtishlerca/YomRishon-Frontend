@@ -7,7 +7,7 @@ import { SignUpPage } from './singup-page.jsx'
 export const LoginPage = () => {
 
     const navigate = useNavigate()
-    const [userame, setUserame] = useState(null)
+    const [username, setUserame] = useState(null)
     const [password, setPassword] = useState(null)
 
     const onHandleChangeUsername = ({target}) => {
@@ -17,9 +17,10 @@ export const LoginPage = () => {
         setPassword(target.value)
       }
     
-      const onSubmitCredentials = (ev) => {
+      async function onSubmitCredentials (ev) {
         ev.preventDefault(ev)
-        userService.login({userame, password})
+        await userService.login({username, password})
+        navigate('/')
       }
 
     return <main className="login-main">

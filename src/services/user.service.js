@@ -8,7 +8,7 @@ export const userService = {
 async function login (credentials) {
     console.log('credentials from login user service: ', credentials);
     try {
-        const user = await httpService.post('login', credentials)
+        return await httpService.post('login', credentials)
       } catch (err) {
         console.log('Invalid Credentials')
       }
