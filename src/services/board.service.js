@@ -18,6 +18,7 @@ async function query() {
     return await httpService.get('board/')
   } catch (err) {
     console.log(err)
+    throw err
   }
 }
 
@@ -26,6 +27,7 @@ async function getById(boardId) {
     return await httpService.get(`board/${boardId}`)
   } catch (err) {
     console.log(err)
+    throw err
   }
 }
 
@@ -38,7 +40,8 @@ async function updateTask(board, groupId, taskId, taskToUpdate ) {
   try {
     return await httpService.put('board/',board)
   } catch (err) {
-      console.log(err);
+    console.log(err)
+    throw err
   }
 }
 
@@ -49,7 +52,8 @@ async function updateGroup( board, groupId, groupToUpdate ) {
   try {
     return await httpService.put('board/',board)
   } catch (err) {
-      console.log(err);
+    console.log(err)
+    throw err
   }
 }
 
@@ -59,7 +63,8 @@ async function duplicateGroup(board, groupId, groupToCopy) {
   try {
     return await httpService.put('board/',board)
   } catch (err) {
-      console.log(err);
+    console.log(err)
+    throw err
   }
 }
 
@@ -69,7 +74,8 @@ async function addGroup(board, groupId, addGroup) {
   try {
     return await httpService.put('board/',board)
   } catch (err) {
-      console.log(err);
+    console.log(err)
+    throw err
   }
 }
 
@@ -79,31 +85,52 @@ async function deleteGroup(board, groupId) {
   try {
     return await httpService.put('board/',board)
   } catch (err) {
-      console.log(err);
+    console.log(err)
+    throw err
   }
 }
 
 async function remove(boardId) {
-  await httpService.delete(`board/${boardId}`)
-  return query()
+  try {
+    await httpService.delete(`board/${boardId}`)
+    return query()
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
 async function add(board) {
   if (!board) board = _getNewBoard()
-  await httpService.post('',board)
-  return query()
+  try {
+    await httpService.post('board/',board)
+    return query()
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
   // boardChannel.postMessage(getActionAddBoard(board))
 }
 
 async function save(board) {
   if (board._id) {
-    return await httpService.put('',board)
+    try {
+      return await httpService.put('board/',board)
+    } catch (err) {
+      console.log(err)
+      throw err
+    }
     // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
   } else {
+    try {
+      return await httpService.post('board/',board)
+    } catch (err) {
+      console.log(err)
+      throw err
+    }
     // Later, owner is set by the backend
     // board.owner = userService.getLoggedinUser()
-    return await httpService.post('',board)
     // boardChannel.postMessage(getActionAddBoard(savedBoard))
   }
 }
