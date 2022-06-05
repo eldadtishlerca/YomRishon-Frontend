@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { FaArrowRight } from 'react-icons/fa'
 
 export const HomePage = () => {
+  const { currUser } = useSelector((storeState) => storeState.boardModule)
   const navigate = useNavigate()
 
   return (
@@ -11,14 +13,16 @@ export const HomePage = () => {
           <img src="imgs/yomlogo.png" alt="" />
         </div>
         <div className="header-btn-warpper">
-          <button
-            className="login-btn"
-            onClick={() => {
-              navigate('/loginsignup')
-            }}
-          >
-            Login
-          </button>
+          {currUser.fullname ? <span>Hello {currUser.fullname}</span> :
+                    <button
+                    className="login-btn"
+                    onClick={() => {
+                      navigate('/loginsignup')
+                    }}
+                  >
+                    Login
+                  </button>
+          }
           <button
             className="get-started-btn"
             onClick={() => {

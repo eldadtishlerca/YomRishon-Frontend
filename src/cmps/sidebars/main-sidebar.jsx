@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { FaRegStar } from 'react-icons/fa'
 import { CgBell, CgCheckR, CgSearch } from 'react-icons/cg'
+import { useSelector } from 'react-redux'
 
 export const MainSidebar = ({ onClick, showModal, onOpenNortification }) => {
-  let nevigate = useNavigate()
+  const nevigate = useNavigate()
+  const { currUser } = useSelector((storeState) => storeState.boardModule)
   const setActiveModal = () => {
     const setColorBoard = showModal ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
     return setColorBoard
@@ -97,7 +99,7 @@ export const MainSidebar = ({ onClick, showModal, onOpenNortification }) => {
           nevigate('/user/:userId')
         }}
       >
-        <img src="imgs/mini-user-imgs/u103.png" alt="" />
+        <img src={currUser.imgUrl} alt="" title={currUser.fullname}/>
       </div>
     </div>
   )
