@@ -61,6 +61,7 @@ export const TaskActivites = ({
     const setStatusColor = isHover ? status.hover : status.color
     return setStatusColor
   }
+
   const bgHoverPriority = () => {
     const setPriorityColor = isHover ? priority.hover : priority.color
     return setPriorityColor
