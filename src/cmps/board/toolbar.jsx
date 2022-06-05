@@ -23,7 +23,6 @@ export const ToolBar = () => {
   const onCloseSearchModal = (ev) => {
     ev.preventDefault()
     if (ev.type === 'blur') {
-      // setSearchValue('')
       setIsSearching(false)
       dispatch(loadBoard(currBoard._id, {keywords: ev.target.value, filter: null}))
     }
@@ -159,7 +158,7 @@ export const ToolBar = () => {
         <AiOutlineSearch />
         {isSearching ? 
         <div className="search-modal">
-          <input type="text" name="header-search"
+          <input type="text" name="header-search" placeholder="Search"
           onChange={(ev) => {onHandleSearch(ev)}}
           onBlur={(ev) => {onCloseSearchModal(ev)}}
           />
