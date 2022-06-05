@@ -5,10 +5,10 @@ export const userService = {
     signup,
 }
 
-async function login (credentials) {
-    console.log('credentials from login user service: ', credentials);
+async function login(credentials) {
     try {
-        return await httpService.post('login', credentials)
+        const user = await httpService.post('login', credentials)
+        return user
       } catch (err) {
         console.log('Invalid Credentials')
         throw err

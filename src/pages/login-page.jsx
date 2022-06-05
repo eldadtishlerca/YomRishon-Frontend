@@ -2,10 +2,14 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { userService } from '../services/user.service'
 import { FcGoogle } from 'react-icons/fc'
-import { SignUpPage } from './singup-page.jsx'
+import { useDispatch } from 'react-redux'
+import { updateUser } from '../store/actions/board.actions'
+import { useSelector } from 'react-redux'
+
 
 export const LoginPage = () => {
-
+  const { currUser } = useSelector((storeState) => storeState.boardModule)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const [username, setUserame] = useState(null)
     const [password, setPassword] = useState(null)
@@ -18,8 +22,10 @@ export const LoginPage = () => {
       }
     
       const onSubmitCredentials = (ev) => {
-        ev.preventDefault(ev)
-        userService.login({username, password})
+        ev.preventDefault()
+        ev.stopPropagation()
+        dispatch(updateUser({username, password}))
+        console.log(currUser);
         navigate('/')
       }
 

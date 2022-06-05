@@ -24,18 +24,3 @@ export function loadTask(taskId) {
     }
   }
 }
-
-// export function updateTask(task) {
-//   return (dispatch) => {
-//     console.log(board)
-//     boardService
-//       .save(board)
-//       .then((savedBoard) => {
-//         console.log('savedBoard', savedBoard)
-//         dispatch(getActionUpdateBoard(savedBoard))
-//       })
-//       .catch((err) => {
-//         console.log('Cannot savedBoard', err)
-//       })
-//   }
-// }
