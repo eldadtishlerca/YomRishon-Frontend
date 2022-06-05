@@ -44,8 +44,9 @@ export const SignUpPage = () => {
                     <input type="password" autoComplete="off" name="password" onChange={(ev) => {onHandlePassword(ev)}}/>
                     <label htmlFor="imgUrl">Enter your image url</label>
                     <input type="url" autoComplete="off" name="imgUrl" onChange={(ev) => {onHandleimgUrl(ev)}}/>
-                    <button>Continue</button>
+                    <button>Sign up</button>
                 </form>
+            <span>Already have an account? <a className="login-link" onClick={() => {navigate('/loginsignup')}}>Log in</a></span>
         </main>
         <div className="singup-side-container"></div>
     </div>
