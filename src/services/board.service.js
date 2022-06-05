@@ -15,7 +15,7 @@ export const boardService = {
 
 async function query() {
   try {
-    return await httpService.get('')
+    return await httpService.get('board/')
   } catch (err) {
     console.log(err)
   }
@@ -23,7 +23,7 @@ async function query() {
 
 async function getById(boardId) {
   try {
-    return await httpService.get(`${boardId}`)
+    return await httpService.get(`board/${boardId}`)
   } catch (err) {
     console.log(err)
   }
@@ -36,7 +36,7 @@ async function updateTask(board, groupId, taskId, taskToUpdate ) {
   const taskIdx = board.groups[groupIdx].tasks.findIndex((task) => task.id === taskId)
   board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
   try {
-    return await httpService.put('',board)
+    return await httpService.put('board/',board)
   } catch (err) {
       console.log(err);
   }
@@ -47,7 +47,7 @@ async function updateGroup( board, groupId, groupToUpdate ) {
   board.groups.splice(groupIdx, 1, groupToUpdate)
   // http - updateBoard / Storage
   try {
-    return await httpService.put('',board)
+    return await httpService.put('board/',board)
   } catch (err) {
       console.log(err);
   }
@@ -57,7 +57,7 @@ async function duplicateGroup(board, groupId, groupToCopy) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, groupToCopy)
   try {
-    return await httpService.put('',board)
+    return await httpService.put('board/',board)
   } catch (err) {
       console.log(err);
   }
@@ -67,7 +67,7 @@ async function addGroup(board, groupId, addGroup) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, addGroup)
   try {
-    return await httpService.put('',board)
+    return await httpService.put('board/',board)
   } catch (err) {
       console.log(err);
   }
@@ -77,14 +77,14 @@ async function deleteGroup(board, groupId) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1)
   try {
-    return await httpService.put('',board)
+    return await httpService.put('board/',board)
   } catch (err) {
       console.log(err);
   }
 }
 
 async function remove(boardId) {
-  await httpService.delete(`${boardId}`)
+  await httpService.delete(`board/${boardId}`)
   return query()
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }

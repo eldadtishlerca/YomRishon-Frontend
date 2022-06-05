@@ -1,0 +1,23 @@
+.signup-main-container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 3fr 1fr;
+    margin: auto;
+    width: 784px;
+    height: 535px;
+}
+
+.signup-main{
+    height: 100%;
+    // padding: 48px 56px;
+    background-color: yellow;
+    flex-direction: column;
+    form {
+        flex-direction: column;
+    }
+}
+
+.singup-side-container{
+    height: 100%;
+    background-color: aqua;
+}
