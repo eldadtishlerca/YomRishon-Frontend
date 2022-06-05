@@ -1,3 +1,9 @@
 export const TrelloNewTask = () => {
-  return <div>+ New Task</div>
+  return (
+    <div className="trello-new-task">
+      <div>
+        <span>+ Add Project</span>
+      </div>
+    </div>
+  )
 }
