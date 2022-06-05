@@ -14,6 +14,7 @@ import {
 import { WorkspaceSidebarClosed } from '../cmps/sidebars/workspace-sidebar-closed'
 import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
+import { TrelloContent } from '../cmps/trello/trello-content'
 
 export const BoardPage = () => {
   const { currBoard, boards } = useSelector(
@@ -33,6 +34,7 @@ export const BoardPage = () => {
 
   const [showModal, setShowModal] = useState(false)
   const [showNotifications, setShowNotifications] = useState(false)
+  const [isTrelloActive, setIsTrelloActive] = useState(false)
 
   if (
     (Object.keys(currBoard).length === 0 || !currBoard) &&
@@ -98,12 +100,23 @@ export const BoardPage = () => {
         <WorkspaceSidebarClosed onClick={onOpenModal} />
       )}
       <div className="board-section">
-        <BoardHeader currBoard={currBoard} />
-        <BoardContent
-          groups={groups}
-          saveBoardToStore={saveBoardToStore}
-          _id={_id}
+        <BoardHeader
+          currBoard={currBoard}
+          setIsTrelloActive={setIsTrelloActive}
         />
+        {isTrelloActive ? (
+          <TrelloContent
+            groups={groups}
+            saveBoardToStore={saveBoardToStore}
+            _id={_id}
+          />
+        ) : (
+          <BoardContent
+            groups={groups}
+            saveBoardToStore={saveBoardToStore}
+            _id={_id}
+          />
+        )}
       </div>
     </div>
   )

@@ -15,6 +15,7 @@
 @import "pages/home";
 @import "pages/board";
 @import "pages/login";
+@import "pages/signup";
 
 // Components
 @import "cmps/main-sidebar";
@@ -37,3 +38,9 @@
 @import "cmps/add-task";
 @import "cmps/board-notifications";
 @import "cmps/loader";
+
+// Trello
+@import "cmps/trello-content";
+@import "cmps/trello-group-preview";
+@import "cmps/trello-group-header";
+@import "cmps/trello-task-preview";

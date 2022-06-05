@@ -13,7 +13,13 @@ export const GroupPreview = ({ group, provided, snapchat, boardId }) => {
       {...provided.droppableProps}
       ref={provided.innerRef}
     >
-      <GroupHeader id={id} color={color} title={title} boardId={boardId} group={group} />
+      <GroupHeader
+        id={id}
+        color={color}
+        title={title}
+        boardId={boardId}
+        group={group}
+      />
       {group.tasks.map((task, idx) => {
         return (
           <Draggable key={task.id} draggableId={task.id} index={idx}>
