@@ -129,7 +129,7 @@ function getAllColors() {
     { name: 'darkpurple', color: '#784BD1', hover: '#936FDA' },
     { name: 'purple', color: '#A25DDC', hover: '#B57DE3' },
     { name: 'lightblue', color: '#0086C0', hover: '#339ECD' },
-    { name: 'lightpurple', color: '#579BFC', hover: '#B57DE3' },
+    { name: 'lightpurple', color: '#579BFC', hover: '#79AFFD' },
     { name: 'whiteblue', color: '#66CCFF', hover: '#85D6FF' },
     { name: 'darkpink', color: '#BB3354', hover: '#C95C76' },
     { name: 'lightred', color: '#E2445C', hover: '#E8697D' },

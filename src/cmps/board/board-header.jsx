@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateBoard } from '../../store/actions/board.actions'
 import { ToolBar } from './toolbar'
-import { MdOutlineTableChart } from 'react-icons/md'
+// import { MdOutlineTableChart } from 'react-icons/md'
 import {
   AiOutlineStar,
   AiOutlineStock,
   AiFillInfoCircle,
   AiFillStar,
 } from 'react-icons/ai'
-import { BsPlus } from 'react-icons/bs'
+import { BsKanban, BsPlus, BsTable } from 'react-icons/bs'
 
-export const BoardHeader = () => {
+export const BoardHeader = ({ setIsTrelloActive }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const { members } = currBoard
   const [titleValue, setTitleValue] = useState(currBoard.title)
@@ -140,9 +140,19 @@ export const BoardHeader = () => {
         }}
       />
       <div className="board-header-bottom flex">
-        <div className="board-header-bottom-upper flex">
-          <MdOutlineTableChart />
+        <div
+          className="board-header-bottom-upper flex"
+          onClick={() => setIsTrelloActive(false)}
+        >
+          <BsTable />
           <span>Main Table</span>
+        </div>
+        <div
+          className="board-header-bottom-upper flex"
+          onClick={() => setIsTrelloActive(true)}
+        >
+          <BsKanban />
+          <span>Kanban Board</span>
         </div>
       </div>
       <ToolBar />

@@ -1,12 +1,7 @@
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import { GroupPreview } from '../group/group-preview'
+import { TrelloGroupPreview } from './trello-group-preivew'
 
-export const BoardContent = ({
-  groups,
-  saveBoardToStore,
-  _id,
-  setIsTrelloActive,
-}) => {
+export const TrelloContent = ({ groups, saveBoardToStore, _id }) => {
   const onDragEnd = (result, groups) => {
     if (!result.destination) return
     const { source, destination } = result
@@ -45,14 +40,14 @@ export const BoardContent = ({
   }
 
   return (
-    <div className="board-content">
+    <section className="trello-content">
       <DragDropContext onDragEnd={(result) => onDragEnd(result, groups)}>
         {Object.entries(groups).map(([id, group]) => {
           return (
             <Droppable droppableId={id} key={id}>
               {(provided, snapchat) => {
                 return (
-                  <GroupPreview
+                  <TrelloGroupPreview
                     provided={provided}
                     snapchat={snapchat}
                     group={group}
@@ -65,6 +60,6 @@ export const BoardContent = ({
           )
         })}
       </DragDropContext>
-    </div>
+    </section>
   )
 }
