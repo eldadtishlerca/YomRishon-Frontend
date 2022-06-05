@@ -22,11 +22,12 @@ async function query() {
   }
 }
 
-async function getById(boardId) {
+async function getById(boardId, filterBy) {
   try {
-    return await httpService.get(`board/${boardId}`)
+    if (filterBy) return await httpService.get(`board/${boardId}/${filterBy.keywords}`)
+    else return await httpService.get(`board/${boardId}`)
   } catch (err) {
-    console.log(err)
+    console.log(err) 
     throw err
   }
 }

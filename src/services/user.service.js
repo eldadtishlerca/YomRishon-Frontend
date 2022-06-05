@@ -10,8 +10,8 @@ async function login (credentials) {
     try {
         return await httpService.post('login', credentials)
       } catch (err) {
-        throw err
         console.log('Invalid Credentials')
+        throw err
       }
 }
 
@@ -19,8 +19,8 @@ async function logout() {
     try {
         await httpService.post('logout')
       } catch (err) {
-        throw err
         console.log('Something went wrong')
+        throw err
       }
 }
 
@@ -28,7 +28,7 @@ async function signup(credentails) {
     try {
         return await httpService.post('signup', credentails)
       } catch (err) {
-        throw err
         console.log('Invalid Credentials')
+        throw err
       }
 }

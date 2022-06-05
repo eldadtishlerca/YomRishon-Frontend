@@ -23,10 +23,7 @@ export const BoardPage = () => {
   const params = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    dispatch(loadBoard(params.boardId))
-  }, [])
+  
 
   useEffect(() => {
     dispatch(loadBoard(params.boardId))

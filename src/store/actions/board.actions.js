@@ -89,10 +89,11 @@ export function getActionUpdateBoard(savedBoard) {
   }
 }
 
-export function loadBoard(boardId) {
+export function loadBoard(boardId, filterBy) {
   return async (dispatch) => {
     try {
-      const board = await boardService.getById(boardId)
+      const board = await boardService.getById(boardId, filterBy)
+      console.log(board);
       dispatch(getActionBoard(board))
     } catch (err) {
       console.log('Cannot load board', err)
