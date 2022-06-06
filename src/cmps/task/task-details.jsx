@@ -13,11 +13,12 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
   const dispatch = useDispatch()
   const [titleValue, setTitleValue] = useState(task.title || '')
   const [update, setUpdate] = useState('Write an update...')
+  const [isEditTitle, setIsEditTitle] = useState(false)
   const updates = task.updates
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*')
+      setIsEditTitle(false)
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, task.id, taskToUpdate))
     }
@@ -55,8 +56,8 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
           >
             ✖
           </button>
-          <div className="upper-task-details-header">
-            <input
+          <div className="upper-task-details-header" onClick={() => setIsEditTitle(true)}>
+            {isEditTitle ? <input
               value={titleValue}
               type="text"
               className="work-hours-input"
@@ -70,7 +71,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
                 onHandleChangeTitle(ev)
               }}
               name="titleValue"
-            ></input>
+            ></input> : <span>{task.title}</span>}
             <div className="header-options-container">
               <div className="header-btn-wrapper">
                 <button className="header-btn"> Invite </button>

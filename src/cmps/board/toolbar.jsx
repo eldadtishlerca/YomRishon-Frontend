@@ -70,7 +70,7 @@ export const ToolBar = () => {
     }
     currBoard.groups[0].tasks.unshift(newTask)
     dispatch(updateBoard(currBoard))
-  }
+}
 
   const onAddGroup = () => {
     const newColor = utilService.getRandomColor()
