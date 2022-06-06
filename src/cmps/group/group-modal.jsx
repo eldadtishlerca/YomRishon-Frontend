@@ -15,13 +15,13 @@ import {
 import { BiPencil, BiTrash } from 'react-icons/bi'
 
 export const GroupModal = ({ id, color, setIsEditing }) => {
+  const dispatch = useDispatch()
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
 
   useEffect(() => {
     setBackground(color)
   }, [color])
 
-  const dispatch = useDispatch()
 
   const [background, setBackground] = useState(color)
   const [innerColor, setInnerColor] = useState('#fff')
@@ -62,16 +62,16 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
             hover: '#6399E8',
             name: 'Low',
           },
-          deadline: new Date(),
+          deadline: Date.now(),
           workHours: 0,
           isChecked: false,
           lastUpdated: {
             _id: 'u103',
             fullname: 'Elon Barzani',
             imgUrl: 'imgs/mini-user-imgs/u103.png',
-            updatedAt: new Date(),
+            updatedAt: Date.now(),
           },
-          createdAt: new Date(),
+          createdAt: Date.now(),
           byMember: {
             _id: 'u102',
             username: 'Yarden',
