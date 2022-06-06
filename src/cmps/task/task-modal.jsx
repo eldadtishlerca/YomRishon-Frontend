@@ -25,14 +25,7 @@ export const TaskModal = ({ id, groupId, isHover }) => {
     const newTask = {
       id: utilService.makeId(),
       title: 'New Task',
-      membersIds: [
-        {
-          _id: 'u101',
-          username: 'Eldad',
-          fullname: 'Eldad Tishler',
-          imgUrl: 'imgs/mini-user-imgs/u101.png',
-        },
-      ],
+      membersIds: [],
       status: {
         color: '#7F5347',
         hover: '#9E807A',
