@@ -63,12 +63,18 @@ function _save(entityType, entities) {
 }
 
 function saveLocalUser(user) {
-  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-  return user
+  if (user) {
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
+  } else {
+    sessionStorage.clear(STORAGE_KEY_LOGGEDIN_USER)
+  }
+  
 }
 
 function getLoggedinUser() {
-  return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  const savedUser = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  if (savedUser) return savedUser
 }
 
 // function postMany(entityType, newEntities) {

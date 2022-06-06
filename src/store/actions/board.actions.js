@@ -171,11 +171,34 @@ export function updateGroups(groups, _id) {
   }
 }
 
+export function getLoggedinUser() {
+  return async (dispatch) => {
+    try {
+      const savedUser = await userService.getLoggedinUser()
+      if (savedUser) dispatch(getActionUpdateUser(savedUser))
+      return savedUser
+    } catch (err) {
+      console.log('Cannot Login', err)
+    }
+  }
+}
+
 export function updateUser(user) {
   return async (dispatch) => {
     try {
       const savedUser = await userService.login(user)
       dispatch(getActionUpdateUser(savedUser))
+    } catch (err) {
+      console.log('Cannot Login', err)
+    }
+  }
+}
+
+export function logoutUser() {
+  return async (dispatch) => {
+    try {
+      await userService.logout()
+      dispatch(getActionUpdateUser(null))
     } catch (err) {
       console.log('Cannot Login', err)
     }

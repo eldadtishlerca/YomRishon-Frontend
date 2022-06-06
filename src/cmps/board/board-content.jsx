@@ -1,20 +1,13 @@
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { GroupPreview } from '../group/group-preview'
 
-export const BoardContent = ({
-  groups,
-  saveBoardToStore,
-  _id,
-  setIsTrelloActive,
-}) => {
+export const BoardContent = ({ groups, saveBoardToStore, _id }) => {
   const onDragEnd = (result, groups) => {
     if (!result.destination) return
     const { source, destination } = result
-    if (
-      source.index === destination.index &&
+    if (source.index === destination.index &&
       source.droppableId === destination.droppableId
-    )
-      return
+    ) return
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = groups[source.droppableId]
       const destColumn = groups[destination.droppableId]

@@ -22,7 +22,6 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
     setBackground(color)
   }, [color])
 
-
   const [background, setBackground] = useState(color)
   const [innerColor, setInnerColor] = useState('#fff')
   const [toggleModal, setToggleModal] = useState(false)
