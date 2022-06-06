@@ -1,10 +1,19 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FaArrowRight } from 'react-icons/fa'
+import { userService } from '../services/user.service'
+import { useEffect } from 'react'
 
 export const HomePage = () => {
   const { currUser } = useSelector((storeState) => storeState.boardModule)
+  
   const navigate = useNavigate()
+  // useEffect(() => {
+    
+  // }, [currUser])
+  const onLogout = () => {
+    userService.logout()
+  }
 
   return (
     <div className="homepage">
@@ -13,7 +22,8 @@ export const HomePage = () => {
           <img src="imgs/yomlogo.png" alt="" />
         </div>
         <div className="header-btn-warpper">
-          {currUser.fullname ? <span>Hello {currUser.fullname}</span> :
+          {currUser.fullname ? <span>Hello {currUser.fullname} <a className="logout-link" 
+                    onClick={() => {onLogout()}}>Log out</a></span> :
                     <button
                     className="login-btn"
                     onClick={() => {

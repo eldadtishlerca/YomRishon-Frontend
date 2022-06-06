@@ -1,4 +1,5 @@
 import { httpService } from './http.service';
+import{storageService} from './async-storage.service'
 export const userService = {
     login,
     logout,
@@ -8,6 +9,7 @@ export const userService = {
 async function login(credentials) {
     try {
         const user = await httpService.post('login', credentials)
+        storageService.saveLocalUser(user)
         return user
       } catch (err) {
         console.log('Invalid Credentials')
