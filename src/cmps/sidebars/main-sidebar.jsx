@@ -99,7 +99,10 @@ export const MainSidebar = ({ onClick, showModal, onOpenNortification }) => {
           nevigate('/user/:userId')
         }}
       >
-        <img src={currUser.imgUrl} alt="" title={currUser.fullname}/>
+        {currUser.imgUrl ? <img src={currUser.imgUrl} alt="" title={currUser.fullName}/> :
+        <img src="imgs/user.png" title="Guest"/>
+        }
+        
       </div>
     </div>
   )
