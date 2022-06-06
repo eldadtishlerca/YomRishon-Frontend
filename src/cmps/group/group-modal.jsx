@@ -1,12 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-  AiOutlineCaretDown,
-  AiOutlineCopy,
-  AiOutlinePlus,
-} from 'react-icons/ai'
-import { BiPencil, BiTrash } from 'react-icons/bi'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { utilService } from '../../services/util.service'
 import {
   updateBoard,
@@ -14,6 +7,12 @@ import {
   addGroup,
   deleteGroup,
 } from '../../store/actions/board.actions'
+import {
+  AiOutlineCaretDown,
+  AiOutlineCopy,
+  AiOutlinePlus,
+} from 'react-icons/ai'
+import { BiPencil, BiTrash } from 'react-icons/bi'
 
 export const GroupModal = ({ id, color, setIsEditing }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
@@ -28,7 +27,7 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
   const [innerColor, setInnerColor] = useState('#fff')
   const [toggleModal, setToggleModal] = useState(false)
   const [toggleColorModal, setToggleColorModal] = useState(false)
-  const [allColors, setAllColors] = useState(null)
+  const [labelsColors, setLabelsColors] = useState(null)
 
   const onGroupModalToggle = () => {
     setToggleModal(!toggleModal)
@@ -116,7 +115,7 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
   }
 
   const getColors = () => {
-    setAllColors(utilService.getAllColors())
+    setLabelsColors(utilService.getAllColors())
   }
 
   return (
@@ -157,9 +156,14 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
             <div>
               <BiPencil className="group-modal-border-no" />
             </div>
-            <span onClick={() => 
-            {setIsEditing(true) 
-              setToggleModal(false)}}>Rename group</span>
+            <span
+              onClick={() => {
+                setIsEditing(true)
+                setToggleModal(false)
+              }}
+            >
+              Rename group
+            </span>
           </div>
           <div
             onClick={() => {
@@ -196,7 +200,7 @@ export const GroupModal = ({ id, color, setIsEditing }) => {
             <div style={{ background: color }}></div>
           </div>
           <div className="colors-table">
-            {allColors.map((insideColor) => (
+            {labelsColors.map((insideColor) => (
               <div
                 className="colors-col"
                 key={insideColor.name}
