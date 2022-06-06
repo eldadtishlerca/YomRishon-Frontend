@@ -161,7 +161,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
             </div>
           </div>
                 )
-              })
+              }
         </div>
       </div>
     </div>
