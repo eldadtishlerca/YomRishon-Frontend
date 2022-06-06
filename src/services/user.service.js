@@ -9,7 +9,7 @@ export const userService = {
 
 async function login(credentials) {
     try {
-        const user = await httpService.post('login', credentials)
+        const user = await httpService.post('user/login', credentials)
         storageService.saveLocalUser(user)
         return user
       } catch (err) {
@@ -20,7 +20,7 @@ async function login(credentials) {
 
 async function logout() {
     try {
-        await httpService.post('logout')
+        // await httpService.post('logout')
         storageService.saveLocalUser(null)
       } catch (err) {
         console.log('Something went wrong')

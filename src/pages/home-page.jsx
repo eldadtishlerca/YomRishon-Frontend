@@ -26,7 +26,7 @@ export const HomePage = () => {
         </div>
         <div className="header-btn-warpper">
           {currUser.fullName ? <span>Hello {currUser.fullName} <a className="logout-link" 
-                    onClick={() => {onLogout()}}>Log out</a></span> :
+                    onClick={() => onLogout()}>Log out</a></span> :
                     <button
                     className="login-btn"
                     onClick={() => {
@@ -39,7 +39,7 @@ export const HomePage = () => {
           <button
             className="get-started-btn"
             onClick={() => {
-              navigate('/b101')
+              navigate('/629de877b830c8383bee9b74')
             }}
           >
             Get Started{' '}
@@ -70,7 +70,7 @@ export const HomePage = () => {
             <button
               className="get-started-btn"
               onClick={() => {
-                navigate('/b101')
+                navigate('/629de877b830c8383bee9b74')
               }}
             >
               Get Started{' '}

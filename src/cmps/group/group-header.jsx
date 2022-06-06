@@ -13,9 +13,10 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
+      setIsEditing(false)
       const groupToUpdate = { ...group, title: titleValue }
       dispatch(updateGroup(currBoard, group.id, groupToUpdate))
-      setIsEditing(false)
+      setTitleValue('')
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -42,7 +43,7 @@ export const GroupHeader = ({ id, color, title, boardId, group }) => {
             onChange={(ev) => {
               onHandleChangeTitle(ev)
             }}
-          />) : (<span style={{ color: color }}>{title}</span>
+          />) : (<span style={{ color: color }}>{group.title}</span>
         )}
       </div>
       <div className="group-header-assignee">

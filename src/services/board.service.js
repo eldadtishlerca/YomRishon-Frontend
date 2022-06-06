@@ -117,7 +117,7 @@ async function add(board) {
 async function save(board) {
   if (board._id) {
     try {
-      return await httpService.put('board/',board)
+      return await httpService.put(`board/`,board)
     } catch (err) {
       console.log(err)
       throw err
