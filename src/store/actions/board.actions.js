@@ -23,6 +23,10 @@ export function getActionUpdateUser(savedUser) {
 }
 
 export function updateTask(board, groupId, taskId, taskToUpdate) {
+  taskToUpdate = {...taskToUpdate, lastUpdated: {_id: "u103",
+  fullname: "Elon Barzani",
+  imgUrl: "imgs/mini-user-imgs/u103.png",
+  updatedAt: Date.now()}}
   return async (dispatch) => {
     try {
       const updatedBoard = await boardService.updateTask(

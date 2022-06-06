@@ -43,7 +43,19 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
 
   const onHandleSubmitUpdate = (ev) => {
     ev.preventDefault()
-    console.log(update)
+    const taskToUpdate = { ...task, updates: [ {
+      id: utilService.makeId(),
+      txt: update,
+      createdAt: Date.now(),
+      byMember: {
+        _id: "u103",
+        fullname: "Elon Barzani",
+        imgUrl: "imgs/mini-user-imgs/u103.png"
+      }
+    } ,...updates] }
+    setUpdate('Write an update...')
+    console.log(taskToUpdate)
+    dispatch(updateTask(currBoard, groupId, task.id, taskToUpdate))
   }
 
   return (
@@ -85,7 +97,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
             </div>
           </div>
           <nav className="task-detail-header-nav">
-            <div className="active-border">
+            <div className="active-border select">
               <button className="updates-btn">Updates</button>
             </div>
             <div className="active-border">
@@ -111,10 +123,9 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
               <HiOutlineMail /> Write updates via email:
             </div>
           </div>
-          <div className="updates-container">
+          {updates.map((update) => 
+          <div key={update.id} className="updates-container">
             <div className="updates-container-warpper">
-              {updates.map((update) => {
-                return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
                       <img src={update.byMember.imgUrl} alt="" />
@@ -147,10 +158,10 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
                       </button>
                     </div>
                   </div>
-                )
-              })}
             </div>
           </div>
+                )
+              })
         </div>
       </div>
     </div>

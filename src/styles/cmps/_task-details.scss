@@ -99,14 +99,17 @@
               border: none;
               font-size: 16px;
             }
+
             &:hover {
               background-color: #d5d8df56;
             }
+
             .header-btn-options {
               background: transparent;
               border: none;
               font-size: 16px;
               box-sizing: border-box;
+
               svg {
                 position: absolute;
                 top: 26%;
@@ -124,6 +127,7 @@
             box-sizing: border-box;
             padding: 2px 4px;
             border-radius: 5px;
+
             &:hover {
               background-color: #d5d8df56;
             }
@@ -144,6 +148,7 @@
           z-index: 3;
           margin-right: 18px;
           border-bottom: 4px solid transparent;
+
           &:hover {
             border-bottom: 4px solid #0060b9;
           }
@@ -163,8 +168,13 @@
             }
           }
         }
+
+        .active-border.select {
+          border-bottom: 4px solid #0060b9;
+        }
       }
     }
+
     .task-details-main {
       display: flex;
       flex-direction: column;
@@ -190,8 +200,10 @@
         font-size: 14px;
         color: $headerDarkGrey;
         cursor: pointer;
+
         .email-icon-warpper {
           position: relative;
+
           svg {
             position: absolute;
             right: 152px;
