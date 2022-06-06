@@ -1,13 +1,15 @@
 import { utilService } from './util.service'
 import gBoards from '../data/data'
 const STORAGE_KEY = 'boards'
-
+const STORAGE_KEY_LOGGEDIN_USER = 'yomRishonloggedinUser'
 export const storageService = {
   query,
   get,
   post,
   put,
   remove,
+  saveLocalUser,
+  getLoggedinUser,
   // postMany
 }
 
@@ -58,6 +60,21 @@ function remove(entityType, entityId) {
 
 function _save(entityType, entities) {
   localStorage.setItem(entityType, JSON.stringify(entities))
+}
+
+function saveLocalUser(user) {
+  if (user) {
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
+  } else {
+    sessionStorage.clear(STORAGE_KEY_LOGGEDIN_USER)
+  }
+  
+}
+
+function getLoggedinUser() {
+  const savedUser = JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+  if (savedUser) return savedUser
 }
 
 // function postMany(entityType, newEntities) {

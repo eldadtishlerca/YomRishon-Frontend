@@ -1,10 +1,22 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FaArrowRight } from 'react-icons/fa'
+import { userService } from '../services/user.service'
+import { getLoggedinUser, logoutUser } from '../store/actions/board.actions'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
 
 export const HomePage = () => {
+  const dispatch = useDispatch()
   const { currUser } = useSelector((storeState) => storeState.boardModule)
   const navigate = useNavigate()
+  useEffect(() => {
+    dispatch(getLoggedinUser())
+  }, [])
+  const onLogout = () => {
+    dispatch(logoutUser())
+  }
 
   return (
     <div className="homepage">
@@ -13,7 +25,8 @@ export const HomePage = () => {
           <img src="imgs/yomlogo.png" alt="" />
         </div>
         <div className="header-btn-warpper">
-          {currUser.fullname ? <span>Hello {currUser.fullname}</span> :
+          {currUser.fullName ? <span>Hello {currUser.fullName} <a className="logout-link" 
+                    onClick={() => {onLogout()}}>Log out</a></span> :
                     <button
                     className="login-btn"
                     onClick={() => {
