@@ -1,13 +1,7 @@
 const initialState = {
   boards: [],
   currBoard: {},
-  filterBy: {
-    txt: '',
-    membersId: [],
-    priority: [],
-    status: [],
-    tag: [],
-  },
+  currUser: {},
 }
 export function boardReducer(state = initialState, action) {
   switch (action.type) {
@@ -35,6 +29,11 @@ export function boardReducer(state = initialState, action) {
       return {
         ...state,
         boards: state.boards.filter((board) => board._id !== action.boardId),
+      }
+    case 'SET_USER':
+      return {
+        ...state,
+        currUser: {...action.savedUser},
       }
     // case 'UPDATE_BOARD':
     //     boards = state.boards.map(board => (board._id === action.board._id)? action.board : board)

@@ -12,6 +12,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const dispatch = useDispatch()
   const [titleValue, setTitleValue] = useState(task.title || '')
+  const [update, setUpdate] = useState('Write an update...')
   const updates = task.updates
 
   const onSubmitTitle = (ev) => {
@@ -32,6 +33,16 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
     const updatedTime = currTime - createdTime
     const getTime = utilService.msToUpdate(updatedTime)
     return getTime
+  }
+
+  const onHandleChangeUpdate = (ev) => {
+    const { value } = ev.target
+    setUpdate(value)
+  }
+
+  const onHandleSubmitUpdate = (ev) => {
+    ev.preventDefault()
+    console.log(update)
   }
 
   return (
@@ -86,11 +97,14 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
         </div>
         <hr />
         <div className="task-details-main">
-          <input
-            className="add-task-update-input"
-            typeof="string"
-            placeholder="Write an update..."
-          ></input>
+          <form onSubmit={(ev) => onHandleSubmitUpdate(ev)}>
+            <input
+              className="add-task-update-input"
+              typeof="string"
+              value={update}
+              onChange={(ev) => onHandleChangeUpdate(ev)}
+            ></input>
+          </form>
           <div className="write-email-link">
             <div className="email-icon-warpper">
               <HiOutlineMail /> Write updates via email:

@@ -3,21 +3,62 @@
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 1fr;
     margin: auto;
+    margin-top: 10px;
     width: 784px;
     height: 535px;
+    box-shadow: 5px 5px 13px 3px rgba(197,197,197,0.5);
 }
 
 .signup-main{
-    height: 100%;
-    // padding: 48px 56px;
-    background-color: yellow;
+    height:535px;
+    padding: 48px 56px 0 56px;
+    // background-color: yellow;
     flex-direction: column;
+    gap:20px;
+    header{
+        flex-direction: column;
+        gap: 15px;
+    }
     form {
         flex-direction: column;
+        input{
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #aaaab2;
+            &::placeholder {
+              color: #aaaab2;
+              font-size: 16px;
+            }
+            &:focus {
+              border: 1px solid #0061b9;
+            }
+        }
+        button{
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            background: $headerAddtAsk;
+            border: none;
+            font-size: 20px;
+            color: $white;
+
+            &:hover {
+              background: #0061b9;
+            }
+        }
     }
 }
 
 .singup-side-container{
-    height: 100%;
-    background-color: aqua;
+    height:535px;
+    background-color: $lightGray;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.login-link{
+    color: #0fa2e2;
+    cursor: pointer;
 }

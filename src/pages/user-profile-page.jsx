@@ -1,3 +1,22 @@
+import { useSelector } from 'react-redux'
+
 export const UserProfile = () => {
-    return <div>IM UserProfile</div>
+    const { currUser } = useSelector((storeState) => storeState.boardModule)
+    return <div className="flex user-profile-main-container">
+        <div className="flex user-profile-upper">
+        {currUser.fullname ? <div className="flex user-profile-upper">
+            <img src={currUser.imgUrl} alt=""/>
+            <span>{currUser.fullname}</span></div>
+        : <div className="flex user-profile-upper">
+            <img src="https://cdn-icons.flaticon.com/png/512/3177/premium/3177440.png?token=exp=1654462637~hmac=b8a85bf90deef91047c600ebb827ee97" alt="imgs/user.png"/>
+            <span>Guest mode</span>
+        </div>}
+        </div>
+        {currUser.fullname && <main className="flex user-profile-bottom-container-conected">
+            <h2>Overview:</h2>
+            <span>Name: {currUser.fullname}</span>
+            <span>User id: {currUser._id}</span>
+            <a href="">Log out</a>
+        </main>}
+    </div>
 }

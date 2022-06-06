@@ -1,4 +1,26 @@
 import { boardService } from '../../services/board.service'
+import { userService } from '../../services/user.service'
+
+export function getActionBoard(board) {
+  return {
+    type: 'SET_BOARD',
+    board,
+  }
+}
+
+export function getActionUpdateBoard(savedBoard) {
+  return {
+    type: 'SET_BOARD',
+    board: savedBoard,
+  }
+}
+
+export function getActionUpdateUser(savedUser) {
+  return {
+    type: 'SET_USER',
+    savedUser,
+  }
+}
 
 export function updateTask(board, groupId, taskId, taskToUpdate) {
   return async (dispatch) => {
@@ -17,6 +39,7 @@ export function updateTask(board, groupId, taskId, taskToUpdate) {
     }
   }
 }
+
 export function updateGroup(board, groupId, groupToUpdate) {
   return async (dispatch) => {
     try {
@@ -75,24 +98,14 @@ export function deleteGroup(board, groupId) {
   }
 }
 
-export function getActionBoard(board) {
-  return {
-    type: 'SET_BOARD',
-    board,
-  }
-}
 
-export function getActionUpdateBoard(savedBoard) {
-  return {
-    type: 'SET_BOARD',
-    board: savedBoard,
-  }
-}
 
-export function loadBoard(boardId) {
+
+export function loadBoard(boardId, filterBy) {
   return async (dispatch) => {
     try {
-      const board = await boardService.getById(boardId)
+      const board = await boardService.getById(boardId, filterBy)
+      console.log(board);
       dispatch(getActionBoard(board))
     } catch (err) {
       console.log('Cannot load board', err)
@@ -112,16 +125,14 @@ export function loadBoards() {
 }
 
 export function updateBoard(board) {
-  return (dispatch) => {
-    boardService
-      .save(board)
-      .then((savedBoard) => {
-        dispatch(getActionUpdateBoard(savedBoard))
-        dispatch(loadBoards())
-      })
-      .catch((err) => {
-        console.log('Cannot savedBoard', err)
-      })
+  return async (dispatch) => {
+    try {
+      const savedBoard = await boardService.save(board)
+      dispatch(getActionUpdateBoard(savedBoard))
+      dispatch(loadBoards())
+    } catch (err) {
+      console.log('Cannot savedBoard', err)
+    }
   }
 }
 
@@ -160,18 +171,15 @@ export function updateGroups(groups, _id) {
   }
 }
 
-// export function updateBoard(board) {
-//   return (dispatch) => {
-//     boardService
-//       .save(board)
-//       .then((savedBoard) => {
-//         console.log('Updated Board:', savedBoard)
-//         // dispatch(getActionUpdateBoard(savedBoard))
-//         // showSuccessMsg('Board updated')
-//       })
-//       .catch((err) => {
-//         // showErrorMsg('Cannot update board')
-//         console.log('Cannot save board', err)
-//       })
-//   }
-// }
+export function updateUser(user) {
+  return async (dispatch) => {
+    try {
+      const savedUser = await userService.login(user)
+      dispatch(getActionUpdateUser(savedUser))
+    } catch (err) {
+      console.log('Cannot Login', err)
+    }
+  }
+}
+
+

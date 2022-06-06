@@ -1,11 +1,14 @@
+import { useSelector } from 'react-redux'
 import { GroupHeader } from './group-header'
 import { GroupFooter } from './group-footer'
 import { NewTask } from '../task/new-task'
 import { Draggable } from 'react-beautiful-dnd'
 import { TaskPreview } from '../task/task-preview'
+import { useEffect } from 'react'
 
 export const GroupPreview = ({ group, provided, snapchat, boardId }) => {
   const { id, color, title, tasks, hoverColor } = group
+  const { currBoard } = useSelector((storeState) => storeState.boardModule)
 
   return (
     <div

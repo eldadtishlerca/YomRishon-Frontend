@@ -3,15 +3,30 @@ import { CgProfile } from 'react-icons/cg'
 import { BiDownload, BiFilterAlt, BiSortAlt2, BiTable } from 'react-icons/bi'
 import { RiArrowDownSLine } from 'react-icons/ri'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateBoard } from '../../store/actions/board.actions'
+import { updateBoard, loadBoard } from '../../store/actions/board.actions'
 import { utilService } from '../../services/util.service'
 import { useState } from 'react'
 
 export const ToolBar = () => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
   const [toggleModal, setToggleModal] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
+  // const [searchValue, setSearchValue] = useState('')
 
   const dispatch = useDispatch()
+
+  const onHandleSearch = (ev) => {
+    ev.preventDefault()
+    dispatch(loadBoard(currBoard._id, {keywords: ev.target.value, filter: null}))
+  }
+
+  const onCloseSearchModal = (ev) => {
+    ev.preventDefault()
+    if (ev.type === 'blur') {
+      setIsSearching(false)
+      dispatch(loadBoard(currBoard._id, {keywords: ev.target.value, filter: null}))
+    }
+  }
 
   const onAddTask = () => {
     const newTask = {
@@ -139,9 +154,16 @@ export const ToolBar = () => {
           )}
         </div>
       </div>
-      <div className="toolbar-button-container flex">
+      <div className="toolbar-button-container flex" onClick={() => {setIsSearching(true)}}>
         <AiOutlineSearch />
-        <span>Search</span>
+        {isSearching ? 
+        <div className="search-modal">
+          <input type="text" name="header-search" placeholder="Search"
+          onChange={(ev) => {onHandleSearch(ev)}}
+          onBlur={(ev) => {onCloseSearchModal(ev)}}
+          />
+        </div> 
+        : <span>Search</span>}
       </div>
       <div className="toolbar-button-container flex">
         <CgProfile />
