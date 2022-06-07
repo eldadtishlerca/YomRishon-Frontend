@@ -1,4 +1,9 @@
 .group-footer {
+
+ @include for-mobile-layout {
+  display: none;
+}
+
  height: 40px;
  width: 100%;
  .group-footer-fake {

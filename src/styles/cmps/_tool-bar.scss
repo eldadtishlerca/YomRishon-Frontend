@@ -1,4 +1,7 @@
 .toolbar-main-contianer{
+    @include for-mobile-layout {
+        display: none;
+    }
     flex-direction: row;
     margin-top: 15px;
 }

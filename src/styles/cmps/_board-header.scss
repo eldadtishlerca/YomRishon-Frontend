@@ -1,4 +1,12 @@
 .board-header-main-container{
+
+    @include for-mobile-layout {
+        justify-content: flex-start;
+        margin: 0;
+        margin-top: 10px;
+        min-height: 0;
+    }
+
     margin: 30px 30px 0px 30px;
     flex-direction:column;
     justify-content: space-between;
@@ -9,10 +17,19 @@
         font-size: 14px;
     }
     .board-header-top{
+
+        @include for-mobile-layout {
+            justify-content: center;
+        }
+
         justify-content: space-between;
         align-items: center;
         .board-header-top-main{
             .header-button-container{
+
+                @include for-mobile-layout {
+                    display: none;
+                }
                 height: 32px;
                 &:hover {
                     background-color: #dcdfec;;
@@ -39,6 +56,11 @@
                 width: 100%;
             }
             .title-fixed{
+
+                @include for-mobile-layout {
+                    font-size: 20px;
+                }
+
                 border: transparent;
                 font-size: 35px;
                 box-sizing: border-box;
@@ -48,6 +70,9 @@
                 width: unset;
             }
             .board-header-top-main-members{
+                @include for-mobile-layout {
+                    display: none;
+                }
                 gap: 5px;
                 align-items: center;
                 padding-left: 12px;
@@ -74,6 +99,11 @@
             }
         }
         .board-header-top-icon-container{
+
+            @include for-mobile-layout {
+                display: none;
+            }
+
             align-items: center; 
             vertical-align: middle;
             font-size: 20px;
@@ -93,12 +123,40 @@
     
     }
     .board-header-bottom{
+
+        @include for-mobile-layout {
+            border: none;
+            padding-top: 20px;
+        }
+
         border-bottom: 1.5px solid $headerBorder;
         padding: 5px;
+
+        > *:last-child {
+            @include for-mobile-layout {
+                margin-left: 6px;
+            }
+        }
+
         .board-header-bottom-upper{
+
+            @include for-mobile-layout {
+                padding: 0;
+                padding: 1px 10px;
+                font-size: 13px;
+                border-radius: 16px;
+                background: #dcdfec;
+                margin-bottom: 0;
+                margin-right: 0;
+                margin-left: 6px;
+                span {
+                    font-size: 13px;
+                }
+            }
+
             height: 32px;
             &:hover {
-                background-color: #dcdfec;;
+                background-color: #dcdfec;
             }
             margin: 0 6px 6px 0;
             padding: 0 5px 0 5px;
@@ -113,6 +171,9 @@
         }
     }
     .subtitle{
+        @include for-mobile-layout {
+            display: none;
+        }
         border: 0;
         font-family: roboto;
         width: min-content;

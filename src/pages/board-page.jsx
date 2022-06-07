@@ -21,10 +21,10 @@ export const BoardPage = () => {
   const { currBoard, boards } = useSelector(
     (storeState) => storeState.boardModule
   )
+
   const params = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  
 
   useEffect(() => {
     socketService.setup()

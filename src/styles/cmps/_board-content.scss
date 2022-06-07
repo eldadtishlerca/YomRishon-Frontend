@@ -1,4 +1,14 @@
 .board-content {
+
+ @include for-mobile-layout {
+  padding: 0;
+  padding-top: 10px;
+
+  > *:last-child {
+   margin-bottom: 40px;
+  }
+ }
+
  padding: 18px 30px 40px 16px;
  overflow-x: auto;
 }

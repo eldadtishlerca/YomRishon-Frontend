@@ -23,11 +23,16 @@ export function getActionUpdateUser(savedUser) {
 }
 
 export function updateTask(board, groupId, taskId, taskToUpdate) {
-  console.log(board);
-  taskToUpdate = {...taskToUpdate, lastUpdated: {_id: "u103",
-  fullname: "Elon Barzani",
-  imgUrl: "imgs/mini-user-imgs/u103.png",
-  updatedAt: Date.now()}}
+  console.log(board)
+  taskToUpdate = {
+    ...taskToUpdate,
+    lastUpdated: {
+      _id: 'u103',
+      fullname: 'Elon Barzani',
+      imgUrl: 'imgs/mini-user-imgs/u103.png',
+      updatedAt: Date.now(),
+    },
+  }
   return async (dispatch) => {
     try {
       const updatedBoard = await boardService.updateTask(
@@ -103,9 +108,6 @@ export function deleteGroup(board, groupId) {
   }
 }
 
-
-
-
 export function loadBoard(boardId, filterBy) {
   return async (dispatch) => {
     try {
@@ -133,7 +135,7 @@ export function updateBoard(board) {
   return async (dispatch) => {
     try {
       const savedBoard = await boardService.save(board)
-      console.log('hhhhhhhhh', savedBoard);
+      console.log('hhhhhhhhh', savedBoard)
       dispatch(getActionUpdateBoard(savedBoard))
       dispatch(loadBoards())
     } catch (err) {
@@ -147,6 +149,16 @@ export function removeBoard(boardId) {
     try {
       const boards = await boardService.remove(boardId)
       dispatch({ type: 'SET_BOARDS', boards })
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+}
+
+export function setBoard(board) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: 'SET_BOARD', board })
     } catch (err) {
       console.log('err:', err)
     }
@@ -210,5 +222,3 @@ export function logoutUser() {
     }
   }
 }
-
-

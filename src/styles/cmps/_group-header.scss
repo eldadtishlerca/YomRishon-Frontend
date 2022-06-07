@@ -13,11 +13,22 @@
     color: #676879;
   }
  .group-modal-wrapper {
+
+  @include for-mobile-layout {
+    display: none;
+}
+
   display: inline-block;
   position: absolute;
   left: -26px;
  }
  .group-title {
+
+  @include for-mobile-layout {
+    padding-left: 8px;
+    min-width: 220px;
+}
+
    display: inline-block;
    padding-left: 2px;
    font-size: 18px;

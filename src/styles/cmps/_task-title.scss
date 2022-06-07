@@ -1,4 +1,9 @@
 .task-title {
+
+  @include for-mobile-layout {
+    min-width: 220px;
+}
+
  display: flex;
  align-items: center;
  text-align: center;
