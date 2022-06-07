@@ -22,42 +22,44 @@ async function query() {
   }
 }
 
-async function getById(boardId,filterBy) {
+async function getById(boardId, filterBy) {
   try {
     const board = await httpService.get(`board/${boardId}`)
-    if (filterBy) { 
+    if (filterBy) {
       let filteredBoard = JSON.parse(JSON.stringify(board))
-      filteredBoard.groups.forEach(group => {
-          group.tasks = group.tasks.filter(task => (task.title.toLowerCase().includes(filterBy.toLowerCase())))
-      })    
+      filteredBoard.groups.forEach((group) => {
+        group.tasks = group.tasks.filter((task) =>
+          task.title.toLowerCase().includes(filterBy.toLowerCase())
+        )
+      })
       return filteredBoard
     }
     return board
-  } catch (err) {
-    console.log(err) 
-    throw err
-  }
-}
-
-
-
-async function updateTask(board, groupId, taskId, taskToUpdate ) {
-  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
-  const taskIdx = board.groups[groupIdx].tasks.findIndex((task) => task.id === taskId)
-  board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
-  try {
-    return await httpService.put(`board/${board._id}`,board)
   } catch (err) {
     console.log(err)
     throw err
   }
 }
 
-async function updateGroup( board, groupId, groupToUpdate ) {
+async function updateTask(board, groupId, taskId, taskToUpdate) {
+  const groupIdx = board.groups.findIndex((group) => group.id === groupId)
+  const taskIdx = board.groups[groupIdx].tasks.findIndex(
+    (task) => task.id === taskId
+  )
+  board.groups[groupIdx].tasks.splice(taskIdx, 1, taskToUpdate)
+  try {
+    return await httpService.put(`board/${board._id}`, board)
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
+}
+
+async function updateGroup(board, groupId, groupToUpdate) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1, groupToUpdate)
   try {
-    return await httpService.put(`board/${board._id}`,board)
+    return await httpService.put(`board/${board._id}`, board)
   } catch (err) {
     console.log(err)
     throw err
@@ -68,7 +70,7 @@ async function duplicateGroup(board, groupId, groupToCopy) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, groupToCopy)
   try {
-    return await httpService.put(`board/${board._id}`,board)
+    return await httpService.put(`board/${board._id}`, board)
   } catch (err) {
     console.log(err)
     throw err
@@ -79,7 +81,7 @@ async function addGroup(board, groupId, addGroup) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 0, addGroup)
   try {
-    return await httpService.put(`board/${board._id}`,board)
+    return await httpService.put(`board/${board._id}`, board)
   } catch (err) {
     console.log(err)
     throw err
@@ -90,7 +92,7 @@ async function deleteGroup(board, groupId) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1)
   try {
-    return await httpService.put(`board/${board._id}`,board)
+    return await httpService.put(`board/${board._id}`, board)
   } catch (err) {
     console.log(err)
     throw err
@@ -110,9 +112,8 @@ async function remove(boardId) {
 
 async function add() {
   let board = _getNewBoard()
-  console.log(board);
   try {
-    await httpService.post('board/',board)
+    await httpService.post('board/', board)
     return query()
   } catch (err) {
     console.log(err)
@@ -125,7 +126,7 @@ async function save(board) {
   console.log('board._id', board._id)
   if (board._id) {
     try {
-      return await httpService.put(`board/${board._id}`,board)
+      return await httpService.put(`board/${board._id}`, board)
     } catch (err) {
       console.log(err)
       throw err
@@ -133,7 +134,7 @@ async function save(board) {
     // boardChannel.postMessage(getActionUpdateBoard(savedBoard))
   } else {
     try {
-      return await httpService.post('board/',board)
+      return await httpService.post('board/', board)
     } catch (err) {
       console.log(err)
       throw err

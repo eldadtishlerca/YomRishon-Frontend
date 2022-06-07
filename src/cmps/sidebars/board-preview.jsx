@@ -4,7 +4,7 @@ import { BiTrash } from 'react-icons/bi'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { updateBoard } from '../../store/actions/board.actions'
+import { setBoard } from '../../store/actions/board.actions'
 import { AiOutlineCopy } from 'react-icons/ai'
 
 export const BoardPreview = ({ board, onRemoveBoard, onAddBoard }) => {
@@ -15,7 +15,7 @@ export const BoardPreview = ({ board, onRemoveBoard, onAddBoard }) => {
 
   const onSetBoard = (board) => {
     navigate(`/${_id}`)
-    dispatch(updateBoard(board))
+    dispatch(setBoard(board))
   }
   const [isToggleModal, setIsToggleModal] = useState(false)
   const [isHover, setIsHover] = useState(false)

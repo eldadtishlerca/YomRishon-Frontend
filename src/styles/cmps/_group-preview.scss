@@ -1,4 +1,10 @@
 .group-preview{
+
+    @include for-mobile-layout {
+        padding-left: 15px;
+        margin-bottom: 15px;
+    }
+
     padding-left: 30px;
     margin-bottom: 40px;
 }

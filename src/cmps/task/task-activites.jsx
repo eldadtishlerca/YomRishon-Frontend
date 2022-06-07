@@ -37,9 +37,7 @@ export const TaskActivites = ({
   const [onSetDeadline, setOnSetDeadline] = useState(false)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    
-  }, [assingeeIds,currBoard])
+  useEffect(() => {}, [assingeeIds, currBoard])
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -95,18 +93,16 @@ export const TaskActivites = ({
   }
 
   const getMembersIds = () => {
-    const ids = membersIds.map((member) => member._id)
+    const ids = membersIds.map((member) => member.id)
     setAssingeeIds(ids)
   }
 
   const onRemoveMember = (id) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    const members = currTask.membersIds.filter((member) => member._id !== id)
-    currTask.membersIds = members
-    getMembersIds()
-    dispatch(updateBoard(currBoard))
+    console.log(id)
+    const currMembers = task.membersIds.filter((member) => member.id !== id)
+    console.log(currMembers)
+    const taskToUpdate = { ...task, members: currMembers }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const onAddMember = (member) => {
@@ -187,7 +183,7 @@ export const TaskActivites = ({
               <BsPlusCircleFill />
             </div>
           )}
-          <img key={membersIds[0]._id} src={membersIds[0].imgUrl} alt="" />
+          <img key={membersIds[0].id} src={membersIds[0].imgUrl} alt="" />
           <div className="task-activities-assignee-counter">
             <span>+{membersIds.length - 1}</span>
           </div>
@@ -210,7 +206,7 @@ export const TaskActivites = ({
                   <span>{member.fullname}</span>
                   <span
                     onClick={() => {
-                      onRemoveMember(member._id)
+                      onRemoveMember(member.id)
                       setIsAssigneeModal(false)
                     }}
                   >
@@ -255,7 +251,10 @@ export const TaskActivites = ({
           setIsStatusModal(!isStatusModal)
         }}
         className="task-activities-status"
-        style={{ background: bgHoverStatus() }}
+        style={{
+          background: bgHoverStatus(),
+          borderBottomColor: status.color,
+        }}
       >
         <span>{status.name}</span>
         {isStatusModal && (
@@ -271,13 +270,19 @@ export const TaskActivites = ({
               <AiFillCaretUp />
             </div>
             <div>
-              {currBoard.statuses ? currBoard.statuses.map((status) => (
-                <div
-                  key={status.color}
-                  onClick={(ev) => setStatus(status)}
-                  style={{ background: status.color }}>
-                  {status.name}
-                </div>)) : <div></div>}
+              {currBoard.statuses ? (
+                currBoard.statuses.map((status) => (
+                  <div
+                    key={status.color}
+                    onClick={(ev) => setStatus(status)}
+                    style={{ background: status.color }}
+                  >
+                    {status.name}
+                  </div>
+                ))
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         )}
@@ -285,7 +290,10 @@ export const TaskActivites = ({
       <div
         onClick={() => setIsPrioritysModal(!isPrioritysModal)}
         className="task-activities-priority"
-        style={{ background: bgHoverPriority() }}
+        style={{
+          background: bgHoverPriority(),
+          borderBottomColor: priority.color,
+        }}
       >
         <span>{priority.name}</span>
         {isPrioritysModal && (

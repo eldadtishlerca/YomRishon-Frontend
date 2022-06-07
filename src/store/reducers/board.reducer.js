@@ -13,7 +13,7 @@ export function boardReducer(state = initialState, action) {
     case 'SET_BOARD':
       return {
         ...state,
-        currBoard: { ...action.board },
+        currBoard: action.board,
       }
 
     case 'UPDATE_BOARD':
@@ -33,7 +33,7 @@ export function boardReducer(state = initialState, action) {
     case 'SET_USER':
       return {
         ...state,
-        currUser: {...action.savedUser},
+        currUser: { ...action.savedUser },
       }
     // case 'UPDATE_BOARD':
     //     boards = state.boards.map(board => (board._id === action.board._id)? action.board : board)
@@ -60,5 +60,5 @@ export function boardReducer(state = initialState, action) {
 
   // console.log('Prev State:', state)
   // console.log('Action:', action)
-  // console.log('New State:', newState)
+  // console.log('New State:', initialState)
 }
