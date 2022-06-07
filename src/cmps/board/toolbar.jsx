@@ -29,6 +29,7 @@ export const ToolBar = () => {
   }
 
   const onAddTask = () => {
+    console.log('I AM ADD TASK FUNC')
     const newTask = {
       id: utilService.makeId(),
       title: 'New Task',
@@ -69,6 +70,7 @@ export const ToolBar = () => {
       updates: [],
     }
     currBoard.groups[0].tasks.unshift(newTask)
+    console.log('currBoard from toolbar cmp:', currBoard)
     dispatch(updateBoard(currBoard))
 }
 
