@@ -13,19 +13,20 @@ export const boardService = {
   deleteGroup,
 }
 
-async function query() {
+async function query(filterBy) {
   try {
-    return await httpService.get('board/')
+    // return await httpService.get('board/')+
+    if (filterBy) return await httpService.get(`board/${filterBy.keywords}`)
+    else return await httpService.get('board')
   } catch (err) {
     console.log(err)
     throw err
   }
 }
 
-async function getById(boardId, filterBy) {
+async function getById(boardId) {
   try {
-    if (filterBy) return await httpService.get(`board/${boardId}/${filterBy.keywords}`)
-    else return await httpService.get(`board/${boardId}`)
+    return await httpService.get(`board/${boardId}`)
   } catch (err) {
     console.log(err) 
     throw err
