@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { utilService } from '../../services/util.service'
-import { updateBoard } from '../../store/actions/board.actions'
 import { updateTask } from '../../store/actions/board.actions'
 import { BsPlusCircleFill } from 'react-icons/bs'
 import { AiFillCaretUp } from 'react-icons/ai'
@@ -76,8 +75,18 @@ export const TaskActivites = ({
     return setStatusColor
   }
 
+  const bgHoverStatusFolding = () => {
+    const setStatusColor = isHover ? status.color : status.hover
+    return setStatusColor
+  }
+
   const bgHoverPriority = () => {
     const setPriorityColor = isHover ? priority.hover : priority.color
+    return setPriorityColor
+  }
+
+  const bgHoverPriorityFolding = () => {
+    const setPriorityColor = isHover ? priority.color : priority.hover
     return setPriorityColor
   }
 
@@ -112,20 +121,17 @@ export const TaskActivites = ({
   }
 
   const onRemoveMember = (id) => {
-    console.log(id)
     const currMembers = task.membersIds.filter((member) => member.id !== id)
-    console.log(currMembers)
-    const taskToUpdate = { ...task, members: currMembers }
+    const taskToUpdate = { ...task, membersIds: currMembers }
     dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const onAddMember = (member) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    currTask.membersIds.push(member)
-    getMembersIds()
-    dispatch(updateBoard(currBoard))
+    const currMembers = [...task.membersIds]
+    console.log(currMembers)
+    currMembers.push(member)
+    const taskToUpdate = { ...task, membersIds: currMembers }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   return (
@@ -267,7 +273,7 @@ export const TaskActivites = ({
         className="task-activities-status"
         style={{
           background: bgHoverStatus(),
-          borderBottomColor: status.color,
+          borderBottomColor: bgHoverStatusFolding(),
         }}
       >
         <span>{status.name}</span>
@@ -306,7 +312,7 @@ export const TaskActivites = ({
         className="task-activities-priority"
         style={{
           background: bgHoverPriority(),
-          borderBottomColor: priority.color,
+          borderBottomColor: bgHoverPriorityFolding(),
         }}
       >
         <span>{priority.name}</span>
