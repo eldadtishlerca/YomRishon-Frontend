@@ -1,4 +1,5 @@
 import { httpService } from './http.service'
+import { socketService } from './socket.service'
 
 export const boardService = {
   query,
@@ -122,10 +123,13 @@ async function add() {
 }
 
 async function save(board) {
-  console.log('board._id', board._id)
+  
   if (board._id) {
     try {
-      return await httpService.put(`board/${board._id}`,board)
+       await httpService.put(`board/${board._id}`,board)
+       console.log('emitting')
+       socketService.emit('board-change', board)
+       return board
     } catch (err) {
       console.log(err)
       throw err

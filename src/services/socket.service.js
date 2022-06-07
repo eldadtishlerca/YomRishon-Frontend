@@ -1,21 +1,10 @@
 import io from 'socket.io-client'
 import { userService } from './user.service'
-import { userService } from './board.service'
 
-export const SOCKET_EMIT_USER_WATCH = 'user-watch'
-export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
-export const SOCKET_EVENT_REVIEW_ABOUT_YOU = 'mentioned-you'
-// export const SOCKET_EVENT_REVIEW_ADDED = 'review-added'
-// export const SOCKET_EMIT_SEND_MSG = 'chat addMsg'
-
-const SOCKET_EMIT_LOGIN = 'set-user-socket';
-const SOCKET_EMIT_LOGOUT = 'unset-user-socket';
-
-
-const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030/api/'
+const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
 
-socketService.setup()
+// socketService.setup()
 
 function createSocketService() {
   let socket = null;
@@ -38,13 +27,13 @@ function createSocketService() {
     emit(eventName, data) {
       socket.emit(eventName, data)
     },
-    login(userId) {
-      if(!userId) userId = '629f1464b830c8383bf97ab9' //Guest mode
-      socket.emit(SOCKET_EMIT_LOGIN, userId)
-    },
-    logout() {
-      socket.emit(SOCKET_EMIT_LOGOUT)
-    },
+    // login(userId) {
+    //   if(!userId) userId = '629f1464b830c8383bf97ab9' //Guest mode
+    //   socket.emit(SOCKET_EMIT_LOGIN, userId)
+    // },
+    // logout() {
+    //   socket.emit(SOCKET_EMIT_LOGOUT)
+    // },
     terminate() {
       socket = null
     },

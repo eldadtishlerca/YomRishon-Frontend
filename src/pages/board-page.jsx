@@ -15,6 +15,7 @@ import { WorkspaceSidebarClosed } from '../cmps/sidebars/workspace-sidebar-close
 import { BoardNotifications } from '../cmps/sidebars/board-nortifications'
 import { WorkspaceSidebar } from '../cmps/sidebars/workspace-sidebar'
 import { TrelloContent } from '../cmps/trello/trello-content'
+import { socketService } from '../services/socket.service'
 
 export const BoardPage = () => {
   const { currBoard, boards } = useSelector(
@@ -24,6 +25,18 @@ export const BoardPage = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
+
+  useEffect(() => {
+    socketService.setup()
+    socketService.emit('join-board', currBoard._id)
+    socketService.off('update-board')
+    socketService.on('update-board', updateBoard => { 
+      dispatch(loadBoard(updateBoard._id))
+    })
+    return () => { 
+      socketService.off('update-board')
+    }
+  }, [])
 
   useEffect(() => {
     dispatch(loadBoard(params.boardId))
