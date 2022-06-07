@@ -26,6 +26,7 @@ async function query() {
 async function getById(boardId, filterBy) {
   try {
     const board = await httpService.get(`board/${boardId}`)
+    socketService.emit('board-change', board)
     if (filterBy) {
       let filteredBoard = JSON.parse(JSON.stringify(board))
       filteredBoard.groups.forEach((group) => {
@@ -129,7 +130,7 @@ async function save(board) {
     try {
        await httpService.put(`board/${board._id}`,board)
        console.log('emitting')
-       socketService.emit('board-change', board)
+      //  socketService.emit('board-change', board)
        return board
     } catch (err) {
       console.log(err)

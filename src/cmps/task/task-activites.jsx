@@ -6,7 +6,7 @@ import { updateTask } from '../../store/actions/board.actions'
 import { BsPlusCircleFill } from 'react-icons/bs'
 import { AiFillCaretUp } from 'react-icons/ai'
 import { CgProfile } from 'react-icons/cg'
-import { socketService } from '../../services/socket.service'
+// import { socketService } from '../../services/socket.service'
 
 export const TaskActivites = ({
   onOpenModal,
@@ -38,19 +38,6 @@ export const TaskActivites = ({
   const dispatch = useDispatch()
 
   useEffect(() => {}, [assingeeIds, currBoard])
-
-  useEffect(() => {
-    socketService.setup()
-    socketService.emit('join-board', currBoard._id)
-    socketService.off('update-board')
-    socketService.on('update-board', updatedBoard => { 
-      dispatch(updateBoard(updatedBoard))
-      console.log(updateBoard.groups);
-    })
-    return () => { 
-      socketService.off('update-board')
-    }
-  }, [])
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
