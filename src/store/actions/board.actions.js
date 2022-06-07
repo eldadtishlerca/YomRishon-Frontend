@@ -125,6 +125,7 @@ export function loadBoards() {
 }
 
 export function updateBoard(board) {
+  console.log('board from updateBoard', board)
   return async (dispatch) => {
     try {
       const savedBoard = await boardService.save(board)
