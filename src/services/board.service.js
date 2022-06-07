@@ -22,9 +22,17 @@ async function query() {
   }
 }
 
-async function getById(boardId) {
+async function getById(boardId,filterBy) {
   try {
-    return await httpService.get(`board/${boardId}`)
+    const board = await httpService.get(`board/${boardId}`)
+    if (filterBy) { 
+      let filteredBoard = JSON.parse(JSON.stringify(board))
+      filteredBoard.groups.forEach(group => {
+          group.tasks = group.tasks.filter(task => (task.title.toLowerCase().includes(filterBy.toLowerCase())))
+      })    
+      return filteredBoard
+    }
+    return board
   } catch (err) {
     console.log(err) 
     throw err
