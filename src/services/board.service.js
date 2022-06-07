@@ -1,4 +1,4 @@
-import { httpService } from './http.service';
+import { httpService } from './http.service'
 
 export const boardService = {
   query,
@@ -13,19 +13,19 @@ export const boardService = {
   deleteGroup,
 }
 
-async function query() {
+async function query(filterBy) {
   try {
-    return await httpService.get('board/')
+    if (filterBy) return await httpService.get(`board/${filterBy.keywords}`)
+    else return await httpService.get('board')
   } catch (err) {
     console.log(err)
     throw err
   }
 }
 
-async function getById(boardId, filterBy) {
+async function getById(boardId) {
   try {
-    if (filterBy) return await httpService.get(`board/${boardId}/${filterBy.keywords}`)
-    else return await httpService.get(`board/${boardId}`)
+    return await httpService.get(`board/${boardId}`)
   } catch (err) {
     console.log(err) 
     throw err
@@ -49,7 +49,6 @@ async function updateTask(board, groupId, taskId, taskToUpdate ) {
 async function updateGroup( board, groupId, groupToUpdate ) {
   const groupIdx = board.groups.findIndex((group) => group.id === groupId)
   board.groups.splice(groupIdx, 1, groupToUpdate)
-  // http - updateBoard / Storage
   try {
     return await httpService.put(`board/${board._id}`,board)
   } catch (err) {
@@ -182,5 +181,3 @@ function _getNewBoard() {
     ],
   }
 }
-
-// storageService.post(STORAGE_KEY, gBoards)

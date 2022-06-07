@@ -23,6 +23,10 @@ export function getActionUpdateUser(savedUser) {
 }
 
 export function updateTask(board, groupId, taskId, taskToUpdate) {
+  taskToUpdate = {...taskToUpdate, lastUpdated: {_id: "u103",
+  fullname: "Elon Barzani",
+  imgUrl: "imgs/mini-user-imgs/u103.png",
+  updatedAt: Date.now()}}
   return async (dispatch) => {
     try {
       const updatedBoard = await boardService.updateTask(
@@ -105,7 +109,6 @@ export function loadBoard(boardId, filterBy) {
   return async (dispatch) => {
     try {
       const board = await boardService.getById(boardId, filterBy)
-      console.log(board);
       dispatch(getActionBoard(board))
     } catch (err) {
       console.log('Cannot load board', err)

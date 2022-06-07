@@ -10,7 +10,7 @@ export const UserProfile = () => {
     return <div className="flex user-profile-main-container">
         <div className="flex user-profile-upper">
         {currUser.imgUrl ? <div className="flex user-profile-upper">
-            <img src={currUser.imgUrl} alt="https://cdn-icons.flaticon.com/png/512/3177/premium/3177440.png?token=exp=1654462637~hmac=b8a85bf90deef91047c600ebb827ee97"/>
+            <img src={currUser.imgUrl} />
             <span>{currUser.fullName}</span></div>
         : <div className="flex user-profile-upper">
             <img src="https://cdn-icons.flaticon.com/png/512/3177/premium/3177440.png?token=exp=1654462637~hmac=b8a85bf90deef91047c600ebb827ee97" alt="imgs/user.png"/>

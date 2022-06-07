@@ -72,7 +72,7 @@ export const ToolBar = () => {
     currBoard.groups[0].tasks.unshift(newTask)
     console.log('currBoard from toolbar cmp:', currBoard)
     dispatch(updateBoard(currBoard))
-  }
+}
 
   const onAddGroup = () => {
     const newColor = utilService.getRandomColor()
@@ -84,14 +84,7 @@ export const ToolBar = () => {
         {
           id: utilService.makeId(),
           title: 'New Task',
-          membersIds: [
-            {
-              _id: 'u101',
-              username: 'Eldad',
-              fullname: 'Eldad Tishler',
-              imgUrl: 'imgs/mini-user-imgs/u101.png',
-            },
-          ],
+          membersIds: [],
           status: {
             color: '#7F5347',
             hover: '#9E807A',

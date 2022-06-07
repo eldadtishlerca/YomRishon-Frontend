@@ -68,19 +68,13 @@ export const TaskActivites = ({
   }
 
   const setStatus = (status) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    currTask.status = status
-    dispatch(updateBoard(currBoard))
+    const taskToUpdate = { ...task, status: status }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const setPriority = (priority) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    currTask.priority = priority
-    dispatch(updateBoard(currBoard))
+    const taskToUpdate = { ...task, priority: priority }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const onSubmitWorkHours = (ev) => {

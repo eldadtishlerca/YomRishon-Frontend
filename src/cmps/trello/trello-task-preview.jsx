@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { AiFillCaretUp } from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateBoard } from '../../store/actions/board.actions'
+import { updateTask } from '../../store/actions/board.actions'
 import { GiHamburgerMenu } from 'react-icons/gi'
 
 export const TrelloTaskPreview = ({ provided, task, taskId, groupId }) => {
@@ -14,19 +14,13 @@ export const TrelloTaskPreview = ({ provided, task, taskId, groupId }) => {
   const [isPrioritysModal, setIsPrioritysModal] = useState(false)
 
   const setStatus = (status) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    currTask.status = status
-    dispatch(updateBoard(currBoard))
+    const taskToUpdate = { ...task, status: status }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const setPriority = (priority) => {
-    const { groups } = currBoard
-    const currGroup = groups.find((group) => group.id === groupId)
-    const currTask = currGroup.tasks.find((task) => task.id === taskId)
-    currTask.priority = priority
-    dispatch(updateBoard(currBoard))
+    const taskToUpdate = { ...task, priority: priority }
+    dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
   const bgHoverStatus = () => {

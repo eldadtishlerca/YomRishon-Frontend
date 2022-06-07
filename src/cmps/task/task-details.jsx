@@ -13,11 +13,12 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
   const dispatch = useDispatch()
   const [titleValue, setTitleValue] = useState(task.title || '')
   const [update, setUpdate] = useState('Write an update...')
+  const [isEditTitle, setIsEditTitle] = useState(false)
   const updates = task.updates
 
   const onSubmitTitle = (ev) => {
     if (ev.key === 'Enter' || ev.type === 'blur') {
-      console.log('Title updated to: *' + titleValue + '*')
+      setIsEditTitle(false)
       const taskToUpdate = { ...task, title: titleValue }
       dispatch(updateTask(currBoard, groupId, task.id, taskToUpdate))
     }
@@ -42,7 +43,19 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
 
   const onHandleSubmitUpdate = (ev) => {
     ev.preventDefault()
-    console.log(update)
+    const taskToUpdate = { ...task, updates: [ {
+      id: utilService.makeId(),
+      txt: update,
+      createdAt: Date.now(),
+      byMember: {
+        _id: "u103",
+        fullname: "Elon Barzani",
+        imgUrl: "imgs/mini-user-imgs/u103.png"
+      }
+    } ,...updates] }
+    setUpdate('Write an update...')
+    console.log(taskToUpdate)
+    dispatch(updateTask(currBoard, groupId, task.id, taskToUpdate))
   }
 
   return (
@@ -55,8 +68,8 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
           >
             ✖
           </button>
-          <div className="upper-task-details-header">
-            <input
+          <div className="upper-task-details-header" onClick={() => setIsEditTitle(true)}>
+            {isEditTitle ? <input
               value={titleValue}
               type="text"
               className="work-hours-input"
@@ -70,7 +83,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
                 onHandleChangeTitle(ev)
               }}
               name="titleValue"
-            ></input>
+            ></input> : <span>{task.title}</span>}
             <div className="header-options-container">
               <div className="header-btn-wrapper">
                 <button className="header-btn"> Invite </button>
@@ -84,7 +97,7 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
             </div>
           </div>
           <nav className="task-detail-header-nav">
-            <div className="active-border">
+            <div className="active-border select">
               <button className="updates-btn">Updates</button>
             </div>
             <div className="active-border">
@@ -110,10 +123,9 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
               <HiOutlineMail /> Write updates via email:
             </div>
           </div>
-          <div className="updates-container">
+          {updates.map((update) => 
+          <div key={update.id} className="updates-container">
             <div className="updates-container-warpper">
-              {updates.map((update) => {
-                return (
                   <div className="task-update" key={update.id}>
                     <div className="task-update-header">
                       <img src={update.byMember.imgUrl} alt="" />
@@ -146,10 +158,10 @@ export const TaskDetails = ({ setShowModal, task, groupId }) => {
                       </button>
                     </div>
                   </div>
-                )
-              })}
             </div>
           </div>
+                )
+              }
         </div>
       </div>
     </div>
