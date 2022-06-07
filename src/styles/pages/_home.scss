@@ -3,13 +3,9 @@
   color: $white;
   min-height: 100vh;
 
-  .homepage-logo-wrapper {
-    margin-top: 6px;
-  }
-
   .get-started-btn {
     transition: 1.5s;
-    margin: 18px;
+    margin: 18px 18px 0 18px;
     font-size: 16px;
     background: $lblue;
     border-radius: 34px;
@@ -61,8 +57,16 @@
       padding: 0 120px;
     }
 
-    .logo {
-      cursor: default;
+    .homepage-logo-wrapper {
+      cursor: pointer;
+      align-items: center;
+      div {
+        padding-left: 2px;
+        font-size: 16px;
+        span {
+          font-size: 14px;
+        }
+      }
 
       .yom {
         color: $mred;

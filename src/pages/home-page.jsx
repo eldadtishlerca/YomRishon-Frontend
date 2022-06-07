@@ -1,11 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { FaArrowRight } from 'react-icons/fa'
-import { userService } from '../services/user.service'
 import { getLoggedinUser, logoutUser } from '../store/actions/board.actions'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-
 
 export const HomePage = () => {
   const dispatch = useDispatch()
@@ -21,21 +19,32 @@ export const HomePage = () => {
   return (
     <div className="homepage">
       <header className="homepage-header">
-        <div className="homepage-logo-wrapper">
+        <div className="homepage-logo-wrapper flex">
           <img src="imgs/yomlogo.png" alt="" />
+          <div>
+            <h1>
+              YomRishon<span>.com</span>
+            </h1>
+          </div>
         </div>
         <div className="header-btn-warpper">
-          {currUser.fullName ? <span>Hello {currUser.fullName} <a className="logout-link" 
-                    onClick={() => onLogout()}>Log out</a></span> :
-                    <button
-                    className="login-btn"
-                    onClick={() => {
-                      navigate('/loginsignup')
-                    }}
-                  >
-                    Login
-                  </button>
-          }
+          {currUser.fullName ? (
+            <span>
+              Hello {currUser.fullName}{' '}
+              <a href="/" className="logout-link" onClick={() => onLogout()}>
+                Log out
+              </a>
+            </span>
+          ) : (
+            <button
+              className="login-btn"
+              onClick={() => {
+                navigate('/loginsignup')
+              }}
+            >
+              Login
+            </button>
+          )}
           <button
             className="get-started-btn"
             onClick={() => {
