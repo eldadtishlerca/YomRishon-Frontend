@@ -1,4 +1,9 @@
 .boards-modal-closed {
+
+ @include for-mobile-layout {
+  display: none;
+ }
+
  min-width: 29px;
  height: 100%;
  background: #F6F7FB;
