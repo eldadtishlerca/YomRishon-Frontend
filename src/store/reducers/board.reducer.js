@@ -20,9 +20,9 @@ export function boardReducer(state = initialState, action) {
       return {
         ...state,
         currBoard: action.board,
-        boards: state.boards.map((board) =>
-          board._id === action.board._id ? action.board : board
-        ),
+        // boards: state.boards.map((board) =>
+        //   board._id === action.board._id ? action.board : board
+        // ),
       }
 
     case 'REMOVE_BOARD':

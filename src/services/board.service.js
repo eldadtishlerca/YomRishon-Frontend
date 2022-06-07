@@ -108,8 +108,9 @@ async function remove(boardId) {
   // boardChannel.postMessage(getActionRemoveBoard(boardId))
 }
 
-async function add(board) {
-  if (!board) board = _getNewBoard()
+async function add() {
+  let board = _getNewBoard()
+  console.log(board);
   try {
     await httpService.post('board/',board)
     return query()
@@ -147,12 +148,9 @@ function _getNewBoard() {
   return {
     title: 'New Board',
     statuses: [
-      { name: '', color: '#0C4C4C4' },
       { name: 'Not Assignee', color: '#7F5347', hover: '#9E807A' },
       { name: 'Working On It', color: '#FDAB3D', hover: '#F6BE73' },
-      { name: 'Bug', color: '#E2445C' },
       { name: 'Wating For Dev', color: '#784BD1', hover: '#997BDA' },
-      { name: 'Wating For Deploy', color: '#037F4C' },
       { name: 'Wating For QA', color: '#FF158A', hover: '#F755A9' },
       { name: 'Done', color: '#00C875', hover: '#45D29A' },
     ],
@@ -160,8 +158,6 @@ function _getNewBoard() {
       { name: 'High', color: '#BB3354' },
       { name: 'Medium', color: '#D974B0' },
       { name: 'Low', color: '#2B76E5' },
-      { name: 'Done', color: '#00C875', hover: '#45D29A' },
-      { name: '', color: '#0C4C4C4' },
     ],
     createdAt: new Date(),
     createdBy: {

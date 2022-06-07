@@ -37,7 +37,9 @@ export const TaskActivites = ({
   const [onSetDeadline, setOnSetDeadline] = useState(false)
   const dispatch = useDispatch()
 
-  useEffect(() => {}, [assingeeIds])
+  useEffect(() => {
+    
+  }, [assingeeIds,currBoard])
 
   const setDeadlineTime = () => {
     const deadlineTime = new Date(deadline)
@@ -67,8 +69,9 @@ export const TaskActivites = ({
     return setPriorityColor
   }
 
-  const setStatus = (status) => {
-    const taskToUpdate = { ...task, status: status }
+  const setStatus = (currStatus) => {
+    const taskToUpdate = { ...task, status: currStatus }
+    console.log(currBoard)
     dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
   }
 
@@ -202,8 +205,8 @@ export const TaskActivites = ({
           <div className="are-assignee">
             {membersIds !== 0 &&
               membersIds.map((member) => (
-                <div key={member._id}>
-                  <img key={member._id} src={member.imgUrl} alt="" />
+                <div key={member.id}>
+                  <img key={member.id} src={member.imgUrl} alt="" />
                   <span>{member.fullname}</span>
                   <span
                     onClick={() => {
@@ -225,19 +228,19 @@ export const TaskActivites = ({
             </div>
             <div className="not-assignee-members">
               {currBoard.members.map((member) => {
-                if (assingeeIds.includes(member._id)) {
+                if (assingeeIds.includes(member.id)) {
                   return null
                 } else {
                   return (
                     <div
                       className="not-assignee-member"
-                      key={member._id}
+                      key={member.id}
                       onClick={() => {
                         onAddMember(member)
                         setIsAssigneeModal(false)
                       }}
                     >
-                      <img key={member._id} src={member.imgUrl} alt="" />
+                      <img key={member.id} src={member.imgUrl} alt="" />
                       <span>{member.fullname}</span>
                     </div>
                   )
@@ -268,15 +271,13 @@ export const TaskActivites = ({
               <AiFillCaretUp />
             </div>
             <div>
-              {currBoard.statuses.map((status) => (
+              {currBoard.statuses ? currBoard.statuses.map((status) => (
                 <div
                   key={status.color}
                   onClick={(ev) => setStatus(status)}
-                  style={{ background: status.color }}
-                >
+                  style={{ background: status.color }}>
                   {status.name}
-                </div>
-              ))}
+                </div>)) : <div></div>}
             </div>
           </div>
         )}

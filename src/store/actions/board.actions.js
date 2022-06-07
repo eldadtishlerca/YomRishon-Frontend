@@ -23,6 +23,7 @@ export function getActionUpdateUser(savedUser) {
 }
 
 export function updateTask(board, groupId, taskId, taskToUpdate) {
+  console.log(board);
   taskToUpdate = {...taskToUpdate, lastUpdated: {_id: "u103",
   fullname: "Elon Barzani",
   imgUrl: "imgs/mini-user-imgs/u103.png",
@@ -132,6 +133,7 @@ export function updateBoard(board) {
   return async (dispatch) => {
     try {
       const savedBoard = await boardService.save(board)
+      console.log('hhhhhhhhh', savedBoard);
       dispatch(getActionUpdateBoard(savedBoard))
       dispatch(loadBoards())
     } catch (err) {
@@ -151,10 +153,10 @@ export function removeBoard(boardId) {
   }
 }
 
-export function addBoard(board) {
+export function addBoard() {
   return async (dispatch) => {
     try {
-      const boards = await boardService.add(board)
+      const boards = await boardService.add()
       dispatch({ type: 'SET_BOARDS', boards })
     } catch (err) {
       console.log('err:', err)
