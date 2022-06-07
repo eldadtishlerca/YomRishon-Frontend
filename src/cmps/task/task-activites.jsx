@@ -163,7 +163,7 @@ export const TaskActivites = ({
             </div>
           )}
           {membersIds.map((member) => (
-            <img key={member._id} src={member.imgUrl} alt="" />
+            <img key={member.id} src={member.imgUrl} alt="" />
           ))}
         </div>
       )}

@@ -13,11 +13,9 @@ export const boardService = {
   deleteGroup,
 }
 
-async function query(filterBy) {
+async function query() {
   try {
-    // return await httpService.get('board/')+
-    if (filterBy) return await httpService.get(`board/${filterBy.keywords}`)
-    else return await httpService.get('board')
+    return await httpService.get('board/')
   } catch (err) {
     console.log(err)
     throw err
@@ -118,7 +116,7 @@ async function add(board) {
 async function save(board) {
   if (board._id) {
     try {
-      return await httpService.put(`board/`,board)
+      return await httpService.put(`board/${board._id}`,board)
     } catch (err) {
       console.log(err)
       throw err

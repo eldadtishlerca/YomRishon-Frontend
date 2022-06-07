@@ -106,7 +106,7 @@ export const BoardHeader = ({ setIsTrelloActive }) => {
             <div className="members flex">
               {members.map((member) => (
                 <img
-                  key={member._id}
+                  key={String(member.id)}
                   src={member.imgUrl}
                   alt={member.fullname}
                 />

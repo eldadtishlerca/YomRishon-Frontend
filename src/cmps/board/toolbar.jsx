@@ -17,14 +17,14 @@ export const ToolBar = () => {
 
   const onHandleSearch = (ev) => {
     ev.preventDefault()
-    dispatch(loadBoard(currBoard._id, {keywords: ev.target.value, filter: null}))
+    dispatch(loadBoard(currBoard._id, ev.target.value))
   }
 
   const onCloseSearchModal = (ev) => {
     ev.preventDefault()
     if (ev.type === 'blur') {
       setIsSearching(false)
-      dispatch(loadBoard(currBoard._id, {keywords: ev.target.value, filter: null}))
+      dispatch(loadBoard(currBoard._id, ev.target.value))
     }
   }
 
