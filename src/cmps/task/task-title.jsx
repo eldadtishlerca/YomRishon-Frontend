@@ -26,9 +26,7 @@ export const TaskTitle = ({
   const [isEditTitle, setIsEditTitle] = useState(false)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    setTitleValue(title)
-  }, [currBoard, title])
+  useEffect(() => {}, [currBoard])
   if (!currBoard) return
 
   const onClickTitle = (ev) => {
@@ -38,9 +36,9 @@ export const TaskTitle = ({
   const onSubmitTitle = (ev) => {
     if (ev.type === 'blur' || ev.key === 'Enter') {
       const taskToUpdate = { ...task, title: titleValue }
-      dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
-      ev.target.blur()
       setIsEditTitle(false)
+      ev.target.blur()
+      dispatch(updateTask(currBoard, groupId, taskId, taskToUpdate))
     }
   }
   const onHandleChangeTitle = (ev) => {
@@ -84,7 +82,7 @@ export const TaskTitle = ({
                 }}
               ></input>
             ) : (
-              <span style={{ color: innerColor }}>{titleValue}</span>
+              <span style={{ color: innerColor }}>{title}</span>
             )}
           </span>
         </div>

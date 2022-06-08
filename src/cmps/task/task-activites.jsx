@@ -277,7 +277,7 @@ export const TaskActivites = ({
               <AiFillCaretUp />
             </div>
             <div>
-              {currBoard.statuses ? (
+              {(
                 currBoard.statuses.map((status) => (
                   <div
                     key={status.color}
@@ -287,8 +287,6 @@ export const TaskActivites = ({
                     {status.name}
                   </div>
                 ))
-              ) : (
-                <div></div>
               )}
             </div>
           </div>

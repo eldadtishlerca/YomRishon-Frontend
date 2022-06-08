@@ -6,7 +6,7 @@ import { GroupModal } from './group-modal'
 
 export const GroupHeader = ({ id, color, title, boardId, group }) => {
   const { currBoard } = useSelector((storeState) => storeState.boardModule)
-  const [titleValue, setTitleValue] = useState(title)
+  const [titleValue, setTitleValue] = useState('')
   const [isEditing, setIsEditing] = useState(false)
   const dispatch = useDispatch()
   useEffect(() => {}, [currBoard])
